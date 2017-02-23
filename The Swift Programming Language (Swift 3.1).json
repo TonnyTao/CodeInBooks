@@ -24,4 +24,14 @@
         "Error Handling",
         "Assertions"
     ]
+}, {
+    "title": "Basic Operators",
+    "details": [
+        "+",
+        "Comparison Operators",
+        "Ternary Conditional Operator",
+        "Nil-Coalescing Operator",
+        "Range Operators",
+        "Half-Open Range Operator"
+    ]
 }]

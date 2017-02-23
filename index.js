@@ -22,8 +22,11 @@ function renderHtml(monitor) {
         item.details.forEach(detail => {
             console.log(detail)
             swift[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.swift`)
-            kotlin[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.kt`)
-            js[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.js`)
+            try {
+                kotlin[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.kt`)
+                js[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.js`)
+            }catch (e) {
+            }
         })
     })
 

@@ -1,0 +1,1 @@
+"hello, " + "world"  // equals "hello, world"
