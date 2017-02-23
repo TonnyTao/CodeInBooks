@@ -1,0 +1,377 @@
+<!DOCTYPE html><html><head><title>Swift Kotlin Javascript</title><meta charset="utf-8"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/highlightjs-github.css"><script src="js/highlight.pack.js"></script><script type="text/javascript">hljs.initHighlightingOnLoad();</script></head><body><a target="_blank" href="https://github.com/TonnyTao/swift-kotlin-javascript"><img id="fork-me" src="http://tonnysunm.github.io/swift-kotlin-javascript/fork-me.png"></a><div id="note">Swift - Kotlin - Javascript</div><div id="tips">Swift code from The Swift Programming Language (Swift 3.0.1)</div><div class="section"><div class="title">- The Basics -</div><div class="case"><div class="name">Constants and Veriables</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">//const
+let maximumNumberOfLoginAttempts = 10
+
+//veribale
+var currentLoginAttempt = 0
+
+//declare multiple
+var x = 0.0, y = 0.0, z = 0.0</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">//const
+val maximumNumberOfLoginAttempts = 10
+
+//veribale
+var currentLoginAttempt = 0</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">//const
+const maximumNumberOfLoginAttempts = 10
+
+//veribale
+const currentLoginAttempt = 0
+
+//declare multiple
+const x = 0.0, y = 0.0, z = 0.0</code></pre></div></div><div class="name">Type Annotations</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">//a type annotation for a variable
+var welcomeMessage: String
+
+//multiple variables with a single type annotation
+var red, green, blue: Double</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">//a type annotation for a variable
+var welcomeMessage: String</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript"></code></pre></div></div><div class="name">Unicode Naming Constants and Variables</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">//names can be Unicode characters
+let π = 3.14159
+let 你好 = &quot;你好世界&quot;
+let 🐶🐮 = &quot;dogcow&quot;</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin"></code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript"></code></pre></div></div><div class="name">Printing Constants and Variables</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">var friendlyWelcome = &quot;Hello!&quot;
+print(friendlyWelcome)
+
+print(&quot;The value is \(friendlyWelcome)&quot;)</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">var friendlyWelcome = &quot;Hello!&quot;
+println(friendlyWelcome)
+
+println(&quot;The value is ${friendlyWelcome}&quot;)</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">const friendlyWelcome = &quot;Hello!&quot;
+console.log(friendlyWelcome)
+
+console.log(`The value is ${friendlyWelcome}`)</code></pre></div></div><div class="name">Comments</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">// This is a comment.
+
+/* This is also a comment
+ but is written over multiple lines. */
+
+/* This is the start of the first multiline comment.
+ /* This is the second, nested multiline comment. */
+ This is the end of the first multiline comment. */</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">// This is a comment.
+
+/* This is also a comment
+ but is written over multiple lines. */</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">// This is a comment.
+
+/* This is also a comment
+ but is written over multiple lines. */</code></pre></div></div><div class="name">Semicolons</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let cat = &quot;🐱&quot;; print(cat)
+// Prints &quot;🐱&quot;</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val cat = &quot;🐱&quot;; println(cat)
+// Prints &quot;🐱&quot;</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">const cat = &quot;🐱&quot;; console.log(cat)
+// Prints &quot;🐱&quot;</code></pre></div></div><div class="name">Integers</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">//Integer Bounds
+
+let minValue = UInt8.min  // minValue is equal to 0, and is of type UInt8
+let maxValue = UInt8.max  // maxValue is equal to 255, and is of type UInt8
+
+//Int
+//On a 32-bit platform, Int is the same size as Int32.
+//On a 64-bit platform, Int is the same size as Int64.
+
+//UInt
+//On a 32-bit platform, UInt is the same size as UInt32.
+//On a 64-bit platform, UInt is the same size as UInt64.</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">//Integer Bounds
+
+val minValue = Int.MIN_VALUE
+val maxValue = Int.MAX_VALUE
+
+//Long 64 bit
+//Int 32 bit</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">//Integer Bounds
+
+const minValue = Number.MIN_SAFE_INTEGER  // -9007199254740991
+const maxValue = Number.MAX_SAFE_INTEGER  // 9007199254740991
+
+//Numbers are Always 64-bit Floating Point</code></pre></div></div><div class="name">Floating-Point Numbers</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">//Double represents a 64-bit floating-point number.
+//Float represents a 32-bit floating-point number.</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">//Double represents a 64-bit floating-point number.
+//Float represents a 32-bit floating-point number.</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">//Numbers are Always 64-bit Floating Point</code></pre></div></div><div class="name">Type Safety and Type Inference</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let meaningOfLife = 42
+// meaningOfLife is inferred to be of type Int
+
+let pi = 3.14159
+// pi is inferred to be of type Double
+
+let anotherPi = 3 + 0.14159
+// anotherPi is also inferred to be of type Double</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val meaningOfLife = 42
+// meaningOfLife is inferred to be of type Int
+
+val pi = 3.14159
+// Long
+
+val anotherPi = 3 + 0.14159
+// Int + Long =&gt; Long</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">const meaningOfLife = 42
+// typeof Number
+
+const pi = 3.14159
+// typeof Number
+
+const anotherPi = 3 + 0.14159
+// typeof Number</code></pre></div></div><div class="name">Numeric Literals</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let decimalInteger = 17
+let binaryInteger = 0b10001       // 17 in binary notation
+let octalInteger = 0o21           // 17 in octal notation
+let hexadecimalInteger = 0x11     // 17 in hexadecimal notation
+
+let decimalDouble = 12.1875
+let exponentDouble = 1.21875e1
+
+let i = 0xFp2 //15 x 2 exp 2
+
+let paddedDouble = 000123.456
+let oneMillion = 1_000_000
+let justOverOneMillion = 1_000_000.000_000_1</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val decimalInteger = 17
+val binaryInteger = 0b10001       // 17 in binary notation
+val octalInteger = 0o21           // 17 in octal notation
+val hexadecimalInteger = 0x11     // 17 in hexadecimal notation
+
+val decimalDouble = 12.1875
+val exponentDouble = 1.21875e1
+
+fun Int.pow(exp: Int): Int = Math.pow(this, exp)
+val i = 15*2.pow(2) //15 x 2 exp 2
+
+val oneMillion = 1_000_000
+val justOverOneMillion = 1_000_000.000_000_1
+
+val hexBytes = 0xFF_EC_DE_5E
+val bytes = 0b11010010_01101001_10010100_10010010</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">const decimalInteger = 17
+const binaryInteger = 0b10001       // 17 in binary notation
+const octalInteger = 0o21           // 17 in octal notation
+const hexadecimalInteger = 0x11     // 17 in hexadecimal notation
+
+const decimalDouble = 12.1875
+const exponentDouble = 1.21875e1
+</code></pre></div></div><div class="name">Integer Conversion</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let cannotBeNegative: UInt8 = -1
+// UInt8 cannot store negative numbers, and so this will report an error
+
+let tooBig: Int8 = Int8.max + 1
+// Int8 cannot store a number larger than its maximum value,
+// and so this will also report an error
+
+let twoThousand: UInt16 = 2_000
+let one: UInt8 = 1
+let twoThousandAndOne = twoThousand + UInt16(one)</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val tooBig: Int = Int.MAX_VALUE + 1
+// this maybe report an error</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript"></code></pre></div></div><div class="name">Integer and Floating-Point Conversion</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let three = 3
+let pointOneFourOneFiveNine = 0.14159
+let pi = Double(three) + pointOneFourOneFiveNine
+// pi equals 3.14159, and is inferred to be of type Double
+
+let integerPi = Int(pi)
+// integerPi equals 3, and is inferred to be of type Int</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val three = 3
+val pointOneFourOneFiveNine = 0.14159
+val pi = three.toDouble() + pointOneFourOneFiveNine
+// pi equals 3.14159, and is inferred to be of type Double
+
+val integerPi = pi.toInt()
+// integerPi equals 3, and is inferred to be of type Int</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript"></code></pre></div></div><div class="name">Type Aliases</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">typealias AudioSample = UInt16
+
+var maxAmplitudeFound = AudioSample.min
+// maxAmplitudeFound is now 0</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">typealias AudioSample = Short</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript"></code></pre></div></div><div class="name">Booleans</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let orangesAreOrange = true
+let turnipsAreDelicious = false
+
+if turnipsAreDelicious {
+    print(&quot;Mmm, tasty turnips!&quot;)
+} else {
+    print(&quot;Eww, turnips are horrible.&quot;)
+}
+// Prints &quot;Eww, turnips are horrible.&quot;
+
+
+let i = 1
+if i == 1 {
+    // this example will compile successfully
+}</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val orangesAreOrange = true
+val turnipsAreDelicious = false
+
+if (turnipsAreDelicious) {
+    println(&quot;Mmm, tasty turnips!&quot;)
+} else {
+    println(&quot;Eww, turnips are horrible.&quot;)
+}
+// Prints &quot;Eww, turnips are horrible.&quot;
+
+
+val i = 1
+if (i == 1) {
+    // this example will compile successfully
+}
+
+val max = if (a &gt; b) {
+    println(&quot;Choose a&quot;)
+    a
+} else {
+    println(&quot;Choose b&quot;)
+    b
+}</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">const orangesAreOrange = true
+const turnipsAreDelicious = false
+
+if (turnipsAreDelicious) {
+    console.log(&quot;Mmm, tasty turnips!&quot;)
+} else {
+    console.log(&quot;Eww, turnips are horrible.&quot;)
+}
+// Prints &quot;Eww, turnips are horrible.&quot;
+
+
+const i = 1
+if (i == 1) {
+    // this example will compile successfully
+}</code></pre></div></div><div class="name">Tuples</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let http404Error = (404, &quot;Not Found&quot;)
+// http404Error is of type (Int, String), and equals (404, &quot;Not Found&quot;)
+
+
+let (statusCode, statusMessage) = http404Error
+print(&quot;The status code is \(statusCode)&quot;)
+// Prints &quot;The status code is 404&quot;
+print(&quot;The status message is \(statusMessage)&quot;)
+// Prints &quot;The status message is Not Found&quot;
+
+
+let (justTheStatusCode, _) = http404Error
+print(&quot;The status code is \(justTheStatusCode)&quot;)
+// Prints &quot;The status code is 404&quot;
+
+
+print(&quot;The status code is \(http404Error.0)&quot;)
+// Prints &quot;The status code is 404&quot;
+print(&quot;The status message is \(http404Error.1)&quot;)
+// Prints &quot;The status message is Not Found&quot;
+
+
+let http200Status = (statusCode: 200, description: &quot;OK&quot;)
+print(&quot;The status code is \(http200Status.statusCode)&quot;)
+// Prints &quot;The status code is 200&quot;
+print(&quot;The status message is \(http200Status.description)&quot;)
+// Prints &quot;The status message is OK&quot;
+</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">data class Pair&lt;out A, out B&gt; : Serializable (source)
+
+val http404Error = Pair(404, &quot;Not Found&quot;)
+// http404Error is of type Pair&lt;Int, String&gt;, and equals (404, &quot;Not Found&quot;)
+
+
+val (statusCode, statusMessage) = http404Error
+println(&quot;The status code is ${statusCode}&quot;)
+println(&quot;The status message is ${statusMessage}&quot;)
+
+
+val (justTheStatusCode, _) = http404Error
+println(&quot;The status code is ${justTheStatusCode}&quot;)
+
+
+println(&quot;The status code is ${http404Error.first}&quot;)
+println(&quot;The status message is ${http404Error.second}&quot;)
+
+
+val http200Status = Pair(200, &quot;OK&quot;)
+println(&quot;The status code is ${http200Status.first}&quot;)
+println(&quot;The status message is ${http200Status.second}&quot;)
+</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">const http404Error = {statusCode: 404, statusMessage: &quot;Not Found&quot;}
+
+
+const {statusCode, statusMessage} = http404Error
+console.log(`The status code is ${statusCode}`)
+//The status code is 404
+
+const {_, statusMessage:statusMsg} = http404Error
+console.log(`The status message is ${statusMsg}`)
+//The status message is Not Found
+</code></pre></div></div><div class="name">Optionals</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let possibleNumber = &quot;123&quot;
+let convertedNumber = Int(possibleNumber)
+// convertedNumber is inferred to be of type &quot;Int?&quot;, or &quot;optional Int&quot;</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val possibleNumber = &quot;123&quot;
+val convertedNumber = possibleNumber.toIntOrNull()
+// convertedNumber is inferred to be of type &quot;Int?&quot;, or &quot;optional Int&quot;</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">const possibleNumber = &quot;123&quot;
+const convertedNumber = parseInt(possibleNumber, 10)
+//int number or NaN</code></pre></div></div><div class="name">nil</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">var serverResponseCode: Int? = 404
+// serverResponseCode contains an actual Int value of 404
+
+serverResponseCode = nil
+// serverResponseCode now contains no value
+
+var surveyAnswer: String?
+// surveyAnswer is automatically set to nil</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">var serverResponseCode: Int? = 404
+// serverResponseCode contains an actual Int value of 404
+
+serverResponseCode = nil
+// serverResponseCode now contains no value
+
+var surveyAnswer: String?
+// surveyAnswer is automatically set to nil</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">const serverResponseCode = 404
+// serverResponseCode contains an actual number of 404
+
+serverResponseCode = undefined
+// serverResponseCode now contains no value
+
+const surveyAnswer
+// value undefined</code></pre></div></div><div class="name">If Statements and Forced Unwrapping</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">if convertedNumber != nil {
+    print(&quot;convertedNumber has an integer value of \(convertedNumber!).&quot;)
+}
+// Prints &quot;convertedNumber has an integer value of 123.&quot;</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">if (convertedNumber != null) {
+    println(&quot;convertedNumber has an integer value of ${convertedNumber!!}.&quot;)
+}
+// Prints &quot;convertedNumber has an integer value of 123.&quot;</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">if (convertedNumber != null) {
+    console.log(`convertedNumber has an integer value of ${convertedNumber}.`)
+}
+// Prints &quot;convertedNumber has an integer value of 123.&quot;</code></pre></div></div><div class="name">Optional Binding</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">if let actualNumber = Int(possibleNumber) {
+    print(&quot;\&quot;\(possibleNumber)\&quot; has an integer value of \(actualNumber)&quot;)
+} else {
+    print(&quot;\&quot;\(possibleNumber)\&quot; could not be converted to an integer&quot;)
+}
+// Prints &quot;&quot;123&quot; has an integer value of 123&quot;
+
+
+if let firstNumber = Int(&quot;4&quot;), let secondNumber = Int(&quot;42&quot;), firstNumber &lt; secondNumber &amp;&amp; secondNumber &lt; 100 {
+    print(&quot;\(firstNumber) &lt; \(secondNumber) &lt; 100&quot;)
+}
+// Prints &quot;4 &lt; 42 &lt; 100&quot;
+ 
+if let firstNumber = Int(&quot;4&quot;) {
+    if let secondNumber = Int(&quot;42&quot;) {
+        if firstNumber &lt; secondNumber &amp;&amp; secondNumber &lt; 100 {
+            print(&quot;\(firstNumber) &lt; \(secondNumber) &lt; 100&quot;)
+        }
+    }
+}
+// Prints &quot;4 &lt; 42 &lt; 100&quot;</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val actualNumber = possibleNumber.toIntOrNull()
+if (actualNumber != null) {
+    println(&quot;\&quot;\(possibleNumber)\&quot; has an integer value of ${actualNumber!!}&quot;)
+} else {
+    println(&quot;\&quot;\(possibleNumber)\&quot; could not be converted to an integer&quot;)
+}</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript"></code></pre></div></div><div class="name">Implicitly Unwrapped Optionals</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let possibleString: String? = &quot;An optional string.&quot;
+let forcedString: String = possibleString! // requires an exclamation mark
+ 
+let assumedString: String! = &quot;An implicitly unwrapped optional string.&quot;
+let implicitString: String = assumedString // no need for an exclamation mark
+</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val possibleString: String? = &quot;An optional string.&quot;
+val forcedString: String = possibleString!!</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript"></code></pre></div></div><div class="name">Error Handling</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">func canThrowAnError() throws {
+    // this function may or may not throw an error
+}
+
+do {
+    try canThrowAnError()
+    // no error was thrown
+} catch {
+    // an error was thrown
+}
+
+
+func makeASandwich() throws {
+    // ...
+}
+ 
+do {
+    try makeASandwich()
+    eatASandwich()
+} catch SandwichError.outOfCleanDishes {
+    washDishes()
+} catch SandwichError.missingIngredients(let ingredients) {
+    buyGroceries(ingredients)
+}</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">fun test() {
+    val result = try {
+        count()
+    } catch (e: ArithmeticException) {
+        //handler
+    } catch (e: OtherException) {
+        //handler
+    }
+    // Working with result
+}</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript">try {
+    adddlert(&quot;Welcome guest!&quot;);
+}
+catch(err) {
+    console.log(err.message);
+}</code></pre></div></div><div class="name">Assertions</div><div class="pair"><div class="card"><div class="lang">Swift</div><pre class="code"><code class="Swift">let age = -3
+assert(age &gt;= 0, &quot;A person's age cannot be less than zero&quot;)
+// this causes the assertion to trigger, because age is not &gt;= 0
+
+assert(age &gt;= 0)</code></pre></div><div class="card"><div class="lang">Kotlin</div><pre class="code"><code class="Kotlin">val age = -3
+assert(age &gt;= 0, &quot;A person's age cannot be less than zero&quot;)
+// this causes the assertion to trigger, because age is not &gt;= 0
+
+assert(age &gt;= 0)</code></pre></div><div class="card"><div class="lang">Javascript</div><pre class="code"><code class="Javascript"></code></pre></div></div></div></div></body></html>

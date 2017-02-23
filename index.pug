@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title Swift Kotlin Javascript
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='css/highlightjs-github.css')
+    script(src='js/highlight.pack.js')
+    script(type="text/javascript").
+      hljs.initHighlightingOnLoad();
+  body
+    a(target='_blank', href='https://github.com/TonnyTao/swift-kotlin-javascript')
+      img#fork-me(src='http://tonnysunm.github.io/swift-kotlin-javascript/fork-me.png')
+    #note Swift - Kotlin - Javascript
+    #tips Swift code from The Swift Programming Language (Swift 3.0.1)
+    
+    each chapter in chapters
+      .section
+        .title - #{chapter.title} -
+        .case
+          each detail in chapter.details
+            .name #{detail}
+            .pair
+              .card
+                .lang Swift
+                pre.code
+                  code #{codes.swift[detail]}
+              .card
+                .lang Kotlin
+                pre.code
+                  code #{codes.kotlin[detail]}
+              .card
+                .lang Javascript
+                pre.code
+                  code #{codes.javascript[detail]}

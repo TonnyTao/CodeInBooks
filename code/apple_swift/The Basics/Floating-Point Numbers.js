@@ -1,0 +1,1 @@
+//Numbers are Always 64-bit Floating Point

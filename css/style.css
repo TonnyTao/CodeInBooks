@@ -1,0 +1,101 @@
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    margin: 0;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+.section {
+    background-color: #f4f4f4;
+    padding: 1em 1em;
+}
+
+.section:nth-child(2n) {
+    background-color: white;
+}
+
+.title {
+    font-size: 2.0em;
+    color: #444;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.case {}
+
+.name {
+    font-size: 1.3em;
+    color: #444;
+    font-weight: 300;
+    text-align: left;
+    margin: 10px 5px;
+}
+
+.pair {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -ms-box-pack: center;
+    -ms-box-align: center;
+    margin-bottom: 50px;
+}
+
+.card {
+    flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    max-width: 33%;
+    margin: 0 5px;
+}
+
+.lang {
+    color: #bbb;
+    padding-bottom: 0;
+    font-weight: 200;
+    letter-spacing: 0.07em;
+}
+
+.code {
+    font-size: 1.1em;
+    background-color: white;
+    margin: 0.4em 0 0 0;
+    padding: 0.4em;
+    line-height: 1.3em;
+}
+.section:nth-child(2n) .code {
+    background-color: #f4f4f4;
+}
+
+#fork-me {
+    position: absolute;
+    right: 0;
+}
+
+#note {
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+    padding: 0.6em;
+    background: #414141;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+#tips {
+    text-align: center;
+    color: #bbb;
+    padding: 0.6em;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
