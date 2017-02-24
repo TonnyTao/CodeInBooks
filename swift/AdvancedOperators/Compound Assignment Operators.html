@@ -1,0 +1,22 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">a</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="vc">a</span> += <span class="m">2</span></code></li>
+            <li><code class="code-voice"><span class="c">// a is now equal to 3</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">func</span> += (<span class="vc">left</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span>, <span class="vc">right</span>: <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">left</span> = <span class="vc">left</span> + <span class="vc">right</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">original</span> = <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="m">1.0</span>, <span class="vc">y</span>: <span class="m">2.0</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">vectorToAdd</span> = <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="m">3.0</span>, <span class="vc">y</span>: <span class="m">4.0</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">original</span> += <span class="vc">vectorToAdd</span></code></li>
+            <li><code class="code-voice"><span class="c">// original now has values of (4.0, 6.0)</span></code></li>
+        </ol>
+      

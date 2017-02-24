@@ -1,0 +1,39 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Document</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="c">// this initializer creates a document with a nil name value</span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>() {}</code></li>
+            <li><code class="code-voice">    <span class="c">// this initializer creates a document with a nonempty name value</span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>?(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">name</span>.<span class="vc">isEmpty</span> { <span class="kt">return</span> <span class="kt">nil</span> }</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">AutomaticallyNamedDocument</span>: <span class="n"><!-- a href="" -->Document<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">init</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>()</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="s">&quot;[Untitled]&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>()</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">name</span>.<span class="vc">isEmpty</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">self</span>.<span class="vc">name</span> = <span class="s">&quot;[Untitled]&quot;</span></code></li>
+            <li><code class="code-voice">        } <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">UntitledDocument</span>: <span class="n"><!-- a href="" -->Document<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">init</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="s">&quot;[Untitled]&quot;</span>)!</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

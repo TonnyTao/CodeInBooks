@@ -1,0 +1,18 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SurveyQuestion</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">text</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">response</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">text</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">text</span> = <span class="vc">text</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">ask</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="vc">text</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">beetsQuestion</span> = <span class="vc">SurveyQuestion</span>(<span class="vc">text</span>: <span class="s">&quot;How about beets?&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">beetsQuestion</span>.<span class="vc">ask</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;How about beets?&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">beetsQuestion</span>.<span class="vc">response</span> = <span class="s">&quot;I also like beets. (But not with cheese.)&quot;</span></code></li>
+        </ol>
+      

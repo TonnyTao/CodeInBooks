@@ -1,0 +1,44 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">swapTwoInts</span>(<span class="kt">_</span> <span class="vc">a</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="kt">_</span> <span class="vc">b</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">temporaryA</span> = <span class="vc">a</span></code></li>
+            <li><code class="code-voice">    <span class="vc">a</span> = <span class="vc">b</span></code></li>
+            <li><code class="code-voice">    <span class="vc">b</span> = <span class="vc">temporaryA</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">someInt</span> = <span class="m">3</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">anotherInt</span> = <span class="m">107</span></code></li>
+            <li><code class="code-voice"><span class="vc">swapTwoInts</span>(&amp;<span class="vc">someInt</span>, &amp;<span class="vc">anotherInt</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;someInt is now </span>\(<span class="vc">someInt</span>)<span class="s">, and anotherInt is now </span>\(<span class="vc">anotherInt</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;someInt is now 107, and anotherInt is now 3&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">x</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">f</span>(<span class="vc">a</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">b</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">a</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">    <span class="vc">b</span> += <span class="m">10</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">f</span>(<span class="vc">a</span>: &amp;<span class="vc">x</span>, <span class="vc">b</span>: &amp;<span class="vc">x</span>) <span class="c">// Invalid, in-out arguments alias each other</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunction</span>(<span class="vc">a</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; () -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> { [<span class="vc">a</span>] <span class="kt">in</span> <span class="kt">return</span> <span class="vc">a</span> + <span class="m">1</span> }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">multithreadedFunction</span>(<span class="vc">queue</span>: <span class="n"><!-- a href="" -->DispatchQueue<!-- /a --></span>, <span class="vc">x</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="c">// Make a local copy and manually copy it back.</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">localX</span> = <span class="vc">x</span></code></li>
+            <li><code class="code-voice">    <span class="kt">defer</span> { <span class="vc">x</span> = <span class="vc">localX</span> }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="c">// Operate on localX asynchronously, then wait before returning.</span></code></li>
+            <li><code class="code-voice">    <span class="vc">queue</span>.<span class="vc">async</span> { <span class="vc">someMutatingOperation</span>(&amp;<span class="vc">localX</span>) }</code></li>
+            <li><code class="code-voice">    <span class="vc">queue</span>.<span class="vc">sync</span> {}</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

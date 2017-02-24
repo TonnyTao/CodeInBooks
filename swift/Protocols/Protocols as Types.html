@@ -1,0 +1,27 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Dice</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">sides</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">generator</span>: <span class="n"><!-- a href="" -->RandomNumberGenerator<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">sides</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">generator</span>: <span class="n"><!-- a href="" -->RandomNumberGenerator<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">sides</span> = <span class="vc">sides</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">generator</span> = <span class="vc">generator</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">roll</span>() -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">Int</span>(<span class="vc">generator</span>.<span class="vc">random</span>() * <span class="vc">Double</span>(<span class="vc">sides</span>)) + <span class="m">1</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">d6</span> = <span class="vc">Dice</span>(<span class="vc">sides</span>: <span class="m">6</span>, <span class="vc">generator</span>: <span class="vc">LinearCongruentialGenerator</span>())</code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="kt">_</span> <span class="kt">in</span> <span class="m">1</span>...<span class="m">5</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Random dice roll is </span>\(<span class="vc">d6</span>.<span class="vc">roll</span>())<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Random dice roll is 3</span></code></li>
+            <li><code class="code-voice"><span class="c">// Random dice roll is 5</span></code></li>
+            <li><code class="code-voice"><span class="c">// Random dice roll is 4</span></code></li>
+            <li><code class="code-voice"><span class="c">// Random dice roll is 5</span></code></li>
+            <li><code class="code-voice"><span class="c">// Random dice roll is 4</span></code></li>
+        </ol>
+      

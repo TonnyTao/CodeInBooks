@@ -1,0 +1,28 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">firstRoomName</span> = <span class="vc">john</span>.<span class="vc">residence</span>?[<span class="m">0</span>].<span class="vc">name</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The first room name is </span>\(<span class="vc">firstRoomName</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to retrieve the first room name.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Unable to retrieve the first room name.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span>?[<span class="m">0</span>] = <span class="vc">Room</span>(<span class="vc">name</span>: <span class="s">&quot;Bathroom&quot;</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">johnsHouse</span> = <span class="vc">Residence</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">johnsHouse</span>.<span class="vc">rooms</span>.<span class="vc">append</span>(<span class="vc">Room</span>(<span class="vc">name</span>: <span class="s">&quot;Living Room&quot;</span>))</code></li>
+            <li><code class="code-voice"><span class="vc">johnsHouse</span>.<span class="vc">rooms</span>.<span class="vc">append</span>(<span class="vc">Room</span>(<span class="vc">name</span>: <span class="s">&quot;Kitchen&quot;</span>))</code></li>
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span> = <span class="vc">johnsHouse</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">firstRoomName</span> = <span class="vc">john</span>.<span class="vc">residence</span>?[<span class="m">0</span>].<span class="vc">name</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The first room name is </span>\(<span class="vc">firstRoomName</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to retrieve the first room name.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The first room name is Living Room.&quot;</span></code></li>
+        </ol>
+      

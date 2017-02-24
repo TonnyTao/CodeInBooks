@@ -1,0 +1,28 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">c</span>: <span class="n"><!-- a href="" -->SomeClass<!-- /a --></span>?</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">result</span>: <span class="n"><!-- a href="" -->Bool<!-- /a --></span>? = <span class="vc">c</span>?.<span class="vc">property</span>.<span class="vc">performAction</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">result</span>: <span class="n"><!-- a href="" -->Bool<!-- /a --></span>? = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">unwrappedC</span> = <span class="vc">c</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">result</span> = <span class="vc">unwrappedC</span>.<span class="vc">property</span>.<span class="vc">performAction</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunctionWithSideEffects</span>() -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="m">42</span>  <span class="c">// No actual side effects.</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">someDictionary</span> = [<span class="s">&quot;a&quot;</span>: [<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>], <span class="s">&quot;b&quot;</span>: [<span class="m">10</span>, <span class="m">20</span>]]</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">someDictionary</span>[<span class="s">&quot;not here&quot;</span>]?[<span class="m">0</span>] = <span class="vc">someFunctionWithSideEffects</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// someFunctionWithSideEffects is not evaluated</span></code></li>
+            <li><code class="code-voice"><span class="c">// someDictionary is still [&quot;b&quot;: [10, 20], &quot;a&quot;: [1, 2, 3]]</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">someDictionary</span>[<span class="s">&quot;a&quot;</span>]?[<span class="m">0</span>] = <span class="vc">someFunctionWithSideEffects</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// someFunctionWithSideEffects is evaluated and returns 42</span></code></li>
+            <li><code class="code-voice"><span class="c">// someDictionary is now [&quot;b&quot;: [10, 20], &quot;a&quot;: [42, 2, 3]]</span></code></li>
+        </ol>
+      

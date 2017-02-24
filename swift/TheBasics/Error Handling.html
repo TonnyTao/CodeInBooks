@@ -1,0 +1,31 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">canThrowAnError</span>() <span class="kt">throws</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// this function may or may not throw an error</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">do</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">try</span> <span class="vc">canThrowAnError</span>()</code></li>
+            <li><code class="code-voice">    <span class="c">// no error was thrown</span></code></li>
+            <li><code class="code-voice">} <span class="kt">catch</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// an error was thrown</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">makeASandwich</span>() <span class="kt">throws</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// ...</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">do</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">try</span> <span class="vc">makeASandwich</span>()</code></li>
+            <li><code class="code-voice">    <span class="vc">eatASandwich</span>()</code></li>
+            <li><code class="code-voice">} <span class="kt">catch</span> <span class="vc">SandwichError</span>.<span class="vc">outOfCleanDishes</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">washDishes</span>()</code></li>
+            <li><code class="code-voice">} <span class="kt">catch</span> <span class="vc">SandwichError</span>.<span class="vc">missingIngredients</span>(<span class="vc">let</span> <span class="vc">ingredients</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">buyGroceries</span>(<span class="vc">ingredients</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

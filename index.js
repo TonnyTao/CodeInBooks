@@ -1,7 +1,7 @@
 const pug = require('pug');
 
 var fs = require("fs");
-const data = fs.readFileSync('The Swift Programming Language (Swift 3.1).json');
+const data = fs.readFileSync('chapters.json');
 const chapters = JSON.parse(data)
 
 var watch = require('watch')
@@ -14,14 +14,15 @@ watch.createMonitor('./code', function(monitor) {
 })
 
 function renderHtml(monitor) {
-
+    console.log("renderHtml");
+    
     var swift = {}
     var kotlin = {}
     var js = {}
     chapters.forEach(item => {
         item.details.forEach(detail => {
-            console.log(detail)
-            swift[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.swift`)
+            // console.log(detail)
+            swift[detail] = fs.readFileSync(`swift/${item.title}/${detail}.html`)
             try {
                 kotlin[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.kt`)
                 js[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.js`)

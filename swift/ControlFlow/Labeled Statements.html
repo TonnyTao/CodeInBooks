@@ -1,0 +1,30 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">finalSquare</span> = <span class="m">25</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">board</span> = [<span class="vc">Int</span>](<span class="vc">repeating</span>: <span class="m">0</span>, <span class="vc">count</span>: <span class="vc">finalSquare</span> + <span class="m">1</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">board</span>[<span class="m">03</span>] = +<span class="m">08</span>; <span class="vc">board</span>[<span class="m">06</span>] = +<span class="m">11</span>; <span class="vc">board</span>[<span class="m">09</span>] = +<span class="m">09</span>; <span class="vc">board</span>[<span class="m">10</span>] = +<span class="m">02</span></code></li>
+            <li><code class="code-voice"><span class="vc">board</span>[<span class="m">14</span>] = <span class="m">-10</span>; <span class="vc">board</span>[<span class="m">19</span>] = <span class="m">-11</span>; <span class="vc">board</span>[<span class="m">22</span>] = <span class="m">-02</span>; <span class="vc">board</span>[<span class="m">24</span>] = <span class="m">-08</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">square</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">diceRoll</span> = <span class="m">0</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">gameLoop</span>: <span class="kt">while</span> <span class="vc">square</span> != <span class="vc">finalSquare</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">diceRoll</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="vc">diceRoll</span> == <span class="m">7</span> { <span class="vc">diceRoll</span> = <span class="m">1</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">switch</span> <span class="vc">square</span> + <span class="vc">diceRoll</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">finalSquare</span>:</code></li>
+            <li><code class="code-voice">        <span class="c">// diceRoll will move us to the final square, so the game is over</span></code></li>
+            <li><code class="code-voice">        <span class="kt">break</span> <span class="vc">gameLoop</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="kt">let</span> <span class="vc">newSquare</span> <span class="kt">where</span> <span class="vc">newSquare</span> &gt; <span class="vc">finalSquare</span>:</code></li>
+            <li><code class="code-voice">        <span class="c">// diceRoll will move us beyond the final square, so roll again</span></code></li>
+            <li><code class="code-voice">        <span class="kt">continue</span> <span class="vc">gameLoop</span></code></li>
+            <li><code class="code-voice">    <span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">        <span class="c">// this is a valid move, so find out its effect</span></code></li>
+            <li><code class="code-voice">        <span class="vc">square</span> += <span class="vc">diceRoll</span></code></li>
+            <li><code class="code-voice">        <span class="vc">square</span> += <span class="vc">board</span>[<span class="vc">square</span>]</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Game over!&quot;</span>)</code></li>
+        </ol>
+      

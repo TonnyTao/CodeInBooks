@@ -1,0 +1,20 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">buildingIdentifier</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span>?.<span class="vc">buildingIdentifier</span>() {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;John&apos;s building identifier is </span>\(<span class="vc">buildingIdentifier</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;John&apos;s building identifier is The Larches.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">beginsWithThe</span> =</code></li>
+            <li><code class="code-voice">    <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span>?.<span class="vc">buildingIdentifier</span>()?.<span class="vc">hasPrefix</span>(<span class="s">&quot;The&quot;</span>) {</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="vc">beginsWithThe</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;John&apos;s building identifier begins with \&quot;The\&quot;.&quot;</span>)</code></li>
+            <li><code class="code-voice">    } <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;John&apos;s building identifier does not begin with \&quot;The\&quot;.&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;John&apos;s building identifier begins with &quot;The&quot;.&quot;</span></code></li>
+        </ol>
+      

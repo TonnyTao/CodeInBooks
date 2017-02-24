@@ -1,0 +1,22 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">unsignedOverflow</span> = <span class="vc">UInt8</span>.<span class="vc">max</span></code></li>
+            <li><code class="code-voice"><span class="c">// unsignedOverflow equals 255, which is the maximum value a UInt8 can hold</span></code></li>
+            <li><code class="code-voice"><span class="vc">unsignedOverflow</span> = <span class="vc">unsignedOverflow</span> &amp;+ <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="c">// unsignedOverflow is now equal to 0</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">unsignedOverflow</span> = <span class="vc">UInt8</span>.<span class="vc">min</span></code></li>
+            <li><code class="code-voice"><span class="c">// unsignedOverflow equals 0, which is the minimum value a UInt8 can hold</span></code></li>
+            <li><code class="code-voice"><span class="vc">unsignedOverflow</span> = <span class="vc">unsignedOverflow</span> &amp;- <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="c">// unsignedOverflow is now equal to 255</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">signedOverflow</span> = <span class="vc">Int8</span>.<span class="vc">min</span></code></li>
+            <li><code class="code-voice"><span class="c">// signedOverflow equals -128, which is the minimum value an Int8 can hold</span></code></li>
+            <li><code class="code-voice"><span class="vc">signedOverflow</span> = <span class="vc">signedOverflow</span> &amp;- <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="c">// signedOverflow is now equal to 127</span></code></li>
+        </ol>
+      

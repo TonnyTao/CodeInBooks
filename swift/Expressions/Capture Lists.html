@@ -1,0 +1,41 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">a</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">b</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">closure</span> = { [<span class="vc">a</span>] <span class="kt">in</span></code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">a</span>, <span class="vc">b</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">a</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice"><span class="vc">b</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice"><span class="vc">closure</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;0 10&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SimpleClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">value</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">x</span> = <span class="vc">SimpleClass</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">y</span> = <span class="vc">SimpleClass</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">closure</span> = { [<span class="vc">x</span>] <span class="kt">in</span></code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">x</span>.<span class="vc">value</span>, <span class="vc">y</span>.<span class="vc">value</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">x</span>.<span class="vc">value</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice"><span class="vc">y</span>.<span class="vc">value</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice"><span class="vc">closure</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;10 10&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">myFunction</span> { <span class="vc">print</span>(<span class="kt">self</span>.<span class="vc">title</span>) }                    <span class="c">// strong capture</span></code></li>
+            <li><code class="code-voice"><span class="vc">myFunction</span> { [<span class="vc">weak</span> <span class="kt">self</span>] <span class="kt">in</span> <span class="vc">print</span>(<span class="kt">self</span>!.<span class="vc">title</span>) }    <span class="c">// weak capture</span></code></li>
+            <li><code class="code-voice"><span class="vc">myFunction</span> { [<span class="vc">unowned</span> <span class="kt">self</span>] <span class="kt">in</span> <span class="vc">print</span>(<span class="kt">self</span>.<span class="vc">title</span>) }  <span class="c">// unowned capture</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// Weak capture of &quot;self.parent&quot; as &quot;parent&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">myFunction</span> { [<span class="vc">weak</span> <span class="vc">parent</span> = <span class="kt">self</span>.<span class="vc">parent</span>] <span class="kt">in</span> <span class="vc">print</span>(<span class="vc">parent</span>!.<span class="vc">title</span>) }</code></li>
+        </ol>
+      

@@ -1,0 +1,13 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">VendingMachineError</span>: <span class="n"><!-- a href="" -->Error<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">invalidSelection</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">insufficientFunds</span>(<span class="vc">coinsNeeded</span>: <span class="vc">Int</span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">outOfStock</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">throw</span> <span class="vc">VendingMachineError</span>.<span class="vc">insufficientFunds</span>(<span class="vc">coinsNeeded</span>: <span class="m">5</span>)</code></li>
+        </ol>
+      

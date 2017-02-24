@@ -1,0 +1,31 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Vehicle</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">numberOfWheels</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">description</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;</span>\(<span class="vc">numberOfWheels</span>)<span class="s"> wheel(s)&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">vehicle</span> = <span class="vc">Vehicle</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Vehicle: </span>\(<span class="vc">vehicle</span>.<span class="vc">description</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Vehicle: 0 wheel(s)</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Bicycle</span>: <span class="n"><!-- a href="" -->Vehicle<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">init</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>()</code></li>
+            <li><code class="code-voice">        <span class="vc">numberOfWheels</span> = <span class="m">2</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">bicycle</span> = <span class="vc">Bicycle</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Bicycle: </span>\(<span class="vc">bicycle</span>.<span class="vc">description</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Bicycle: 2 wheel(s)</span></code></li>
+        </ol>
+      

@@ -5,10 +5,11 @@ html
     meta(charset='utf-8')
     link(rel='stylesheet', href='css/style.css')
     link(rel='stylesheet', href='css/highlightjs-github.css')
+    link(rel='stylesheet', href='css/appleswift.css')
     script(src='js/highlight.pack.js')
     script(type="text/javascript").
       hljs.initHighlightingOnLoad();
-  body
+  body.jazz
     a(target='_blank', href='https://github.com/TonnyTao/swift-kotlin-javascript')
       img#fork-me(src='http://tonnysunm.github.io/swift-kotlin-javascript/fork-me.png')
     #note Swift - Kotlin - Javascript
@@ -23,8 +24,7 @@ html
             .pair
               .card
                 .lang Swift
-                pre.code
-                  code #{codes.swift[detail]}
+                div !{codes.swift[detail]}
               .card
                 .lang Kotlin
                 pre.code

@@ -1,0 +1,19 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">a</span> != <span class="kt">nil</span> ? <span class="vc">a</span>! : <span class="vc">b</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">defaultColorName</span> = <span class="s">&quot;red&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">userDefinedColorName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?   <span class="c">// defaults to nil</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">colorNameToUse</span> = <span class="vc">userDefinedColorName</span> ?? <span class="vc">defaultColorName</span></code></li>
+            <li><code class="code-voice"><span class="c">// userDefinedColorName is nil, so colorNameToUse is set to the default of &quot;red&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">userDefinedColorName</span> = <span class="s">&quot;green&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">colorNameToUse</span> = <span class="vc">userDefinedColorName</span> ?? <span class="vc">defaultColorName</span></code></li>
+            <li><code class="code-voice"><span class="c">// userDefinedColorName is not nil, so colorNameToUse is set to &quot;green&quot;</span></code></li>
+        </ol>
+      

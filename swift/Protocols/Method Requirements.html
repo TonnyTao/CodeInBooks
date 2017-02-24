@@ -1,0 +1,31 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">SomeProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">func</span> <span class="vc">someTypeMethod</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">RandomNumberGenerator</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">random</span>() -&gt; <span class="n"><!-- a href="" -->Double<!-- /a --></span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">LinearCongruentialGenerator</span>: <span class="n"><!-- a href="" -->RandomNumberGenerator<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">lastRandom</span> = <span class="m">42.0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">m</span> = <span class="m">139968.0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">a</span> = <span class="m">3877.0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">c</span> = <span class="m">29573.0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">random</span>() -&gt; <span class="n"><!-- a href="" -->Double<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">lastRandom</span> = ((<span class="vc">lastRandom</span> * <span class="vc">a</span> + <span class="vc">c</span>).<span class="vc">truncatingRemainder</span>(<span class="vc">dividingBy</span>:<span class="vc">m</span>))</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">lastRandom</span> / <span class="vc">m</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">generator</span> = <span class="vc">LinearCongruentialGenerator</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Here&apos;s a random number: </span>\(<span class="vc">generator</span>.<span class="vc">random</span>())<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Here&apos;s a random number: 0.37464991998171&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;And another one: </span>\(<span class="vc">generator</span>.<span class="vc">random</span>())<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;And another one: 0.729023776863283&quot;</span></code></li>
+        </ol>
+      

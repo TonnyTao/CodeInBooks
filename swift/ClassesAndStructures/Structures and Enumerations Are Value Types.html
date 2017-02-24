@@ -1,0 +1,33 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">hd</span> = <span class="vc">Resolution</span>(<span class="vc">width</span>: <span class="m">1920</span>, <span class="vc">height</span>: <span class="m">1080</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">cinema</span> = <span class="vc">hd</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">cinema</span>.<span class="vc">width</span> = <span class="m">2048</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;cinema is now </span>\(<span class="vc">cinema</span>.<span class="vc">width</span>)<span class="s"> pixels wide&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;cinema is now 2048 pixels wide&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;hd is still </span>\(<span class="vc">hd</span>.<span class="vc">width</span>)<span class="s"> pixels wide&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;hd is still 1920 pixels wide&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">CompassPoint</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">north</span>, <span class="vc">south</span>, <span class="vc">east</span>, <span class="vc">west</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">currentDirection</span> = <span class="vc">CompassPoint</span>.<span class="vc">west</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">rememberedDirection</span> = <span class="vc">currentDirection</span></code></li>
+            <li><code class="code-voice"><span class="vc">currentDirection</span> = .<span class="vc">east</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">rememberedDirection</span> == .<span class="vc">west</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The remembered direction is still .west&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The remembered direction is still .west&quot;</span></code></li>
+        </ol>
+      

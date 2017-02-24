@@ -1,0 +1,40 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">ArithmeticExpression</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">number</span>(<span class="vc">Int</span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">indirect</span> <span class="kt">case</span> <span class="vc">addition</span>(<span class="vc">ArithmeticExpression</span>, <span class="vc">ArithmeticExpression</span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">indirect</span> <span class="kt">case</span> <span class="vc">multiplication</span>(<span class="vc">ArithmeticExpression</span>, <span class="vc">ArithmeticExpression</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">indirect</span> <span class="kt">enum</span> <span class="vc">ArithmeticExpression</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">number</span>(<span class="vc">Int</span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">addition</span>(<span class="vc">ArithmeticExpression</span>, <span class="vc">ArithmeticExpression</span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">multiplication</span>(<span class="vc">ArithmeticExpression</span>, <span class="vc">ArithmeticExpression</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">five</span> = <span class="vc">ArithmeticExpression</span>.<span class="vc">number</span>(<span class="m">5</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">four</span> = <span class="vc">ArithmeticExpression</span>.<span class="vc">number</span>(<span class="m">4</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">sum</span> = <span class="vc">ArithmeticExpression</span>.<span class="vc">addition</span>(<span class="vc">five</span>, <span class="vc">four</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">product</span> = <span class="vc">ArithmeticExpression</span>.<span class="vc">multiplication</span>(<span class="vc">sum</span>, <span class="vc">ArithmeticExpression</span>.<span class="vc">number</span>(<span class="m">2</span>))</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">evaluate</span>(<span class="kt">_</span> <span class="vc">expression</span>: <span class="n"><!-- a href="" -->ArithmeticExpression<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">switch</span> <span class="vc">expression</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="kt">let</span> .<span class="vc">number</span>(<span class="vc">value</span>):</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">value</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="kt">let</span> .<span class="vc">addition</span>(<span class="vc">left</span>, <span class="vc">right</span>):</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">evaluate</span>(<span class="vc">left</span>) + <span class="vc">evaluate</span>(<span class="vc">right</span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="kt">let</span> .<span class="vc">multiplication</span>(<span class="vc">left</span>, <span class="vc">right</span>):</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">evaluate</span>(<span class="vc">left</span>) * <span class="vc">evaluate</span>(<span class="vc">right</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">evaluate</span>(<span class="vc">product</span>))</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;18&quot;</span></code></li>
+        </ol>
+      

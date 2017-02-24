@@ -1,0 +1,69 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Food</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">convenience</span> <span class="kt">init</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="s">&quot;[Unnamed]&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">namedMeat</span> = <span class="vc">Food</span>(<span class="vc">name</span>: <span class="s">&quot;Bacon&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// namedMeat&apos;s name is &quot;Bacon&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">mysteryMeat</span> = <span class="vc">Food</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// mysteryMeat&apos;s name is &quot;[Unnamed]&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">RecipeIngredient</span>: <span class="n"><!-- a href="" -->Food<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">quantity</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">quantity</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">quantity</span> = <span class="vc">quantity</span></code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">convenience</span> <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="vc">name</span>, <span class="vc">quantity</span>: <span class="m">1</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">oneMysteryItem</span> = <span class="vc">RecipeIngredient</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">oneBacon</span> = <span class="vc">RecipeIngredient</span>(<span class="vc">name</span>: <span class="s">&quot;Bacon&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">sixEggs</span> = <span class="vc">RecipeIngredient</span>(<span class="vc">name</span>: <span class="s">&quot;Eggs&quot;</span>, <span class="vc">quantity</span>: <span class="m">6</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">ShoppingListItem</span>: <span class="n"><!-- a href="" -->RecipeIngredient<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">purchased</span> = <span class="kt">false</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">description</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">var</span> <span class="vc">output</span> = <span class="s">&quot;</span>\(<span class="vc">quantity</span>)<span class="s"> x </span>\(<span class="vc">name</span>)<span class="s">&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="vc">output</span> += <span class="vc">purchased</span> ? <span class="s">&quot; &#x2714;&quot;</span> : <span class="s">&quot; &#x2718;&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">output</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">breakfastList</span> = [</code></li>
+            <li><code class="code-voice">    <span class="vc">ShoppingListItem</span>(),</code></li>
+            <li><code class="code-voice">    <span class="vc">ShoppingListItem</span>(<span class="vc">name</span>: <span class="s">&quot;Bacon&quot;</span>),</code></li>
+            <li><code class="code-voice">    <span class="vc">ShoppingListItem</span>(<span class="vc">name</span>: <span class="s">&quot;Eggs&quot;</span>, <span class="vc">quantity</span>: <span class="m">6</span>),</code></li>
+            <li><code class="code-voice">]</code></li>
+            <li><code class="code-voice"><span class="vc">breakfastList</span>[<span class="m">0</span>].<span class="vc">name</span> = <span class="s">&quot;Orange juice&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">breakfastList</span>[<span class="m">0</span>].<span class="vc">purchased</span> = <span class="kt">true</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">item</span> <span class="kt">in</span> <span class="vc">breakfastList</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">item</span>.<span class="vc">description</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// 1 x Orange juice &#x2714;</span></code></li>
+            <li><code class="code-voice"><span class="c">// 1 x Bacon &#x2718;</span></code></li>
+            <li><code class="code-voice"><span class="c">// 6 x Eggs &#x2718;</span></code></li>
+        </ol>
+      

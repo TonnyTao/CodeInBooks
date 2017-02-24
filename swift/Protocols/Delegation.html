@@ -1,0 +1,80 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">DiceGame</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">dice</span>: <span class="n"><!-- a href="" -->Dice<!-- /a --></span> { <span class="kt">get</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">play</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">DiceGameDelegate</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">gameDidStart</span>(<span class="kt">_</span> <span class="vc">game</span>: <span class="n"><!-- a href="" -->DiceGame<!-- /a --></span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">game</span>(<span class="kt">_</span> <span class="vc">game</span>: <span class="n"><!-- a href="" -->DiceGame<!-- /a --></span>, <span class="vc">didStartNewTurnWithDiceRoll</span> <span class="vc">diceRoll</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">gameDidEnd</span>(<span class="kt">_</span> <span class="vc">game</span>: <span class="n"><!-- a href="" -->DiceGame<!-- /a --></span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SnakesAndLadders</span>: <span class="n"><!-- a href="" -->DiceGame<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">finalSquare</span> = <span class="m">25</span></code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">dice</span> = <span class="vc">Dice</span>(<span class="vc">sides</span>: <span class="m">6</span>, <span class="vc">generator</span>: <span class="vc">LinearCongruentialGenerator</span>())</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">square</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">board</span>: [<span class="n"><!-- a href="" -->Int<!-- /a --></span>]</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">board</span> = <span class="vc">Array</span>(<span class="vc">repeating</span>: <span class="m">0</span>, <span class="vc">count</span>: <span class="vc">finalSquare</span> + <span class="m">1</span>)</code></li>
+            <li><code class="code-voice">        <span class="vc">board</span>[<span class="m">03</span>] = +<span class="m">08</span>; <span class="vc">board</span>[<span class="m">06</span>] = +<span class="m">11</span>; <span class="vc">board</span>[<span class="m">09</span>] = +<span class="m">09</span>; <span class="vc">board</span>[<span class="m">10</span>] = +<span class="m">02</span></code></li>
+            <li><code class="code-voice">        <span class="vc">board</span>[<span class="m">14</span>] = <span class="m">-10</span>; <span class="vc">board</span>[<span class="m">19</span>] = <span class="m">-11</span>; <span class="vc">board</span>[<span class="m">22</span>] = <span class="m">-02</span>; <span class="vc">board</span>[<span class="m">24</span>] = <span class="m">-08</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">delegate</span>: <span class="n"><!-- a href="" -->DiceGameDelegate<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">play</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">square</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">        <span class="vc">delegate</span>?.<span class="vc">gameDidStart</span>(<span class="kt">self</span>)</code></li>
+            <li><code class="code-voice">        <span class="vc">gameLoop</span>: <span class="kt">while</span> <span class="vc">square</span> != <span class="vc">finalSquare</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">let</span> <span class="vc">diceRoll</span> = <span class="vc">dice</span>.<span class="vc">roll</span>()</code></li>
+            <li><code class="code-voice">            <span class="vc">delegate</span>?.<span class="vc">game</span>(<span class="kt">self</span>, <span class="vc">didStartNewTurnWithDiceRoll</span>: <span class="vc">diceRoll</span>)</code></li>
+            <li><code class="code-voice">            <span class="kt">switch</span> <span class="vc">square</span> + <span class="vc">diceRoll</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">case</span> <span class="vc">finalSquare</span>:</code></li>
+            <li><code class="code-voice">                <span class="kt">break</span> <span class="vc">gameLoop</span></code></li>
+            <li><code class="code-voice">            <span class="kt">case</span> <span class="kt">let</span> <span class="vc">newSquare</span> <span class="kt">where</span> <span class="vc">newSquare</span> &gt; <span class="vc">finalSquare</span>:</code></li>
+            <li><code class="code-voice">                <span class="kt">continue</span> <span class="vc">gameLoop</span></code></li>
+            <li><code class="code-voice">            <span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">                <span class="vc">square</span> += <span class="vc">diceRoll</span></code></li>
+            <li><code class="code-voice">                <span class="vc">square</span> += <span class="vc">board</span>[<span class="vc">square</span>]</code></li>
+            <li><code class="code-voice">            }</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="vc">delegate</span>?.<span class="vc">gameDidEnd</span>(<span class="kt">self</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">DiceGameTracker</span>: <span class="n"><!-- a href="" -->DiceGameDelegate<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">numberOfTurns</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">gameDidStart</span>(<span class="kt">_</span> <span class="vc">game</span>: <span class="n"><!-- a href="" -->DiceGame<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">numberOfTurns</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">game</span> <span class="kt">is</span> <span class="n"><!-- a href="" -->SnakesAndLadders<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">print</span>(<span class="s">&quot;Started a new game of Snakes and Ladders&quot;</span>)</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;The game is using a </span>\(<span class="vc">game</span>.<span class="vc">dice</span>.<span class="vc">sides</span>)<span class="s">-sided dice&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">game</span>(<span class="kt">_</span> <span class="vc">game</span>: <span class="n"><!-- a href="" -->DiceGame<!-- /a --></span>, <span class="vc">didStartNewTurnWithDiceRoll</span> <span class="vc">diceRoll</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">numberOfTurns</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;Rolled a </span>\(<span class="vc">diceRoll</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">gameDidEnd</span>(<span class="kt">_</span> <span class="vc">game</span>: <span class="n"><!-- a href="" -->DiceGame<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;The game lasted for </span>\(<span class="vc">numberOfTurns</span>)<span class="s"> turns&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">tracker</span> = <span class="vc">DiceGameTracker</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">game</span> = <span class="vc">SnakesAndLadders</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">game</span>.<span class="vc">delegate</span> = <span class="vc">tracker</span></code></li>
+            <li><code class="code-voice"><span class="vc">game</span>.<span class="vc">play</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// Started a new game of Snakes and Ladders</span></code></li>
+            <li><code class="code-voice"><span class="c">// The game is using a 6-sided dice</span></code></li>
+            <li><code class="code-voice"><span class="c">// Rolled a 3</span></code></li>
+            <li><code class="code-voice"><span class="c">// Rolled a 5</span></code></li>
+            <li><code class="code-voice"><span class="c">// Rolled a 4</span></code></li>
+            <li><code class="code-voice"><span class="c">// Rolled a 5</span></code></li>
+            <li><code class="code-voice"><span class="c">// The game lasted for 4 turns</span></code></li>
+        </ol>
+      

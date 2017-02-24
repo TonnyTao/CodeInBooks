@@ -1,0 +1,43 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">makeIncrementer</span>(<span class="vc">forIncrement</span> <span class="vc">amount</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; () -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">runningTotal</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">incrementer</span>() -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">runningTotal</span> += <span class="vc">amount</span></code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">runningTotal</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">incrementer</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">incrementer</span>() -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">runningTotal</span> += <span class="vc">amount</span></code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">runningTotal</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">incrementByTen</span> = <span class="vc">makeIncrementer</span>(<span class="vc">forIncrement</span>: <span class="m">10</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">incrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 10</span></code></li>
+            <li><code class="code-voice"><span class="vc">incrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 20</span></code></li>
+            <li><code class="code-voice"><span class="vc">incrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 30</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">incrementBySeven</span> = <span class="vc">makeIncrementer</span>(<span class="vc">forIncrement</span>: <span class="m">7</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">incrementBySeven</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 7</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">incrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 40</span></code></li>
+        </ol>
+      

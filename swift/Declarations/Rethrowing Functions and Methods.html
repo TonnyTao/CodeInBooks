@@ -1,0 +1,22 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunction</span>(<span class="vc">callback</span>: () <span class="kt">throws</span> -&gt; <span class="vc">Void</span>) <span class="kt">rethrows</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">try</span> <span class="vc">callback</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">alwaysThrows</span>() <span class="kt">throws</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">throw</span> <span class="vc">SomeError</span>.<span class="vc">error</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunction</span>(<span class="vc">callback</span>: () <span class="kt">throws</span> -&gt; <span class="vc">Void</span>) <span class="kt">rethrows</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">do</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">try</span> <span class="vc">callback</span>()</code></li>
+            <li><code class="code-voice">        <span class="kt">try</span> <span class="vc">alwaysThrows</span>()  <span class="c">// Invalid, alwaysThrows() isn&apos;t a throwing parameter</span></code></li>
+            <li><code class="code-voice">    } <span class="kt">catch</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">throw</span> <span class="vc">AnotherError</span>.<span class="vc">error</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+        </ol>
+      

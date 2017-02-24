@@ -1,0 +1,25 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">greet</span>(<span class="vc">person</span>: [<span class="n"><!-- a href="" -->String<!-- /a --></span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>]) {</code></li>
+            <li><code class="code-voice">    <span class="kt">guard</span> <span class="kt">let</span> <span class="vc">name</span> = <span class="vc">person</span>[<span class="s">&quot;name&quot;</span>] <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Hello </span>\(<span class="vc">name</span>)<span class="s">!&quot;</span>)</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">guard</span> <span class="kt">let</span> <span class="vc">location</span> = <span class="vc">person</span>[<span class="s">&quot;location&quot;</span>] <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;I hope the weather is nice near you.&quot;</span>)</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;I hope the weather is nice in </span>\(<span class="vc">location</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">greet</span>(<span class="vc">person</span>: [<span class="s">&quot;name&quot;</span>: <span class="s">&quot;John&quot;</span>])</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Hello John!&quot;</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;I hope the weather is nice near you.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">greet</span>(<span class="vc">person</span>: [<span class="s">&quot;name&quot;</span>: <span class="s">&quot;Jane&quot;</span>, <span class="s">&quot;location&quot;</span>: <span class="s">&quot;Cupertino&quot;</span>])</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Hello Jane!&quot;</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;I hope the weather is nice in Cupertino.&quot;</span></code></li>
+        </ol>
+      

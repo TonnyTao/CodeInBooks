@@ -1,0 +1,31 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">john</span> = <span class="vc">Person</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">roomCount</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">numberOfRooms</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;John&apos;s residence has </span>\(<span class="vc">roomCount</span>)<span class="s"> room(s).&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to retrieve the number of rooms.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Unable to retrieve the number of rooms.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someAddress</span> = <span class="vc">Address</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">someAddress</span>.<span class="vc">buildingNumber</span> = <span class="s">&quot;29&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">someAddress</span>.<span class="vc">street</span> = <span class="s">&quot;Acacia Road&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span> = <span class="vc">someAddress</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">createAddress</span>() -&gt; <span class="n"><!-- a href="" -->Address<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Function was called.&quot;</span>)</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">someAddress</span> = <span class="vc">Address</span>()</code></li>
+            <li><code class="code-voice">    <span class="vc">someAddress</span>.<span class="vc">buildingNumber</span> = <span class="s">&quot;29&quot;</span></code></li>
+            <li><code class="code-voice">    <span class="vc">someAddress</span>.<span class="vc">street</span> = <span class="s">&quot;Acacia Road&quot;</span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">someAddress</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span> = <span class="vc">createAddress</span>()</code></li>
+        </ol>
+      

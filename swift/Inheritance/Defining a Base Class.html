@@ -1,0 +1,22 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Vehicle</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">currentSpeed</span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">description</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;traveling at </span>\(<span class="vc">currentSpeed</span>)<span class="s"> miles per hour&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">makeNoise</span>() {</code></li>
+            <li><code class="code-voice">        <span class="c">// do nothing - an arbitrary vehicle doesn&apos;t necessarily make a noise</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someVehicle</span> = <span class="vc">Vehicle</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Vehicle: </span>\(<span class="vc">someVehicle</span>.<span class="vc">description</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Vehicle: traveling at 0.0 miles per hour</span></code></li>
+        </ol>
+      

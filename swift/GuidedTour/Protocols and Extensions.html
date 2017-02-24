@@ -1,0 +1,49 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">ExampleProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">simpleDescription</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> { <span class="kt">get</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">adjust</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SimpleClass</span>: <span class="n"><!-- a href="" -->ExampleProtocol<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">simpleDescription</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="s">&quot;A very simple class.&quot;</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">anotherProperty</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> = <span class="m">69105</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">adjust</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">simpleDescription</span> += <span class="s">&quot;  Now 100% adjusted.&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">a</span> = <span class="vc">SimpleClass</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">a</span>.<span class="vc">adjust</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">aDescription</span> = <span class="vc">a</span>.<span class="vc">simpleDescription</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">SimpleStructure</span>: <span class="n"><!-- a href="" -->ExampleProtocol<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">simpleDescription</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="s">&quot;A simple structure&quot;</span></code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">adjust</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">simpleDescription</span> += <span class="s">&quot; (adjusted)&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">b</span> = <span class="vc">SimpleStructure</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">b</span>.<span class="vc">adjust</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">bDescription</span> = <span class="vc">b</span>.<span class="vc">simpleDescription</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>: <span class="n"><!-- a href="" -->ExampleProtocol<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">simpleDescription</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;The number </span>\(<span class="kt">self</span>)<span class="s">&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">adjust</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span> += <span class="m">42</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="m">7</span>.<span class="vc">simpleDescription</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">protocolValue</span>: <span class="n"><!-- a href="" -->ExampleProtocol<!-- /a --></span> = <span class="vc">a</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">protocolValue</span>.<span class="vc">simpleDescription</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// print(protocolValue.anotherProperty)  // Uncomment to see the error</span></code></li>
+        </ol>
+      

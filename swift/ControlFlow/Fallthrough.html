@@ -1,0 +1,15 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">integerToDescribe</span> = <span class="m">5</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">description</span> = <span class="s">&quot;The number </span>\(<span class="vc">integerToDescribe</span>)<span class="s"> is&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">integerToDescribe</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="m">2</span>, <span class="m">3</span>, <span class="m">5</span>, <span class="m">7</span>, <span class="m">11</span>, <span class="m">13</span>, <span class="m">17</span>, <span class="m">19</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">description</span> += <span class="s">&quot; a prime number, and also&quot;</span></code></li>
+            <li><code class="code-voice">    <span class="kt">fallthrough</span></code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">description</span> += <span class="s">&quot; an integer.&quot;</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">description</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The number 5 is a prime number, and also an integer.&quot;</span></code></li>
+        </ol>
+      

@@ -1,0 +1,26 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">greeting</span> = <span class="s">&quot;Guten Tag!&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">greeting</span>[<span class="vc">greeting</span>.<span class="vc">startIndex</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// G</span></code></li>
+            <li><code class="code-voice"><span class="vc">greeting</span>[<span class="vc">greeting</span>.<span class="vc">index</span>(<span class="vc">before</span>: <span class="vc">greeting</span>.<span class="vc">endIndex</span>)]</code></li>
+            <li><code class="code-voice"><span class="c">// !</span></code></li>
+            <li><code class="code-voice"><span class="vc">greeting</span>[<span class="vc">greeting</span>.<span class="vc">index</span>(<span class="vc">after</span>: <span class="vc">greeting</span>.<span class="vc">startIndex</span>)]</code></li>
+            <li><code class="code-voice"><span class="c">// u</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">index</span> = <span class="vc">greeting</span>.<span class="vc">index</span>(<span class="vc">greeting</span>.<span class="vc">startIndex</span>, <span class="vc">offsetBy</span>: <span class="m">7</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">greeting</span>[<span class="vc">index</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// a</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">greeting</span>[<span class="vc">greeting</span>.<span class="vc">endIndex</span>] <span class="c">// Error</span></code></li>
+            <li><code class="code-voice"><span class="vc">greeting</span>.<span class="vc">index</span>(<span class="vc">after</span>: <span class="vc">greeting</span>.<span class="vc">endIndex</span>) <span class="c">// Error</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">index</span> <span class="kt">in</span> <span class="vc">greeting</span>.<span class="vc">characters</span>.<span class="vc">indices</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">greeting</span>[<span class="vc">index</span>])<span class="s"> &quot;</span>, <span class="vc">terminator</span>: <span class="s">&quot;&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;G u t e n   T a g ! &quot;</span></code></li>
+        </ol>
+      

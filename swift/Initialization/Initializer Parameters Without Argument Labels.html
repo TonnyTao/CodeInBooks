@@ -1,0 +1,18 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Celsius</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">temperatureInCelsius</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">fromFahrenheit</span> <span class="vc">fahrenheit</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">temperatureInCelsius</span> = (<span class="vc">fahrenheit</span> - <span class="m">32.0</span>) / <span class="m">1.8</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">fromKelvin</span> <span class="vc">kelvin</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">temperatureInCelsius</span> = <span class="vc">kelvin</span> - <span class="m">273.15</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="kt">_</span> <span class="vc">celsius</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">temperatureInCelsius</span> = <span class="vc">celsius</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">bodyTemperature</span> = <span class="vc">Celsius</span>(<span class="m">37.0</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// bodyTemperature.temperatureInCelsius is 37.0</span></code></li>
+        </ol>
+      

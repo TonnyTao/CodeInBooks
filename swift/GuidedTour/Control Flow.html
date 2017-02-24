@@ -1,0 +1,84 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">individualScores</span> = [<span class="m">75</span>, <span class="m">43</span>, <span class="m">103</span>, <span class="m">87</span>, <span class="m">12</span>]</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">teamScore</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">score</span> <span class="kt">in</span> <span class="vc">individualScores</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="vc">score</span> &gt; <span class="m">50</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">teamScore</span> += <span class="m">3</span></code></li>
+            <li><code class="code-voice">    } <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">teamScore</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">teamScore</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">optionalString</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>? = <span class="s">&quot;Hello&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">optionalString</span> == <span class="kt">nil</span>)</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">optionalName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>? = <span class="s">&quot;John Appleseed&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">greeting</span> = <span class="s">&quot;Hello!&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">name</span> = <span class="vc">optionalName</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">greeting</span> = <span class="s">&quot;Hello, </span>\(<span class="vc">name</span>)<span class="s">&quot;</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">nickName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>? = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">fullName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="s">&quot;John Appleseed&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">informalGreeting</span> = <span class="s">&quot;Hi </span>\(<span class="vc">nickName</span> ?? <span class="vc">fullName</span>)<span class="s">&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">vegetable</span> = <span class="s">&quot;red pepper&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">vegetable</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;celery&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Add some raisins and make ants on a log.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;cucumber&quot;</span>, <span class="s">&quot;watercress&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;That would make a good tea sandwich.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="kt">let</span> <span class="vc">x</span> <span class="kt">where</span> <span class="vc">x</span>.<span class="vc">hasSuffix</span>(<span class="s">&quot;pepper&quot;</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Is it a spicy </span>\(<span class="vc">x</span>)<span class="s">?&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Everything tastes good in soup.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">interestingNumbers</span> = [</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Prime&quot;</span>: [<span class="m">2</span>, <span class="m">3</span>, <span class="m">5</span>, <span class="m">7</span>, <span class="m">11</span>, <span class="m">13</span>],</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Fibonacci&quot;</span>: [<span class="m">1</span>, <span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">5</span>, <span class="m">8</span>],</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Square&quot;</span>: [<span class="m">1</span>, <span class="m">4</span>, <span class="m">9</span>, <span class="m">16</span>, <span class="m">25</span>],</code></li>
+            <li><code class="code-voice">]</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">largest</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> (<span class="vc">kind</span>, <span class="vc">numbers</span>) <span class="kt">in</span> <span class="vc">interestingNumbers</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">for</span> <span class="vc">number</span> <span class="kt">in</span> <span class="vc">numbers</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">number</span> &gt; <span class="vc">largest</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">largest</span> = <span class="vc">number</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">largest</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">n</span> = <span class="m">2</span></code></li>
+            <li><code class="code-voice"><span class="kt">while</span> <span class="vc">n</span> &lt; <span class="m">100</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">n</span> = <span class="vc">n</span> * <span class="m">2</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">n</span>)</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">m</span> = <span class="m">2</span></code></li>
+            <li><code class="code-voice"><span class="kt">repeat</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">m</span> = <span class="vc">m</span> * <span class="m">2</span></code></li>
+            <li><code class="code-voice">} <span class="kt">while</span> <span class="vc">m</span> &lt; <span class="m">100</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">m</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">total</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">i</span> <span class="kt">in</span> <span class="m">0</span>..&lt;<span class="m">4</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">total</span> += <span class="vc">i</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">total</span>)</code></li>
+        </ol>
+      

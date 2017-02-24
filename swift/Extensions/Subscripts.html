@@ -1,0 +1,27 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">subscript</span>(<span class="vc">digitIndex</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">var</span> <span class="vc">decimalBase</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice">        <span class="kt">for</span> <span class="kt">_</span> <span class="kt">in</span> <span class="m">0</span>..&lt;<span class="vc">digitIndex</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">decimalBase</span> *= <span class="m">10</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> (<span class="kt">self</span> / <span class="vc">decimalBase</span>) % <span class="m">10</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="m">746381295</span>[<span class="m">0</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// returns 5</span></code></li>
+            <li><code class="code-voice"><span class="m">746381295</span>[<span class="m">1</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// returns 9</span></code></li>
+            <li><code class="code-voice"><span class="m">746381295</span>[<span class="m">2</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// returns 2</span></code></li>
+            <li><code class="code-voice"><span class="m">746381295</span>[<span class="m">8</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// returns 7</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="m">746381295</span>[<span class="m">9</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// returns 0, as if you had requested:</span></code></li>
+            <li><code class="code-voice"><span class="m">0746381295</span>[<span class="m">9</span>]</code></li>
+        </ol>
+      

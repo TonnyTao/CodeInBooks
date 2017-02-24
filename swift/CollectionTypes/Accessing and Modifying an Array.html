@@ -1,0 +1,67 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The shopping list contains </span>\(<span class="vc">shoppingList</span>.<span class="vc">count</span>)<span class="s"> items.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The shopping list contains 2 items.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">shoppingList</span>.<span class="vc">isEmpty</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The shopping list is empty.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The shopping list is not empty.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The shopping list is not empty.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">shoppingList</span>.<span class="vc">append</span>(<span class="s">&quot;Flour&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// shoppingList now contains 3 items, and someone is making pancakes</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">shoppingList</span> += [<span class="s">&quot;Baking Powder&quot;</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// shoppingList now contains 4 items</span></code></li>
+            <li><code class="code-voice"><span class="vc">shoppingList</span> += [<span class="s">&quot;Chocolate Spread&quot;</span>, <span class="s">&quot;Cheese&quot;</span>, <span class="s">&quot;Butter&quot;</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// shoppingList now contains 7 items</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">firstItem</span> = <span class="vc">shoppingList</span>[<span class="m">0</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// firstItem is equal to &quot;Eggs&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">shoppingList</span>[<span class="m">0</span>] = <span class="s">&quot;Six eggs&quot;</span></code></li>
+            <li><code class="code-voice"><span class="c">// the first item in the list is now equal to &quot;Six eggs&quot; rather than &quot;Eggs&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">shoppingList</span>[<span class="m">4</span>...<span class="m">6</span>] = [<span class="s">&quot;Bananas&quot;</span>, <span class="s">&quot;Apples&quot;</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// shoppingList now contains 6 items</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">shoppingList</span>.<span class="vc">insert</span>(<span class="s">&quot;Maple Syrup&quot;</span>, <span class="vc">at</span>: <span class="m">0</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// shoppingList now contains 7 items</span></code></li>
+            <li><code class="code-voice"><span class="c">// &quot;Maple Syrup&quot; is now the first item in the list</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">mapleSyrup</span> = <span class="vc">shoppingList</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// the item that was at index 0 has just been removed</span></code></li>
+            <li><code class="code-voice"><span class="c">// shoppingList now contains 6 items, and no Maple Syrup</span></code></li>
+            <li><code class="code-voice"><span class="c">// the mapleSyrup constant is now equal to the removed &quot;Maple Syrup&quot; string</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">firstItem</span> = <span class="vc">shoppingList</span>[<span class="m">0</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// firstItem is now equal to &quot;Six eggs&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">apples</span> = <span class="vc">shoppingList</span>.<span class="vc">removeLast</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// the last item in the array has just been removed</span></code></li>
+            <li><code class="code-voice"><span class="c">// shoppingList now contains 5 items, and no apples</span></code></li>
+            <li><code class="code-voice"><span class="c">// the apples constant is now equal to the removed &quot;Apples&quot; string</span></code></li>
+        </ol>
+      

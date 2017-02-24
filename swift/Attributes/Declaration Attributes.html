@@ -1,0 +1,41 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// First release</span></code></li>
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">MyProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// protocol definition</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// Subsequent release renames MyProtocol</span></code></li>
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">MyRenamedProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// protocol definition</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">@available</span>(*, <span class="vc">unavailable</span>, <span class="vc">renamed</span>: <span class="s">&quot;MyRenamedProtocol&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">typealias</span> <span class="vc">MyProtocol</span> = <span class="n"><!-- a href="" -->MyRenamedProtocol<!-- /a --></span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">@available</span>(<span class="kt">iOS</span> <span class="m">10.0</span>, <span class="vc">macOS</span> <span class="m">10.12</span>, *)</code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">MyClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// class definition</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">@objc</span></code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">ExampleClass</span>: <span class="n"><!-- a href="" -->NSObject<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">enabled</span>: <span class="n"><!-- a href="" -->Bool<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">@objc</span>(<span class="vc">isEnabled</span>) <span class="kt">get</span> {</code></li>
+            <li><code class="code-voice">            <span class="c">// Return the appropriate value</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">import</span> <span class="vc">AppKit</span></code></li>
+            <li><code class="code-voice"><span class="vc">NSApplicationMain</span>(<span class="vc">CommandLine</span>.<span class="vc">argc</span>, <span class="vc">CommandLine</span>.<span class="vc">unsafeArgv</span>)</code></li>
+        </ol>
+      

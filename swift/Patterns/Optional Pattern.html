@@ -1,0 +1,25 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someOptional</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>? = <span class="m">42</span></code></li>
+            <li><code class="code-voice"><span class="c">// Match using an enumeration case pattern.</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">case</span> .<span class="vc">some</span>(<span class="vc">let</span> <span class="vc">x</span>) = <span class="vc">someOptional</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">x</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// Match using an optional pattern.</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">case</span> <span class="kt">let</span> <span class="vc">x</span>? = <span class="vc">someOptional</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">x</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">arrayOfOptionalInts</span>: [<span class="n"><!-- a href="" -->Int<!-- /a --></span>?] = [<span class="kt">nil</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="kt">nil</span>, <span class="m">5</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// Match only non-nil values.</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="kt">case</span> <span class="kt">let</span> <span class="vc">number</span>? <span class="kt">in</span> <span class="vc">arrayOfOptionalInts</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Found a </span>\(<span class="vc">number</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Found a 2</span></code></li>
+            <li><code class="code-voice"><span class="c">// Found a 3</span></code></li>
+            <li><code class="code-voice"><span class="c">// Found a 5</span></code></li>
+        </ol>
+      

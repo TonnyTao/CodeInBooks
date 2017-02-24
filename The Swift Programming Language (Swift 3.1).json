@@ -34,4 +34,77 @@
         "Range Operators",
         "Half-Open Range Operator"
     ]
+}, {
+    "title": "Strings and Characters",
+    "details": [
+        "Initializing an Empty String",
+        "String Mutability",
+        "Working with Characters",
+        "Concatenating Strings and Characters",
+        "Special Characters in String Literals",
+        "Counting Characters",
+        "Accessing and Modifying a String",
+        "Inserting and Removing",
+        "Comparing Strings",
+        "Prefix and Suffix Equality",
+        "UTF-8 16 Scalar Representation"
+    ]
+}, {
+    "title": "Collection Types",
+    "details": [
+        "Creating an Empty Array",
+        "Creating an Array with a Default Value",
+        "Creating an Array by Adding Two Arrays Together",
+        "Creating an Array with an Array Literal",
+        "Accessing and Modifying an Array",
+        "Iterating Over an Array",
+        "Set Type Syntax",
+        "Creating a Set with an Array Literal",
+        "Accessing and Modifying a Set",
+        "Iterating Over a Set",
+        "Fundamental Set Operations",
+        "Set Membership and Equality",
+        "Creating an Empty Dictionary",
+        "Creating a Dictionary with a Dictionary Literal",
+        "Accessing and Modifying a Dictionary",
+        "Iterating Over a Dictionary"
+    ]
+}, {
+    "title": "Control Flow",
+    "details": [
+        "For-In Loops",
+        "While Loops",
+        "Repeat-While",
+        "Switch",
+        "Tuples",
+        "Value Bindings",
+        "Where",
+        "Compound Cases",
+        "Continue",
+        "Break",
+        "Fallthrough",
+        "Labeled Statements",
+        "Early Exit",
+        "Checking API Availability"
+    ]
+}, {
+    "title": "Functions",
+    "details": [
+        "Functions Without Parameters",
+        "Functions With Multiple Parameters",
+        "Functions Without Return Values",
+        "Functions with Multiple Return Values",
+        "Optional Tuple Return Types",
+        "Function Argument Labels and Parameter Names",
+        "Specifying Argument Labels",
+        "Omitting Argument Labels",
+        "Default Parameter Values",
+        "Variadic Parameters",
+        "In-Out Parameters",
+        "Function Types",
+        "Using Function Types",
+        "Function Types as Parameter Types",
+        "Function Types as Return Types",
+        "Nested Functions"
+    ]
 }]

@@ -1,0 +1,42 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">romeoAndJuliet</span> = [</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 1 Scene 1: Verona, A public place&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 1 Scene 2: Capulet&apos;s mansion&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 1 Scene 3: A room in Capulet&apos;s mansion&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 1 Scene 4: A street outside Capulet&apos;s mansion&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 1 Scene 5: The Great Hall in Capulet&apos;s mansion&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 2 Scene 1: Outside Capulet&apos;s mansion&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 2 Scene 2: Capulet&apos;s orchard&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 2 Scene 3: Outside Friar Lawrence&apos;s cell&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 2 Scene 4: A street in Verona&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 2 Scene 5: Capulet&apos;s mansion&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Act 2 Scene 6: Friar Lawrence&apos;s cell&quot;</span></code></li>
+            <li><code class="code-voice">]</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">act1SceneCount</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">scene</span> <span class="kt">in</span> <span class="vc">romeoAndJuliet</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="vc">scene</span>.<span class="vc">hasPrefix</span>(<span class="s">&quot;Act 1 &quot;</span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">act1SceneCount</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;There are </span>\(<span class="vc">act1SceneCount</span>)<span class="s"> scenes in Act 1&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;There are 5 scenes in Act 1&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">mansionCount</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">cellCount</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">scene</span> <span class="kt">in</span> <span class="vc">romeoAndJuliet</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="vc">scene</span>.<span class="vc">hasSuffix</span>(<span class="s">&quot;Capulet&apos;s mansion&quot;</span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">mansionCount</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">    } <span class="kt">else</span> <span class="kt">if</span> <span class="vc">scene</span>.<span class="vc">hasSuffix</span>(<span class="s">&quot;Friar Lawrence&apos;s cell&quot;</span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">cellCount</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">mansionCount</span>)<span class="s"> mansion scenes; </span>\(<span class="vc">cellCount</span>)<span class="s"> cell scenes&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;6 mansion scenes; 2 cell scenes&quot;</span></code></li>
+        </ol>
+      

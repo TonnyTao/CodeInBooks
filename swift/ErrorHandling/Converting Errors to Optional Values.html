@@ -1,0 +1,24 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someThrowingFunction</span>() <span class="kt">throws</span> -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// ...</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">x</span> = <span class="kt">try</span>? <span class="vc">someThrowingFunction</span>()</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">y</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>?</code></li>
+            <li><code class="code-voice"><span class="kt">do</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">y</span> = <span class="kt">try</span> <span class="vc">someThrowingFunction</span>()</code></li>
+            <li><code class="code-voice">} <span class="kt">catch</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">y</span> = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">fetchData</span>() -&gt; <span class="n"><!-- a href="" -->Data<!-- /a --></span>? {</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="kt">let</span> <span class="vc">data</span> = <span class="kt">try</span>? <span class="vc">fetchDataFromDisk</span>() { <span class="kt">return</span> <span class="vc">data</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="kt">let</span> <span class="vc">data</span> = <span class="kt">try</span>? <span class="vc">fetchDataFromServer</span>() { <span class="kt">return</span> <span class="vc">data</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

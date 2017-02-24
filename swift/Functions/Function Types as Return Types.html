@@ -1,0 +1,36 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">stepForward</span>(<span class="kt">_</span> <span class="vc">input</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">input</span> + <span class="m">1</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">stepBackward</span>(<span class="kt">_</span> <span class="vc">input</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">input</span> - <span class="m">1</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">chooseStepFunction</span>(<span class="vc">backward</span>: <span class="n"><!-- a href="" -->Bool<!-- /a --></span>) -&gt; (<span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">backward</span> ? <span class="vc">stepBackward</span> : <span class="vc">stepForward</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">currentValue</span> = <span class="m">3</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">moveNearerToZero</span> = <span class="vc">chooseStepFunction</span>(<span class="vc">backward</span>: <span class="vc">currentValue</span> &gt; <span class="m">0</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// moveNearerToZero now refers to the stepBackward() function</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Counting to zero:&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Counting to zero:</span></code></li>
+            <li><code class="code-voice"><span class="kt">while</span> <span class="vc">currentValue</span> != <span class="m">0</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">currentValue</span>)<span class="s">... &quot;</span>)</code></li>
+            <li><code class="code-voice">    <span class="vc">currentValue</span> = <span class="vc">moveNearerToZero</span>(<span class="vc">currentValue</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;zero!&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// 3...</span></code></li>
+            <li><code class="code-voice"><span class="c">// 2...</span></code></li>
+            <li><code class="code-voice"><span class="c">// 1...</span></code></li>
+            <li><code class="code-voice"><span class="c">// zero!</span></code></li>
+        </ol>
+      

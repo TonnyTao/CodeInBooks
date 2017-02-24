@@ -1,0 +1,18 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">AutomaticCar</span>: <span class="n"><!-- a href="" -->Car<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">var</span> <span class="vc">currentSpeed</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">didSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">gear</span> = <span class="vc">Int</span>(<span class="vc">currentSpeed</span> / <span class="m">10.0</span>) + <span class="m">1</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">automatic</span> = <span class="vc">AutomaticCar</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">automatic</span>.<span class="vc">currentSpeed</span> = <span class="m">35.0</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;AutomaticCar: </span>\(<span class="vc">automatic</span>.<span class="vc">description</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// AutomaticCar: traveling at 35.0 miles per hour in gear 4</span></code></li>
+        </ol>
+      

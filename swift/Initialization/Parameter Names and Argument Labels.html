@@ -1,0 +1,27 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Color</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">red</span>, <span class="vc">green</span>, <span class="vc">blue</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">red</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>, <span class="vc">green</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>, <span class="vc">blue</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">red</span>   = <span class="vc">red</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">green</span> = <span class="vc">green</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">blue</span>  = <span class="vc">blue</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">white</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">red</span>   = <span class="vc">white</span></code></li>
+            <li><code class="code-voice">        <span class="vc">green</span> = <span class="vc">white</span></code></li>
+            <li><code class="code-voice">        <span class="vc">blue</span>  = <span class="vc">white</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">magenta</span> = <span class="vc">Color</span>(<span class="vc">red</span>: <span class="m">1.0</span>, <span class="vc">green</span>: <span class="m">0.0</span>, <span class="vc">blue</span>: <span class="m">1.0</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">halfGray</span> = <span class="vc">Color</span>(<span class="vc">white</span>: <span class="m">0.5</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">veryGreen</span> = <span class="vc">Color</span>(<span class="m">0.0</span>, <span class="m">1.0</span>, <span class="m">0.0</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// this reports a compile-time error - argument labels are required</span></code></li>
+        </ol>
+      

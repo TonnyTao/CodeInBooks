@@ -1,0 +1,34 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">quotation</span> = <span class="s">&quot;We&apos;re a lot alike, you and I.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">sameQuotation</span> = <span class="s">&quot;We&apos;re a lot alike, you and I.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">quotation</span> == <span class="vc">sameQuotation</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;These two strings are considered equal&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;These two strings are considered equal&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// &quot;Voulez-vous un caf&#xE9;?&quot; using LATIN SMALL LETTER E WITH ACUTE</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">eAcuteQuestion</span> = <span class="s">&quot;Voulez-vous un caf\u{E9}?&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// &quot;Voulez-vous un cafe&#x301;?&quot; using LATIN SMALL LETTER E and COMBINING ACUTE ACCENT</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">combinedEAcuteQuestion</span> = <span class="s">&quot;Voulez-vous un caf\u{65}\u{301}?&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">eAcuteQuestion</span> == <span class="vc">combinedEAcuteQuestion</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;These two strings are considered equal&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;These two strings are considered equal&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">latinCapitalLetterA</span>: <span class="n"><!-- a href="" -->Character<!-- /a --></span> = <span class="s">&quot;\u{41}&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">cyrillicCapitalLetterA</span>: <span class="n"><!-- a href="" -->Character<!-- /a --></span> = <span class="s">&quot;\u{0410}&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">latinCapitalLetterA</span> != <span class="vc">cyrillicCapitalLetterA</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;These two characters are not equivalent.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;These two characters are not equivalent.&quot;</span></code></li>
+        </ol>
+      

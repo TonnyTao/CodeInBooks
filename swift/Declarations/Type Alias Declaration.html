@@ -1,0 +1,24 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">typealias</span> <span class="vc">StringDictionary</span>&lt;<span class="vc">Value</span>&gt; = <span class="n"><!-- a href="" -->Dictionary<!-- /a --></span>&lt;<span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="n"><!-- a href="" -->Value<!-- /a --></span>&gt;</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// The following dictionaries have the same type.</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">dictionary1</span>: <span class="n"><!-- a href="" -->StringDictionary<!-- /a --></span>&lt;<span class="n"><!-- a href="" -->Int<!-- /a --></span>&gt; = [:]</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">dictionary2</span>: <span class="n"><!-- a href="" -->Dictionary<!-- /a --></span>&lt;<span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="n"><!-- a href="" -->Int<!-- /a --></span>&gt; = [:]</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">typealias</span> <span class="vc">DictionaryOfInts</span>&lt;<span class="vc">Key</span>: <span class="vc">Hashable</span>&gt; = <span class="n"><!-- a href="" -->Dictionary<!-- /a --></span>&lt;<span class="n"><!-- a href="" -->Key<!-- /a --></span>, <span class="n"><!-- a href="" -->Int<!-- /a --></span>&gt;</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">Sequence</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">associatedtype</span> <span class="vc">Iterator</span>: <span class="vc">IteratorProtocol</span></code></li>
+            <li><code class="code-voice">    <span class="kt">typealias</span> <span class="vc">Element</span> = <span class="n"><!-- a href="" -->Iterator<!-- /a --></span>.<span class="n"><!-- a href="" -->Element<!-- /a --></span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">sum</span>&lt;<span class="vc">T</span>: <span class="n"><!-- a href="" -->Sequence<!-- /a --></span>&gt;(<span class="kt">_</span> <span class="vc">sequence</span>: <span class="vc">T</span>) -&gt; <span class="vc">Int</span> <span class="kt">where</span> <span class="n"><!-- a href="" -->T<!-- /a --></span>.<span class="n"><!-- a href="" -->Element<!-- /a --></span> == <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// ...</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

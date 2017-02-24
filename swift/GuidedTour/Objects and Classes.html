@@ -1,0 +1,112 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Shape</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">numberOfSides</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">simpleDescription</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;A shape with </span>\(<span class="vc">numberOfSides</span>)<span class="s"> sides.&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">shape</span> = <span class="vc">Shape</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">shape</span>.<span class="vc">numberOfSides</span> = <span class="m">7</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">shapeDescription</span> = <span class="vc">shape</span>.<span class="vc">simpleDescription</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">NamedShape</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">numberOfSides</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">simpleDescription</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;A shape with </span>\(<span class="vc">numberOfSides</span>)<span class="s"> sides.&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Square</span>: <span class="n"><!-- a href="" -->NamedShape<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">sideLength</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">sideLength</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>, <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">sideLength</span> = <span class="vc">sideLength</span></code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">        <span class="vc">numberOfSides</span> = <span class="m">4</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">area</span>() -&gt;  <span class="n"><!-- a href="" -->Double<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">sideLength</span> * <span class="vc">sideLength</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">func</span> <span class="vc">simpleDescription</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;A square with sides of length </span>\(<span class="vc">sideLength</span>)<span class="s">.&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">test</span> = <span class="vc">Square</span>(<span class="vc">sideLength</span>: <span class="m">5.2</span>, <span class="vc">name</span>: <span class="s">&quot;my test square&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">test</span>.<span class="vc">area</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">test</span>.<span class="vc">simpleDescription</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">EquilateralTriangle</span>: <span class="n"><!-- a href="" -->NamedShape<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">sideLength</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">sideLength</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>, <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">sideLength</span> = <span class="vc">sideLength</span></code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">        <span class="vc">numberOfSides</span> = <span class="m">3</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">perimeter</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">get</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="m">3.0</span> * <span class="vc">sideLength</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">set</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">sideLength</span> = <span class="vc">newValue</span> / <span class="m">3.0</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">func</span> <span class="vc">simpleDescription</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;An equilateral triangle with sides of length </span>\(<span class="vc">sideLength</span>)<span class="s">.&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">triangle</span> = <span class="vc">EquilateralTriangle</span>(<span class="vc">sideLength</span>: <span class="m">3.1</span>, <span class="vc">name</span>: <span class="s">&quot;a triangle&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">triangle</span>.<span class="vc">perimeter</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">triangle</span>.<span class="vc">perimeter</span> = <span class="m">9.9</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">triangle</span>.<span class="vc">sideLength</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">TriangleAndSquare</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">triangle</span>: <span class="n"><!-- a href="" -->EquilateralTriangle<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">willSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">square</span>.<span class="vc">sideLength</span> = <span class="vc">newValue</span>.<span class="vc">sideLength</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">square</span>: <span class="n"><!-- a href="" -->Square<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">willSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">triangle</span>.<span class="vc">sideLength</span> = <span class="vc">newValue</span>.<span class="vc">sideLength</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">size</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>, <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">square</span> = <span class="vc">Square</span>(<span class="vc">sideLength</span>: <span class="vc">size</span>, <span class="vc">name</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">        <span class="vc">triangle</span> = <span class="vc">EquilateralTriangle</span>(<span class="vc">sideLength</span>: <span class="vc">size</span>, <span class="vc">name</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">triangleAndSquare</span> = <span class="vc">TriangleAndSquare</span>(<span class="vc">size</span>: <span class="m">10</span>, <span class="vc">name</span>: <span class="s">&quot;another test shape&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">triangleAndSquare</span>.<span class="vc">square</span>.<span class="vc">sideLength</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">triangleAndSquare</span>.<span class="vc">triangle</span>.<span class="vc">sideLength</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">triangleAndSquare</span>.<span class="vc">square</span> = <span class="vc">Square</span>(<span class="vc">sideLength</span>: <span class="m">50</span>, <span class="vc">name</span>: <span class="s">&quot;larger square&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">triangleAndSquare</span>.<span class="vc">triangle</span>.<span class="vc">sideLength</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">optionalSquare</span>: <span class="n"><!-- a href="" -->Square<!-- /a --></span>? = <span class="vc">Square</span>(<span class="vc">sideLength</span>: <span class="m">2.5</span>, <span class="vc">name</span>: <span class="s">&quot;optional square&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">sideLength</span> = <span class="vc">optionalSquare</span>?.<span class="vc">sideLength</span></code></li>
+        </ol>
+      

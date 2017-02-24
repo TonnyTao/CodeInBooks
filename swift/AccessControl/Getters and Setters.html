@@ -1,0 +1,33 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">TrackedString</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">private(set)</span> <span class="kt">var</span> <span class="vc">numberOfEdits</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">value</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="s">&quot;&quot;</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">didSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">numberOfEdits</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">stringToEdit</span> = <span class="vc">TrackedString</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">stringToEdit</span>.<span class="vc">value</span> = <span class="s">&quot;This string will be tracked.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">stringToEdit</span>.<span class="vc">value</span> += <span class="s">&quot; This edit will increment numberOfEdits.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">stringToEdit</span>.<span class="vc">value</span> += <span class="s">&quot; So will this one.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The number of edits is </span>\(<span class="vc">stringToEdit</span>.<span class="vc">numberOfEdits</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The number of edits is 3&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">struct</span> <span class="vc">TrackedString</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">public</span> <span class="kt">private(set)</span> <span class="kt">var</span> <span class="vc">numberOfEdits</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">public</span> <span class="kt">var</span> <span class="vc">value</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="s">&quot;&quot;</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">didSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">numberOfEdits</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">public</span> <span class="kt">init</span>() {}</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

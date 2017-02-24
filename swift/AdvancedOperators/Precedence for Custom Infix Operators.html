@@ -1,0 +1,14 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">infix</span> <span class="kt">operator</span> +-: <span class="vc">AdditionPrecedence</span></code></li>
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">func</span> +- (<span class="vc">left</span>: <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span>, <span class="vc">right</span>: <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="vc">left</span>.<span class="vc">x</span> + <span class="vc">right</span>.<span class="vc">x</span>, <span class="vc">y</span>: <span class="vc">left</span>.<span class="vc">y</span> - <span class="vc">right</span>.<span class="vc">y</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">firstVector</span> = <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="m">1.0</span>, <span class="vc">y</span>: <span class="m">2.0</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">secondVector</span> = <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="m">3.0</span>, <span class="vc">y</span>: <span class="m">4.0</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">plusMinusVector</span> = <span class="vc">firstVector</span> +- <span class="vc">secondVector</span></code></li>
+            <li><code class="code-voice"><span class="c">// plusMinusVector is a Vector2D instance with values of (4.0, -2.0)</span></code></li>
+        </ol>
+      

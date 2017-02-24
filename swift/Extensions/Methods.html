@@ -1,0 +1,20 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">repetitions</span>(<span class="vc">task</span>: () -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">for</span> <span class="kt">_</span> <span class="kt">in</span> <span class="m">0</span>..&lt;<span class="kt">self</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">task</span>()</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="m">3</span>.<span class="vc">repetitions</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Hello!&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Hello!</span></code></li>
+            <li><code class="code-voice"><span class="c">// Hello!</span></code></li>
+            <li><code class="code-voice"><span class="c">// Hello!</span></code></li>
+        </ol>
+      

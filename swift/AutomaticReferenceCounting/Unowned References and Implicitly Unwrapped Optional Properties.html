@@ -1,0 +1,27 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Country</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">capitalCity</span>: <span class="n"><!-- a href="" -->City<!-- /a --></span>!</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">capitalName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">capitalCity</span> = <span class="vc">City</span>(<span class="vc">name</span>: <span class="vc">capitalName</span>, <span class="vc">country</span>: <span class="kt">self</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">City</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">unowned</span> <span class="kt">let</span> <span class="vc">country</span>: <span class="n"><!-- a href="" -->Country<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">country</span>: <span class="n"><!-- a href="" -->Country<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">country</span> = <span class="vc">country</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">country</span> = <span class="vc">Country</span>(<span class="vc">name</span>: <span class="s">&quot;Canada&quot;</span>, <span class="vc">capitalName</span>: <span class="s">&quot;Ottawa&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">country</span>.<span class="vc">name</span>)<span class="s">&apos;s capital city is called </span>\(<span class="vc">country</span>.<span class="vc">capitalCity</span>.<span class="vc">name</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Canada&apos;s capital city is called Ottawa&quot;</span></code></li>
+        </ol>
+      

@@ -1,0 +1,42 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeBaseClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">class</span> <span class="kt">func</span> <span class="vc">printClassName</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;SomeBaseClass&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeSubClass</span>: <span class="n"><!-- a href="" -->SomeBaseClass<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">class</span> <span class="kt">func</span> <span class="vc">printClassName</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;SomeSubClass&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someInstance</span>: <span class="n"><!-- a href="" -->SomeBaseClass<!-- /a --></span> = <span class="vc">SomeSubClass</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// The compile-time type of someInstance is SomeBaseClass,</span></code></li>
+            <li><code class="code-voice"><span class="c">// and the runtime type of someInstance is SomeSubClass</span></code></li>
+            <li><code class="code-voice"><span class="vc">type</span>(<span class="vc">of</span>: <span class="vc">someInstance</span>).<span class="vc">printClassName</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;SomeSubClass&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">type</span>(<span class="vc">of</span>: <span class="vc">someInstance</span>) === <span class="vc">someInstance</span>.<span class="kt">self</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The dynamic and static type of someInstance are the same&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The dynamic and static type of someInstance are different&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The dynamic and static type of someInstance are different&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">AnotherSubClass</span>: <span class="n"><!-- a href="" -->SomeBaseClass<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">string</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">required</span> <span class="kt">init</span>(<span class="vc">string</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">string</span> = <span class="vc">string</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">class</span> <span class="kt">func</span> <span class="vc">printClassName</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;AnotherSubClass&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">metatype</span>: <span class="n"><!-- a href="" -->AnotherSubClass<!-- /a --></span>.<span class="vc">Type</span> = <span class="vc">AnotherSubClass</span>.<span class="kt">self</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">anotherInstance</span> = <span class="vc">metatype</span>.<span class="kt">init</span>(<span class="vc">string</span>: <span class="s">&quot;some string&quot;</span>)</code></li>
+        </ol>
+      

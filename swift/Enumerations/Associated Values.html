@@ -1,0 +1,36 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">Barcode</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">upc</span>(<span class="vc">Int</span>, <span class="vc">Int</span>, <span class="vc">Int</span>, <span class="vc">Int</span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">qrCode</span>(<span class="vc">String</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">productBarcode</span> = <span class="vc">Barcode</span>.<span class="vc">upc</span>(<span class="m">8</span>, <span class="m">85909</span>, <span class="m">51226</span>, <span class="m">3</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">productBarcode</span> = .<span class="vc">qrCode</span>(<span class="s">&quot;ABCDEFGHIJKLMNOP&quot;</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">productBarcode</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> .<span class="vc">upc</span>(<span class="vc">let</span> <span class="vc">numberSystem</span>, <span class="vc">let</span> <span class="vc">manufacturer</span>, <span class="vc">let</span> <span class="vc">product</span>, <span class="vc">let</span> <span class="vc">check</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;UPC: </span>\(<span class="vc">numberSystem</span>)<span class="s">, </span>\(<span class="vc">manufacturer</span>)<span class="s">, </span>\(<span class="vc">product</span>)<span class="s">, </span>\(<span class="vc">check</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> .<span class="vc">qrCode</span>(<span class="vc">let</span> <span class="vc">productCode</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;QR code: </span>\(<span class="vc">productCode</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;QR code: ABCDEFGHIJKLMNOP.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">productBarcode</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="kt">let</span> .<span class="vc">upc</span>(<span class="vc">numberSystem</span>, <span class="vc">manufacturer</span>, <span class="vc">product</span>, <span class="vc">check</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;UPC : </span>\(<span class="vc">numberSystem</span>)<span class="s">, </span>\(<span class="vc">manufacturer</span>)<span class="s">, </span>\(<span class="vc">product</span>)<span class="s">, </span>\(<span class="vc">check</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="kt">let</span> .<span class="vc">qrCode</span>(<span class="vc">productCode</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;QR code: </span>\(<span class="vc">productCode</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;QR code: ABCDEFGHIJKLMNOP.&quot;</span></code></li>
+        </ol>
+      

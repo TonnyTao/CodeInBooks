@@ -1,0 +1,37 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Customer</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">card</span>: <span class="n"><!-- a href="" -->CreditCard<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">deinit</span> { <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">name</span>)<span class="s"> is being deinitialized&quot;</span>) }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">CreditCard</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">number</span>: <span class="n"><!-- a href="" -->UInt64<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">unowned</span> <span class="kt">let</span> <span class="vc">customer</span>: <span class="n"><!-- a href="" -->Customer<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">number</span>: <span class="n"><!-- a href="" -->UInt64<!-- /a --></span>, <span class="vc">customer</span>: <span class="n"><!-- a href="" -->Customer<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">number</span> = <span class="vc">number</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">customer</span> = <span class="vc">customer</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">deinit</span> { <span class="vc">print</span>(<span class="s">&quot;Card #</span>\(<span class="vc">number</span>)<span class="s"> is being deinitialized&quot;</span>) }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">john</span>: <span class="n"><!-- a href="" -->Customer<!-- /a --></span>?</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">john</span> = <span class="vc">Customer</span>(<span class="vc">name</span>: <span class="s">&quot;John Appleseed&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">john</span>!.<span class="vc">card</span> = <span class="vc">CreditCard</span>(<span class="vc">number</span>: <span class="m">1234_5678_9012_3456</span>, <span class="vc">customer</span>: <span class="vc">john</span>!)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">john</span> = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;John Appleseed is being deinitialized&quot;</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Card #1234567890123456 is being deinitialized&quot;</span></code></li>
+        </ol>
+      

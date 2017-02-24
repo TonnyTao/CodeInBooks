@@ -1,0 +1,44 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">SomeProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">mustBeSettable</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> { <span class="kt">get</span> <span class="kt">set</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">doesNotNeedToBeSettable</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> { <span class="kt">get</span> }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">AnotherProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">var</span> <span class="vc">someTypeProperty</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> { <span class="kt">get</span> <span class="kt">set</span> }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">FullyNamed</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">fullName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> { <span class="kt">get</span> }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Person</span>: <span class="n"><!-- a href="" -->FullyNamed<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">fullName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">john</span> = <span class="vc">Person</span>(<span class="vc">fullName</span>: <span class="s">&quot;John Appleseed&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// john.fullName is &quot;John Appleseed&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Starship</span>: <span class="n"><!-- a href="" -->FullyNamed<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">prefix</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">prefix</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>? = <span class="kt">nil</span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">prefix</span> = <span class="vc">prefix</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">fullName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> (<span class="vc">prefix</span> != <span class="kt">nil</span> ? <span class="vc">prefix</span>! + <span class="s">&quot; &quot;</span> : <span class="s">&quot;&quot;</span>) + <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">ncc1701</span> = <span class="vc">Starship</span>(<span class="vc">name</span>: <span class="s">&quot;Enterprise&quot;</span>, <span class="vc">prefix</span>: <span class="s">&quot;USS&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// ncc1701.fullName is &quot;USS Enterprise&quot;</span></code></li>
+        </ol>
+      

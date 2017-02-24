@@ -1,0 +1,16 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">f</span>(<span class="kt">_</span> <span class="vc">any</span>: <span class="kt">Any</span>) { <span class="vc">print</span>(<span class="s">&quot;Function for Any&quot;</span>) }</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">f</span>(<span class="kt">_</span> <span class="vc">int</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) { <span class="vc">print</span>(<span class="s">&quot;Function for Int&quot;</span>) }</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">x</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice"><span class="vc">f</span>(<span class="vc">x</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Function for Int&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">y</span>: <span class="kt">Any</span> = <span class="vc">x</span></code></li>
+            <li><code class="code-voice"><span class="vc">f</span>(<span class="vc">y</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Function for Any&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">f</span>(<span class="vc">x</span> <span class="kt">as</span> <span class="kt">Any</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Function for Any&quot;</span></code></li>
+        </ol>
+      

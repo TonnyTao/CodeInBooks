@@ -1,0 +1,24 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">numberSymbol</span>: <span class="n"><!-- a href="" -->Character<!-- /a --></span> = <span class="s">&quot;&#x4E09;&quot;</span>  <span class="c">// Chinese symbol for the number 3</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">possibleIntegerValue</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>?</code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">numberSymbol</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;1&quot;</span>, <span class="s">&quot;&#x661;&quot;</span>, <span class="s">&quot;&#x4E00;&quot;</span>, <span class="s">&quot;&#xE51;&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">possibleIntegerValue</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;2&quot;</span>, <span class="s">&quot;&#x662;&quot;</span>, <span class="s">&quot;&#x4E8C;&quot;</span>, <span class="s">&quot;&#xE52;&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">possibleIntegerValue</span> = <span class="m">2</span></code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;3&quot;</span>, <span class="s">&quot;&#x663;&quot;</span>, <span class="s">&quot;&#x4E09;&quot;</span>, <span class="s">&quot;&#xE53;&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">possibleIntegerValue</span> = <span class="m">3</span></code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;4&quot;</span>, <span class="s">&quot;&#x664;&quot;</span>, <span class="s">&quot;&#x56DB;&quot;</span>, <span class="s">&quot;&#xE54;&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">possibleIntegerValue</span> = <span class="m">4</span></code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="kt">break</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">integerValue</span> = <span class="vc">possibleIntegerValue</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The integer value of </span>\(<span class="vc">numberSymbol</span>)<span class="s"> is </span>\(<span class="vc">integerValue</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;An integer value could not be found for </span>\(<span class="vc">numberSymbol</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The integer value of &#x4E09; is 3.&quot;</span></code></li>
+        </ol>
+      

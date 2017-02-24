@@ -1,0 +1,24 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>(<span class="vc">by</span>: &gt;)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Vector2D</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">x</span> = <span class="m">0.0</span>, <span class="vc">y</span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">func</span> + (<span class="vc">left</span>: <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span>, <span class="vc">right</span>: <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="vc">left</span>.<span class="vc">x</span> + <span class="vc">right</span>.<span class="vc">x</span>, <span class="vc">y</span>: <span class="vc">left</span>.<span class="vc">y</span> + <span class="vc">right</span>.<span class="vc">y</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">vector</span> = <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="m">3.0</span>, <span class="vc">y</span>: <span class="m">1.0</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">anotherVector</span> = <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="m">2.0</span>, <span class="vc">y</span>: <span class="m">4.0</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">combinedVector</span> = <span class="vc">vector</span> + <span class="vc">anotherVector</span></code></li>
+            <li><code class="code-voice"><span class="c">// combinedVector is a Vector2D instance with values of (5.0, 5.0)</span></code></li>
+        </ol>
+      

@@ -1,0 +1,26 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">swapTwoValues</span>&lt;<span class="vc">T</span>&gt;(<span class="kt">_</span> <span class="vc">a</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->T<!-- /a --></span>, <span class="kt">_</span> <span class="vc">b</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->T<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">temporaryA</span> = <span class="vc">a</span></code></li>
+            <li><code class="code-voice">    <span class="vc">a</span> = <span class="vc">b</span></code></li>
+            <li><code class="code-voice">    <span class="vc">b</span> = <span class="vc">temporaryA</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">swapTwoInts</span>(<span class="kt">_</span> <span class="vc">a</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="kt">_</span> <span class="vc">b</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>)</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">swapTwoValues</span>&lt;<span class="vc">T</span>&gt;(<span class="kt">_</span> <span class="vc">a</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->T<!-- /a --></span>, <span class="kt">_</span> <span class="vc">b</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->T<!-- /a --></span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">someInt</span> = <span class="m">3</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">anotherInt</span> = <span class="m">107</span></code></li>
+            <li><code class="code-voice"><span class="vc">swapTwoValues</span>(&amp;<span class="vc">someInt</span>, &amp;<span class="vc">anotherInt</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// someInt is now 107, and anotherInt is now 3</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">someString</span> = <span class="s">&quot;hello&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">anotherString</span> = <span class="s">&quot;world&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">swapTwoValues</span>(&amp;<span class="vc">someString</span>, &amp;<span class="vc">anotherString</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// someString is now &quot;world&quot;, and anotherString is now &quot;hello&quot;</span></code></li>
+        </ol>
+      

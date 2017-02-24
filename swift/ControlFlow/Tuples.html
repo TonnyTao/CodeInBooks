@@ -1,0 +1,55 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">http404Error</span> = (<span class="m">404</span>, <span class="s">&quot;Not Found&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// http404Error is of type (Int, String), and equals (404, &quot;Not Found&quot;)</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> (<span class="vc">statusCode</span>, <span class="vc">statusMessage</span>) = <span class="vc">http404Error</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The status code is </span>\(<span class="vc">statusCode</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The status code is 404&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The status message is </span>\(<span class="vc">statusMessage</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The status message is Not Found&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> (<span class="vc">justTheStatusCode</span>, <span class="kt">_</span>) = <span class="vc">http404Error</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The status code is </span>\(<span class="vc">justTheStatusCode</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The status code is 404&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The status code is </span>\(<span class="vc">http404Error</span>.<span class="m">0</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The status code is 404&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The status message is </span>\(<span class="vc">http404Error</span>.<span class="m">1</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The status message is Not Found&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">http200Status</span> = (<span class="vc">statusCode</span>: <span class="m">200</span>, <span class="vc">description</span>: <span class="s">&quot;OK&quot;</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The status code is </span>\(<span class="vc">http200Status</span>.<span class="vc">statusCode</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The status code is 200&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The status message is </span>\(<span class="vc">http200Status</span>.<span class="vc">description</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The status message is OK&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">somePoint</span> = (<span class="m">1</span>, <span class="m">1</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">somePoint</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> (<span class="m">0</span>, <span class="m">0</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;(0, 0) is at the origin&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> (<span class="kt">_</span>, <span class="m">0</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;(</span>\(<span class="vc">somePoint</span>.<span class="m">0</span>)<span class="s">, 0) is on the x-axis&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> (<span class="m">0</span>, <span class="kt">_</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;(0, </span>\(<span class="vc">somePoint</span>.<span class="m">1</span>)<span class="s">) is on the y-axis&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> (<span class="m">-2</span>...<span class="m">2</span>, <span class="m">-2</span>...<span class="m">2</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;(</span>\(<span class="vc">somePoint</span>.<span class="m">0</span>)<span class="s">, </span>\(<span class="vc">somePoint</span>.<span class="m">1</span>)<span class="s">) is inside the box&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;(</span>\(<span class="vc">somePoint</span>.<span class="m">0</span>)<span class="s">, </span>\(<span class="vc">somePoint</span>.<span class="m">1</span>)<span class="s">) is outside of the box&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;(1, 1) is inside the box&quot;</span></code></li>
+        </ol>
+      

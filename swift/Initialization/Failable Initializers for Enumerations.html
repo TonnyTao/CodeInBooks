@@ -1,0 +1,33 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">TemperatureUnit</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">kelvin</span>, <span class="vc">celsius</span>, <span class="vc">fahrenheit</span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>?(<span class="vc">symbol</span>: <span class="n"><!-- a href="" -->Character<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">switch</span> <span class="vc">symbol</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> <span class="s">&quot;K&quot;</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">self</span> = .<span class="vc">kelvin</span></code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> <span class="s">&quot;C&quot;</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">self</span> = .<span class="vc">celsius</span></code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> <span class="s">&quot;F&quot;</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">self</span> = .<span class="vc">fahrenheit</span></code></li>
+            <li><code class="code-voice">        <span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">fahrenheitUnit</span> = <span class="vc">TemperatureUnit</span>(<span class="vc">symbol</span>: <span class="s">&quot;F&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">fahrenheitUnit</span> != <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;This is a defined temperature unit, so initialization succeeded.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;This is a defined temperature unit, so initialization succeeded.&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">unknownUnit</span> = <span class="vc">TemperatureUnit</span>(<span class="vc">symbol</span>: <span class="s">&quot;X&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">unknownUnit</span> == <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;This is not a defined temperature unit, so initialization failed.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;This is not a defined temperature unit, so initialization failed.&quot;</span></code></li>
+        </ol>
+      

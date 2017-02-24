@@ -1,0 +1,26 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeSubClass</span>: <span class="n"><!-- a href="" -->SomeSuperClass<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">init</span>() {</code></li>
+            <li><code class="code-voice">        <span class="c">// subclass initialization goes here</span></code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>()</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// Type annotation is required because String has multiple initializers.</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">initializer</span>: (<span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="vc">String</span>.<span class="kt">init</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">oneTwoThree</span> = [<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>].<span class="vc">map</span>(<span class="vc">initializer</span>).<span class="vc">reduce</span>(<span class="s">&quot;&quot;</span>, +)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">oneTwoThree</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;123&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">s1</span> = <span class="vc">SomeType</span>.<span class="kt">init</span>(<span class="vc">data</span>: <span class="m">3</span>)  <span class="c">// Valid</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">s2</span> = <span class="vc">SomeType</span>(<span class="vc">data</span>: <span class="m">1</span>)       <span class="c">// Also valid</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">s3</span> = <span class="vc">type</span>(<span class="vc">of</span>: <span class="vc">someValue</span>).<span class="kt">init</span>(<span class="vc">data</span>: <span class="m">7</span>)  <span class="c">// Valid</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">s4</span> = <span class="vc">type</span>(<span class="vc">of</span>: <span class="vc">someValue</span>)(<span class="vc">data</span>: <span class="m">5</span>)       <span class="c">// Error</span></code></li>
+        </ol>
+      

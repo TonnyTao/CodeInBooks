@@ -1,0 +1,17 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunction</span>(<span class="vc">left</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">right</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">anotherFunction</span>(<span class="vc">left</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">right</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">functionWithDifferentLabels</span>(<span class="vc">top</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">bottom</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">f</span> = <span class="vc">someFunction</span> <span class="c">// The type of f is (Int, Int) -&gt; Void, not (left: Int, right: Int) -&gt; Void.</span></code></li>
+            <li><code class="code-voice"><span class="vc">f</span> = <span class="vc">anotherFunction</span>              <span class="c">// OK</span></code></li>
+            <li><code class="code-voice"><span class="vc">f</span> = <span class="vc">functionWithDifferentLabels</span>  <span class="c">// OK</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">functionWithDifferentArgumentTypes</span>(<span class="vc">left</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">right</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">functionWithDifferentNumberOfArguments</span>(<span class="vc">left</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">right</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">top</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">f</span> = <span class="vc">functionWithDifferentArgumentTypes</span>     <span class="c">// Error</span></code></li>
+            <li><code class="code-voice"><span class="vc">f</span> = <span class="vc">functionWithDifferentNumberOfArguments</span> <span class="c">// Error</span></code></li>
+        </ol>
+      

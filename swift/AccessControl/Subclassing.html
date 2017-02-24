@@ -1,0 +1,61 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeSubclass</span>: <span class="n"><!-- a href="" -->SomeSuperclass<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// subclass definition goes here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Bicycle</span>: <span class="n"><!-- a href="" -->Vehicle<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">hasBasket</span> = <span class="kt">false</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">bicycle</span> = <span class="vc">Bicycle</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">bicycle</span>.<span class="vc">hasBasket</span> = <span class="kt">true</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">bicycle</span>.<span class="vc">currentSpeed</span> = <span class="m">15.0</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Bicycle: </span>\(<span class="vc">bicycle</span>.<span class="vc">description</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Bicycle: traveling at 15.0 miles per hour</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Tandem</span>: <span class="n"><!-- a href="" -->Bicycle<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">currentNumberOfPassengers</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">tandem</span> = <span class="vc">Tandem</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">tandem</span>.<span class="vc">hasBasket</span> = <span class="kt">true</span></code></li>
+            <li><code class="code-voice"><span class="vc">tandem</span>.<span class="vc">currentNumberOfPassengers</span> = <span class="m">2</span></code></li>
+            <li><code class="code-voice"><span class="vc">tandem</span>.<span class="vc">currentSpeed</span> = <span class="m">22.0</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Tandem: </span>\(<span class="vc">tandem</span>.<span class="vc">description</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Tandem: traveling at 22.0 miles per hour</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">class</span> <span class="vc">A</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">fileprivate</span> <span class="kt">func</span> <span class="vc">someMethod</span>() {}</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">internal</span> <span class="kt">class</span> <span class="vc">B</span>: <span class="n"><!-- a href="" -->A<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">internal</span> <span class="kt">func</span> <span class="vc">someMethod</span>() {}</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">class</span> <span class="vc">A</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">fileprivate</span> <span class="kt">func</span> <span class="vc">someMethod</span>() {}</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">internal</span> <span class="kt">class</span> <span class="vc">B</span>: <span class="n"><!-- a href="" -->A<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">internal</span> <span class="kt">func</span> <span class="vc">someMethod</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="vc">someMethod</span>()</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

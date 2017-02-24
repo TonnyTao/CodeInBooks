@@ -1,0 +1,28 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeClass</span>: <span class="n"><!-- a href="" -->SomeProtocol<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">required</span> <span class="kt">init</span>(<span class="vc">someParameter</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="c">// initializer implementation goes here</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">SomeProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeSuperClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>() {</code></li>
+            <li><code class="code-voice">        <span class="c">// initializer implementation goes here</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeSubClass</span>: <span class="n"><!-- a href="" -->SomeSuperClass<!-- /a --></span>, <span class="n"><!-- a href="" -->SomeProtocol<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// &quot;required&quot; from SomeProtocol conformance; &quot;override&quot; from SomeSuperClass</span></code></li>
+            <li><code class="code-voice">    <span class="kt">required</span> <span class="kt">override</span> <span class="kt">init</span>() {</code></li>
+            <li><code class="code-voice">        <span class="c">// initializer implementation goes here</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

@@ -1,0 +1,31 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">for</span> (<span class="vc">airportCode</span>, <span class="vc">airportName</span>) <span class="kt">in</span> <span class="vc">airports</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">airportCode</span>)<span class="s">: </span>\(<span class="vc">airportName</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// YYZ: Toronto Pearson</span></code></li>
+            <li><code class="code-voice"><span class="c">// LHR: London Heathrow</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">airportCode</span> <span class="kt">in</span> <span class="vc">airports</span>.<span class="vc">keys</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Airport code: </span>\(<span class="vc">airportCode</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Airport code: YYZ</span></code></li>
+            <li><code class="code-voice"><span class="c">// Airport code: LHR</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">airportName</span> <span class="kt">in</span> <span class="vc">airports</span>.<span class="vc">values</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Airport name: </span>\(<span class="vc">airportName</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Airport name: Toronto Pearson</span></code></li>
+            <li><code class="code-voice"><span class="c">// Airport name: London Heathrow</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">airportCodes</span> = [<span class="vc">String</span>](<span class="vc">airports</span>.<span class="vc">keys</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// airportCodes is [&quot;YYZ&quot;, &quot;LHR&quot;]</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">airportNames</span> = [<span class="vc">String</span>](<span class="vc">airports</span>.<span class="vc">values</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// airportNames is [&quot;Toronto Pearson&quot;, &quot;London Heathrow&quot;]</span></code></li>
+        </ol>
+      

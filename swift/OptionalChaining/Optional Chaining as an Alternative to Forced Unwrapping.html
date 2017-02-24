@@ -1,0 +1,42 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Person</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">residence</span>: <span class="n"><!-- a href="" -->Residence<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Residence</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">numberOfRooms</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">john</span> = <span class="vc">Person</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">roomCount</span> = <span class="vc">john</span>.<span class="vc">residence</span>!.<span class="vc">numberOfRooms</span></code></li>
+            <li><code class="code-voice"><span class="c">// this triggers a runtime error</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">roomCount</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">numberOfRooms</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;John&apos;s residence has </span>\(<span class="vc">roomCount</span>)<span class="s"> room(s).&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to retrieve the number of rooms.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Unable to retrieve the number of rooms.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span> = <span class="vc">Residence</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">roomCount</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">numberOfRooms</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;John&apos;s residence has </span>\(<span class="vc">roomCount</span>)<span class="s"> room(s).&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to retrieve the number of rooms.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;John&apos;s residence has 1 room(s).&quot;</span></code></li>
+        </ol>
+      

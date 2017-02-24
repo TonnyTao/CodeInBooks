@@ -1,0 +1,19 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">prefix</span> <span class="kt">operator</span> +++</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">prefix</span> <span class="kt">func</span> +++ (<span class="vc">vector</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Vector2D<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">vector</span> += <span class="vc">vector</span></code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">vector</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">toBeDoubled</span> = <span class="vc">Vector2D</span>(<span class="vc">x</span>: <span class="m">1.0</span>, <span class="vc">y</span>: <span class="m">4.0</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">afterDoubling</span> = +++<span class="vc">toBeDoubled</span></code></li>
+            <li><code class="code-voice"><span class="c">// toBeDoubled now has values of (2.0, 8.0)</span></code></li>
+            <li><code class="code-voice"><span class="c">// afterDoubling also has values of (2.0, 8.0)</span></code></li>
+        </ol>
+      

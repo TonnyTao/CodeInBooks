@@ -1,0 +1,38 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">InheritingProtocol</span>: <span class="n"><!-- a href="" -->SomeProtocol<!-- /a --></span>, <span class="n"><!-- a href="" -->AnotherProtocol<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// protocol definition goes here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">PrettyTextRepresentable</span>: <span class="n"><!-- a href="" -->TextRepresentable<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">prettyTextualDescription</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> { <span class="kt">get</span> }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->SnakesAndLadders<!-- /a --></span>: <span class="n"><!-- a href="" -->PrettyTextRepresentable<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">prettyTextualDescription</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">var</span> <span class="vc">output</span> = <span class="vc">textualDescription</span> + <span class="s">&quot;:\n&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">for</span> <span class="vc">index</span> <span class="kt">in</span> <span class="m">1</span>...<span class="vc">finalSquare</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">switch</span> <span class="vc">board</span>[<span class="vc">index</span>] {</code></li>
+            <li><code class="code-voice">            <span class="kt">case</span> <span class="kt">let</span> <span class="vc">ladder</span> <span class="kt">where</span> <span class="vc">ladder</span> &gt; <span class="m">0</span>:</code></li>
+            <li><code class="code-voice">                <span class="vc">output</span> += <span class="s">&quot;&#x25B2; &quot;</span></code></li>
+            <li><code class="code-voice">            <span class="kt">case</span> <span class="kt">let</span> <span class="vc">snake</span> <span class="kt">where</span> <span class="vc">snake</span> &lt; <span class="m">0</span>:</code></li>
+            <li><code class="code-voice">                <span class="vc">output</span> += <span class="s">&quot;&#x25BC; &quot;</span></code></li>
+            <li><code class="code-voice">            <span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">                <span class="vc">output</span> += <span class="s">&quot;&#x25CB; &quot;</span></code></li>
+            <li><code class="code-voice">            }</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">output</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">game</span>.<span class="vc">prettyTextualDescription</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// A game of Snakes and Ladders with 25 squares:</span></code></li>
+            <li><code class="code-voice"><span class="c">// &#x25CB; &#x25CB; &#x25B2; &#x25CB; &#x25CB; &#x25B2; &#x25CB; &#x25CB; &#x25B2; &#x25B2; &#x25CB; &#x25CB; &#x25CB; &#x25BC; &#x25CB; &#x25CB; &#x25CB; &#x25CB; &#x25BC; &#x25CB; &#x25CB; &#x25BC; &#x25CB; &#x25BC; &#x25CB;</span></code></li>
+        </ol>
+      

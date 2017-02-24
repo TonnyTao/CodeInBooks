@@ -1,0 +1,45 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Product</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>?(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">name</span>.<span class="vc">isEmpty</span> { <span class="kt">return</span> <span class="kt">nil</span> }</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">CartItem</span>: <span class="n"><!-- a href="" -->Product<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">quantity</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>?(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">quantity</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">quantity</span> &lt; <span class="m">1</span> { <span class="kt">return</span> <span class="kt">nil</span> }</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">quantity</span> = <span class="vc">quantity</span></code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">twoSocks</span> = <span class="vc">CartItem</span>(<span class="vc">name</span>: <span class="s">&quot;sock&quot;</span>, <span class="vc">quantity</span>: <span class="m">2</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Item: </span>\(<span class="vc">twoSocks</span>.<span class="vc">name</span>)<span class="s">, quantity: </span>\(<span class="vc">twoSocks</span>.<span class="vc">quantity</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Item: sock, quantity: 2&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">zeroShirts</span> = <span class="vc">CartItem</span>(<span class="vc">name</span>: <span class="s">&quot;shirt&quot;</span>, <span class="vc">quantity</span>: <span class="m">0</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Item: </span>\(<span class="vc">zeroShirts</span>.<span class="vc">name</span>)<span class="s">, quantity: </span>\(<span class="vc">zeroShirts</span>.<span class="vc">quantity</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to initialize zero shirts&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Unable to initialize zero shirts&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">oneUnnamed</span> = <span class="vc">CartItem</span>(<span class="vc">name</span>: <span class="s">&quot;&quot;</span>, <span class="vc">quantity</span>: <span class="m">1</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Item: </span>\(<span class="vc">oneUnnamed</span>.<span class="vc">name</span>)<span class="s">, quantity: </span>\(<span class="vc">oneUnnamed</span>.<span class="vc">quantity</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to initialize one unnamed product&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Unable to initialize one unnamed product&quot;</span></code></li>
+        </ol>
+      

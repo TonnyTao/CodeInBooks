@@ -1,0 +1,52 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Person</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">residence</span>: <span class="n"><!-- a href="" -->Residence<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Residence</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">rooms</span> = [<span class="vc">Room</span>]()</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">numberOfRooms</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">rooms</span>.<span class="vc">count</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">subscript</span>(<span class="vc">i</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Room<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">get</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">rooms</span>[<span class="vc">i</span>]</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">set</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">rooms</span>[<span class="vc">i</span>] = <span class="vc">newValue</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">printNumberOfRooms</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;The number of rooms is </span>\(<span class="vc">numberOfRooms</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">address</span>: <span class="n"><!-- a href="" -->Address<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Room</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) { <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span> }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Address</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">buildingName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">buildingNumber</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">street</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">buildingIdentifier</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>? {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">buildingNumber</span> != <span class="kt">nil</span> &amp;&amp; <span class="vc">street</span> != <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;</span>\(<span class="vc">buildingNumber</span>)<span class="s"> </span>\(<span class="vc">street</span>)<span class="s">&quot;</span></code></li>
+            <li><code class="code-voice">        } <span class="kt">else</span> <span class="kt">if</span> <span class="vc">buildingName</span> != <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">buildingName</span></code></li>
+            <li><code class="code-voice">        } <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

@@ -1,0 +1,21 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Point</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">x</span> = <span class="m">0.0</span>, <span class="vc">y</span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">moveBy</span>(<span class="vc">x</span> <span class="vc">deltaX</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>, <span class="vc">y</span> <span class="vc">deltaY</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">x</span> += <span class="vc">deltaX</span></code></li>
+            <li><code class="code-voice">        <span class="vc">y</span> += <span class="vc">deltaY</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">somePoint</span> = <span class="vc">Point</span>(<span class="vc">x</span>: <span class="m">1.0</span>, <span class="vc">y</span>: <span class="m">1.0</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">somePoint</span>.<span class="vc">moveBy</span>(<span class="vc">x</span>: <span class="m">2.0</span>, <span class="vc">y</span>: <span class="m">3.0</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The point is now at (</span>\(<span class="vc">somePoint</span>.<span class="vc">x</span>)<span class="s">, </span>\(<span class="vc">somePoint</span>.<span class="vc">y</span>)<span class="s">)&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The point is now at (3.0, 4.0)&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">fixedPoint</span> = <span class="vc">Point</span>(<span class="vc">x</span>: <span class="m">3.0</span>, <span class="vc">y</span>: <span class="m">3.0</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">fixedPoint</span>.<span class="vc">moveBy</span>(<span class="vc">x</span>: <span class="m">2.0</span>, <span class="vc">y</span>: <span class="m">3.0</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// this will report an error</span></code></li>
+        </ol>
+      

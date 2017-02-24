@@ -1,0 +1,52 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">customersInLine</span> = [<span class="s">&quot;Chris&quot;</span>, <span class="s">&quot;Alex&quot;</span>, <span class="s">&quot;Ewa&quot;</span>, <span class="s">&quot;Barry&quot;</span>, <span class="s">&quot;Daniella&quot;</span>]</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">customersInLine</span>.<span class="vc">count</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;5&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">customerProvider</span> = { <span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>) }</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">customersInLine</span>.<span class="vc">count</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;5&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Now serving </span>\(<span class="vc">customerProvider</span>())<span class="s">!&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Now serving Chris!&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">customersInLine</span>.<span class="vc">count</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;4&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// customersInLine is [&quot;Alex&quot;, &quot;Ewa&quot;, &quot;Barry&quot;, &quot;Daniella&quot;]</span></code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">serve</span>(<span class="vc">customer</span> <span class="vc">customerProvider</span>: () -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Now serving </span>\(<span class="vc">customerProvider</span>())<span class="s">!&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">serve</span>(<span class="vc">customer</span>: { <span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>) } )</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Now serving Alex!&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// customersInLine is [&quot;Ewa&quot;, &quot;Barry&quot;, &quot;Daniella&quot;]</span></code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">serve</span>(<span class="vc">customer</span> <span class="vc">customerProvider</span>: @<span class="kt">autoclosure</span> () -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Now serving </span>\(<span class="vc">customerProvider</span>())<span class="s">!&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">serve</span>(<span class="vc">customer</span>: <span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>))</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Now serving Ewa!&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// customersInLine is [&quot;Barry&quot;, &quot;Daniella&quot;]</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">customerProviders</span>: [() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>] = []</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">collectCustomerProviders</span>(<span class="kt">_</span> <span class="vc">customerProvider</span>: @<span class="kt">autoclosure</span> @<span class="kt">escaping</span> () -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">customerProviders</span>.<span class="vc">append</span>(<span class="vc">customerProvider</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">collectCustomerProviders</span>(<span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>))</code></li>
+            <li><code class="code-voice"><span class="vc">collectCustomerProviders</span>(<span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>))</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Collected </span>\(<span class="vc">customerProviders</span>.<span class="vc">count</span>)<span class="s"> closures.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Collected 2 closures.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">customerProvider</span> <span class="kt">in</span> <span class="vc">customerProviders</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Now serving </span>\(<span class="vc">customerProvider</span>())<span class="s">!&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Now serving Barry!&quot;</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Now serving Daniella!&quot;</span></code></li>
+        </ol>
+      

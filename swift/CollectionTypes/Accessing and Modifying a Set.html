@@ -1,0 +1,38 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;I have </span>\(<span class="vc">favoriteGenres</span>.<span class="vc">count</span>)<span class="s"> favorite music genres.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;I have 3 favorite music genres.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">favoriteGenres</span>.<span class="vc">isEmpty</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;As far as music goes, I&apos;m not picky.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;I have particular music preferences.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;I have particular music preferences.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">favoriteGenres</span>.<span class="vc">insert</span>(<span class="s">&quot;Jazz&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// favoriteGenres now contains 4 items</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">removedGenre</span> = <span class="vc">favoriteGenres</span>.<span class="vc">remove</span>(<span class="s">&quot;Rock&quot;</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">removedGenre</span>)<span class="s">? I&apos;m over it.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;I never much cared for that.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Rock? I&apos;m over it.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">favoriteGenres</span>.<span class="vc">contains</span>(<span class="s">&quot;Funk&quot;</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;I get up on the good foot.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;It&apos;s too funky in here.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;It&apos;s too funky in here.&quot;</span></code></li>
+        </ol>
+      

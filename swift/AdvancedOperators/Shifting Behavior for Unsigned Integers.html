@@ -1,0 +1,17 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">shiftBits</span>: <span class="n"><!-- a href="" -->UInt8<!-- /a --></span> = <span class="m">4</span>   <span class="c">// 00000100 in binary</span></code></li>
+            <li><code class="code-voice"><span class="vc">shiftBits</span> &lt;&lt; <span class="m">1</span>             <span class="c">// 00001000</span></code></li>
+            <li><code class="code-voice"><span class="vc">shiftBits</span> &lt;&lt; <span class="m">2</span>             <span class="c">// 00010000</span></code></li>
+            <li><code class="code-voice"><span class="vc">shiftBits</span> &lt;&lt; <span class="m">5</span>             <span class="c">// 10000000</span></code></li>
+            <li><code class="code-voice"><span class="vc">shiftBits</span> &lt;&lt; <span class="m">6</span>             <span class="c">// 00000000</span></code></li>
+            <li><code class="code-voice"><span class="vc">shiftBits</span> &gt;&gt; <span class="m">2</span>             <span class="c">// 00000001</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">pink</span>: <span class="n"><!-- a href="" -->UInt32<!-- /a --></span> = <span class="m">0xCC6699</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">redComponent</span> = (<span class="vc">pink</span> &amp; <span class="m">0xFF0000</span>) &gt;&gt; <span class="m">16</span>    <span class="c">// redComponent is 0xCC, or 204</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">greenComponent</span> = (<span class="vc">pink</span> &amp; <span class="m">0x00FF00</span>) &gt;&gt; <span class="m">8</span>   <span class="c">// greenComponent is 0x66, or 102</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">blueComponent</span> = <span class="vc">pink</span> &amp; <span class="m">0x0000FF</span>           <span class="c">// blueComponent is 0x99, or 153</span></code></li>
+        </ol>
+      

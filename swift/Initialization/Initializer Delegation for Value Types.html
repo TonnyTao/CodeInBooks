@@ -1,0 +1,44 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Size</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">width</span> = <span class="m">0.0</span>, <span class="vc">height</span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Point</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">x</span> = <span class="m">0.0</span>, <span class="vc">y</span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Rect</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">origin</span> = <span class="vc">Point</span>()</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">size</span> = <span class="vc">Size</span>()</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>() {}</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">origin</span>: <span class="n"><!-- a href="" -->Point<!-- /a --></span>, <span class="vc">size</span>: <span class="n"><!-- a href="" -->Size<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">origin</span> = <span class="vc">origin</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">size</span> = <span class="vc">size</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">center</span>: <span class="n"><!-- a href="" -->Point<!-- /a --></span>, <span class="vc">size</span>: <span class="n"><!-- a href="" -->Size<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">let</span> <span class="vc">originX</span> = <span class="vc">center</span>.<span class="vc">x</span> - (<span class="vc">size</span>.<span class="vc">width</span> / <span class="m">2</span>)</code></li>
+            <li><code class="code-voice">        <span class="kt">let</span> <span class="vc">originY</span> = <span class="vc">center</span>.<span class="vc">y</span> - (<span class="vc">size</span>.<span class="vc">height</span> / <span class="m">2</span>)</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="kt">init</span>(<span class="vc">origin</span>: <span class="vc">Point</span>(<span class="vc">x</span>: <span class="vc">originX</span>, <span class="vc">y</span>: <span class="vc">originY</span>), <span class="vc">size</span>: <span class="vc">size</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">basicRect</span> = <span class="vc">Rect</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// basicRect&apos;s origin is (0.0, 0.0) and its size is (0.0, 0.0)</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">originRect</span> = <span class="vc">Rect</span>(<span class="vc">origin</span>: <span class="vc">Point</span>(<span class="vc">x</span>: <span class="m">2.0</span>, <span class="vc">y</span>: <span class="m">2.0</span>),</code></li>
+            <li><code class="code-voice">                      <span class="vc">size</span>: <span class="vc">Size</span>(<span class="vc">width</span>: <span class="m">5.0</span>, <span class="vc">height</span>: <span class="m">5.0</span>))</code></li>
+            <li><code class="code-voice"><span class="c">// originRect&apos;s origin is (2.0, 2.0) and its size is (5.0, 5.0)</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">centerRect</span> = <span class="vc">Rect</span>(<span class="vc">center</span>: <span class="vc">Point</span>(<span class="vc">x</span>: <span class="m">4.0</span>, <span class="vc">y</span>: <span class="m">4.0</span>),</code></li>
+            <li><code class="code-voice">                      <span class="vc">size</span>: <span class="vc">Size</span>(<span class="vc">width</span>: <span class="m">3.0</span>, <span class="vc">height</span>: <span class="m">3.0</span>))</code></li>
+            <li><code class="code-voice"><span class="c">// centerRect&apos;s origin is (2.5, 2.5) and its size is (3.0, 3.0)</span></code></li>
+        </ol>
+      

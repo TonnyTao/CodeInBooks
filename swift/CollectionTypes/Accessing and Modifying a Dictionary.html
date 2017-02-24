@@ -1,0 +1,57 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;The airports dictionary contains </span>\(<span class="vc">airports</span>.<span class="vc">count</span>)<span class="s"> items.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The airports dictionary contains 2 items.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">airports</span>.<span class="vc">isEmpty</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The airports dictionary is empty.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The airports dictionary is not empty.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The airports dictionary is not empty.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">airports</span>[<span class="s">&quot;LHR&quot;</span>] = <span class="s">&quot;London&quot;</span></code></li>
+            <li><code class="code-voice"><span class="c">// the airports dictionary now contains 3 items</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">airports</span>[<span class="s">&quot;LHR&quot;</span>] = <span class="s">&quot;London Heathrow&quot;</span></code></li>
+            <li><code class="code-voice"><span class="c">// the value for &quot;LHR&quot; has been changed to &quot;London Heathrow&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">oldValue</span> = <span class="vc">airports</span>.<span class="vc">updateValue</span>(<span class="s">&quot;Dublin Airport&quot;</span>, <span class="vc">forKey</span>: <span class="s">&quot;DUB&quot;</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The old value for DUB was </span>\(<span class="vc">oldValue</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The old value for DUB was Dublin.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">airportName</span> = <span class="vc">airports</span>[<span class="s">&quot;DUB&quot;</span>] {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The name of the airport is </span>\(<span class="vc">airportName</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;That airport is not in the airports dictionary.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The name of the airport is Dublin Airport.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">airports</span>[<span class="s">&quot;APL&quot;</span>] = <span class="s">&quot;Apple International&quot;</span></code></li>
+            <li><code class="code-voice"><span class="c">// &quot;Apple International&quot; is not the real airport for APL, so delete it</span></code></li>
+            <li><code class="code-voice"><span class="vc">airports</span>[<span class="s">&quot;APL&quot;</span>] = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice"><span class="c">// APL has now been removed from the dictionary</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">removedValue</span> = <span class="vc">airports</span>.<span class="vc">removeValue</span>(<span class="vc">forKey</span>: <span class="s">&quot;DUB&quot;</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The removed airport&apos;s name is </span>\(<span class="vc">removedValue</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The airports dictionary does not contain a value for DUB.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The removed airport&apos;s name is Dublin Airport.&quot;</span></code></li>
+        </ol>
+      

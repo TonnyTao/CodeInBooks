@@ -1,0 +1,26 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">StepCounter</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">totalSteps</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> = <span class="m">0</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">willSet</span>(<span class="vc">newTotalSteps</span>) {</code></li>
+            <li><code class="code-voice">            <span class="vc">print</span>(<span class="s">&quot;About to set totalSteps to </span>\(<span class="vc">newTotalSteps</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">didSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">if</span> <span class="vc">totalSteps</span> &gt; <span class="vc">oldValue</span>  {</code></li>
+            <li><code class="code-voice">                <span class="vc">print</span>(<span class="s">&quot;Added </span>\(<span class="vc">totalSteps</span> - <span class="vc">oldValue</span>)<span class="s"> steps&quot;</span>)</code></li>
+            <li><code class="code-voice">            }</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">stepCounter</span> = <span class="vc">StepCounter</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">stepCounter</span>.<span class="vc">totalSteps</span> = <span class="m">200</span></code></li>
+            <li><code class="code-voice"><span class="c">// About to set totalSteps to 200</span></code></li>
+            <li><code class="code-voice"><span class="c">// Added 200 steps</span></code></li>
+            <li><code class="code-voice"><span class="vc">stepCounter</span>.<span class="vc">totalSteps</span> = <span class="m">360</span></code></li>
+            <li><code class="code-voice"><span class="c">// About to set totalSteps to 360</span></code></li>
+            <li><code class="code-voice"><span class="c">// Added 160 steps</span></code></li>
+            <li><code class="code-voice"><span class="vc">stepCounter</span>.<span class="vc">totalSteps</span> = <span class="m">896</span></code></li>
+            <li><code class="code-voice"><span class="c">// About to set totalSteps to 896</span></code></li>
+            <li><code class="code-voice"><span class="c">// Added 536 steps</span></code></li>
+        </ol>
+      

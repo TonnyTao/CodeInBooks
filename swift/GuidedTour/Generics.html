@@ -1,0 +1,37 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">makeArray</span>&lt;<span class="vc">Item</span>&gt;(<span class="vc">repeating</span> <span class="vc">item</span>: <span class="n"><!-- a href="" -->Item<!-- /a --></span>, <span class="vc">numberOfTimes</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; [<span class="n"><!-- a href="" -->Item<!-- /a --></span>] {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">result</span> = [<span class="n"><!-- a href="" -->Item<!-- /a --></span>]()</code></li>
+            <li><code class="code-voice">    <span class="kt">for</span> <span class="kt">_</span> <span class="kt">in</span> <span class="m">0</span>..&lt;<span class="vc">numberOfTimes</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">result</span>.<span class="vc">append</span>(<span class="vc">item</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">result</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">makeArray</span>(<span class="vc">repeating</span>: <span class="s">&quot;knock&quot;</span>, <span class="vc">numberOfTimes</span>:<span class="m">4</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// Reimplement the Swift standard library&apos;s optional type</span></code></li>
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">OptionalValue</span>&lt;<span class="vc">Wrapped</span>&gt; {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">none</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">some</span>(<span class="vc">Wrapped</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">possibleInteger</span>: <span class="n"><!-- a href="" -->OptionalValue<!-- /a --></span>&lt;<span class="n"><!-- a href="" -->Int<!-- /a --></span>&gt; = .<span class="vc">none</span></code></li>
+            <li><code class="code-voice"><span class="vc">possibleInteger</span> = .<span class="vc">some</span>(<span class="m">100</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">anyCommonElements</span>&lt;<span class="vc">T</span>: <span class="n"><!-- a href="" -->Sequence<!-- /a --></span>, <span class="vc">U</span>: <span class="n"><!-- a href="" -->Sequence<!-- /a --></span>&gt;(<span class="kt">_</span> <span class="vc">lhs</span>: <span class="vc">T</span>, <span class="kt">_</span> <span class="vc">rhs</span>: <span class="vc">U</span>) -&gt; <span class="vc">Bool</span></code></li>
+            <li><code class="code-voice">    <span class="kt">where</span> <span class="n"><!-- a href="" -->T<!-- /a --></span>.<span class="n"><!-- a href="" -->Iterator<!-- /a --></span>.<span class="n"><!-- a href="" -->Element<!-- /a --></span>: <span class="n"><!-- a href="" -->Equatable<!-- /a --></span>, <span class="n"><!-- a href="" -->T<!-- /a --></span>.<span class="n"><!-- a href="" -->Iterator<!-- /a --></span>.<span class="n"><!-- a href="" -->Element<!-- /a --></span> == <span class="n"><!-- a href="" -->U<!-- /a --></span>.<span class="n"><!-- a href="" -->Iterator<!-- /a --></span>.<span class="n"><!-- a href="" -->Element<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">for</span> <span class="vc">lhsItem</span> <span class="kt">in</span> <span class="vc">lhs</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">for</span> <span class="vc">rhsItem</span> <span class="kt">in</span> <span class="vc">rhs</span> {</code></li>
+            <li><code class="code-voice">                <span class="kt">if</span> <span class="vc">lhsItem</span> == <span class="vc">rhsItem</span> {</code></li>
+            <li><code class="code-voice">                    <span class="kt">return</span> <span class="kt">true</span></code></li>
+            <li><code class="code-voice">                }</code></li>
+            <li><code class="code-voice">            }</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="kt">false</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">anyCommonElements</span>([<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>], [<span class="m">3</span>])</code></li>
+        </ol>
+      

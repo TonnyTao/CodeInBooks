@@ -1,0 +1,15 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">cannotBeNegative</span>: <span class="n"><!-- a href="" -->UInt8<!-- /a --></span> = <span class="m">-1</span></code></li>
+            <li><code class="code-voice"><span class="c">// UInt8 cannot store negative numbers, and so this will report an error</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">tooBig</span>: <span class="n"><!-- a href="" -->Int8<!-- /a --></span> = <span class="vc">Int8</span>.<span class="vc">max</span> + <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="c">// Int8 cannot store a number larger than its maximum value,</span></code></li>
+            <li><code class="code-voice"><span class="c">// and so this will also report an error</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">twoThousand</span>: <span class="n"><!-- a href="" -->UInt16<!-- /a --></span> = <span class="m">2_000</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">one</span>: <span class="n"><!-- a href="" -->UInt8<!-- /a --></span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">twoThousandAndOne</span> = <span class="vc">twoThousand</span> + <span class="vc">UInt16</span>(<span class="vc">one</span>)</code></li>
+        </ol>
+      

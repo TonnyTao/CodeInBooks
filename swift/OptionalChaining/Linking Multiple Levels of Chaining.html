@@ -1,0 +1,24 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">johnsStreet</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span>?.<span class="vc">street</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;John&apos;s street name is </span>\(<span class="vc">johnsStreet</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to retrieve the address.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Unable to retrieve the address.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">johnsAddress</span> = <span class="vc">Address</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">johnsAddress</span>.<span class="vc">buildingName</span> = <span class="s">&quot;The Larches&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">johnsAddress</span>.<span class="vc">street</span> = <span class="s">&quot;Laurel Street&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span> = <span class="vc">johnsAddress</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">johnsStreet</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span>?.<span class="vc">street</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;John&apos;s street name is </span>\(<span class="vc">johnsStreet</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Unable to retrieve the address.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;John&apos;s street name is Laurel Street.&quot;</span></code></li>
+        </ol>
+      

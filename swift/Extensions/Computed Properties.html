@@ -1,0 +1,53 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Point</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">x</span> = <span class="m">0.0</span>, <span class="vc">y</span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Size</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">width</span> = <span class="m">0.0</span>, <span class="vc">height</span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Rect</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">origin</span> = <span class="vc">Point</span>()</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">size</span> = <span class="vc">Size</span>()</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">center</span>: <span class="n"><!-- a href="" -->Point<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">get</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">let</span> <span class="vc">centerX</span> = <span class="vc">origin</span>.<span class="vc">x</span> + (<span class="vc">size</span>.<span class="vc">width</span> / <span class="m">2</span>)</code></li>
+            <li><code class="code-voice">            <span class="kt">let</span> <span class="vc">centerY</span> = <span class="vc">origin</span>.<span class="vc">y</span> + (<span class="vc">size</span>.<span class="vc">height</span> / <span class="m">2</span>)</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">Point</span>(<span class="vc">x</span>: <span class="vc">centerX</span>, <span class="vc">y</span>: <span class="vc">centerY</span>)</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">set</span>(<span class="vc">newCenter</span>) {</code></li>
+            <li><code class="code-voice">            <span class="vc">origin</span>.<span class="vc">x</span> = <span class="vc">newCenter</span>.<span class="vc">x</span> - (<span class="vc">size</span>.<span class="vc">width</span> / <span class="m">2</span>)</code></li>
+            <li><code class="code-voice">            <span class="vc">origin</span>.<span class="vc">y</span> = <span class="vc">newCenter</span>.<span class="vc">y</span> - (<span class="vc">size</span>.<span class="vc">height</span> / <span class="m">2</span>)</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">square</span> = <span class="vc">Rect</span>(<span class="vc">origin</span>: <span class="vc">Point</span>(<span class="vc">x</span>: <span class="m">0.0</span>, <span class="vc">y</span>: <span class="m">0.0</span>),</code></li>
+            <li><code class="code-voice">                  <span class="vc">size</span>: <span class="vc">Size</span>(<span class="vc">width</span>: <span class="m">10.0</span>, <span class="vc">height</span>: <span class="m">10.0</span>))</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">initialSquareCenter</span> = <span class="vc">square</span>.<span class="vc">center</span></code></li>
+            <li><code class="code-voice"><span class="vc">square</span>.<span class="vc">center</span> = <span class="vc">Point</span>(<span class="vc">x</span>: <span class="m">15.0</span>, <span class="vc">y</span>: <span class="m">15.0</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;square.origin is now at (</span>\(<span class="vc">square</span>.<span class="vc">origin</span>.<span class="vc">x</span>)<span class="s">, </span>\(<span class="vc">square</span>.<span class="vc">origin</span>.<span class="vc">y</span>)<span class="s">)&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;square.origin is now at (10.0, 10.0)&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Double<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">km</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span> { <span class="kt">return</span> <span class="kt">self</span> * <span class="m">1_000.0</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">m</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span> { <span class="kt">return</span> <span class="kt">self</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">cm</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span> { <span class="kt">return</span> <span class="kt">self</span> / <span class="m">100.0</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">mm</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span> { <span class="kt">return</span> <span class="kt">self</span> / <span class="m">1_000.0</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">ft</span>: <span class="n"><!-- a href="" -->Double<!-- /a --></span> { <span class="kt">return</span> <span class="kt">self</span> / <span class="m">3.28084</span> }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">oneInch</span> = <span class="m">25.4</span>.<span class="vc">mm</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;One inch is </span>\(<span class="vc">oneInch</span>)<span class="s"> meters&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;One inch is 0.0254 meters&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">threeFeet</span> = <span class="m">3</span>.<span class="vc">ft</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;Three feet is </span>\(<span class="vc">threeFeet</span>)<span class="s"> meters&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Three feet is 0.914399970739201 meters&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">aMarathon</span> = <span class="m">42</span>.<span class="vc">km</span> + <span class="m">195</span>.<span class="vc">m</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;A marathon is </span>\(<span class="vc">aMarathon</span>)<span class="s"> meters long&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;A marathon is 42195.0 meters long&quot;</span></code></li>
+        </ol>
+      

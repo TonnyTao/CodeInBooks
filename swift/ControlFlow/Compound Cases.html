@@ -1,0 +1,26 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someCharacter</span>: <span class="n"><!-- a href="" -->Character<!-- /a --></span> = <span class="s">&quot;e&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">someCharacter</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;a&quot;</span>, <span class="s">&quot;e&quot;</span>, <span class="s">&quot;i&quot;</span>, <span class="s">&quot;o&quot;</span>, <span class="s">&quot;u&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">someCharacter</span>)<span class="s"> is a vowel&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>, <span class="s">&quot;d&quot;</span>, <span class="s">&quot;f&quot;</span>, <span class="s">&quot;g&quot;</span>, <span class="s">&quot;h&quot;</span>, <span class="s">&quot;j&quot;</span>, <span class="s">&quot;k&quot;</span>, <span class="s">&quot;l&quot;</span>, <span class="s">&quot;m&quot;</span>,</code></li>
+            <li><code class="code-voice">     <span class="s">&quot;n&quot;</span>, <span class="s">&quot;p&quot;</span>, <span class="s">&quot;q&quot;</span>, <span class="s">&quot;r&quot;</span>, <span class="s">&quot;s&quot;</span>, <span class="s">&quot;t&quot;</span>, <span class="s">&quot;v&quot;</span>, <span class="s">&quot;w&quot;</span>, <span class="s">&quot;x&quot;</span>, <span class="s">&quot;y&quot;</span>, <span class="s">&quot;z&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">someCharacter</span>)<span class="s"> is a consonant&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">someCharacter</span>)<span class="s"> is not a vowel or a consonant&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;e is a vowel&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">stillAnotherPoint</span> = (<span class="m">9</span>, <span class="m">0</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">stillAnotherPoint</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> (<span class="vc">let</span> <span class="vc">distance</span>, <span class="m">0</span>), (<span class="m">0</span>, <span class="vc">let</span> <span class="vc">distance</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;On an axis, </span>\(<span class="vc">distance</span>)<span class="s"> from the origin&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Not on an axis&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;On an axis, 9 from the origin&quot;</span></code></li>
+        </ol>
+      

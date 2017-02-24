@@ -1,0 +1,19 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeBaseClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">class</span> <span class="kt">func</span> <span class="vc">printClassName</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;SomeBaseClass&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeSubClass</span>: <span class="n"><!-- a href="" -->SomeBaseClass<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">class</span> <span class="kt">func</span> <span class="vc">printClassName</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;SomeSubClass&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someInstance</span>: <span class="n"><!-- a href="" -->SomeBaseClass<!-- /a --></span> = <span class="vc">SomeSubClass</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// someInstance has a static type of SomeBaseClass at compile time, and</span></code></li>
+            <li><code class="code-voice"><span class="c">// it has a dynamic type of SomeSubClass at runtime</span></code></li>
+            <li><code class="code-voice"><span class="vc">type</span>(<span class="vc">of</span>: <span class="vc">someInstance</span>).<span class="vc">printClassName</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;SomeSubClass&quot;</span></code></li>
+        </ol>
+      

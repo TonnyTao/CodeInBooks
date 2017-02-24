@@ -1,0 +1,28 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">point</span> = (<span class="m">1</span>, <span class="m">2</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">point</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> (<span class="m">0</span>, <span class="m">0</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;(0, 0) is at the origin.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> (<span class="m">-2</span>...<span class="m">2</span>, <span class="m">-2</span>...<span class="m">2</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;(</span>\(<span class="vc">point</span>.<span class="m">0</span>)<span class="s">, </span>\(<span class="vc">point</span>.<span class="m">1</span>)<span class="s">) is near the origin.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The point is at (</span>\(<span class="vc">point</span>.<span class="m">0</span>)<span class="s">, </span>\(<span class="vc">point</span>.<span class="m">1</span>)<span class="s">).&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;(1, 2) is near the origin.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// Overload the ~= operator to match a string with an integer.</span></code></li>
+            <li><code class="code-voice"><span class="kt">func</span> ~=(<span class="vc">pattern</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">value</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Bool<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">pattern</span> == <span class="s">&quot;</span>\(<span class="vc">value</span>)<span class="s">&quot;</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">point</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> (<span class="s">&quot;0&quot;</span>, <span class="s">&quot;0&quot;</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;(0, 0) is at the origin.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The point is at (</span>\(<span class="vc">point</span>.<span class="m">0</span>)<span class="s">, </span>\(<span class="vc">point</span>.<span class="m">1</span>)<span class="s">).&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The point is at (1, 2).&quot;</span></code></li>
+        </ol>
+      

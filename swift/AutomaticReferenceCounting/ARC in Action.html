@@ -1,0 +1,40 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Person</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">name</span>)<span class="s"> is being initialized&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">deinit</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">name</span>)<span class="s"> is being deinitialized&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">reference1</span>: <span class="n"><!-- a href="" -->Person<!-- /a --></span>?</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">reference2</span>: <span class="n"><!-- a href="" -->Person<!-- /a --></span>?</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">reference3</span>: <span class="n"><!-- a href="" -->Person<!-- /a --></span>?</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reference1</span> = <span class="vc">Person</span>(<span class="vc">name</span>: <span class="s">&quot;John Appleseed&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;John Appleseed is being initialized&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reference2</span> = <span class="vc">reference1</span></code></li>
+            <li><code class="code-voice"><span class="vc">reference3</span> = <span class="vc">reference1</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reference1</span> = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice"><span class="vc">reference2</span> = <span class="kt">nil</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reference3</span> = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;John Appleseed is being deinitialized&quot;</span></code></li>
+        </ol>
+      

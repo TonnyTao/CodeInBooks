@@ -1,0 +1,24 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">minMax</span>(<span class="vc">array</span>: [<span class="n"><!-- a href="" -->Int<!-- /a --></span>]) -&gt; (<span class="vc">min</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">max</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>)? {</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="vc">array</span>.<span class="vc">isEmpty</span> { <span class="kt">return</span> <span class="kt">nil</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">currentMin</span> = <span class="vc">array</span>[<span class="m">0</span>]</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">currentMax</span> = <span class="vc">array</span>[<span class="m">0</span>]</code></li>
+            <li><code class="code-voice">    <span class="kt">for</span> <span class="vc">value</span> <span class="kt">in</span> <span class="vc">array</span>[<span class="m">1</span>..&lt;<span class="vc">array</span>.<span class="vc">count</span>] {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">value</span> &lt; <span class="vc">currentMin</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">currentMin</span> = <span class="vc">value</span></code></li>
+            <li><code class="code-voice">        } <span class="kt">else</span> <span class="kt">if</span> <span class="vc">value</span> &gt; <span class="vc">currentMax</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">currentMax</span> = <span class="vc">value</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> (<span class="vc">currentMin</span>, <span class="vc">currentMax</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">bounds</span> = <span class="vc">minMax</span>(<span class="vc">array</span>: [<span class="m">8</span>, <span class="m">-6</span>, <span class="m">2</span>, <span class="m">109</span>, <span class="m">3</span>, <span class="m">71</span>]) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;min is </span>\(<span class="vc">bounds</span>.<span class="vc">min</span>)<span class="s"> and max is </span>\(<span class="vc">bounds</span>.<span class="vc">max</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;min is -6 and max is 109&quot;</span></code></li>
+        </ol>
+      

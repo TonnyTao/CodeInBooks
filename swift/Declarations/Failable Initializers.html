@@ -1,0 +1,53 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Animal</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">species</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>?(<span class="vc">species</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">species</span>.<span class="vc">isEmpty</span> { <span class="kt">return</span> <span class="kt">nil</span> }</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">species</span> = <span class="vc">species</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someCreature</span> = <span class="vc">Animal</span>(<span class="vc">species</span>: <span class="s">&quot;Giraffe&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// someCreature is of type Animal?, not Animal</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">giraffe</span> = <span class="vc">someCreature</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;An animal was initialized with a species of </span>\(<span class="vc">giraffe</span>.<span class="vc">species</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;An animal was initialized with a species of Giraffe&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">anonymousCreature</span> = <span class="vc">Animal</span>(<span class="vc">species</span>: <span class="s">&quot;&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// anonymousCreature is of type Animal?, not Animal</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">anonymousCreature</span> == <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The anonymous creature could not be initialized&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The anonymous creature could not be initialized&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">SomeStruct</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">property</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="c">// produces an optional instance of &apos;SomeStruct&apos;</span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>?(<span class="vc">input</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">input</span>.<span class="vc">isEmpty</span> {</code></li>
+            <li><code class="code-voice">            <span class="c">// discard &apos;self&apos; and return &apos;nil&apos;</span></code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="vc">property</span> = <span class="vc">input</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">actualInstance</span> = <span class="vc">SomeStruct</span>(<span class="vc">input</span>: <span class="s">&quot;Hello&quot;</span>) {</code></li>
+            <li><code class="code-voice">    <span class="c">// do something with the instance of &apos;SomeStruct&apos;</span></code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// initialization of &apos;SomeStruct&apos; failed and the initializer returned &apos;nil&apos;</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

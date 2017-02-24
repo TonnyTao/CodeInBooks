@@ -1,0 +1,67 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">canThrowErrors</span>() <span class="kt">throws</span> -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">cannotThrowErrors</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Item</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">price</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">count</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">VendingMachine</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">inventory</span> = [</code></li>
+            <li><code class="code-voice">        <span class="s">&quot;Candy Bar&quot;</span>: <span class="vc">Item</span>(<span class="vc">price</span>: <span class="m">12</span>, <span class="vc">count</span>: <span class="m">7</span>),</code></li>
+            <li><code class="code-voice">        <span class="s">&quot;Chips&quot;</span>: <span class="vc">Item</span>(<span class="vc">price</span>: <span class="m">10</span>, <span class="vc">count</span>: <span class="m">4</span>),</code></li>
+            <li><code class="code-voice">        <span class="s">&quot;Pretzels&quot;</span>: <span class="vc">Item</span>(<span class="vc">price</span>: <span class="m">7</span>, <span class="vc">count</span>: <span class="m">11</span>)</code></li>
+            <li><code class="code-voice">    ]</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">coinsDeposited</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">vend</span>(<span class="vc">itemNamed</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) <span class="kt">throws</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">guard</span> <span class="kt">let</span> <span class="vc">item</span> = <span class="vc">inventory</span>[<span class="vc">name</span>] <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">throw</span> <span class="vc">VendingMachineError</span>.<span class="vc">invalidSelection</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        </code></li>
+            <li><code class="code-voice">        <span class="kt">guard</span> <span class="vc">item</span>.<span class="vc">count</span> &gt; <span class="m">0</span> <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">throw</span> <span class="vc">VendingMachineError</span>.<span class="vc">outOfStock</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        </code></li>
+            <li><code class="code-voice">        <span class="kt">guard</span> <span class="vc">item</span>.<span class="vc">price</span> &lt;= <span class="vc">coinsDeposited</span> <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">throw</span> <span class="vc">VendingMachineError</span>.<span class="vc">insufficientFunds</span>(<span class="vc">coinsNeeded</span>: <span class="vc">item</span>.<span class="vc">price</span> - <span class="vc">coinsDeposited</span>)</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        </code></li>
+            <li><code class="code-voice">        <span class="vc">coinsDeposited</span> -= <span class="vc">item</span>.<span class="vc">price</span></code></li>
+            <li><code class="code-voice">        </code></li>
+            <li><code class="code-voice">        <span class="kt">var</span> <span class="vc">newItem</span> = <span class="vc">item</span></code></li>
+            <li><code class="code-voice">        <span class="vc">newItem</span>.<span class="vc">count</span> -= <span class="m">1</span></code></li>
+            <li><code class="code-voice">        <span class="vc">inventory</span>[<span class="vc">name</span>] = <span class="vc">newItem</span></code></li>
+            <li><code class="code-voice">        </code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;Dispensing </span>\(<span class="vc">name</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">favoriteSnacks</span> = [</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Alice&quot;</span>: <span class="s">&quot;Chips&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Bob&quot;</span>: <span class="s">&quot;Licorice&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="s">&quot;Eve&quot;</span>: <span class="s">&quot;Pretzels&quot;</span>,</code></li>
+            <li><code class="code-voice">]</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">buyFavoriteSnack</span>(<span class="vc">person</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">vendingMachine</span>: <span class="n"><!-- a href="" -->VendingMachine<!-- /a --></span>) <span class="kt">throws</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">snackName</span> = <span class="vc">favoriteSnacks</span>[<span class="vc">person</span>] ?? <span class="s">&quot;Candy Bar&quot;</span></code></li>
+            <li><code class="code-voice">    <span class="kt">try</span> <span class="vc">vendingMachine</span>.<span class="vc">vend</span>(<span class="vc">itemNamed</span>: <span class="vc">snackName</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">PurchasedSnack</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">vendingMachine</span>: <span class="n"><!-- a href="" -->VendingMachine<!-- /a --></span>) <span class="kt">throws</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">try</span> <span class="vc">vendingMachine</span>.<span class="vc">vend</span>(<span class="vc">itemNamed</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

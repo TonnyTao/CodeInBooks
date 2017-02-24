@@ -1,0 +1,23 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeClass</span>: <span class="n"><!-- a href="" -->NSObject<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">property</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">@objc</span>(<span class="vc">doSomethingWithInt</span>:)</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">doSomething</span>(<span class="kt">_</span> <span class="vc">x</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">property</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">property</span> = <span class="vc">property</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">selectorForMethod</span> = <span class="kt">#selector</span>(<span class="vc">SomeClass</span>.<span class="vc">doSomething</span>(<span class="kt">_</span>:))</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">selectorForPropertyGetter</span> = <span class="kt">#selector</span>(<span class="vc">getter</span>: <span class="vc">SomeClass</span>.<span class="vc">property</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->SomeClass<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">@objc</span>(<span class="vc">doSomethingWithString</span>:)</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">doSomething</span>(<span class="kt">_</span> <span class="vc">x</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) { }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">anotherSelector</span> = <span class="kt">#selector</span>(<span class="vc">SomeClass</span>.<span class="vc">doSomething</span>(<span class="kt">_</span>:) <span class="kt">as</span> (<span class="n"><!-- a href="" -->SomeClass<!-- /a --></span>) -&gt; (<span class="n"><!-- a href="" -->String<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>)</code></li>
+        </ol>
+      

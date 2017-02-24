@@ -1,0 +1,50 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunctionThatTakesAClosure</span>(<span class="vc">closure</span>: () -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="c">// function body goes here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// Here&apos;s how you call this function without using a trailing closure:</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">someFunctionThatTakesAClosure</span>(<span class="vc">closure</span>: {</code></li>
+            <li><code class="code-voice">    <span class="c">// closure&apos;s body goes here</span></code></li>
+            <li><code class="code-voice">})</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// Here&apos;s how you call this function with a trailing closure instead:</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">someFunctionThatTakesAClosure</span>() {</code></li>
+            <li><code class="code-voice">    <span class="c">// trailing closure&apos;s body goes here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>() { <span class="vc">$0</span> &gt; <span class="vc">$1</span> }</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span> { <span class="vc">$0</span> &gt; <span class="vc">$1</span> }</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">digitNames</span> = [</code></li>
+            <li><code class="code-voice">    <span class="m">0</span>: <span class="s">&quot;Zero&quot;</span>, <span class="m">1</span>: <span class="s">&quot;One&quot;</span>, <span class="m">2</span>: <span class="s">&quot;Two&quot;</span>,   <span class="m">3</span>: <span class="s">&quot;Three&quot;</span>, <span class="m">4</span>: <span class="s">&quot;Four&quot;</span>,</code></li>
+            <li><code class="code-voice">    <span class="m">5</span>: <span class="s">&quot;Five&quot;</span>, <span class="m">6</span>: <span class="s">&quot;Six&quot;</span>, <span class="m">7</span>: <span class="s">&quot;Seven&quot;</span>, <span class="m">8</span>: <span class="s">&quot;Eight&quot;</span>, <span class="m">9</span>: <span class="s">&quot;Nine&quot;</span></code></li>
+            <li><code class="code-voice">]</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">numbers</span> = [<span class="m">16</span>, <span class="m">58</span>, <span class="m">510</span>]</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">strings</span> = <span class="vc">numbers</span>.<span class="vc">map</span> {</code></li>
+            <li><code class="code-voice">    (<span class="vc">number</span>) -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> <span class="kt">in</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">number</span> = <span class="vc">number</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">output</span> = <span class="s">&quot;&quot;</span></code></li>
+            <li><code class="code-voice">    <span class="kt">repeat</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">output</span> = <span class="vc">digitNames</span>[<span class="vc">number</span> % <span class="m">10</span>]! + <span class="vc">output</span></code></li>
+            <li><code class="code-voice">        <span class="vc">number</span> /= <span class="m">10</span></code></li>
+            <li><code class="code-voice">    } <span class="kt">while</span> <span class="vc">number</span> &gt; <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">output</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// strings is inferred to be of type [String]</span></code></li>
+            <li><code class="code-voice"><span class="c">// its value is [&quot;OneSix&quot;, &quot;FiveEight&quot;, &quot;FiveOneZero&quot;]</span></code></li>
+        </ol>
+      

@@ -1,0 +1,49 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">findIndex</span>(<span class="vc">ofString</span> <span class="vc">valueToFind</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">in</span> <span class="vc">array</span>: [<span class="n"><!-- a href="" -->String<!-- /a --></span>]) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span>? {</code></li>
+            <li><code class="code-voice">    <span class="kt">for</span> (<span class="vc">index</span>, <span class="vc">value</span>) <span class="kt">in</span> <span class="vc">array</span>.<span class="vc">enumerated</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">value</span> == <span class="vc">valueToFind</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">index</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">strings</span> = [<span class="s">&quot;cat&quot;</span>, <span class="s">&quot;dog&quot;</span>, <span class="s">&quot;llama&quot;</span>, <span class="s">&quot;parakeet&quot;</span>, <span class="s">&quot;terrapin&quot;</span>]</code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">foundIndex</span> = <span class="vc">findIndex</span>(<span class="vc">ofString</span>: <span class="s">&quot;llama&quot;</span>, <span class="vc">in</span>: <span class="vc">strings</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The index of llama is </span>\(<span class="vc">foundIndex</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The index of llama is 2&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">findIndex</span>&lt;<span class="vc">T</span>&gt;(<span class="vc">of</span> <span class="vc">valueToFind</span>: <span class="n"><!-- a href="" -->T<!-- /a --></span>, <span class="vc">in</span> <span class="vc">array</span>:[<span class="n"><!-- a href="" -->T<!-- /a --></span>]) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span>? {</code></li>
+            <li><code class="code-voice">    <span class="kt">for</span> (<span class="vc">index</span>, <span class="vc">value</span>) <span class="kt">in</span> <span class="vc">array</span>.<span class="vc">enumerated</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">value</span> == <span class="vc">valueToFind</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">index</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">findIndex</span>&lt;<span class="vc">T</span>: <span class="n"><!-- a href="" -->Equatable<!-- /a --></span>&gt;(<span class="vc">of</span> <span class="vc">valueToFind</span>: <span class="n"><!-- a href="" -->T<!-- /a --></span>, <span class="vc">in</span> <span class="vc">array</span>:[<span class="n"><!-- a href="" -->T<!-- /a --></span>]) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span>? {</code></li>
+            <li><code class="code-voice">    <span class="kt">for</span> (<span class="vc">index</span>, <span class="vc">value</span>) <span class="kt">in</span> <span class="vc">array</span>.<span class="vc">enumerated</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">value</span> == <span class="vc">valueToFind</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">index</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">doubleIndex</span> = <span class="vc">findIndex</span>(<span class="vc">of</span>: <span class="m">9.3</span>, <span class="vc">in</span>: [<span class="m">3.14159</span>, <span class="m">0.1</span>, <span class="m">0.25</span>])</code></li>
+            <li><code class="code-voice"><span class="c">// doubleIndex is an optional Int with no value, because 9.3 is not in the array</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">stringIndex</span> = <span class="vc">findIndex</span>(<span class="vc">of</span>: <span class="s">&quot;Andrea&quot;</span>, <span class="vc">in</span>: [<span class="s">&quot;Mike&quot;</span>, <span class="s">&quot;Malcolm&quot;</span>, <span class="s">&quot;Andrea&quot;</span>])</code></li>
+            <li><code class="code-voice"><span class="c">// stringIndex is an optional Int containing a value of 2</span></code></li>
+        </ol>
+      

@@ -1,0 +1,53 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">SomeStructure</span>.<span class="vc">storedTypeProperty</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Some value.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">SomeStructure</span>.<span class="vc">storedTypeProperty</span> = <span class="s">&quot;Another value.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">SomeStructure</span>.<span class="vc">storedTypeProperty</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Another value.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">SomeEnumeration</span>.<span class="vc">computedTypeProperty</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;6&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">SomeClass</span>.<span class="vc">computedTypeProperty</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;27&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">AudioChannel</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">let</span> <span class="vc">thresholdLevel</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">var</span> <span class="vc">maxInputLevelForAllChannels</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">currentLevel</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> = <span class="m">0</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">didSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">if</span> <span class="vc">currentLevel</span> &gt; <span class="vc">AudioChannel</span>.<span class="vc">thresholdLevel</span> {</code></li>
+            <li><code class="code-voice">                <span class="c">// cap the new audio level to the threshold level</span></code></li>
+            <li><code class="code-voice">                <span class="vc">currentLevel</span> = <span class="vc">AudioChannel</span>.<span class="vc">thresholdLevel</span></code></li>
+            <li><code class="code-voice">            }</code></li>
+            <li><code class="code-voice">            <span class="kt">if</span> <span class="vc">currentLevel</span> &gt; <span class="vc">AudioChannel</span>.<span class="vc">maxInputLevelForAllChannels</span> {</code></li>
+            <li><code class="code-voice">                <span class="c">// store this as the new overall maximum input level</span></code></li>
+            <li><code class="code-voice">                <span class="vc">AudioChannel</span>.<span class="vc">maxInputLevelForAllChannels</span> = <span class="vc">currentLevel</span></code></li>
+            <li><code class="code-voice">            }</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">leftChannel</span> = <span class="vc">AudioChannel</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">rightChannel</span> = <span class="vc">AudioChannel</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">leftChannel</span>.<span class="vc">currentLevel</span> = <span class="m">7</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">leftChannel</span>.<span class="vc">currentLevel</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;7&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">AudioChannel</span>.<span class="vc">maxInputLevelForAllChannels</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;7&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">rightChannel</span>.<span class="vc">currentLevel</span> = <span class="m">11</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">rightChannel</span>.<span class="vc">currentLevel</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;10&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">AudioChannel</span>.<span class="vc">maxInputLevelForAllChannels</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;10&quot;</span></code></li>
+        </ol>
+      

@@ -1,0 +1,23 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">possibleString</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>? = <span class="s">&quot;An optional string.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">forcedString</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="vc">possibleString</span>! <span class="c">// requires an exclamation mark</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">assumedString</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>! = <span class="s">&quot;An implicitly unwrapped optional string.&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">implicitString</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="vc">assumedString</span> <span class="c">// no need for an exclamation mark</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">assumedString</span> != <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">assumedString</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;An implicitly unwrapped optional string.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">definiteString</span> = <span class="vc">assumedString</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">definiteString</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;An implicitly unwrapped optional string.&quot;</span></code></li>
+        </ol>
+      

@@ -1,0 +1,47 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">HTMLElement</span> {</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">text</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">lazy</span> <span class="kt">var</span> <span class="vc">asHTML</span>: () -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> = {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="kt">let</span> <span class="vc">text</span> = <span class="kt">self</span>.<span class="vc">text</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;&lt;</span>\(<span class="kt">self</span>.<span class="vc">name</span>)<span class="s">&gt;</span>\(<span class="vc">text</span>)<span class="s">&lt;/</span>\(<span class="kt">self</span>.<span class="vc">name</span>)<span class="s">&gt;&quot;</span></code></li>
+            <li><code class="code-voice">        } <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;&lt;</span>\(<span class="kt">self</span>.<span class="vc">name</span>)<span class="s"> /&gt;&quot;</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">text</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>? = <span class="kt">nil</span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">text</span> = <span class="vc">text</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">deinit</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">name</span>)<span class="s"> is being deinitialized&quot;</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">heading</span> = <span class="vc">HTMLElement</span>(<span class="vc">name</span>: <span class="s">&quot;h1&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">defaultText</span> = <span class="s">&quot;some default text&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">heading</span>.<span class="vc">asHTML</span> = {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="s">&quot;&lt;</span>\(<span class="vc">heading</span>.<span class="vc">name</span>)<span class="s">&gt;</span>\(<span class="vc">heading</span>.<span class="vc">text</span> ?? <span class="vc">defaultText</span>)<span class="s">&lt;/</span>\(<span class="vc">heading</span>.<span class="vc">name</span>)<span class="s">&gt;&quot;</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">heading</span>.<span class="vc">asHTML</span>())</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;&lt;h1&gt;some default text&lt;/h1&gt;&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">paragraph</span>: <span class="n"><!-- a href="" -->HTMLElement<!-- /a --></span>? = <span class="vc">HTMLElement</span>(<span class="vc">name</span>: <span class="s">&quot;p&quot;</span>, <span class="vc">text</span>: <span class="s">&quot;hello, world&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">paragraph</span>!.<span class="vc">asHTML</span>())</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;&lt;p&gt;hello, world&lt;/p&gt;&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">paragraph</span> = <span class="kt">nil</span></code></li>
+        </ol>
+      

@@ -1,4 +1,4 @@
-val names = listof("Anna", "Alex", "Brian", "Jack")
+val names = listOf("Anna", "Alex", "Brian", "Jack")
 val size = names.size
 for (i in 0..size-1) {
     println("Person ${i + 1} is called ${names[i]}")

@@ -1,0 +1,22 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Collection<!-- /a --></span> <span class="kt">where</span> <span class="vc">Iterator</span>.<span class="vc">Element</span>: <span class="vc">TextRepresentable</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">textualDescription</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">let</span> <span class="vc">itemsAsText</span> = <span class="kt">self</span>.<span class="vc">map</span> { <span class="vc">$0</span>.<span class="vc">textualDescription</span> }</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;[&quot;</span> + <span class="vc">itemsAsText</span>.<span class="vc">joined</span>(<span class="vc">separator</span>: <span class="s">&quot;, &quot;</span>) + <span class="s">&quot;]&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">murrayTheHamster</span> = <span class="vc">Hamster</span>(<span class="vc">name</span>: <span class="s">&quot;Murray&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">morganTheHamster</span> = <span class="vc">Hamster</span>(<span class="vc">name</span>: <span class="s">&quot;Morgan&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">mauriceTheHamster</span> = <span class="vc">Hamster</span>(<span class="vc">name</span>: <span class="s">&quot;Maurice&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">hamsters</span> = [<span class="vc">murrayTheHamster</span>, <span class="vc">morganTheHamster</span>, <span class="vc">mauriceTheHamster</span>]</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">hamsters</span>.<span class="vc">textualDescription</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;[A hamster named Murray, A hamster named Morgan, A hamster named Maurice]&quot;</span></code></li>
+        </ol>
+      

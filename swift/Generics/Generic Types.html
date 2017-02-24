@@ -1,0 +1,39 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">IntStack</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">items</span> = [<span class="vc">Int</span>]()</code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">push</span>(<span class="kt">_</span> <span class="vc">item</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">items</span>.<span class="vc">append</span>(<span class="vc">item</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">pop</span>() -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">items</span>.<span class="vc">removeLast</span>()</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Stack</span>&lt;<span class="vc">Element</span>&gt; {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">items</span> = [<span class="vc">Element</span>]()</code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">push</span>(<span class="kt">_</span> <span class="vc">item</span>: <span class="n"><!-- a href="" -->Element<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">items</span>.<span class="vc">append</span>(<span class="vc">item</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">pop</span>() -&gt; <span class="n"><!-- a href="" -->Element<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">items</span>.<span class="vc">removeLast</span>()</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">stackOfStrings</span> = <span class="vc">Stack</span>&lt;<span class="n"><!-- a href="" -->String<!-- /a --></span>&gt;()</code></li>
+            <li><code class="code-voice"><span class="vc">stackOfStrings</span>.<span class="vc">push</span>(<span class="s">&quot;uno&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">stackOfStrings</span>.<span class="vc">push</span>(<span class="s">&quot;dos&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">stackOfStrings</span>.<span class="vc">push</span>(<span class="s">&quot;tres&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">stackOfStrings</span>.<span class="vc">push</span>(<span class="s">&quot;cuatro&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// the stack now contains 4 strings</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">fromTheTop</span> = <span class="vc">stackOfStrings</span>.<span class="vc">pop</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// fromTheTop is equal to &quot;cuatro&quot;, and the stack now contains 3 strings</span></code></li>
+        </ol>
+      

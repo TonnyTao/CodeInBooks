@@ -1,0 +1,30 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">subscript</span>(<span class="vc">index</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">get</span> {</code></li>
+            <li><code class="code-voice">        <span class="c">// return an appropriate subscript value here</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">set</span>(<span class="vc">newValue</span>) {</code></li>
+            <li><code class="code-voice">        <span class="c">// perform a suitable setting action here</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">subscript</span>(<span class="vc">index</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// return an appropriate subscript value here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">TimesTable</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">multiplier</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">subscript</span>(<span class="vc">index</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">multiplier</span> * <span class="vc">index</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">threeTimesTable</span> = <span class="vc">TimesTable</span>(<span class="vc">multiplier</span>: <span class="m">3</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;six times three is </span>\(<span class="vc">threeTimesTable</span>[<span class="m">6</span>])<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;six times three is 18&quot;</span></code></li>
+        </ol>
+      

@@ -1,0 +1,66 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">class</span> <span class="kt">func</span> <span class="vc">someTypeMethod</span>() {</code></li>
+            <li><code class="code-voice">        <span class="c">// type method implementation goes here</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">SomeClass</span>.<span class="vc">someTypeMethod</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">LevelTracker</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">var</span> <span class="vc">highestUnlockedLevel</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">currentLevel</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">func</span> <span class="vc">unlock</span>(<span class="kt">_</span> <span class="vc">level</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">level</span> &gt; <span class="vc">highestUnlockedLevel</span> { <span class="vc">highestUnlockedLevel</span> = <span class="vc">level</span> }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">func</span> <span class="vc">isUnlocked</span>(<span class="kt">_</span> <span class="vc">level</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Bool<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">level</span> &lt;= <span class="vc">highestUnlockedLevel</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">@discardableResult</span></code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">advance</span>(<span class="vc">to</span> <span class="vc">level</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Bool<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">LevelTracker</span>.<span class="vc">isUnlocked</span>(<span class="vc">level</span>) {</code></li>
+            <li><code class="code-voice">            <span class="vc">currentLevel</span> = <span class="vc">level</span></code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="kt">true</span></code></li>
+            <li><code class="code-voice">        } <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="kt">false</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Player</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">tracker</span> = <span class="vc">LevelTracker</span>()</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">playerName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">complete</span>(<span class="vc">level</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">LevelTracker</span>.<span class="vc">unlock</span>(<span class="vc">level</span> + <span class="m">1</span>)</code></li>
+            <li><code class="code-voice">        <span class="vc">tracker</span>.<span class="vc">advance</span>(<span class="vc">to</span>: <span class="vc">level</span> + <span class="m">1</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">playerName</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">player</span> = <span class="vc">Player</span>(<span class="vc">name</span>: <span class="s">&quot;Argyrios&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">player</span>.<span class="vc">complete</span>(<span class="vc">level</span>: <span class="m">1</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">&quot;highest unlocked level is now </span>\(<span class="vc">LevelTracker</span>.<span class="vc">highestUnlockedLevel</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;highest unlocked level is now 2&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">player</span> = <span class="vc">Player</span>(<span class="vc">name</span>: <span class="s">&quot;Beto&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">player</span>.<span class="vc">tracker</span>.<span class="vc">advance</span>(<span class="vc">to</span>: <span class="m">6</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;player is now on level 6&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;level 6 has not yet been unlocked&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;level 6 has not yet been unlocked&quot;</span></code></li>
+        </ol>
+      

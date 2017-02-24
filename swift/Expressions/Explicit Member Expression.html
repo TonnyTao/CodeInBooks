@@ -1,0 +1,39 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">someProperty</span> = <span class="m">42</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">c</span> = <span class="vc">SomeClass</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">y</span> = <span class="vc">c</span>.<span class="vc">someProperty</span>  <span class="c">// Member access</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">t</span> = (<span class="m">10</span>, <span class="m">20</span>, <span class="m">30</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">t</span>.<span class="m">0</span> = <span class="vc">t</span>.<span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="c">// Now t is (20, 20, 30)</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">someMethod</span>(<span class="vc">x</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">y</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">someMethod</span>(<span class="vc">x</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">z</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">overloadedMethod</span>(<span class="vc">x</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">y</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">overloadedMethod</span>(<span class="vc">x</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="vc">y</span>: <span class="n"><!-- a href="" -->Bool<!-- /a --></span>) {}</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">instance</span> = <span class="vc">SomeClass</span>()</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">a</span> = <span class="vc">instance</span>.<span class="vc">someMethod</span>              <span class="c">// Ambiguous</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">b</span> = <span class="vc">instance</span>.<span class="vc">someMethod</span>(<span class="vc">x</span>:<span class="vc">y</span>:)        <span class="c">// Unambiguous</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">d</span> = <span class="vc">instance</span>.<span class="vc">overloadedMethod</span>        <span class="c">// Ambiguous</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">d</span> = <span class="vc">instance</span>.<span class="vc">overloadedMethod</span>(<span class="vc">x</span>:<span class="vc">y</span>:)  <span class="c">// Still ambiguous</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">d</span>: (<span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="n"><!-- a href="" -->Bool<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>  = <span class="vc">instance</span>.<span class="vc">overloadedMethod</span>(<span class="vc">x</span>:<span class="vc">y</span>:)  <span class="c">// Unambiguous</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">x</span> = [<span class="m">10</span>, <span class="m">3</span>, <span class="m">20</span>, <span class="m">15</span>, <span class="m">4</span>]</code></li>
+            <li><code class="code-voice">    .<span class="vc">sorted</span>()</code></li>
+            <li><code class="code-voice">    .<span class="vc">filter</span> { <span class="vc">$0</span> &gt; <span class="m">5</span> }</code></li>
+            <li><code class="code-voice">    .<span class="vc">map</span> { <span class="vc">$0</span> * <span class="m">100</span> }</code></li>
+        </ol>
+      

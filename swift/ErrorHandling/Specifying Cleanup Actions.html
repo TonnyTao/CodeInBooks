@@ -1,0 +1,16 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">processFile</span>(<span class="vc">filename</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) <span class="kt">throws</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="vc">exists</span>(<span class="vc">filename</span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">let</span> <span class="vc">file</span> = <span class="vc">open</span>(<span class="vc">filename</span>)</code></li>
+            <li><code class="code-voice">        <span class="kt">defer</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">close</span>(<span class="vc">file</span>)</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">while</span> <span class="kt">let</span> <span class="vc">line</span> = <span class="kt">try</span> <span class="vc">file</span>.<span class="vc">readline</span>() {</code></li>
+            <li><code class="code-voice">            <span class="c">// Work with the file.</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="c">// close(file) is called here, at the end of the scope.</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

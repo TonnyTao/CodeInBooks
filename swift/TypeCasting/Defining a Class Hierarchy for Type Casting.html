@@ -1,0 +1,39 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">MediaItem</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Movie</span>: <span class="n"><!-- a href="" -->MediaItem<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">director</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">director</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">director</span> = <span class="vc">director</span></code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Song</span>: <span class="n"><!-- a href="" -->MediaItem<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">artist</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">artist</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">artist</span> = <span class="vc">artist</span></code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="kt">init</span>(<span class="vc">name</span>: <span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">library</span> = [</code></li>
+            <li><code class="code-voice">    <span class="vc">Movie</span>(<span class="vc">name</span>: <span class="s">&quot;Casablanca&quot;</span>, <span class="vc">director</span>: <span class="s">&quot;Michael Curtiz&quot;</span>),</code></li>
+            <li><code class="code-voice">    <span class="vc">Song</span>(<span class="vc">name</span>: <span class="s">&quot;Blue Suede Shoes&quot;</span>, <span class="vc">artist</span>: <span class="s">&quot;Elvis Presley&quot;</span>),</code></li>
+            <li><code class="code-voice">    <span class="vc">Movie</span>(<span class="vc">name</span>: <span class="s">&quot;Citizen Kane&quot;</span>, <span class="vc">director</span>: <span class="s">&quot;Orson Welles&quot;</span>),</code></li>
+            <li><code class="code-voice">    <span class="vc">Song</span>(<span class="vc">name</span>: <span class="s">&quot;The One And Only&quot;</span>, <span class="vc">artist</span>: <span class="s">&quot;Chesney Hawkes&quot;</span>),</code></li>
+            <li><code class="code-voice">    <span class="vc">Song</span>(<span class="vc">name</span>: <span class="s">&quot;Never Gonna Give You Up&quot;</span>, <span class="vc">artist</span>: <span class="s">&quot;Rick Astley&quot;</span>)</code></li>
+            <li><code class="code-voice">]</code></li>
+            <li><code class="code-voice"><span class="c">// the type of &quot;library&quot; is inferred to be [MediaItem]</span></code></li>
+        </ol>
+      

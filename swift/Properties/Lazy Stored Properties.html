@@ -1,0 +1,29 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">DataImporter</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">/*</span></code></li>
+            <li><code class="code-voice"><span class="c">     DataImporter is a class to import data from an external file.</span></code></li>
+            <li><code class="code-voice"><span class="c">     The class is assumed to take a non-trivial amount of time to initialize.</span></code></li>
+            <li><code class="code-voice"><span class="c">     */</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">fileName</span> = <span class="s">&quot;data.txt&quot;</span></code></li>
+            <li><code class="code-voice">    <span class="c">// the DataImporter class would provide data importing functionality here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">DataManager</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">lazy</span> <span class="kt">var</span> <span class="vc">importer</span> = <span class="vc">DataImporter</span>()</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">data</span> = [<span class="vc">String</span>]()</code></li>
+            <li><code class="code-voice">    <span class="c">// the DataManager class would provide data management functionality here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">manager</span> = <span class="vc">DataManager</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">manager</span>.<span class="vc">data</span>.<span class="vc">append</span>(<span class="s">&quot;Some data&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">manager</span>.<span class="vc">data</span>.<span class="vc">append</span>(<span class="s">&quot;Some more data&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// the DataImporter instance for the importer property has not yet been created</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">manager</span>.<span class="vc">importer</span>.<span class="vc">fileName</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// the DataImporter instance for the importer property has now been created</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;data.txt&quot;</span></code></li>
+        </ol>
+      

@@ -1,0 +1,80 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">Rank</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">ace</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">two</span>, <span class="vc">three</span>, <span class="vc">four</span>, <span class="vc">five</span>, <span class="vc">six</span>, <span class="vc">seven</span>, <span class="vc">eight</span>, <span class="vc">nine</span>, <span class="vc">ten</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">jack</span>, <span class="vc">queen</span>, <span class="vc">king</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">simpleDescription</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">switch</span> <span class="kt">self</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> .<span class="vc">ace</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;ace&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> .<span class="vc">jack</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;jack&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> .<span class="vc">queen</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;queen&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> .<span class="vc">king</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;king&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">String</span>(<span class="kt">self</span>.<span class="vc">rawValue</span>)</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">ace</span> = <span class="vc">Rank</span>.<span class="vc">ace</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">aceRawValue</span> = <span class="vc">ace</span>.<span class="vc">rawValue</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">convertedRank</span> = <span class="vc">Rank</span>(<span class="vc">rawValue</span>: <span class="m">3</span>) {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">threeDescription</span> = <span class="vc">convertedRank</span>.<span class="vc">simpleDescription</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">Suit</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">spades</span>, <span class="vc">hearts</span>, <span class="vc">diamonds</span>, <span class="vc">clubs</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">simpleDescription</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">switch</span> <span class="kt">self</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> .<span class="vc">spades</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;spades&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> .<span class="vc">hearts</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;hearts&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> .<span class="vc">diamonds</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;diamonds&quot;</span></code></li>
+            <li><code class="code-voice">        <span class="kt">case</span> .<span class="vc">clubs</span>:</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;clubs&quot;</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">hearts</span> = <span class="vc">Suit</span>.<span class="vc">hearts</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">heartsDescription</span> = <span class="vc">hearts</span>.<span class="vc">simpleDescription</span>()</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">enum</span> <span class="vc">ServerResponse</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">result</span>(<span class="vc">String</span>, <span class="vc">String</span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">failure</span>(<span class="vc">String</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">success</span> = <span class="vc">ServerResponse</span>.<span class="vc">result</span>(<span class="s">&quot;6:00 am&quot;</span>, <span class="s">&quot;8:09 pm&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">failure</span> = <span class="vc">ServerResponse</span>.<span class="vc">failure</span>(<span class="s">&quot;Out of cheese.&quot;</span>)</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">success</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="kt">let</span> .<span class="vc">result</span>(<span class="vc">sunrise</span>, <span class="vc">sunset</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Sunrise is at </span>\(<span class="vc">sunrise</span>)<span class="s"> and sunset is at </span>\(<span class="vc">sunset</span>)<span class="s">.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="kt">let</span> .<span class="vc">failure</span>(<span class="vc">message</span>):</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Failure...  </span>\(<span class="vc">message</span>)<span class="s">&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Card</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">rank</span>: <span class="n"><!-- a href="" -->Rank<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">suit</span>: <span class="n"><!-- a href="" -->Suit<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">simpleDescription</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="s">&quot;The </span>\(<span class="vc">rank</span>.<span class="vc">simpleDescription</span>())<span class="s"> of </span>\(<span class="vc">suit</span>.<span class="vc">simpleDescription</span>())<span class="s">&quot;</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">threeOfSpades</span> = <span class="vc">Card</span>(<span class="vc">rank</span>: .<span class="vc">three</span>, <span class="vc">suit</span>: .<span class="vc">spades</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">threeOfSpadesDescription</span> = <span class="vc">threeOfSpades</span>.<span class="vc">simpleDescription</span>()</code></li>
+        </ol>
+      

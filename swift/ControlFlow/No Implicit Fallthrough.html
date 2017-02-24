@@ -1,0 +1,24 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">anotherCharacter</span>: <span class="n"><!-- a href="" -->Character<!-- /a --></span> = <span class="s">&quot;a&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">anotherCharacter</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;a&quot;</span>: <span class="c">// Invalid, the case has an empty body</span></code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;A&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The letter A&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Not the letter A&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// This will report a compile-time error.</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">anotherCharacter</span>: <span class="n"><!-- a href="" -->Character<!-- /a --></span> = <span class="s">&quot;a&quot;</span></code></li>
+            <li><code class="code-voice"><span class="kt">switch</span> <span class="vc">anotherCharacter</span> {</code></li>
+            <li><code class="code-voice"><span class="kt">case</span> <span class="s">&quot;a&quot;</span>, <span class="s">&quot;A&quot;</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;The letter A&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">default</span>:</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Not the letter A&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;The letter A&quot;</span></code></li>
+        </ol>
+      

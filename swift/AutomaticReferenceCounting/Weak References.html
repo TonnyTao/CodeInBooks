@@ -1,0 +1,38 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Person</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) { <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">apartment</span>: <span class="n"><!-- a href="" -->Apartment<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">deinit</span> { <span class="vc">print</span>(<span class="s">&quot;</span>\(<span class="vc">name</span>)<span class="s"> is being deinitialized&quot;</span>) }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Apartment</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">unit</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">unit</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) { <span class="kt">self</span>.<span class="vc">unit</span> = <span class="vc">unit</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">weak</span> <span class="kt">var</span> <span class="vc">tenant</span>: <span class="n"><!-- a href="" -->Person<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">deinit</span> { <span class="vc">print</span>(<span class="s">&quot;Apartment </span>\(<span class="vc">unit</span>)<span class="s"> is being deinitialized&quot;</span>) }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">john</span>: <span class="n"><!-- a href="" -->Person<!-- /a --></span>?</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">unit4A</span>: <span class="n"><!-- a href="" -->Apartment<!-- /a --></span>?</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">john</span> = <span class="vc">Person</span>(<span class="vc">name</span>: <span class="s">&quot;John Appleseed&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">unit4A</span> = <span class="vc">Apartment</span>(<span class="vc">unit</span>: <span class="s">&quot;4A&quot;</span>)</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">john</span>!.<span class="vc">apartment</span> = <span class="vc">unit4A</span></code></li>
+            <li><code class="code-voice"><span class="vc">unit4A</span>!.<span class="vc">tenant</span> = <span class="vc">john</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">john</span> = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;John Appleseed is being deinitialized&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">unit4A</span> = <span class="kt">nil</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Apartment 4A is being deinitialized&quot;</span></code></li>
+        </ol>
+      

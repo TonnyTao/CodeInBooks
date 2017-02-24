@@ -1,0 +1,39 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">allItemsMatch</span>&lt;<span class="vc">C1</span>: <span class="n"><!-- a href="" -->Container<!-- /a --></span>, <span class="vc">C2</span>: <span class="n"><!-- a href="" -->Container<!-- /a --></span>&gt;</code></li>
+            <li><code class="code-voice">    (<span class="kt">_</span> <span class="vc">someContainer</span>: <span class="vc">C1</span>, <span class="kt">_</span> <span class="vc">anotherContainer</span>: <span class="vc">C2</span>) -&gt; <span class="vc">Bool</span></code></li>
+            <li><code class="code-voice">    <span class="kt">where</span> <span class="n"><!-- a href="" -->C1<!-- /a --></span>.<span class="n"><!-- a href="" -->ItemType<!-- /a --></span> == <span class="n"><!-- a href="" -->C2<!-- /a --></span>.<span class="n"><!-- a href="" -->ItemType<!-- /a --></span>, <span class="n"><!-- a href="" -->C1<!-- /a --></span>.<span class="n"><!-- a href="" -->ItemType<!-- /a --></span>: <span class="n"><!-- a href="" -->Equatable<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        </code></li>
+            <li><code class="code-voice">        <span class="c">// Check that both containers contain the same number of items.</span></code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">someContainer</span>.<span class="vc">count</span> != <span class="vc">anotherContainer</span>.<span class="vc">count</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="kt">false</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        </code></li>
+            <li><code class="code-voice">        <span class="c">// Check each pair of items to see if they are equivalent.</span></code></li>
+            <li><code class="code-voice">        <span class="kt">for</span> <span class="vc">i</span> <span class="kt">in</span> <span class="m">0</span>..&lt;<span class="vc">someContainer</span>.<span class="vc">count</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">if</span> <span class="vc">someContainer</span>[<span class="vc">i</span>] != <span class="vc">anotherContainer</span>[<span class="vc">i</span>] {</code></li>
+            <li><code class="code-voice">                <span class="kt">return</span> <span class="kt">false</span></code></li>
+            <li><code class="code-voice">            }</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        </code></li>
+            <li><code class="code-voice">        <span class="c">// All items match, so return true.</span></code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="kt">true</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">stackOfStrings</span> = <span class="vc">Stack</span>&lt;<span class="n"><!-- a href="" -->String<!-- /a --></span>&gt;()</code></li>
+            <li><code class="code-voice"><span class="vc">stackOfStrings</span>.<span class="vc">push</span>(<span class="s">&quot;uno&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">stackOfStrings</span>.<span class="vc">push</span>(<span class="s">&quot;dos&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">stackOfStrings</span>.<span class="vc">push</span>(<span class="s">&quot;tres&quot;</span>)</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">arrayOfStrings</span> = [<span class="s">&quot;uno&quot;</span>, <span class="s">&quot;dos&quot;</span>, <span class="s">&quot;tres&quot;</span>]</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">allItemsMatch</span>(<span class="vc">stackOfStrings</span>, <span class="vc">arrayOfStrings</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;All items match.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Not all items match.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;All items match.&quot;</span></code></li>
+        </ol>
+      
