@@ -1,0 +1,9 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">b?.length
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">bob?.department?.head?.name
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val listWithNulls: List&lt;String?&gt; = listOf(&quot;A&quot;, null)
+for (item in listWithNulls) {
+     item?.let { println(it) } // prints A and ignores null
+}
+</code></pre>

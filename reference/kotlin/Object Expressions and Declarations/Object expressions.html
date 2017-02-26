@@ -1,0 +1,42 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">window.addMouseListener(object : MouseAdapter() {
+    override fun mouseClicked(e: MouseEvent) {
+        // ...
+    }
+
+    override fun mouseEntered(e: MouseEvent) {
+        // ...
+    }
+})
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">open class A(x: Int) {
+    public open val y: Int = x
+}
+
+interface B {...}
+
+val ab: A = object : A(1), B {
+    override val y = 15
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val adHoc = object {
+    var x: Int = 0
+    var y: Int = 0
+}
+print(adHoc.x + adHoc.y)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun countClicks(window: JComponent) {
+    var clickCount = 0
+    var enterCount = 0
+
+    window.addMouseListener(object : MouseAdapter() {
+        override fun mouseClicked(e: MouseEvent) {
+            clickCount++
+        }
+
+        override fun mouseEntered(e: MouseEvent) {
+            enterCount++
+        }
+    })
+    // ...
+}
+</code></pre>

@@ -1,0 +1,18 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class User(val map: Map&lt;String, Any?&gt;) {
+    val name: String by map
+    val age: Int     by map
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val user = User(mapOf(
+    &quot;name&quot; to &quot;John Doe&quot;,
+    &quot;age&quot;  to 25
+))
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">println(user.name) // Prints &quot;John Doe&quot;
+println(user.age)  // Prints 25
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class MutableUser(val map: MutableMap&lt;String, Any?&gt;) {
+    var name: String by map
+    var age: Int     by map
+}
+</code></pre>

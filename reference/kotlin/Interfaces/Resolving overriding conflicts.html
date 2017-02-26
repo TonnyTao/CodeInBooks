@@ -1,0 +1,21 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">interface A {
+    fun foo() { print(&quot;A&quot;) }
+    fun bar()
+}
+
+interface B {
+    fun foo() { print(&quot;B&quot;) }
+    fun bar() { print(&quot;bar&quot;) }
+}
+
+class C : A {
+    override fun bar() { print(&quot;bar&quot;) }
+}
+
+class D : A, B {
+    override fun foo() {
+        super&lt;A&gt;.foo()
+        super&lt;B&gt;.foo()
+    }
+}
+</code></pre>

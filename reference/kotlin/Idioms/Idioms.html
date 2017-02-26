@@ -1,0 +1,144 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">data class Customer(val name: String, val email: String)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun foo(a: Int = 0, b: String = &quot;&quot;) { ... }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val positives = list.filter { x -&gt; x &gt; 0 }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val positives = list.filter { it &gt; 0 }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">println(&quot;Name $name&quot;)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">when (x) {
+    is Foo -&gt; ...
+    is Bar -&gt; ...
+    else   -&gt; ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">for ((k, v) in map) {
+    println(&quot;$k -&gt; $v&quot;)
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">for (i in 1..100) { ... }  // closed range: includes 100
+for (i in 1 until 100) { ... } // half-open range: does not include 100
+for (x in 2..10 step 2) { ... }
+for (x in 10 downTo 1) { ... }
+if (x in 1..10) { ... }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val list = listOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val map = mapOf(&quot;a&quot; to 1, &quot;b&quot; to 2, &quot;c&quot; to 3)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">println(map[&quot;key&quot;])
+map[&quot;key&quot;] = value
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val p: String by lazy {
+    // compute the string
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun String.spaceToCamelCase() { ... }
+
+&quot;Convert this to camelcase&quot;.spaceToCamelCase()
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">object Resource {
+    val name = &quot;Name&quot;
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val files = File(&quot;Test&quot;).listFiles()
+
+println(files?.size)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val files = File(&quot;Test&quot;).listFiles()
+
+println(files?.size ?: &quot;empty&quot;)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val data = ...
+val email = data[&quot;email&quot;] ?: throw IllegalStateException(&quot;Email is missing!&quot;)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val data = ...
+
+data?.let {
+    ... // execute this block if not null
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun transform(color: String): Int {
+    return when (color) {
+        &quot;Red&quot; -&gt; 0
+        &quot;Green&quot; -&gt; 1
+        &quot;Blue&quot; -&gt; 2
+        else -&gt; throw IllegalArgumentException(&quot;Invalid color param value&quot;)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun test() {
+    val result = try {
+        count()
+    } catch (e: ArithmeticException) {
+        throw IllegalStateException(e)
+    }
+
+    // Working with result
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun foo(param: Int) {
+    val result = if (param == 1) {
+        &quot;one&quot;
+    } else if (param == 2) {
+        &quot;two&quot;
+    } else {
+        &quot;three&quot;
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun arrayOfMinusOnes(size: Int): IntArray {
+    return IntArray(size).apply { fill(-1) }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun theAnswer() = 42
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun theAnswer(): Int {
+    return 42
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun transform(color: String): Int = when (color) {
+    &quot;Red&quot; -&gt; 0
+    &quot;Green&quot; -&gt; 1
+    &quot;Blue&quot; -&gt; 2
+    else -&gt; throw IllegalArgumentException(&quot;Invalid color param value&quot;)
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Turtle {
+    fun penDown()
+    fun penUp()
+    fun turn(degrees: Double)
+    fun forward(pixels: Double)
+}
+
+val myTurtle = Turtle()
+with(myTurtle) { //draw a 100 pix square
+    penDown()
+    for(i in 1..4) {
+        forward(100.0)
+        turn(90.0)
+    }
+    penUp()
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val stream = Files.newInputStream(Paths.get(&quot;/some/file.txt&quot;))
+stream.buffered().reader().use { reader -&gt;
+    println(reader.readText())
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">//  public final class Gson {
+//     ...
+//     public &lt;T&gt; T fromJson(JsonElement json, Class&lt;T&gt; classOfT) throws JsonSyntaxException {
+//     ...
+
+inline fun &lt;reified T: Any&gt; Gson.fromJson(json): T = this.fromJson(json, T::class.java)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val b: Boolean? = ...
+if (b == true) {
+    ...
+} else {
+    // `b` is false or null
+}
+</code></pre>

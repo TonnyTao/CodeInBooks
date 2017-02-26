@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">public class MyTest {
+    lateinit var subject: TestSubject
+
+    @SetUp fun setup() {
+        subject = TestSubject()
+    }
+
+    @Test fun test() {
+        subject.method()  // dereference directly
+    }
+}
+</code></pre>

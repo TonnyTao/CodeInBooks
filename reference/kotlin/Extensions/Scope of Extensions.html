@@ -1,0 +1,15 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">package foo.bar
+ 
+fun Baz.goo() { ... } 
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">package com.example.usage
+
+import foo.bar.goo // importing all extensions by name &quot;goo&quot;
+                   // or
+import foo.bar.*   // importing everything from &quot;foo.bar&quot;
+
+fun usage(baz: Baz) {
+    baz.goo()
+)
+
+</code></pre>

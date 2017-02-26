@@ -1,0 +1,31 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val seq = buildSequence {
+    println(&quot;Yielding 1&quot;)
+    yield(1)
+    println(&quot;Yielding 2&quot;)
+    yield(2)
+    println(&quot;Yielding a range&quot;)
+    yieldAll(3..5)
+}
+
+for (i in seq) {
+    println(&quot;Generated $i&quot;)
+}
+</code></pre>
+<pre><code>Yielding 1
+Generated 1
+Yielding 2
+Generated 2
+Yielding a range
+Generated 3
+Generated 4
+Generated 5
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">future {
+    val original = asyncLoadImage(&quot;...original...&quot;) // creates a Future
+    val overlay = asyncLoadImage(&quot;...overlay...&quot;)   // creates a Future
+    ...
+    // suspend while awaiting the loading of the images
+    // then run `applyOverlay(...)` when they are both loaded
+    return applyOverlay(original.await(), overlay.await())
+}
+</code></pre>

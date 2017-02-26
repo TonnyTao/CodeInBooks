@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted" data-lang="text/x-groovy">buildscript {
+    ...
+}
+apply plugin: &apos;com.android.application&apos;
+apply plugin: &apos;kotlin-android&apos;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-groovy">android {
+  ...
+
+  sourceSets {
+    main.java.srcDirs += &apos;src/main/kotlin&apos;
+  }
+}
+</code></pre>

@@ -1,0 +1,23 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Example {
+    var p: String by Delegate()
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Delegate {
+    operator fun getValue(thisRef: Any?, property: KProperty&lt;*&gt;): String {
+        return &quot;$thisRef, thank you for delegating &apos;${property.name}&apos; to me!&quot;
+    }
+ 
+    operator fun setValue(thisRef: Any?, property: KProperty&lt;*&gt;, value: String) {
+        println(&quot;$value has been assigned to &apos;${property.name} in $thisRef.&apos;&quot;)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val e = Example()
+println(e.p)
+</code></pre>
+<pre><code>Example@33a17727, thank you for delegating &#x2018;p&#x2019; to me!
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">e.p = &quot;NEW&quot;
+</code></pre>
+<pre><code>NEW has been assigned to &#x2018;p&#x2019; in Example@33a17727.
+</code></pre>

@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">var a: String = &quot;abc&quot;
+a = null // compilation error
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">var b: String? = &quot;abc&quot;
+b = null // ok
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val l = a.length
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val l = b.length // error: variable &apos;b&apos; can be null
+</code></pre>

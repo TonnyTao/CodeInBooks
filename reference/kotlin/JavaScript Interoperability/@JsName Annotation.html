@@ -1,0 +1,17 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Module &apos;kjs&apos;
+
+class Person(val name: String) {
+    fun hello() {
+        println(&quot;Hello $name!&quot;)
+    }
+
+    @JsName(&quot;helloWithGreeting&quot;)
+    fun hello(greeting: String) {
+        println(&quot;$greeting $name!&quot;)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/javascript">var person = new kjs.Person(&quot;Dmitry&quot;);   // refers to module &apos;kjs&apos;
+person.hello();                          // prints &quot;Hello Dmitry!&quot;
+person.helloWithGreeting(&quot;Servus&quot;);      // prints &quot;Servus Dmitry!&quot;
+</code></pre>

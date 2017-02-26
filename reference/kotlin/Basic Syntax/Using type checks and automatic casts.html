@@ -1,0 +1,26 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun getStringLength(obj: Any): Int? {
+    if (obj is String) {
+        // `obj` is automatically cast to `String` in this branch
+        return obj.length
+    }
+
+    // `obj` is still of type `Any` outside of the type-checked branch
+    return null
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun getStringLength(obj: Any): Int? {
+    if (obj !is String) return null
+
+    // `obj` is automatically cast to `String` in this branch
+    return obj.length
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun getStringLength(obj: Any): Int? {
+    // `obj` is automatically cast to `String` on the right-hand side of `&amp;&amp;`
+    if (obj is String &amp;&amp; obj.length &gt; 0) {
+        return obj.length
+    }
+
+    return null
+}
+</code></pre>

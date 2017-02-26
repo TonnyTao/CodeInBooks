@@ -1,0 +1,58 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">import org.junit.Test
+import org.junit.Assert.*
+import org.junit.Rule
+import org.junit.rules.*
+
+class Tests {
+    // apply @Rule annotation to property getter
+    @get:Rule val tempFolder = TemporaryFolder()
+
+    @Test fun simple() {
+        val f = tempFolder.newFile()
+        assertEquals(42, getTheAnswer())
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+public @interface Ann {
+    int intValue();
+    String stringValue();
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Kotlin
+@Ann(intValue = 1, stringValue = &quot;abc&quot;) class C
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+public @interface AnnWithValue {
+    String value();
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Kotlin
+@AnnWithValue(&quot;abc&quot;) class C
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+public @interface AnnWithArrayValue {
+    String[] value();
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Kotlin
+@AnnWithArrayValue(&quot;abc&quot;, &quot;foo&quot;, &quot;bar&quot;) class C
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+public @interface AnnWithArrayMethod {
+    String[] names();
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Kotlin
+@AnnWithArrayMethod(names = arrayOf(&quot;abc&quot;, &quot;foo&quot;, &quot;bar&quot;)) class C
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+public @interface Ann {
+    int value();
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Kotlin
+fun foo(ann: Ann) {
+    val i = ann.value
+}
+</code></pre>

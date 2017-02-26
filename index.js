@@ -1,11 +1,11 @@
 const pug = require('pug');
 
 var fs = require("fs");
-const data = fs.readFileSync('chapters.json');
+const data = fs.readFileSync('reference/swift/chapters.json');
 const chapters = JSON.parse(data)
 
 var watch = require('watch')
-watch.createMonitor('./code', function(monitor) {
+watch.createMonitor('./reference', function(monitor) {
     monitor.on("changed", function(f, curr, prev) {
         renderHtml(monitor)
     })
@@ -14,7 +14,7 @@ watch.createMonitor('./code', function(monitor) {
 })
 
 function renderHtml(monitor) {
-    console.log("renderHtml");
+    console.log("renderHtml")
     
     var swift = {}
     var kotlin = {}
@@ -22,10 +22,10 @@ function renderHtml(monitor) {
     chapters.forEach(item => {
         item.details.forEach(detail => {
             // console.log(detail)
-            swift[detail] = fs.readFileSync(`swift/${item.title}/${detail}.html`)
+            swift[detail] = fs.readFileSync(`reference/swift/${item.title}/${detail}.html`)
             try {
-                kotlin[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.kt`)
-                js[detail] = fs.readFileSync(`code/apple_swift/${item.title}/${detail}.js`)
+                kotlin[detail] = fs.readFileSync(`reference/swift/${item.title}/${detail}.kt`)
+                js[detail] = fs.readFileSync(`reference/swift/${item.title}/${detail}.js`)
             }catch (e) {
             }
         })

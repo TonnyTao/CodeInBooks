@@ -1,0 +1,33 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun parseInt(str: String): Int? {
+    // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun main(args: Array&lt;String&gt;) {
+    if (args.size &lt; 2) {
+        print(&quot;Two integers expected&quot;)
+        return
+    }
+
+    val x = parseInt(args[0])
+    val y = parseInt(args[1])
+
+    // Using `x * y` yields error because they may hold nulls.
+    if (x != null &amp;&amp; y != null) {
+        // x and y are automatically cast to non-nullable after null check
+        print(x * y)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">    // ...
+    if (x == null) {
+        print(&quot;Wrong number format in &apos;${args[0]}&apos;&quot;)
+        return
+    }
+    if (y == null) {
+        print(&quot;Wrong number format in &apos;${args[1]}&apos;&quot;)
+        return
+    }
+
+    // x and y are automatically cast to non-nullable after null check
+    print(x * y)
+</code></pre>

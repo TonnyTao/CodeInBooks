@@ -1,0 +1,47 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">object DataProviderManager {
+    fun registerDataProvider(provider: DataProvider) {
+        // ...
+    }
+
+    val allDataProviders: Collection&lt;DataProvider&gt;
+        get() = // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">DataProviderManager.registerDataProvider(...)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">object DefaultListener : MouseAdapter() {
+    override fun mouseClicked(e: MouseEvent) {
+        // ...
+    }
+
+    override fun mouseEntered(e: MouseEvent) {
+        // ...
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class MyClass {
+    companion object Factory {
+        fun create(): MyClass = MyClass()
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val instance = MyClass.create()
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class MyClass {
+    companion object {
+    }
+}
+
+val x = MyClass.Companion
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">interface Factory&lt;T&gt; {
+    fun create(): T
+}
+
+
+class MyClass {
+    companion object : Factory&lt;MyClass&gt; {
+        override fun create(): MyClass = MyClass()
+    }
+}
+</code></pre>

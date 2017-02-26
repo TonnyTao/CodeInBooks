@@ -1,0 +1,8 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Foo
+
+fun function(factory : () -&gt; Foo) {
+    val x : Foo = factory()
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">function(::Foo)
+</code></pre>

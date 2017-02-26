@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">for (name in names) {
+    println(name)
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">if (text in names) { // names.contains(text) is called
+    print(&quot;Yes&quot;)
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">names
+        .filter { it.startsWith(&quot;A&quot;) }
+        .sortedBy { it }
+        .map { it.toUpperCase() }
+        .forEach { print(it) }
+</code></pre>

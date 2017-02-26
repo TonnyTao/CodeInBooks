@@ -1,0 +1,31 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Box&lt;out T&gt;(val value: T)
+
+interface Base
+class Derived : Base
+
+fun boxDerived(value: Derived): Box&lt;Derived&gt; = Box(value)
+fun unboxBase(box: Box&lt;Base&gt;): Base = box.value
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">Box&lt;Derived&gt; boxDerived(Derived value) { ... }
+Base unboxBase(Box&lt;Base&gt; box) { ... }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">Base unboxBase(Box&lt;? extends Base&gt; box) { ... }  
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// return type - no wildcards
+Box&lt;Derived&gt; boxDerived(Derived value) { ... }
+ 
+// parameter - wildcards 
+Base unboxBase(Box&lt;? extends Base&gt; box) { ... }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun boxDerived(value: Derived): Box&lt;@JvmWildcard Derived&gt; = Box(value)
+// is translated to 
+// Box&lt;? extends Derived&gt; boxDerived(Derived value) { ... }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun unboxBase(box: Box&lt;@JvmSuppressWildcards Base&gt;): Base = box.value
+// is translated to 
+// Base unboxBase(Box&lt;Base&gt; box) { ... }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun emptyList(): List&lt;Nothing&gt; = listOf()
+// is translated to
+// List emptyList() { ... }
+</code></pre>

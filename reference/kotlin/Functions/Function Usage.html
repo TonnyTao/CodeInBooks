@@ -1,0 +1,82 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val result = double(2)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">Sample().foo() // create instance of class Sample and calls foo
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Define extension to Int
+infix fun Int.shl(x: Int): Int {
+...
+}
+
+// call extension function using infix notation
+
+1 shl 2
+
+// is the same as
+
+1.shl(2)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun powerOf(number: Int, exponent: Int) {
+...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun read(b: Array&lt;Byte&gt;, off: Int = 0, len: Int = b.size()) {
+...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">open class A {
+    open fun foo(i: Int = 10) { ... }
+}
+
+class B : A() {
+    override fun foo(i: Int) { ... }  // no default value allowed
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun reformat(str: String,
+             normalizeCase: Boolean = true,
+             upperCaseFirstLetter: Boolean = true,
+             divideByCamelHumps: Boolean = false,
+             wordSeparator: Char = &apos; &apos;) {
+...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">reformat(str)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">reformat(str, true, true, false, &apos;_&apos;)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">reformat(str,
+    normalizeCase = true,
+    upperCaseFirstLetter = true,
+    divideByCamelHumps = false,
+    wordSeparator = &apos;_&apos;
+)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">reformat(str, wordSeparator = &apos;_&apos;)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun printHello(name: String?): Unit {
+    if (name != null)
+        println(&quot;Hello ${name}&quot;)
+    else
+        println(&quot;Hi there!&quot;)
+    // `return Unit` or `return` is optional
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun printHello(name: String?) {
+    ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun double(x: Int): Int = x * 2
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun double(x: Int) = x * 2
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun &lt;T&gt; asList(vararg ts: T): List&lt;T&gt; {
+    val result = ArrayList&lt;T&gt;()
+    for (t in ts) // ts is an Array
+        result.add(t)
+    return result
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val list = asList(1, 2, 3)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val a = arrayOf(1, 2, 3)
+val list = asList(-1, 0, *a, 4)
+</code></pre>

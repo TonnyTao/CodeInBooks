@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">import java.util.*
+
+fun demo(source: List&lt;Int&gt;) {
+    val list = ArrayList&lt;Int&gt;()
+    // &apos;for&apos;-loops work for Java collections:
+    for (item in source) {
+        list.add(item)
+    }
+    // Operator conventions work as well:
+    for (i in 0..source.size() - 1) {
+        list[i] = source[i] // get and set are called
+    }
+}
+</code></pre>

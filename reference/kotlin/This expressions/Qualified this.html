@@ -1,0 +1,23 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class A { // implicit label @A
+    inner class B { // implicit label @B
+        fun Int.foo() { // implicit label @foo
+            val a = this@A // A&apos;s this
+            val b = this@B // B&apos;s this
+
+            val c = this // foo()&apos;s receiver, an Int
+            val c1 = this@foo // foo()&apos;s receiver, an Int
+
+            val funLit = lambda@ fun String.() {
+                val d = this // funLit&apos;s receiver
+            }
+
+
+            val funLit2 = { s: String -&gt;
+                // foo()&apos;s receiver, since enclosing lambda expression
+                // doesn&apos;t have any receiver
+                val d1 = this
+            }
+        }
+    }
+}
+</code></pre>

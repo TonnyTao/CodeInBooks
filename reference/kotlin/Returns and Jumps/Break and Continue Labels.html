@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">loop@ for (i in 1..100) {
+    // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">loop@ for (i in 1..100) {
+    for (j in 1..100) {
+        if (...) break@loop
+    }
+}
+</code></pre>

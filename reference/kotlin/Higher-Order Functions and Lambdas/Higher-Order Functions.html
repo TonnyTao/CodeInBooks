@@ -1,0 +1,33 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun &lt;T&gt; lock(lock: Lock, body: () -&gt; T): T {
+    lock.lock()
+    try {
+        return body()
+    }
+    finally {
+        lock.unlock()
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun toBeSynchronized() = sharedResource.operation()
+
+val result = lock(lock, ::toBeSynchronized)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val result = lock(lock, { sharedResource.operation() })
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">lock (lock) {
+    sharedResource.operation()
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun &lt;T, R&gt; List&lt;T&gt;.map(transform: (T) -&gt; R): List&lt;R&gt; {
+    val result = arrayListOf&lt;R&gt;()
+    for (item in this)
+        result.add(transform(item))
+    return result
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val doubled = ints.map { it -&gt; it * 2 }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">ints.map { it * 2 }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">strings.filter { it.length == 5 }.sortBy { it }.map { it.toUpperCase() }
+</code></pre>

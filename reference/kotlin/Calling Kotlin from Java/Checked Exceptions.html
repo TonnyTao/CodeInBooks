@@ -1,0 +1,35 @@
+<pre><code class="code _highlighted" data-lang="text/x-java">Appendable append(CharSequence csq) throws IOException;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">try {
+    log.append(message)
+}
+catch (IOException e) {
+    // Must be safe
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun render(list: List&lt;*&gt;, to: Appendable) {
+    for (item in list) {
+        to.append(item.toString()) // Java would require us to catch IOException here
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// example.kt
+package demo
+
+fun foo() {
+    throw IOException()
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+try {
+  demo.Example.foo();
+}
+catch (IOException e) { // error: foo() does not declare IOException in the throws list
+  // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">@Throws(IOException::class)
+fun foo() {
+    throw IOException()
+}
+</code></pre>

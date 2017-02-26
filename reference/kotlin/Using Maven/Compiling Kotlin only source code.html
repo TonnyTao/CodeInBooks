@@ -1,0 +1,27 @@
+<pre><code class="code _highlighted" data-lang="application/xml">&lt;build&gt;
+    &lt;sourceDirectory&gt;${project.basedir}/src/main/kotlin&lt;/sourceDirectory&gt;
+    &lt;testSourceDirectory&gt;${project.basedir}/src/test/kotlin&lt;/testSourceDirectory&gt;
+&lt;/build&gt;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="application/xml">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;artifactId&gt;kotlin-maven-plugin&lt;/artifactId&gt;
+            &lt;groupId&gt;org.jetbrains.kotlin&lt;/groupId&gt;
+            &lt;version&gt;${kotlin.version}&lt;/version&gt;
+
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;id&gt;compile&lt;/id&gt;
+                    &lt;goals&gt; &lt;goal&gt;compile&lt;/goal&gt; &lt;/goals&gt;
+                &lt;/execution&gt;
+
+                &lt;execution&gt;
+                    &lt;id&gt;test-compile&lt;/id&gt;
+                    &lt;goals&gt; &lt;goal&gt;test-compile&lt;/goal&gt; &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>

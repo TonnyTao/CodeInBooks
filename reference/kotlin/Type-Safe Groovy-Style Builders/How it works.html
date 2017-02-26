@@ -1,0 +1,61 @@
+<pre><code class="code _highlighted" data-lang="text/x-java">for (int i = first; i != last; i += increment) {
+  // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">    IntProgression.fromClosedRange(start, end, increment)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">html {
+ // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun html(init: HTML.() -&gt; Unit): HTML {
+    val html = HTML()
+    html.init()
+    return html
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">html {
+    this.head { /* ... */ }
+    this.body { /* ... */ }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">html {
+    head { /* ... */ }
+    body { /* ... */ }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun head(init: Head.() -&gt; Unit) : Head {
+    val head = Head()
+    head.init()
+    children.add(head)
+    return head
+}
+
+fun body(init: Body.() -&gt; Unit) : Body {
+    val body = Body()
+    body.init()
+    children.add(body)
+    return body
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">    protected fun &lt;T : Element&gt; initTag(tag: T, init: T.() -&gt; Unit): T {
+        tag.init()
+        children.add(tag)
+        return tag
+    }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun head(init: Head.() -&gt; Unit) = initTag(Head(), init)
+
+fun body(init: Body.() -&gt; Unit) = initTag(Body(), init)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">html {
+    head {
+        title {+&quot;XML encoding with Kotlin&quot;}
+    }
+    // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun String.unaryPlus() {
+    children.add(TextElement(this))
+}
+</code></pre>

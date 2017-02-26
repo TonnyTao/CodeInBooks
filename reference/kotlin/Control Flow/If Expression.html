@@ -1,0 +1,23 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">// Traditional usage 
+var max = a 
+if (a &lt; b) max = b
+
+// With else 
+var max: Int
+if (a &gt; b) {
+    max = a
+} else {
+    max = b
+}
+ 
+// As expression 
+val max = if (a &gt; b) a else b
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val max = if (a &gt; b) {
+    print(&quot;Choose a&quot;)
+    a
+} else {
+    print(&quot;Choose b&quot;)
+    b
+}
+</code></pre>

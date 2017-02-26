@@ -1,0 +1,25 @@
+<pre><code class="code _highlighted" data-lang="text/x-java">public class JavaArrayExample {
+
+    public void removeIndices(int[] indices) {
+        // code here...
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val javaObj = JavaArrayExample()
+val array = intArrayOf(0, 1, 2, 3)
+javaObj.removeIndices(array)  // passes int[] to method
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val array = arrayOf(1, 2, 3, 4)
+array[x] = array[x] * 2 // no actual calls to get() and set() generated
+for (x in array) { // no iterator created
+    print(x)
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">for (i in array.indices) { // no iterator created
+    array[i] += 2
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">if (i in array.indices) { // same as (i &gt;= 0 &amp;&amp; i &lt; array.size)
+    print(array[i])
+}
+</code></pre>

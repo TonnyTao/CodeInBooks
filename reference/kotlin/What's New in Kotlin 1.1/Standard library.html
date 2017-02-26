@@ -1,0 +1,46 @@
+<pre><code>val port = System.getenv(&quot;PORT&quot;)?.toIntOrNull() ?: 80
+</code></pre>
+<pre><code>inputDir.walk()
+        .filter { it.isFile &amp;&amp; it.name.endsWith(&quot;.txt&quot;) }
+        .onEach { println(&quot;Moving $it to $outputDir&quot;) }
+        .forEach { moveFile(it, File(outputDir, it.toRelativeString(inputDir))) }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun Block.copy() = Block().also { it.content = this.content }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val outDirFile = File(outputDir.path).takeIf { it.exists() } ?: return false
+// do something with existing outDirFile
+
+val index = input.indexOf(keyword).takeIf { it &gt;= 0 } ?: error(&quot;keyword not found&quot;)
+// do something with index of keyword in input string, given that it&apos;s found
+</code></pre>
+<pre><code>val index = input.indexOf(keyword).takeUnless { it &lt; 0 } ?: error(&quot;keyword not found&quot;)
+</code></pre>
+<pre><code>val notEmptyString = string.takeUnless(String::isEmpty)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val frequencies = words.groupingBy { it }.eachCount()
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class ImmutablePropertyBag(map: Map&lt;String, Any&gt;) {
+    private val mapCopy = map.toMap()
+}
+</code></pre>
+<pre><code>val map = mapOf(&quot;key&quot; to 42)
+val emptyMap = map - &quot;key&quot;
+</code></pre>
+<pre><code>val list1 = listOf(&quot;a&quot;, &quot;b&quot;)
+val list2 = listOf(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;)
+val minSize = minOf(list1.size, list2.size)
+val longestList = maxOf(list1, list2, compareBy { it.size })
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">List(size) { index -&gt; element }
+MutableList(size) { index -&gt; element }
+</code></pre>
+<pre><code>val map = mapOf(&quot;key&quot; to 42)
+// returns non-nullable Int value 42
+val value: Int = map.getValue(&quot;key&quot;)
+// throws NoSuchElementException
+map.getValue(&quot;key2&quot;)
+
+val mapWithDefault = map.withDefault { k -&gt; k.length }
+// returns 4
+val value2 = mapWithDefault.getValue(&quot;key2&quot;)
+</code></pre>

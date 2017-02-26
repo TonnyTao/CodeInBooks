@@ -1,0 +1,377 @@
+.App {
+    margin: 0;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    align-items: stretch;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: rgba(65, 65, 65, 1);
+    height: 44px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    padding: 2px 2px 0;
+}
+
+.logo img {
+    width: 80%;
+}
+
+.github {
+    padding: 5px 5px 0;
+}
+
+.github svg {
+    width: 25px;
+}
+
+.content {
+    margin: 0 10px;
+    padding: 0;
+    margin-top: 44px;
+}
+
+.chapter-name {
+    color: rgba(0, 0, 0, 1);
+    font-weight: 100;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: white;
+}
+
+.chapter-name:nth-of-type(1) {
+    padding-top: 10px;
+}
+
+.section-name {
+    color: rgba(100, 100, 100, 1);
+    font-weight: 100;
+    font-size: 1.0em;
+    margin-top: 30px;
+}
+
+ol.code-lines {
+    margin: 0;
+    padding: 10px;
+    margin-bottom: 25px;
+    background-color: #f4f4f4;
+    list-style-type: none;
+    border: 2px solid royalblue;
+    border-color: #efefef;
+}
+
+.code-lines li {
+    padding: 0 5px;
+    list-style-type: none;
+    font-size: 0.8em;
+    line-height: 1.6em;
+}
+
+li code {
+    font-family: Menlo, monospace;
+}
+
+code {
+    white-space: pre-wrap;
+    /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
+}
+
+
+/* highlighted code*/
+
+.p {
+    color: rgba(0, 0, 0, 1)
+}
+
+.c {
+    color: rgba(0, 131, 18, 1)
+}
+
+.err {}
+
+.k {
+    color: rgba(170, 13, 145, 1)
+}
+
+.o {
+    color: #000
+}
+
+.cm {
+    color: rgba(0, 116, 0, 1)
+}
+
+.cp {
+    color: rgba(100, 56, 32, 1)
+}
+
+.c1 {
+    color: rgba(0, 116, 0, 1)
+}
+
+.cs {
+    color: rgba(0, 116, 0, 1)
+}
+
+.gd {
+    color: #A00000
+}
+
+.ge {
+    font-style: italic
+}
+
+.gr {
+    color: #F00
+}
+
+.gh {
+    color: navy;
+    font-weight: 700
+}
+
+.gi {
+    color: #00A000
+}
+
+.go {
+    color: gray
+}
+
+.gp {
+    color: navy;
+    font-weight: 700
+}
+
+.gs {
+    font-weight: 700
+}
+
+.gu {
+    color: purple;
+    font-weight: 700
+}
+
+.gt {
+    color: #0040D0
+}
+
+.kc {
+    color: rgba(170, 13, 145, 1)
+}
+
+.kd {
+    color: rgba(170, 13, 145, 1)
+}
+
+.kp {
+    color: rgba(170, 13, 145, 1)
+}
+
+.kr {
+    color: rgba(170, 13, 145, 1)
+}
+
+.kt {
+    color: rgba(170, 51, 145, 1)
+}
+
+.m {
+    color: rgba(28, 0, 207, 1)
+}
+
+.s {
+    color: rgba(196, 26, 22, 1)
+}
+
+.n {
+    color: rgba(92, 38, 153, 1)
+}
+
+.na {
+    color: rgba(131, 48, 30, 1)
+}
+
+.nb {
+    color: rgba(170, 13, 145, 1)
+}
+
+.nc {
+    color: rgba(63, 110, 116, 1)
+}
+
+.no {
+    color: rgba(38, 71, 75, 1)
+}
+
+.nd {
+    color: #A2F
+}
+
+.ni {
+    color: #999;
+    font-weight: 700
+}
+
+.ne {
+    color: #D2413A;
+    font-weight: 700
+}
+
+.nf {
+    color: rgba(0, 0, 0, 1)
+}
+
+.nl {
+    color: rgba(0, 0, 0, 1)
+}
+
+.nn {
+    color: #00F;
+    font-weight: 700
+}
+
+.nt {
+    color: green;
+    font-weight: 700
+}
+
+.nv {
+    color: #19177C
+}
+
+.ow {
+    color: #A2F;
+    font-weight: 700
+}
+
+.w {
+    color: #bbb
+}
+
+.mf {
+    color: rgba(28, 0, 207, 1)
+}
+
+.mh {
+    color: rgba(28, 0, 207, 1)
+}
+
+.mi {
+    color: rgba(28, 0, 207, 1)
+}
+
+.mo {
+    color: rgba(28, 0, 207, 1)
+}
+
+.sb {
+    color: rgba(196, 26, 22, 1)
+}
+
+.sc {
+    color: rgba(196, 26, 22, 1)
+}
+
+.sd {
+    color: rgba(196, 26, 22, 1)
+}
+
+.s2 {
+    color: rgba(196, 26, 22, 1)
+}
+
+.se {
+    color: rgba(196, 26, 22, 1)
+}
+
+.sh {
+    color: rgba(196, 26, 22, 1)
+}
+
+.si {
+    color: rgba(196, 26, 22, 1)
+}
+
+.sx {
+    color: rgba(196, 26, 22, 1)
+}
+
+.sr {
+    color: rgba(196, 26, 22, 1)
+}
+
+.s1 {
+    color: rgba(196, 26, 22, 1)
+}
+
+.ss {
+    color: rgba(196, 26, 22, 1)
+}
+
+.bp {
+    color: green
+}
+
+.vc {
+    color: rgba(63, 110, 116, 1)
+}
+
+.vg {
+    color: #19177C
+}
+
+.vi {
+    color: #19177C
+}
+
+.il {
+    color: rgba(28, 0, 207, 1)
+}
+
+
+/*Mobile first*/
+
+@media only screen and (min-device-width:1024px) {
+    .content {
+        margin: 15px;
+        padding: 0;
+    }
+    .code-lines li {
+        font-size: 1.0em;
+    }
+    .chapter-name {
+        margin-top: 40px;
+    }
+    .chapter-name:nth-of-type(1) {
+        margin-top: 40px;
+    }
+    .section-name {
+        margin-top: 70px;
+    }
+}

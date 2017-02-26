@@ -1,0 +1,4 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">if (a is List&lt;Int&gt;) // Error: cannot check if it is really a List of Ints
+// but
+if (a is List&lt;*&gt;) // OK: no guarantees about the contents of the list
+</code></pre>

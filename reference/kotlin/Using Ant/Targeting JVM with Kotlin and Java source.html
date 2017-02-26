@@ -1,0 +1,19 @@
+<pre><code class="code _highlighted" data-lang="application/xml">&lt;project name=&quot;Ant Task Test&quot; default=&quot;build&quot;&gt;
+    &lt;typedef resource=&quot;org/jetbrains/kotlin/ant/antlib.xml&quot; classpath=&quot;${kotlin.lib}/kotlin-ant.jar&quot;/&gt;
+
+    &lt;target name=&quot;build&quot;&gt;
+        &lt;delete dir=&quot;classes&quot; failonerror=&quot;false&quot;/&gt;
+        &lt;mkdir dir=&quot;classes&quot;/&gt;
+        &lt;javac destdir=&quot;classes&quot; includeAntRuntime=&quot;false&quot; srcdir=&quot;src&quot;&gt;
+            &lt;withKotlin/&gt;
+        &lt;/javac&gt;
+        &lt;jar destfile=&quot;hello.jar&quot;&gt;
+            &lt;fileset dir=&quot;classes&quot;/&gt;
+        &lt;/jar&gt;
+    &lt;/target&gt;
+&lt;/project&gt;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="application/xml">&lt;withKotlin moduleName=&quot;myModule&quot;&gt;
+    &lt;compilerarg value=&quot;-no-stdlib&quot;/&gt;
+&lt;/withKotlin&gt;
+</code></pre>

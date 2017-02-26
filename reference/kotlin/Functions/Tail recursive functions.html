@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">tailrec fun findFixPoint(x: Double = 1.0): Double
+        = if (x == Math.cos(x)) x else findFixPoint(Math.cos(x))
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">private fun findFixPoint(): Double {
+    var x = 1.0
+    while (true) {
+        val y = Math.cos(x)
+        if (x == y) return y
+        x = y
+    }
+}
+</code></pre>

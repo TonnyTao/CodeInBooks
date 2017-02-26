@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted" data-lang="text/x-groovy">apply plugin: &quot;kotlin2js&quot;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-groovy">sourceSets {
+    main.kotlin.srcDirs += &apos;src/main/myKotlin&apos;
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-groovy">compileKotlin2Js {
+	kotlinOptions.metaInfo = true
+}
+</code></pre>

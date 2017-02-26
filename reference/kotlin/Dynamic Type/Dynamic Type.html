@@ -1,0 +1,11 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val dyn: dynamic = ...
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">dyn.whatever(1, &quot;foo&quot;, dyn) // &apos;whatever&apos; is not defined anywhere
+dyn.whatever(*arrayOf(1, 2, 3))
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">dyn.foo().bar.baz()
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">dyn.foo {
+    x -&gt; x.bar() // x is dynamic
+}
+</code></pre>

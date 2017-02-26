@@ -1,0 +1,31 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val numbers: MutableList&lt;Int&gt; = mutableListOf(1, 2, 3)
+val readOnlyView: List&lt;Int&gt; = numbers
+println(numbers)        // prints &quot;[1, 2, 3]&quot;
+numbers.add(4)
+println(readOnlyView)   // prints &quot;[1, 2, 3, 4]&quot;
+readOnlyView.clear()    // -&gt; does not compile
+
+val strings = hashSetOf(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;)
+assert(strings.size == 3)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val items = listOf(1, 2, 3)
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Controller {
+    private val _items = mutableListOf&lt;String&gt;()
+    val items: List&lt;String&gt; get() = _items.toList()
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val items = listOf(1, 2, 3, 4)
+items.first() == 1
+items.last() == 4
+items.filter { it % 2 == 0 }   // returns [2, 4]
+
+val rwList = mutableListOf(1, 2, 3)
+rwList.requireNoNulls()        // returns [1, 2, 3]
+if (rwList.none { it &gt; 6 }) println(&quot;No items above 6&quot;)  // prints &quot;No items above 6&quot;
+val item = rwList.firstOrNull()
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val readWriteMap = hashMapOf(&quot;foo&quot; to 1, &quot;bar&quot; to 2)
+println(readWriteMap[&quot;foo&quot;])  // prints &quot;1&quot;
+val snapshot: Map&lt;String, Int&gt; = HashMap(readWriteMap)
+</code></pre>

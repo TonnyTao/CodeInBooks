@@ -1,0 +1,15 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Example(@field:Ann val foo,    // annotate Java field
+              @get:Ann val bar,      // annotate Java getter
+              @param:Ann val quux)   // annotate Java constructor parameter
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">@file:JvmName(&quot;Foo&quot;)
+
+package org.jetbrains.demo
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Example {
+     @set:[Inject VisibleForTesting]
+     var collaborator: Collaborator
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun @receiver:Fancy String.myExtension() { }
+</code></pre>

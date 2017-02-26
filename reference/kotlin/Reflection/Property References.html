@@ -1,0 +1,36 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">var x = 1
+
+fun main(args: Array&lt;String&gt;) {
+    println(::x.get()) // prints &quot;1&quot;
+    ::x.set(2)
+    println(x)         // prints &quot;2&quot;
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val strs = listOf(&quot;a&quot;, &quot;bc&quot;, &quot;def&quot;)
+println(strs.map(String::length)) // prints [1, 2, 3]
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class A(val p: Int)
+
+fun main(args: Array&lt;String&gt;) {
+    val prop = A::p
+    println(prop.get(A(1))) // prints &quot;1&quot;
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val String.lastChar: Char
+    get() = this[length - 1]
+
+fun main(args: Array&lt;String&gt;) {
+    println(String::lastChar.get(&quot;abc&quot;)) // prints &quot;c&quot;
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">import kotlin.reflect.jvm.*
+ 
+class A(val p: Int)
+ 
+fun main(args: Array&lt;String&gt;) {
+    println(A::p.javaGetter) // prints &quot;public final int A.getP()&quot;
+    println(A::p.javaField)  // prints &quot;private final int A.p&quot;
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun getKClass(o: Any): KClass&lt;Any&gt; = o.javaClass.kotlin
+</code></pre>

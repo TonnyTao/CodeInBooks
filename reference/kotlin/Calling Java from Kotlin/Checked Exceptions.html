@@ -1,0 +1,15 @@
+<pre><code class="code _highlighted" data-lang="text/x-java">Appendable append(CharSequence csq) throws IOException;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">try {
+    log.append(message)
+}
+catch (IOException e) {
+    // Must be safe
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun render(list: List&lt;*&gt;, to: Appendable) {
+    for (item in list) {
+        to.append(item.toString()) // Java would require us to catch IOException here
+    }
+}
+</code></pre>

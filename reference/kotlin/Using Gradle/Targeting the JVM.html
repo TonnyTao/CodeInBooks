@@ -1,0 +1,13 @@
+<pre><code class="code _highlighted" data-lang="text/x-groovy">apply plugin: &quot;kotlin&quot;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-groovy">project
+    - src
+        - main (root)
+            - kotlin
+            - java
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-groovy">sourceSets {
+    main.kotlin.srcDirs += &apos;src/main/myKotlin&apos;
+    main.java.srcDirs += &apos;src/main/myJava&apos;
+}
+</code></pre>

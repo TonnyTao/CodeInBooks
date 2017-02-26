@@ -1,0 +1,13 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class A
+class B
+class C
+
+inline fun &lt;reified T&gt; foo() {
+    println(jsClass&lt;T&gt;().name)
+}
+
+println(A().jsClass.name)     // prints &quot;A&quot;
+println(B::class.simpleName)  // prints &quot;B&quot;
+println(B::class.js.name)     // prints &quot;B&quot;
+foo&lt;C&gt;()                      // prints &quot;C&quot;
+</code></pre>

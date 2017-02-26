@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">enum class ProtocolState {
+    WAITING {
+        override fun signal() = TALKING
+    },
+
+    TALKING {
+        override fun signal() = WAITING
+    };
+
+    abstract fun signal(): ProtocolState
+}
+</code></pre>

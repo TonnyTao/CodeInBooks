@@ -1,0 +1,57 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class D {
+    fun bar() { ... }
+}
+
+class C {
+    fun baz() { ... }
+
+    fun D.foo() {
+        bar()   // calls D.bar
+        baz()   // calls C.baz
+    }
+
+    fun caller(d: D) {
+        d.foo()   // call the extension function
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">class C {
+    fun D.foo() {
+        toString()         // calls D.toString()
+        this@C.toString()  // calls C.toString()
+    }
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">open class D {
+}
+
+class D1 : D() {
+}
+
+open class C {
+    open fun D.foo() {
+        println(&quot;D.foo in C&quot;)
+    }
+
+    open fun D1.foo() {
+        println(&quot;D1.foo in C&quot;)
+    }
+
+    fun caller(d: D) {
+        d.foo()   // call the extension function
+    }
+}
+
+class C1 : C() {
+    override fun D.foo() {
+        println(&quot;D.foo in C1&quot;)
+    }
+
+    override fun D1.foo() {
+        println(&quot;D1.foo in C1&quot;)
+    }
+}
+
+C().caller(D())   // prints &quot;D.foo in C&quot;
+C1().caller(D())  // prints &quot;D.foo in C1&quot; - dispatch receiver is resolved virtually
+C().caller(D1())  // prints &quot;D.foo in C&quot; - extension receiver is resolved statically
+</code></pre>

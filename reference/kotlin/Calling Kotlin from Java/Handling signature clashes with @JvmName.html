@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun List&lt;String&gt;.filterValid(): List&lt;String&gt;
+fun List&lt;Int&gt;.filterValid(): List&lt;Int&gt;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun List&lt;String&gt;.filterValid(): List&lt;String&gt;
+
+@JvmName(&quot;filterValidInt&quot;)
+fun List&lt;Int&gt;.filterValid(): List&lt;Int&gt;
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">val x: Int
+    @JvmName(&quot;getX_prop&quot;)
+    get() = 15
+
+fun getX() = 10
+</code></pre>

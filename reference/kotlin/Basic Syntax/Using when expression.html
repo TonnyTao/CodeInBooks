@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun cases(obj: Any) {
+    when (obj) {
+        1          -&gt; print(&quot;One&quot;)
+        &quot;Hello&quot;    -&gt; print(&quot;Greeting&quot;)
+        is Long    -&gt; print(&quot;Long&quot;)
+        !is String -&gt; print(&quot;Not a string&quot;)
+        else       -&gt; print(&quot;Unknown&quot;)
+    }
+}
+</code></pre>

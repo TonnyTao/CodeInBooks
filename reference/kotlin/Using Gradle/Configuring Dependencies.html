@@ -1,0 +1,24 @@
+<pre><code class="code _highlighted" data-lang="text/x-groovy">buildscript {
+   ext.kotlin_version = &apos;&lt;version to use&gt;&apos;
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath &quot;org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version&quot;
+  }
+}
+
+apply plugin: &quot;kotlin&quot; // or apply plugin: &quot;kotlin2js&quot; if targeting JavaScript
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile &quot;org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version&quot;
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-groovy">compile &quot;org.jetbrains.kotlin:kotlin-reflect:$kotlin_version&quot;
+testCompile &quot;org.jetbrains.kotlin:kotlin-test:$kotlin_version&quot;
+testCompile &quot;org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version&quot;
+</code></pre>

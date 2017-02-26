@@ -1,0 +1,52 @@
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+List&lt;String&gt; strs = new ArrayList&lt;String&gt;();
+List&lt;Object&gt; objs = strs; // !!! The cause of the upcoming problem sits here. Java prohibits this!
+objs.add(1); // Here we put an Integer into a list of Strings
+String s = strs.get(0); // !!! ClassCastException: Cannot cast Integer to String
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+interface Collection&lt;E&gt; ... {
+  void addAll(Collection&lt;E&gt; items);
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+void copyAll(Collection&lt;Object&gt; to, Collection&lt;String&gt; from) {
+  to.addAll(from); // !!! Would not compile with the naive declaration of addAll:
+                   //       Collection&lt;String&gt; is not a subtype of Collection&lt;Object&gt;
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+interface Collection&lt;E&gt; ... {
+  void addAll(Collection&lt;? extends E&gt; items);
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+interface Source&lt;T&gt; {
+  T nextT();
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-java">// Java
+void demo(Source&lt;String&gt; strs) {
+  Source&lt;Object&gt; objects = strs; // !!! Not allowed in Java
+  // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">abstract class Source&lt;out T&gt; {
+    abstract fun nextT(): T
+}
+
+fun demo(strs: Source&lt;String&gt;) {
+    val objects: Source&lt;Any&gt; = strs // This is OK, since T is an out-parameter
+    // ...
+}
+</code></pre>
+<pre><code class="code _highlighted" data-lang="text/x-kotlin">abstract class Comparable&lt;in T&gt; {
+    abstract fun compareTo(other: T): Int
+}
+
+fun demo(x: Comparable&lt;Number&gt;) {
+    x.compareTo(1.0) // 1.0 has type Double, which is a subtype of Number
+    // Thus, we can assign x to a variable of type Comparable&lt;Double&gt;
+    val y: Comparable&lt;Double&gt; = x // OK!
+}
+</code></pre>
