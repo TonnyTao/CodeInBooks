@@ -1,0 +1,17 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Person</span> {
+    <span class="cm-keyword">constructor</span>(<span class="cm-variable">parent</span>: <span class="cm-variable">Person</span>) {
+        <span class="cm-variable">parent</span>.<span class="cm-variable">children</span>.<span class="cm-variable">add</span>(<span class="cm-keyword">this</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Person</span>(<span class="cm-keyword">val</span> <span class="cm-def">name</span>: <span class="cm-variable-3">String</span>) {
+    <span class="cm-keyword">constructor</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>, <span class="cm-variable">parent</span>: <span class="cm-variable">Person</span>) : <span class="cm-keyword">this</span>(<span class="cm-variable">name</span>) {
+        <span class="cm-variable">parent</span>.<span class="cm-variable">children</span>.<span class="cm-variable">add</span>(<span class="cm-keyword">this</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">DontCreateMe</span> <span class="cm-keyword">private</span> <span class="cm-keyword">constructor</span> () {
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Customer</span>(<span class="cm-keyword">val</span> <span class="cm-def">customerName</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">=</span> <span class="cm-string">""</span>)
+</code></pre>

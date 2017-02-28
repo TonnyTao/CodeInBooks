@@ -1,0 +1,29 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">lock</span>(<span class="cm-variable">lock</span>: <span class="cm-variable">Lock</span>, <span class="cm-variable">body</span>: () <span class="cm-operator">-&gt;</span> <span class="cm-variable">T</span>): <span class="cm-variable">T</span> {
+    <span class="cm-variable">lock</span>.<span class="cm-variable">lock</span>()
+    <span class="cm-keyword">try</span> {
+        <span class="cm-keyword">return</span> <span class="cm-variable">body</span>()
+    }
+    <span class="cm-keyword">finally</span> {
+        <span class="cm-variable">lock</span>.<span class="cm-variable">unlock</span>()
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">toBeSynchronized</span>() <span class="cm-operator">=</span> <span class="cm-variable">sharedResource</span>.<span class="cm-variable">operation</span>()
+
+<span class="cm-keyword">val</span> <span class="cm-def">result</span> <span class="cm-operator">=</span> <span class="cm-variable">lock</span>(<span class="cm-variable">lock</span>, ::<span class="cm-variable">toBeSynchronized</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">result</span> <span class="cm-operator">=</span> <span class="cm-variable">lock</span>(<span class="cm-variable">lock</span>, { <span class="cm-variable">sharedResource</span>.<span class="cm-variable">operation</span>() })
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">lock</span> (<span class="cm-variable">lock</span>) {
+    <span class="cm-variable">sharedResource</span>.<span class="cm-variable">operation</span>()
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span>, <span class="cm-variable">R</span><span class="cm-operator">&gt;</span> <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>.<span class="cm-variable">map</span>(<span class="cm-variable">transform</span>: (<span class="cm-variable">T</span>) <span class="cm-operator">-&gt;</span> <span class="cm-variable">R</span>): <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">R</span><span class="cm-operator">&gt;</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">result</span> <span class="cm-operator">=</span> <span class="cm-variable">arrayListOf</span><span class="cm-operator">&lt;</span><span class="cm-variable">R</span><span class="cm-operator">&gt;</span>()
+    <span class="cm-keyword">for</span> (<span class="cm-variable">item</span> <span class="cm-keyword">in</span> <span class="cm-keyword">this</span>)
+        <span class="cm-variable">result</span>.<span class="cm-variable">add</span>(<span class="cm-variable">transform</span>(<span class="cm-variable">item</span>))
+    <span class="cm-keyword">return</span> <span class="cm-variable">result</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">doubled</span> <span class="cm-operator">=</span> <span class="cm-variable">ints</span>.<span class="cm-variable">map</span> { <span class="cm-variable">it</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">it</span> <span class="cm-operator">*</span> <span class="cm-number">2</span> }
+</code></pre>

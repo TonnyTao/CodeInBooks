@@ -1,0 +1,23 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Traditional usage </span>
+<span class="cm-keyword">var</span> <span class="cm-def">max</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span> 
+<span class="cm-keyword">if</span> (<span class="cm-variable">a</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">b</span>) <span class="cm-variable">max</span> <span class="cm-operator">=</span> <span class="cm-variable">b</span>
+
+<span class="cm-comment">// With else </span>
+<span class="cm-keyword">var</span> <span class="cm-def">max</span>: <span class="cm-variable">Int</span>
+<span class="cm-keyword">if</span> (<span class="cm-variable">a</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">b</span>) {
+    <span class="cm-variable">max</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span>
+} <span class="cm-keyword">else</span> {
+    <span class="cm-variable">max</span> <span class="cm-operator">=</span> <span class="cm-variable">b</span>
+}
+ 
+<span class="cm-comment">// As expression </span>
+<span class="cm-keyword">val</span> <span class="cm-def">max</span> <span class="cm-operator">=</span> <span class="cm-keyword">if</span> (<span class="cm-variable">a</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">b</span>) <span class="cm-variable">a</span> <span class="cm-keyword">else</span> <span class="cm-variable">b</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">max</span> <span class="cm-operator">=</span> <span class="cm-keyword">if</span> (<span class="cm-variable">a</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">b</span>) {
+    <span class="cm-variable">print</span>(<span class="cm-string">"Choose a"</span>)
+    <span class="cm-variable">a</span>
+} <span class="cm-keyword">else</span> {
+    <span class="cm-variable">print</span>(<span class="cm-string">"Choose b"</span>)
+    <span class="cm-variable">b</span>
+}
+</code></pre>

@@ -1,6 +1,9 @@
 var Spider = require('node-spider');
 const path = require('path')
 const fs = require('fs')
+var sanitize = require("sanitize-filename");
+
+const swiftFolder = 'Swift Language'
 
 var spider = new Spider({
     // How many requests can be run in parallel
@@ -59,7 +62,7 @@ var handleRequest = function(doc) {
     all.push(doc.url)
     const chapter = doc.$('title').text().split(': ')[1]
     console.log(chapter)
-    // const chapter = path.basename(doc.url).split('.')[0]
+        // const chapter = path.basename(doc.url).split('.')[0]
 
     doc.$('div .Swift').each(function(i, elem) {
         var parent = doc.$(elem).parent()
@@ -67,22 +70,40 @@ var handleRequest = function(doc) {
             parent = parent.parent()
         }
 
-        const title = doc.$(parent).children('h3').text()
-        var swifts = code[title] || ''
+        const section = doc.$(parent).children('h3').text()
+        
+        let fileName = sanitize(section)
+        fileName = fileName.replace(/!/g, '_') //fix webpack bug: ! should not in path
+
+        var swifts = code[section] || ''
         swifts += doc.$(elem).html()
 
-        code[title] = swifts
+        code[section] = swifts
 
-        mkdirp(`reference/swift/${chapter}`)
-        fs.writeFileSync(`reference/swift/${chapter}/${title}.html`, swifts, function(e, i) {
+        mkdirp(`reference/${swiftFolder}/${chapter}`)
+        fs.writeFileSync(`reference/${swiftFolder}/${chapter}/${fileName}.html`, swifts, function(e, i) {
 
         })
 
-        var items = chaptersDic[chapter] || []
-        if (items.indexOf(title) === -1) {
-            items.push(title)
+        var sections = chaptersDic[chapter] || []
+        let exist = false
+        sections.map((item, i) => {
+            if (item === fileName || item.fileName === fileName) {
+                exist = true
+            }
+        })
 
-            chaptersDic[chapter] = items
+        if (!exist) {
+            if (section !== fileName) {
+                sections.push({
+                    name: section,
+                    file: fileName
+                })
+            } else {
+                sections.push(fileName)
+            }
+
+            chaptersDic[chapter] = sections
         }
     })
 
@@ -90,21 +111,21 @@ var handleRequest = function(doc) {
     if (chaptersTitles.indexOf(chapter) === -1) {
         chaptersTitles.push(chapter)
     }
-    
+
     var data = []
     for (var item of titles) {
-        
+
         if (chaptersDic[item] && chaptersDic[item].length > 0) {
             data.push({
                 title: item,
                 details: chaptersDic[item]
             })
-        }else {
+        } else {
             console.log('Not Exist', item)
         }
     }
 
-    fs.writeFileSync('reference/swift/chapters.json', JSON.stringify(data), function() {
+    fs.writeFileSync(`reference/${swiftFolder}/chapters.json`, JSON.stringify(data), function() {
         console.log(e, i)
     })
 
@@ -115,7 +136,7 @@ var handleRequest = function(doc) {
         if (href) { href = href.split('#')[0]; }
         if (href) {
             var url = doc.resolve(href) || '';
-            
+
             if (url.startsWith('https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language')) {
                 if (urls.indexOf(url) === -1) {
 
@@ -128,11 +149,11 @@ var handleRequest = function(doc) {
 };
 
 spider.queue('https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language', function(doc) {
-    
-    const targetNav = doc.$('a').filter((i, item)=>{
+
+    const targetNav = doc.$('a').filter((i, item) => {
         return doc.$(item).text() === 'Language Guide'
     })
-    doc.$(targetNav[0]).parent().find('li.nav-chapter').each((i, item)=> {
+    doc.$(targetNav[0]).parent().find('li.nav-chapter').each((i, item) => {
         const chapter = doc.$(item).find('a').text()
         titles.push(chapter)
     })

@@ -1,0 +1,13 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">A</span>
+<span class="cm-keyword">class</span> <span class="cm-def">B</span>
+<span class="cm-keyword">class</span> <span class="cm-def">C</span>
+
+<span class="cm-keyword">inline</span> <span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-keyword">reified</span> <span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">foo</span>() {
+    <span class="cm-variable">println</span>(<span class="cm-variable">jsClass</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>().<span class="cm-variable">name</span>)
+}
+
+<span class="cm-variable">println</span>(<span class="cm-variable">A</span>().<span class="cm-variable">jsClass</span>.<span class="cm-variable">name</span>)     <span class="cm-comment">// prints "A"</span>
+<span class="cm-variable">println</span>(<span class="cm-variable">B</span>::<span class="cm-keyword">class</span>.<span class="cm-variable">simpleName</span>)  <span class="cm-comment">// prints "B"</span>
+<span class="cm-variable">println</span>(<span class="cm-variable">B</span>::<span class="cm-keyword">class</span>.<span class="cm-variable">js</span>.<span class="cm-variable">name</span>)     <span class="cm-comment">// prints "B"</span>
+<span class="cm-variable">foo</span><span class="cm-operator">&lt;</span><span class="cm-variable">C</span><span class="cm-operator">&gt;</span>()                      <span class="cm-comment">// prints "C"</span>
+</code></pre>

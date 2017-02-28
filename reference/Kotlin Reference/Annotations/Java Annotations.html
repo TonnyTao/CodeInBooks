@@ -1,0 +1,58 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">import</span> <span class="cm-variable">org</span>.<span class="cm-variable">junit</span>.<span class="cm-variable">Test</span>
+<span class="cm-keyword">import</span> <span class="cm-variable">org</span>.<span class="cm-variable">junit</span>.<span class="cm-variable">Assert</span>.<span class="cm-operator">*</span>
+<span class="cm-keyword">import</span> <span class="cm-variable">org</span>.<span class="cm-variable">junit</span>.<span class="cm-variable">Rule</span>
+<span class="cm-keyword">import</span> <span class="cm-variable">org</span>.<span class="cm-variable">junit</span>.<span class="cm-variable">rules</span>.<span class="cm-operator">*</span>
+
+<span class="cm-keyword">class</span> <span class="cm-def">Tests</span> {
+    <span class="cm-comment">// apply @Rule annotation to property getter</span>
+    <span class="cm-variable">@get</span>:<span class="cm-variable">Rule</span> <span class="cm-keyword">val</span> <span class="cm-def">tempFolder</span> <span class="cm-operator">=</span> <span class="cm-variable">TemporaryFolder</span>()
+
+    <span class="cm-variable">@Test</span> <span class="cm-keyword">fun</span> <span class="cm-def">simple</span>() {
+        <span class="cm-keyword">val</span> <span class="cm-def">f</span> <span class="cm-operator">=</span> <span class="cm-variable">tempFolder</span>.<span class="cm-variable">newFile</span>()
+        <span class="cm-variable">assertEquals</span>(<span class="cm-number">42</span>, <span class="cm-variable">getTheAnswer</span>())
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">public</span> <span class="cm-keyword">@interface</span> <span class="cm-def">Ann</span> {
+    <span class="cm-variable-3">int</span> <span class="cm-variable">intValue</span>();
+    <span class="cm-variable-3">String</span> <span class="cm-variable">stringValue</span>();
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Kotlin</span>
+<span class="cm-variable">@Ann</span>(<span class="cm-variable">intValue</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>, <span class="cm-variable">stringValue</span> <span class="cm-operator">=</span> <span class="cm-string">"abc"</span>) <span class="cm-keyword">class</span> <span class="cm-def">C</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">public</span> <span class="cm-keyword">@interface</span> <span class="cm-def">AnnWithValue</span> {
+    <span class="cm-variable-3">String</span> <span class="cm-variable">value</span>();
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Kotlin</span>
+<span class="cm-variable">@AnnWithValue</span>(<span class="cm-string">"abc"</span>) <span class="cm-keyword">class</span> <span class="cm-def">C</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">public</span> <span class="cm-keyword">@interface</span> <span class="cm-def">AnnWithArrayValue</span> {
+    <span class="cm-variable-3">String</span>[] <span class="cm-variable">value</span>();
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Kotlin</span>
+<span class="cm-variable">@AnnWithArrayValue</span>(<span class="cm-string">"abc"</span>, <span class="cm-string">"foo"</span>, <span class="cm-string">"bar"</span>) <span class="cm-keyword">class</span> <span class="cm-def">C</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">public</span> <span class="cm-keyword">@interface</span> <span class="cm-def">AnnWithArrayMethod</span> {
+    <span class="cm-variable-3">String</span>[] <span class="cm-variable">names</span>();
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Kotlin</span>
+<span class="cm-variable">@AnnWithArrayMethod</span>(<span class="cm-variable">names</span> <span class="cm-operator">=</span> <span class="cm-variable">arrayOf</span>(<span class="cm-string">"abc"</span>, <span class="cm-string">"foo"</span>, <span class="cm-string">"bar"</span>)) <span class="cm-keyword">class</span> <span class="cm-def">C</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">public</span> <span class="cm-keyword">@interface</span> <span class="cm-def">Ann</span> {
+    <span class="cm-variable-3">int</span> <span class="cm-variable">value</span>();
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Kotlin</span>
+<span class="cm-keyword">fun</span> <span class="cm-def">foo</span>(<span class="cm-variable">ann</span>: <span class="cm-variable">Ann</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">i</span> <span class="cm-operator">=</span> <span class="cm-variable">ann</span>.<span class="cm-variable">value</span>
+}
+</code></pre>

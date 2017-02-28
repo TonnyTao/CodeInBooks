@@ -1,0 +1,57 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">D</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">bar</span>() { ... }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">C</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">baz</span>() { ... }
+
+    <span class="cm-keyword">fun</span> <span class="cm-def">D</span>.<span class="cm-variable">foo</span>() {
+        <span class="cm-variable">bar</span>()   <span class="cm-comment">// calls D.bar</span>
+        <span class="cm-variable">baz</span>()   <span class="cm-comment">// calls C.baz</span>
+    }
+
+    <span class="cm-keyword">fun</span> <span class="cm-def">caller</span>(<span class="cm-variable">d</span>: <span class="cm-variable">D</span>) {
+        <span class="cm-variable">d</span>.<span class="cm-variable">foo</span>()   <span class="cm-comment">// call the extension function</span>
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">C</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">D</span>.<span class="cm-variable">foo</span>() {
+        <span class="cm-variable">toString</span>()         <span class="cm-comment">// calls D.toString()</span>
+        <span class="cm-keyword">this</span><span class="cm-variable">@C</span>.<span class="cm-variable">toString</span>()  <span class="cm-comment">// calls C.toString()</span>
+    }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">D</span> {
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">D1</span> : <span class="cm-variable">D</span>() {
+}
+
+<span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">C</span> {
+    <span class="cm-keyword">open</span> <span class="cm-keyword">fun</span> <span class="cm-def">D</span>.<span class="cm-variable">foo</span>() {
+        <span class="cm-variable">println</span>(<span class="cm-string">"D.foo in C"</span>)
+    }
+
+    <span class="cm-keyword">open</span> <span class="cm-keyword">fun</span> <span class="cm-def">D1</span>.<span class="cm-variable">foo</span>() {
+        <span class="cm-variable">println</span>(<span class="cm-string">"D1.foo in C"</span>)
+    }
+
+    <span class="cm-keyword">fun</span> <span class="cm-def">caller</span>(<span class="cm-variable">d</span>: <span class="cm-variable">D</span>) {
+        <span class="cm-variable">d</span>.<span class="cm-variable">foo</span>()   <span class="cm-comment">// call the extension function</span>
+    }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">C1</span> : <span class="cm-variable">C</span>() {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">D</span>.<span class="cm-variable">foo</span>() {
+        <span class="cm-variable">println</span>(<span class="cm-string">"D.foo in C1"</span>)
+    }
+
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">D1</span>.<span class="cm-variable">foo</span>() {
+        <span class="cm-variable">println</span>(<span class="cm-string">"D1.foo in C1"</span>)
+    }
+}
+
+<span class="cm-variable">C</span>().<span class="cm-variable">caller</span>(<span class="cm-variable">D</span>())   <span class="cm-comment">// prints "D.foo in C"</span>
+<span class="cm-variable">C1</span>().<span class="cm-variable">caller</span>(<span class="cm-variable">D</span>())  <span class="cm-comment">// prints "D.foo in C1" - dispatch receiver is resolved virtually</span>
+<span class="cm-variable">C</span>().<span class="cm-variable">caller</span>(<span class="cm-variable">D1</span>())  <span class="cm-comment">// prints "D.foo in C" - extension receiver is resolved statically</span>
+</code></pre>

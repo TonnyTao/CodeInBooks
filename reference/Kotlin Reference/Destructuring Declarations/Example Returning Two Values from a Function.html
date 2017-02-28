@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">data</span> <span class="cm-keyword">class</span> <span class="cm-def">Result</span>(<span class="cm-keyword">val</span> <span class="cm-def">result</span>: <span class="cm-variable">Int</span>, <span class="cm-keyword">val</span> <span class="cm-def">status</span>: <span class="cm-variable">Status</span>)
+<span class="cm-keyword">fun</span> <span class="cm-def">function</span>(...): <span class="cm-variable">Result</span> {
+    <span class="cm-comment">// computations</span>
+    
+    <span class="cm-keyword">return</span> <span class="cm-variable">Result</span>(<span class="cm-variable">result</span>, <span class="cm-variable">status</span>)
+}
+
+<span class="cm-comment">// Now, to use this function:</span>
+<span class="cm-keyword">val</span> (<span class="cm-variable">result</span>, <span class="cm-variable">status</span>) <span class="cm-operator">=</span> <span class="cm-variable">function</span>(...)
+</code></pre>

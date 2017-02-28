@@ -1,0 +1,37 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Key</span>(<span class="cm-keyword">val</span> <span class="cm-def">value</span>: <span class="cm-variable">Int</span>) {
+    <span class="cm-keyword">companion</span> <span class="cm-keyword">object</span> {
+        <span class="cm-variable">@JvmField</span>
+        <span class="cm-keyword">val</span> <span class="cm-def">COMPARATOR</span>: <span class="cm-variable">Comparator</span><span class="cm-operator">&lt;</span><span class="cm-variable">Key</span><span class="cm-operator">&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">compareBy</span><span class="cm-operator">&lt;</span><span class="cm-variable">Key</span><span class="cm-operator">&gt;</span> { <span class="cm-variable">it</span>.<span class="cm-variable">value</span> }
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-variable">Key</span>.<span class="cm-variable">COMPARATOR</span>.<span class="cm-variable">compare</span>(<span class="cm-variable">key1</span>, <span class="cm-variable">key2</span>);
+<span class="cm-comment">// public static final field in Key class</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">object</span> <span class="cm-def">Singleton</span> {
+    <span class="cm-keyword">lateinit</span> <span class="cm-keyword">var</span> <span class="cm-def">provider</span>: <span class="cm-variable">Provider</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-variable">Singleton</span>.<span class="cm-variable">provider</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Provider</span>();
+<span class="cm-comment">// public static non-final field in Singleton class</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// file example.kt</span>
+
+<span class="cm-keyword">object</span> <span class="cm-def">Obj</span> {
+    <span class="cm-keyword">const</span> <span class="cm-keyword">val</span> <span class="cm-def">CONST</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">C</span> {
+    <span class="cm-keyword">companion</span> <span class="cm-keyword">object</span> {
+        <span class="cm-keyword">const</span> <span class="cm-keyword">val</span> <span class="cm-def">VERSION</span> <span class="cm-operator">=</span> <span class="cm-number">9</span>
+    }
+}
+
+<span class="cm-keyword">const</span> <span class="cm-keyword">val</span> <span class="cm-def">MAX</span> <span class="cm-operator">=</span> <span class="cm-number">239</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-variable-3">int</span> <span class="cm-variable">c</span> <span class="cm-operator">=</span> <span class="cm-variable">Obj</span>.<span class="cm-variable">CONST</span>;
+<span class="cm-variable-3">int</span> <span class="cm-variable">d</span> <span class="cm-operator">=</span> <span class="cm-variable">ExampleKt</span>.<span class="cm-variable">MAX</span>;
+<span class="cm-variable-3">int</span> <span class="cm-variable">v</span> <span class="cm-operator">=</span> <span class="cm-variable">C</span>.<span class="cm-variable">VERSION</span>;
+</code></pre>

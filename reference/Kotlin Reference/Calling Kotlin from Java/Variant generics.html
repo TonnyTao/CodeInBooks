@@ -1,0 +1,27 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Box</span><span class="cm-operator">&lt;</span><span class="cm-keyword">out</span> <span class="cm-variable">T</span><span class="cm-operator">&gt;</span>(<span class="cm-keyword">val</span> <span class="cm-def">value</span>: <span class="cm-variable">T</span>)
+
+<span class="cm-keyword">interface</span> <span class="cm-def">Base</span>
+<span class="cm-keyword">class</span> <span class="cm-def">Derived</span> : <span class="cm-variable">Base</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">boxDerived</span>(<span class="cm-variable">value</span>: <span class="cm-variable">Derived</span>): <span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">Derived</span><span class="cm-operator">&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">Box</span>(<span class="cm-variable">value</span>)
+<span class="cm-keyword">fun</span> <span class="cm-def">unboxBase</span>(<span class="cm-variable">box</span>: <span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">Base</span><span class="cm-operator">&gt;</span>): <span class="cm-variable">Base</span> <span class="cm-operator">=</span> <span class="cm-variable">box</span>.<span class="cm-variable">value</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">Derived</span><span class="cm-operator">&gt;</span> <span class="cm-def">boxDerived</span>(<span class="cm-variable">Derived</span> <span class="cm-variable">value</span>) { ... }
+<span class="cm-variable">Base</span> <span class="cm-def">unboxBase</span>(<span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">Base</span><span class="cm-operator">&gt;</span> <span class="cm-variable">box</span>) { ... }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-variable">Base</span> <span class="cm-def">unboxBase</span>(<span class="cm-variable">Box</span><span class="cm-operator">&lt;?</span> <span class="cm-keyword">extends</span> <span class="cm-variable">Base</span><span class="cm-operator">&gt;</span> <span class="cm-variable">box</span>) { ... }  
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// return type - no wildcards</span>
+<span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">Derived</span><span class="cm-operator">&gt;</span> <span class="cm-def">boxDerived</span>(<span class="cm-variable">Derived</span> <span class="cm-variable">value</span>) { ... }
+ 
+<span class="cm-comment">// parameter - wildcards </span>
+<span class="cm-variable">Base</span> <span class="cm-def">unboxBase</span>(<span class="cm-variable">Box</span><span class="cm-operator">&lt;?</span> <span class="cm-keyword">extends</span> <span class="cm-variable">Base</span><span class="cm-operator">&gt;</span> <span class="cm-variable">box</span>) { ... }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">boxDerived</span>(<span class="cm-variable">value</span>: <span class="cm-variable">Derived</span>): <span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">@JvmWildcard</span> <span class="cm-variable">Derived</span><span class="cm-operator">&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">Box</span>(<span class="cm-variable">value</span>)
+<span class="cm-comment">// is translated to </span>
+<span class="cm-comment">// Box&lt;? extends Derived&gt; boxDerived(Derived value) { ... }</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">unboxBase</span>(<span class="cm-variable">box</span>: <span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">@JvmSuppressWildcards</span> <span class="cm-variable">Base</span><span class="cm-operator">&gt;</span>): <span class="cm-variable">Base</span> <span class="cm-operator">=</span> <span class="cm-variable">box</span>.<span class="cm-variable">value</span>
+<span class="cm-comment">// is translated to </span>
+<span class="cm-comment">// Base unboxBase(Box&lt;Base&gt; box) { ... }</span>
+</code></pre>

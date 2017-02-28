@@ -1,0 +1,17 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Turtle</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">penDown</span>()
+    <span class="cm-keyword">fun</span> <span class="cm-def">penUp</span>()
+    <span class="cm-keyword">fun</span> <span class="cm-def">turn</span>(<span class="cm-variable">degrees</span>: <span class="cm-variable-3">Double</span>)
+    <span class="cm-keyword">fun</span> <span class="cm-def">forward</span>(<span class="cm-variable">pixels</span>: <span class="cm-variable-3">Double</span>)
+}
+
+<span class="cm-keyword">val</span> <span class="cm-def">myTurtle</span> <span class="cm-operator">=</span> <span class="cm-variable">Turtle</span>()
+<span class="cm-variable">with</span>(<span class="cm-variable">myTurtle</span>) { <span class="cm-comment">//draw a 100 pix square</span>
+    <span class="cm-variable">penDown</span>()
+    <span class="cm-keyword">for</span>(<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-number">4</span>) {
+        <span class="cm-variable">forward</span>(<span class="cm-number">100.0</span>)
+        <span class="cm-variable">turn</span>(<span class="cm-number">90.0</span>)
+    }
+    <span class="cm-variable">penUp</span>()
+}
+</code></pre>

@@ -1,7 +1,0 @@
-<pre><code class="code _highlighted" data-lang="text/x-kotlin">fun Any?.toString(): String {
-    if (this == null) return &quot;null&quot;
-    // after the null check, &apos;this&apos; is autocast to a non-null type, so the toString() below
-    // resolves to the member function of the Any class
-    return toString()
-}
-</code></pre>

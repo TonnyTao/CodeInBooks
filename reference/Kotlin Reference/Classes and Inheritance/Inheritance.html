@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Example</span> <span class="cm-comment">// Implicitly inherits from Any</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">Base</span>(<span class="cm-variable">p</span>: <span class="cm-variable">Int</span>)
+
+<span class="cm-keyword">class</span> <span class="cm-def">Derived</span>(<span class="cm-variable">p</span>: <span class="cm-variable">Int</span>) : <span class="cm-variable">Base</span>(<span class="cm-variable">p</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">MyView</span> : <span class="cm-variable">View</span> {
+    <span class="cm-keyword">constructor</span>(<span class="cm-variable">ctx</span>: <span class="cm-variable">Context</span>) : <span class="cm-keyword">super</span>(<span class="cm-variable">ctx</span>)
+
+    <span class="cm-keyword">constructor</span>(<span class="cm-variable">ctx</span>: <span class="cm-variable">Context</span>, <span class="cm-variable">attrs</span>: <span class="cm-variable">AttributeSet</span>) : <span class="cm-keyword">super</span>(<span class="cm-variable">ctx</span>, <span class="cm-variable">attrs</span>)
+}
+</code></pre>

@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">a</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">10000</span>
+<span class="cm-variable">print</span>(<span class="cm-variable">a</span> <span class="cm-operator">===</span> <span class="cm-variable">a</span>) <span class="cm-comment">// Prints 'true'</span>
+<span class="cm-keyword">val</span> <span class="cm-def">boxedA</span>: <span class="cm-variable">Int</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span>
+<span class="cm-keyword">val</span> <span class="cm-def">anotherBoxedA</span>: <span class="cm-variable">Int</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span>
+<span class="cm-variable">print</span>(<span class="cm-variable">boxedA</span> <span class="cm-operator">===</span> <span class="cm-variable">anotherBoxedA</span>) <span class="cm-comment">// !!!Prints 'false'!!!</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">a</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">10000</span>
+<span class="cm-variable">print</span>(<span class="cm-variable">a</span> <span class="cm-operator">==</span> <span class="cm-variable">a</span>) <span class="cm-comment">// Prints 'true'</span>
+<span class="cm-keyword">val</span> <span class="cm-def">boxedA</span>: <span class="cm-variable">Int</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span>
+<span class="cm-keyword">val</span> <span class="cm-def">anotherBoxedA</span>: <span class="cm-variable">Int</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span>
+<span class="cm-variable">print</span>(<span class="cm-variable">boxedA</span> <span class="cm-operator">==</span> <span class="cm-variable">anotherBoxedA</span>) <span class="cm-comment">// Prints 'true'</span>
+</code></pre>

@@ -1,0 +1,36 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">when</span> (<span class="cm-variable">x</span>) {
+    <span class="cm-number">1</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x == 1"</span>)
+    <span class="cm-number">2</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x == 2"</span>)
+    <span class="cm-keyword">else</span> <span class="cm-operator">-&gt;</span> { <span class="cm-comment">// Note the block</span>
+        <span class="cm-variable">print</span>(<span class="cm-string">"x is neither 1 nor 2"</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">when</span> (<span class="cm-variable">x</span>) {
+    <span class="cm-number">0</span>, <span class="cm-number">1</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x == 0 or x == 1"</span>)
+    <span class="cm-keyword">else</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"otherwise"</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">when</span> (<span class="cm-variable">x</span>) {
+    <span class="cm-variable">parseInt</span>(<span class="cm-variable">s</span>) <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"s encodes x"</span>)
+    <span class="cm-keyword">else</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"s does not encode x"</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">when</span> (<span class="cm-variable">x</span>) {
+    <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-number">10</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x is in the range"</span>)
+    <span class="cm-keyword">in</span> <span class="cm-variable">validNumbers</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x is valid"</span>)
+    <span class="cm-operator">!</span><span class="cm-keyword">in</span> <span class="cm-number">10.</span>.<span class="cm-number">20</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x is outside the range"</span>)
+    <span class="cm-keyword">else</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"none of the above"</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">hasPrefix</span> <span class="cm-operator">=</span> <span class="cm-keyword">when</span>(<span class="cm-variable">x</span>) {
+    <span class="cm-keyword">is</span> <span class="cm-variable-3">String</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">x</span>.<span class="cm-variable">startsWith</span>(<span class="cm-string">"prefix"</span>)
+    <span class="cm-keyword">else</span> <span class="cm-operator">-&gt;</span> <span class="cm-atom">false</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">when</span> {
+    <span class="cm-variable">x</span>.<span class="cm-variable">isOdd</span>() <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x is odd"</span>)
+    <span class="cm-variable">x</span>.<span class="cm-variable">isEven</span>() <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x is even"</span>)
+    <span class="cm-keyword">else</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-string">"x is funny"</span>)
+}
+</code></pre>

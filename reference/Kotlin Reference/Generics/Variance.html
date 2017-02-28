@@ -1,0 +1,22 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span> <span class="cm-variable">strs</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ArrayList</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>();
+<span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">Object</span><span class="cm-operator">&gt;</span> <span class="cm-variable">objs</span> <span class="cm-operator">=</span> <span class="cm-variable">strs</span>; <span class="cm-comment">// !!! The cause of the upcoming problem sits here. Java prohibits this!</span>
+<span class="cm-variable">objs</span>.<span class="cm-variable">add</span>(<span class="cm-number">1</span>); <span class="cm-comment">// Here we put an Integer into a list of Strings</span>
+<span class="cm-variable-3">String</span> <span class="cm-variable">s</span> <span class="cm-operator">=</span> <span class="cm-variable">strs</span>.<span class="cm-variable">get</span>(<span class="cm-number">0</span>); <span class="cm-comment">// !!! ClassCastException: Cannot cast Integer to String</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">interface</span> <span class="cm-def">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable">E</span><span class="cm-operator">&gt;</span> ... {
+  <span class="cm-variable-3">void</span> <span class="cm-variable">addAll</span>(<span class="cm-variable">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable">E</span><span class="cm-operator">&gt;</span> <span class="cm-variable">items</span>);
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-variable-3">void</span> <span class="cm-def">copyAll</span>(<span class="cm-variable">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">Object</span><span class="cm-operator">&gt;</span> <span class="cm-variable">to</span>, <span class="cm-variable">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span> <span class="cm-variable">from</span>) {
+  <span class="cm-variable">to</span>.<span class="cm-variable">addAll</span>(<span class="cm-variable">from</span>); <span class="cm-comment">// !!! Would not compile with the naive declaration of addAll:</span>
+                   <span class="cm-comment">//       Collection&lt;String&gt; is not a subtype of Collection&lt;Object&gt;</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">interface</span> <span class="cm-def">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable">E</span><span class="cm-operator">&gt;</span> ... {
+  <span class="cm-variable-3">void</span> <span class="cm-variable">addAll</span>(<span class="cm-variable">Collection</span><span class="cm-operator">&lt;?</span> <span class="cm-keyword">extends</span> <span class="cm-variable">E</span><span class="cm-operator">&gt;</span> <span class="cm-variable">items</span>);
+}
+</code></pre>

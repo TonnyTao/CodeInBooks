@@ -1,0 +1,8 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>(<span class="cm-variable">t</span>: <span class="cm-variable">T</span>) {
+    <span class="cm-keyword">var</span> <span class="cm-def">value</span> <span class="cm-operator">=</span> <span class="cm-variable">t</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">box</span>: <span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">Int</span><span class="cm-operator">&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">Box</span><span class="cm-operator">&lt;</span><span class="cm-variable">Int</span><span class="cm-operator">&gt;</span>(<span class="cm-number">1</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">box</span> <span class="cm-operator">=</span> <span class="cm-variable">Box</span>(<span class="cm-number">1</span>) <span class="cm-comment">// 1 has type Int, so the compiler figures out that we are talking about Box&lt;Int&gt;</span>
+</code></pre>

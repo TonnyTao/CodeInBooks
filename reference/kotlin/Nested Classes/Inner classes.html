@@ -1,9 +1,0 @@
-<pre><code class="code _highlighted" data-lang="text/x-kotlin">class Outer {
-    private val bar: Int = 1
-    inner class Inner {
-        fun foo() = bar
-    }
-}
-
-val demo = Outer().Inner().foo() // == 1
-</code></pre>

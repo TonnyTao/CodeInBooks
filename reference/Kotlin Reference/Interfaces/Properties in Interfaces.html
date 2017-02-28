@@ -1,0 +1,15 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">interface</span> <span class="cm-def">MyInterface</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">prop</span>: <span class="cm-variable">Int</span> <span class="cm-comment">// abstract</span>
+
+    <span class="cm-keyword">val</span> <span class="cm-def">propertyWithImplementation</span>: <span class="cm-variable-3">String</span>
+        <span class="cm-keyword">get</span>() <span class="cm-operator">=</span> <span class="cm-string">"foo"</span>
+
+    <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+        <span class="cm-variable">print</span>(<span class="cm-variable">prop</span>)
+    }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">Child</span> : <span class="cm-variable">MyInterface</span> {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">val</span> <span class="cm-def">prop</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">29</span>
+}
+</code></pre>

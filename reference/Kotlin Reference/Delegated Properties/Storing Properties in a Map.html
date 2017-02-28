@@ -1,0 +1,18 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">User</span>(<span class="cm-keyword">val</span> <span class="cm-def">map</span>: <span class="cm-variable">Map</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span>, <span class="cm-variable">Any</span><span class="cm-operator">?&gt;</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">name</span>: <span class="cm-variable-3">String</span> <span class="cm-keyword">by</span> <span class="cm-variable">map</span>
+    <span class="cm-keyword">val</span> <span class="cm-def">age</span>: <span class="cm-variable">Int</span>     <span class="cm-keyword">by</span> <span class="cm-variable">map</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">user</span> <span class="cm-operator">=</span> <span class="cm-variable">User</span>(<span class="cm-variable">mapOf</span>(
+    <span class="cm-string">"name"</span> <span class="cm-variable">to</span> <span class="cm-string">"John Doe"</span>,
+    <span class="cm-string">"age"</span>  <span class="cm-variable">to</span> <span class="cm-number">25</span>
+))
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">println</span>(<span class="cm-variable">user</span>.<span class="cm-variable">name</span>) <span class="cm-comment">// Prints "John Doe"</span>
+<span class="cm-variable">println</span>(<span class="cm-variable">user</span>.<span class="cm-variable">age</span>)  <span class="cm-comment">// Prints 25</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">MutableUser</span>(<span class="cm-keyword">val</span> <span class="cm-def">map</span>: <span class="cm-variable">MutableMap</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span>, <span class="cm-variable">Any</span><span class="cm-operator">?&gt;</span>) {
+    <span class="cm-keyword">var</span> <span class="cm-def">name</span>: <span class="cm-variable-3">String</span> <span class="cm-keyword">by</span> <span class="cm-variable">map</span>
+    <span class="cm-keyword">var</span> <span class="cm-def">age</span>: <span class="cm-variable">Int</span>     <span class="cm-keyword">by</span> <span class="cm-variable">map</span>
+}
+</code></pre>

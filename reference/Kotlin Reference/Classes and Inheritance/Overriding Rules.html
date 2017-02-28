@@ -1,0 +1,18 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">A</span> {
+    <span class="cm-keyword">open</span> <span class="cm-keyword">fun</span> <span class="cm-def">f</span>() { <span class="cm-variable">print</span>(<span class="cm-string">"A"</span>) }
+    <span class="cm-keyword">fun</span> <span class="cm-def">a</span>() { <span class="cm-variable">print</span>(<span class="cm-string">"a"</span>) }
+}
+
+<span class="cm-keyword">interface</span> <span class="cm-def">B</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">f</span>() { <span class="cm-variable">print</span>(<span class="cm-string">"B"</span>) } <span class="cm-comment">// interface members are 'open' by default</span>
+    <span class="cm-keyword">fun</span> <span class="cm-def">b</span>() { <span class="cm-variable">print</span>(<span class="cm-string">"b"</span>) }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">C</span>() : <span class="cm-variable">A</span>(), <span class="cm-variable">B</span> {
+    <span class="cm-comment">// The compiler requires f() to be overridden:</span>
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">f</span>() {
+        <span class="cm-keyword">super</span><span class="cm-operator">&lt;</span><span class="cm-variable">A</span><span class="cm-operator">&gt;</span>.<span class="cm-variable">f</span>() <span class="cm-comment">// call to A.f()</span>
+        <span class="cm-keyword">super</span><span class="cm-operator">&lt;</span><span class="cm-variable">B</span><span class="cm-operator">&gt;</span>.<span class="cm-variable">f</span>() <span class="cm-comment">// call to B.f()</span>
+    }
+}
+</code></pre>

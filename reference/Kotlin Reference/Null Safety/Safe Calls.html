@@ -1,0 +1,9 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">b</span><span class="cm-operator">?</span>.<span class="cm-variable">length</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">bob</span><span class="cm-operator">?</span>.<span class="cm-variable">department</span><span class="cm-operator">?</span>.<span class="cm-variable">head</span><span class="cm-operator">?</span>.<span class="cm-variable">name</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">listWithNulls</span>: <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">?&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">listOf</span>(<span class="cm-string">"A"</span>, <span class="cm-atom">null</span>)
+<span class="cm-keyword">for</span> (<span class="cm-variable">item</span> <span class="cm-keyword">in</span> <span class="cm-variable">listWithNulls</span>) {
+     <span class="cm-variable">item</span><span class="cm-operator">?</span>.<span class="cm-variable">let</span> { <span class="cm-variable">println</span>(<span class="cm-variable">it</span>) } <span class="cm-comment">// prints A and ignores null</span>
+}
+</code></pre>

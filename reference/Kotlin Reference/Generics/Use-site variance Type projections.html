@@ -1,0 +1,23 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>(<span class="cm-keyword">val</span> <span class="cm-def">size</span>: <span class="cm-variable">Int</span>) {
+    <span class="cm-keyword">fun</span> <span class="cm-keyword">get</span>(<span class="cm-variable">index</span>: <span class="cm-variable">Int</span>): <span class="cm-variable">T</span> { <span class="cm-comment">/* ... */</span> }
+    <span class="cm-keyword">fun</span> <span class="cm-keyword">set</span>(<span class="cm-variable">index</span>: <span class="cm-variable">Int</span>, <span class="cm-variable">value</span>: <span class="cm-variable">T</span>) { <span class="cm-comment">/* ... */</span> }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">copy</span>(<span class="cm-variable">from</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable">Any</span><span class="cm-operator">&gt;</span>, <span class="cm-variable">to</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable">Any</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-variable">assert</span>(<span class="cm-variable">from</span>.<span class="cm-variable">size</span> <span class="cm-operator">==</span> <span class="cm-variable">to</span>.<span class="cm-variable">size</span>)
+    <span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-variable">from</span>.<span class="cm-variable">indices</span>)
+        <span class="cm-variable">to</span>[<span class="cm-variable">i</span>] <span class="cm-operator">=</span> <span class="cm-variable">from</span>[<span class="cm-variable">i</span>]
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">ints</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable">Int</span><span class="cm-operator">&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">arrayOf</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>)
+<span class="cm-keyword">val</span> <span class="cm-def">any</span> <span class="cm-operator">=</span> <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable">Any</span><span class="cm-operator">&gt;</span>(<span class="cm-number">3</span>)
+<span class="cm-variable">copy</span>(<span class="cm-variable">ints</span>, <span class="cm-variable">any</span>) <span class="cm-comment">// Error: expects (Array&lt;Any&gt;, Array&lt;Any&gt;)</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">copy</span>(<span class="cm-variable">from</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-keyword">out</span> <span class="cm-variable">Any</span><span class="cm-operator">&gt;</span>, <span class="cm-variable">to</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable">Any</span><span class="cm-operator">&gt;</span>) {
+ <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">fill</span>(<span class="cm-variable">dest</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-keyword">in</span> <span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>, <span class="cm-variable">value</span>: <span class="cm-variable-3">String</span>) {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>

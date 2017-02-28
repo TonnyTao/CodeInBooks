@@ -1,0 +1,61 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">html</span> {
+ <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">html</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">HTML</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>): <span class="cm-variable">HTML</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">html</span> <span class="cm-operator">=</span> <span class="cm-variable">HTML</span>()
+    <span class="cm-variable">html</span>.<span class="cm-keyword">init</span>()
+    <span class="cm-keyword">return</span> <span class="cm-variable">html</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">html</span> {
+    <span class="cm-keyword">this</span>.<span class="cm-variable">head</span> { <span class="cm-comment">/* ... */</span> }
+    <span class="cm-keyword">this</span>.<span class="cm-variable">body</span> { <span class="cm-comment">/* ... */</span> }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">html</span> {
+    <span class="cm-variable">head</span> { <span class="cm-comment">/* ... */</span> }
+    <span class="cm-variable">body</span> { <span class="cm-comment">/* ... */</span> }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">head</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">Head</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) : <span class="cm-variable">Head</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">head</span> <span class="cm-operator">=</span> <span class="cm-variable">Head</span>()
+    <span class="cm-variable">head</span>.<span class="cm-keyword">init</span>()
+    <span class="cm-variable">children</span>.<span class="cm-variable">add</span>(<span class="cm-variable">head</span>)
+    <span class="cm-keyword">return</span> <span class="cm-variable">head</span>
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">body</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">Body</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) : <span class="cm-variable">Body</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">body</span> <span class="cm-operator">=</span> <span class="cm-variable">Body</span>()
+    <span class="cm-variable">body</span>.<span class="cm-keyword">init</span>()
+    <span class="cm-variable">children</span>.<span class="cm-variable">add</span>(<span class="cm-variable">body</span>)
+    <span class="cm-keyword">return</span> <span class="cm-variable">body</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin">    <span class="cm-keyword">protected</span> <span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span> : <span class="cm-variable">Element</span><span class="cm-operator">&gt;</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">tag</span>: <span class="cm-variable">T</span>, <span class="cm-keyword">init</span>: <span class="cm-variable">T</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>): <span class="cm-variable">T</span> {
+        <span class="cm-variable">tag</span>.<span class="cm-keyword">init</span>()
+        <span class="cm-variable">children</span>.<span class="cm-variable">add</span>(<span class="cm-variable">tag</span>)
+        <span class="cm-keyword">return</span> <span class="cm-variable">tag</span>
+    }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">head</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">Head</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">Head</span>(), <span class="cm-keyword">init</span>)
+
+<span class="cm-keyword">fun</span> <span class="cm-def">body</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">Body</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">Body</span>(), <span class="cm-keyword">init</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">html</span> {
+    <span class="cm-variable">head</span> {
+        <span class="cm-variable">title</span> {<span class="cm-operator">+</span><span class="cm-string">"XML encoding with Kotlin"</span>}
+    }
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-variable-3">String</span>.<span class="cm-variable">unaryPlus</span>() {
+    <span class="cm-variable">children</span>.<span class="cm-variable">add</span>(<span class="cm-variable">TextElement</span>(<span class="cm-keyword">this</span>))
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-keyword">for</span> (<span class="cm-variable-3">int</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-variable">first</span>; <span class="cm-variable">i</span> <span class="cm-operator">!=</span> <span class="cm-variable">last</span>; <span class="cm-variable">i</span> <span class="cm-operator">+=</span> <span class="cm-variable">increment</span>) {
+  <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin">    <span class="cm-variable">IntProgression</span>.<span class="cm-variable">fromClosedRange</span>(<span class="cm-variable">start</span>, <span class="cm-variable">end</span>, <span class="cm-variable">increment</span>)
+</code></pre>

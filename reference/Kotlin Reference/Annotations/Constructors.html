@@ -1,0 +1,43 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Person</span> <span class="cm-keyword">constructor</span>(<span class="cm-variable">firstName</span>: <span class="cm-variable-3">String</span>) {
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Person</span>(<span class="cm-variable">firstName</span>: <span class="cm-variable-3">String</span>) {
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Customer</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) {
+    <span class="cm-keyword">init</span> {
+        <span class="cm-variable">logger</span>.<span class="cm-variable">info</span>(<span class="cm-string">"Customer initialized with value ${name}"</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Customer</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">customerKey</span> <span class="cm-operator">=</span> <span class="cm-variable">name</span>.<span class="cm-variable">toUpperCase</span>()
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Person</span>(<span class="cm-keyword">val</span> <span class="cm-def">firstName</span>: <span class="cm-variable-3">String</span>, <span class="cm-keyword">val</span> <span class="cm-def">lastName</span>: <span class="cm-variable-3">String</span>, <span class="cm-keyword">var</span> <span class="cm-def">age</span>: <span class="cm-variable">Int</span>) {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Customer</span> <span class="cm-keyword">public</span> <span class="cm-variable">@Inject</span> <span class="cm-keyword">constructor</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) { ... }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">C</span> <span class="cm-keyword">private</span> <span class="cm-keyword">constructor</span>(<span class="cm-variable">a</span>: <span class="cm-variable">Int</span>) { ... }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">annotation</span> <span class="cm-keyword">class</span> <span class="cm-def">Special</span>(<span class="cm-keyword">val</span> <span class="cm-def">why</span>: <span class="cm-variable-3">String</span>)
+
+<span class="cm-variable">@Special</span>(<span class="cm-string">"example"</span>) <span class="cm-keyword">class</span> <span class="cm-def">Foo</span> {}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">annotation</span> <span class="cm-keyword">class</span> <span class="cm-def">ReplaceWith</span>(<span class="cm-keyword">val</span> <span class="cm-def">expression</span>: <span class="cm-variable-3">String</span>)
+
+<span class="cm-keyword">annotation</span> <span class="cm-keyword">class</span> <span class="cm-def">Deprecated</span>(
+        <span class="cm-keyword">val</span> <span class="cm-def">message</span>: <span class="cm-variable-3">String</span>,
+        <span class="cm-keyword">val</span> <span class="cm-def">replaceWith</span>: <span class="cm-variable">ReplaceWith</span> <span class="cm-operator">=</span> <span class="cm-variable">ReplaceWith</span>(<span class="cm-string">""</span>))
+
+<span class="cm-variable">@Deprecated</span>(<span class="cm-string">"This function is deprecated, use === instead"</span>, <span class="cm-variable">ReplaceWith</span>(<span class="cm-string">"this === other"</span>))
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin">
+<span class="cm-keyword">import</span> <span class="cm-variable">kotlin</span>.<span class="cm-variable">reflect</span>.<span class="cm-variable">KClass</span>
+
+<span class="cm-keyword">annotation</span> <span class="cm-keyword">class</span> <span class="cm-def">Ann</span>(<span class="cm-keyword">val</span> <span class="cm-def">arg1</span>: <span class="cm-variable">KClass</span><span class="cm-operator">&lt;*&gt;</span>, <span class="cm-keyword">val</span> <span class="cm-def">arg2</span>: <span class="cm-variable">KClass</span><span class="cm-operator">&lt;</span><span class="cm-keyword">out</span> <span class="cm-variable">Any</span><span class="cm-operator">?&gt;</span>)
+
+<span class="cm-variable">@Ann</span>(<span class="cm-variable-3">String</span>::<span class="cm-keyword">class</span>, <span class="cm-variable">Int</span>::<span class="cm-keyword">class</span>) <span class="cm-keyword">class</span> <span class="cm-def">MyClass</span>
+</code></pre>

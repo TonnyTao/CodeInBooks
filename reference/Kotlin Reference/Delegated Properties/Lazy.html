@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">lazyValue</span>: <span class="cm-variable-3">String</span> <span class="cm-keyword">by</span> <span class="cm-variable">lazy</span> {
+    <span class="cm-variable">println</span>(<span class="cm-string">"computed!"</span>)
+    <span class="cm-string">"Hello"</span>
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">args</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-variable">println</span>(<span class="cm-variable">lazyValue</span>)
+    <span class="cm-variable">println</span>(<span class="cm-variable">lazyValue</span>)
+}
+</code></pre>
+<pre><code>computed!
+Hello
+Hello
+</code></pre>

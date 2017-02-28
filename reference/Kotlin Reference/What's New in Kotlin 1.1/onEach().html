@@ -1,0 +1,5 @@
+<pre><code>inputDir.walk()
+        .filter { it.isFile &amp;&amp; it.name.endsWith(".txt") }
+        .onEach { println("Moving $it to $outputDir") }
+        .forEach { moveFile(it, File(outputDir, it.toRelativeString(inputDir))) }
+</code></pre>

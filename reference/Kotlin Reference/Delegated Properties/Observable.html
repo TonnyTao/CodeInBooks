@@ -1,0 +1,18 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">import</span> <span class="cm-variable">kotlin</span>.<span class="cm-variable">properties</span>.<span class="cm-variable">Delegates</span>
+
+<span class="cm-keyword">class</span> <span class="cm-def">User</span> {
+    <span class="cm-keyword">var</span> <span class="cm-def">name</span>: <span class="cm-variable-3">String</span> <span class="cm-keyword">by</span> <span class="cm-variable">Delegates</span>.<span class="cm-variable">observable</span>(<span class="cm-string">"&lt;no name&gt;"</span>) {
+        <span class="cm-variable">prop</span>, <span class="cm-variable">old</span>, <span class="cm-variable">new</span> <span class="cm-operator">-&gt;</span>
+        <span class="cm-variable">println</span>(<span class="cm-string">"$old -&gt; $new"</span>)
+    }
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">args</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">user</span> <span class="cm-operator">=</span> <span class="cm-variable">User</span>()
+    <span class="cm-variable">user</span>.<span class="cm-variable">name</span> <span class="cm-operator">=</span> <span class="cm-string">"first"</span>
+    <span class="cm-variable">user</span>.<span class="cm-variable">name</span> <span class="cm-operator">=</span> <span class="cm-string">"second"</span>
+}
+</code></pre>
+<pre><code>&lt;no name&gt; -&gt; first
+first -&gt; second
+</code></pre>

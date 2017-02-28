@@ -1,0 +1,49 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// example.kt</span>
+<span class="cm-keyword">package</span> <span class="cm-def">demo</span>
+
+<span class="cm-keyword">class</span> <span class="cm-def">Foo</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">bar</span>() {
+}
+
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">new</span> <span class="cm-variable">demo</span>.<span class="cm-variable">Foo</span>();
+<span class="cm-variable">demo</span>.<span class="cm-variable">ExampleKt</span>.<span class="cm-variable">bar</span>();
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">@file</span>:<span class="cm-variable">JvmName</span>(<span class="cm-string">"DemoUtils"</span>)
+
+<span class="cm-keyword">package</span> <span class="cm-def">demo</span>
+
+<span class="cm-keyword">class</span> <span class="cm-def">Foo</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">bar</span>() {
+}
+
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">new</span> <span class="cm-variable">demo</span>.<span class="cm-variable">Foo</span>();
+<span class="cm-variable">demo</span>.<span class="cm-variable">DemoUtils</span>.<span class="cm-variable">bar</span>();
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// oldutils.kt</span>
+<span class="cm-variable">@file</span>:<span class="cm-variable">JvmName</span>(<span class="cm-string">"Utils"</span>)
+<span class="cm-variable">@file</span>:<span class="cm-variable">JvmMultifileClass</span>
+
+<span class="cm-keyword">package</span> <span class="cm-def">demo</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// newutils.kt</span>
+<span class="cm-variable">@file</span>:<span class="cm-variable">JvmName</span>(<span class="cm-string">"Utils"</span>)
+<span class="cm-variable">@file</span>:<span class="cm-variable">JvmMultifileClass</span>
+
+<span class="cm-keyword">package</span> <span class="cm-def">demo</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">bar</span>() {
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-variable">demo</span>.<span class="cm-variable">Utils</span>.<span class="cm-variable">foo</span>();
+<span class="cm-variable">demo</span>.<span class="cm-variable">Utils</span>.<span class="cm-variable">bar</span>();
+</code></pre>

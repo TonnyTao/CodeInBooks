@@ -1,0 +1,15 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-keyword">private</span> <span class="cm-keyword">constructor</span>() {
+    <span class="cm-keyword">val</span> <span class="cm-def">size</span>: <span class="cm-variable">Int</span>
+    <span class="cm-keyword">fun</span> <span class="cm-keyword">get</span>(<span class="cm-variable">index</span>: <span class="cm-variable">Int</span>): <span class="cm-variable">T</span>
+    <span class="cm-keyword">fun</span> <span class="cm-keyword">set</span>(<span class="cm-variable">index</span>: <span class="cm-variable">Int</span>, <span class="cm-variable">value</span>: <span class="cm-variable">T</span>): <span class="cm-variable">Unit</span>
+
+    <span class="cm-keyword">fun</span> <span class="cm-def">iterator</span>(): <span class="cm-variable">Iterator</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Creates an Array&lt;String&gt; with values ["0", "1", "4", "9", "16"]</span>
+<span class="cm-keyword">val</span> <span class="cm-def">asc</span> <span class="cm-operator">=</span> <span class="cm-variable">Array</span>(<span class="cm-number">5</span>, { <span class="cm-variable">i</span> <span class="cm-operator">-&gt;</span> (<span class="cm-variable">i</span> <span class="cm-operator">*</span> <span class="cm-variable">i</span>).<span class="cm-variable">toString</span>() })
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">x</span>: <span class="cm-variable">IntArray</span> <span class="cm-operator">=</span> <span class="cm-variable">intArrayOf</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>)
+<span class="cm-variable">x</span>[<span class="cm-number">0</span>] <span class="cm-operator">=</span> <span class="cm-variable">x</span>[<span class="cm-number">1</span>] <span class="cm-operator">+</span> <span class="cm-variable">x</span>[<span class="cm-number">2</span>]
+</code></pre>

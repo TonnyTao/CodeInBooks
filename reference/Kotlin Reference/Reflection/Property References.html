@@ -1,0 +1,25 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">var</span> <span class="cm-def">x</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">args</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-variable">println</span>(::<span class="cm-variable">x</span>.<span class="cm-keyword">get</span>()) <span class="cm-comment">// prints "1"</span>
+    ::<span class="cm-variable">x</span>.<span class="cm-keyword">set</span>(<span class="cm-number">2</span>)
+    <span class="cm-variable">println</span>(<span class="cm-variable">x</span>)         <span class="cm-comment">// prints "2"</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">strs</span> <span class="cm-operator">=</span> <span class="cm-variable">listOf</span>(<span class="cm-string">"a"</span>, <span class="cm-string">"bc"</span>, <span class="cm-string">"def"</span>)
+<span class="cm-variable">println</span>(<span class="cm-variable">strs</span>.<span class="cm-variable">map</span>(<span class="cm-variable-3">String</span>::<span class="cm-variable">length</span>)) <span class="cm-comment">// prints [1, 2, 3]</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">A</span>(<span class="cm-keyword">val</span> <span class="cm-def">p</span>: <span class="cm-variable">Int</span>)
+
+<span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">args</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">prop</span> <span class="cm-operator">=</span> <span class="cm-variable">A</span>::<span class="cm-variable">p</span>
+    <span class="cm-variable">println</span>(<span class="cm-variable">prop</span>.<span class="cm-keyword">get</span>(<span class="cm-variable">A</span>(<span class="cm-number">1</span>))) <span class="cm-comment">// prints "1"</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-variable-3">String</span>.<span class="cm-variable">lastChar</span>: <span class="cm-variable">Char</span>
+    <span class="cm-keyword">get</span>() <span class="cm-operator">=</span> <span class="cm-keyword">this</span>[<span class="cm-variable">length</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>]
+
+<span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">args</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-variable">println</span>(<span class="cm-variable-3">String</span>::<span class="cm-variable">lastChar</span>.<span class="cm-keyword">get</span>(<span class="cm-string">"abc"</span>)) <span class="cm-comment">// prints "c"</span>
+}
+</code></pre>

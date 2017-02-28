@@ -1,8 +1,0 @@
-<pre><code class="code _highlighted" data-lang="text/x-kotlin">for ((key, value) in map) {
-   // do something with the key and the value
-}
-</code></pre>
-<pre><code class="code _highlighted" data-lang="text/x-kotlin">operator fun &lt;K, V&gt; Map&lt;K, V&gt;.iterator(): Iterator&lt;Map.Entry&lt;K, V&gt;&gt; = entrySet().iterator()
-operator fun &lt;K, V&gt; Map.Entry&lt;K, V&gt;.component1() = getKey()
-operator fun &lt;K, V&gt; Map.Entry&lt;K, V&gt;.component2() = getValue()
-</code></pre>

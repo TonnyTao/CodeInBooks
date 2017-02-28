@@ -1,0 +1,19 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="application/xml"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">project</span> <span class="cm-attribute">name</span>=<span class="cm-string">"Ant Task Test"</span> <span class="cm-attribute">default</span>=<span class="cm-string">"build"</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">typedef</span> <span class="cm-attribute">resource</span>=<span class="cm-string">"org/jetbrains/kotlin/ant/antlib.xml"</span> <span class="cm-attribute">classpath</span>=<span class="cm-string">"${kotlin.lib}/kotlin-ant.jar"</span><span class="cm-tag cm-bracket">/&gt;</span>
+
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">target</span> <span class="cm-attribute">name</span>=<span class="cm-string">"build"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">delete</span> <span class="cm-attribute">dir</span>=<span class="cm-string">"classes"</span> <span class="cm-attribute">failonerror</span>=<span class="cm-string">"false"</span><span class="cm-tag cm-bracket">/&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">mkdir</span> <span class="cm-attribute">dir</span>=<span class="cm-string">"classes"</span><span class="cm-tag cm-bracket">/&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">javac</span> <span class="cm-attribute">destdir</span>=<span class="cm-string">"classes"</span> <span class="cm-attribute">includeAntRuntime</span>=<span class="cm-string">"false"</span> <span class="cm-attribute">srcdir</span>=<span class="cm-string">"src"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">withKotlin</span><span class="cm-tag cm-bracket">/&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">javac</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">jar</span> <span class="cm-attribute">destfile</span>=<span class="cm-string">"hello.jar"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">fileset</span> <span class="cm-attribute">dir</span>=<span class="cm-string">"classes"</span><span class="cm-tag cm-bracket">/&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">jar</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">target</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">project</span><span class="cm-tag cm-bracket">&gt;</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="application/xml"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">withKotlin</span> <span class="cm-attribute">moduleName</span>=<span class="cm-string">"myModule"</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">compilerarg</span> <span class="cm-attribute">value</span>=<span class="cm-string">"-no-stdlib"</span><span class="cm-tag cm-bracket">/&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">withKotlin</span><span class="cm-tag cm-bracket">&gt;</span>
+</code></pre>

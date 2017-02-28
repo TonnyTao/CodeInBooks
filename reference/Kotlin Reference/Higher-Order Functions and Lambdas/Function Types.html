@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">max</span>(<span class="cm-variable">collection</span>: <span class="cm-variable">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>, <span class="cm-variable">less</span>: (<span class="cm-variable">T</span>, <span class="cm-variable">T</span>) <span class="cm-operator">-&gt;</span> <span class="cm-variable-3">Boolean</span>): <span class="cm-variable">T</span><span class="cm-operator">?</span> {
+    <span class="cm-keyword">var</span> <span class="cm-def">max</span>: <span class="cm-variable">T</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>
+    <span class="cm-keyword">for</span> (<span class="cm-variable">it</span> <span class="cm-keyword">in</span> <span class="cm-variable">collection</span>)
+        <span class="cm-keyword">if</span> (<span class="cm-variable">max</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span> <span class="cm-operator">||</span> <span class="cm-variable">less</span>(<span class="cm-variable">max</span>, <span class="cm-variable">it</span>))
+            <span class="cm-variable">max</span> <span class="cm-operator">=</span> <span class="cm-variable">it</span>
+    <span class="cm-keyword">return</span> <span class="cm-variable">max</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">compare</span>: (<span class="cm-variable">x</span>: <span class="cm-variable">T</span>, <span class="cm-variable">y</span>: <span class="cm-variable">T</span>) <span class="cm-operator">-&gt;</span> <span class="cm-variable">Int</span> <span class="cm-operator">=</span> ...
+</code></pre>

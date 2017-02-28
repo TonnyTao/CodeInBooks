@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">for</span> (<span class="cm-variable">item</span> <span class="cm-keyword">in</span> <span class="cm-variable">collection</span>) <span class="cm-variable">print</span>(<span class="cm-variable">item</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">for</span> (<span class="cm-variable">item</span>: <span class="cm-variable">Int</span> <span class="cm-keyword">in</span> <span class="cm-variable">ints</span>) {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-variable">array</span>.<span class="cm-variable">indices</span>) {
+    <span class="cm-variable">print</span>(<span class="cm-variable">array</span>[<span class="cm-variable">i</span>])
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">for</span> ((<span class="cm-variable">index</span>, <span class="cm-variable">value</span>) <span class="cm-keyword">in</span> <span class="cm-variable">array</span>.<span class="cm-variable">withIndex</span>()) {
+    <span class="cm-variable">println</span>(<span class="cm-string">"the element at $index is $value"</span>)
+}
+</code></pre>

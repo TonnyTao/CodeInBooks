@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">list</span> <span class="cm-operator">=</span> <span class="cm-variable">ArrayList</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>() <span class="cm-comment">// non-null (constructor result)</span>
+<span class="cm-variable">list</span>.<span class="cm-variable">add</span>(<span class="cm-string">"Item"</span>)
+<span class="cm-keyword">val</span> <span class="cm-def">size</span> <span class="cm-operator">=</span> <span class="cm-variable">list</span>.<span class="cm-variable">size</span>() <span class="cm-comment">// non-null (primitive int)</span>
+<span class="cm-keyword">val</span> <span class="cm-def">item</span> <span class="cm-operator">=</span> <span class="cm-variable">list</span>[<span class="cm-number">0</span>] <span class="cm-comment">// platform type inferred (ordinary Java object)</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">item</span>.<span class="cm-variable">substring</span>(<span class="cm-number">1</span>) <span class="cm-comment">// allowed, may throw an exception if item == null</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">nullable</span>: <span class="cm-variable-3">String</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-variable">item</span> <span class="cm-comment">// allowed, always works</span>
+<span class="cm-keyword">val</span> <span class="cm-def">notNull</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">=</span> <span class="cm-variable">item</span> <span class="cm-comment">// allowed, may fail at runtime</span>
+</code></pre>

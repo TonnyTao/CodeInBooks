@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Hypothetical code, does not actually compile:</span>
+<span class="cm-keyword">val</span> <span class="cm-def">a</span>: <span class="cm-variable">Int</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-number">1</span> <span class="cm-comment">// A boxed Int (java.lang.Integer)</span>
+<span class="cm-keyword">val</span> <span class="cm-def">b</span>: <span class="cm-variable-3">Long</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span> <span class="cm-comment">// implicit conversion yields a boxed Long (java.lang.Long)</span>
+<span class="cm-variable">print</span>(<span class="cm-variable">a</span> <span class="cm-operator">==</span> <span class="cm-variable">b</span>) <span class="cm-comment">// Surprise! This prints "false" as Long's equals() check for other part to be Long as well</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">b</span>: <span class="cm-variable-3">Byte</span> <span class="cm-operator">=</span> <span class="cm-number">1</span> <span class="cm-comment">// OK, literals are checked statically</span>
+<span class="cm-keyword">val</span> <span class="cm-def">i</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-variable">b</span> <span class="cm-comment">// ERROR</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">i</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-variable">b</span>.<span class="cm-variable">toInt</span>() <span class="cm-comment">// OK: explicitly widened</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">l</span> <span class="cm-operator">=</span> <span class="cm-number">1L</span> <span class="cm-operator">+</span> <span class="cm-number">3</span> <span class="cm-comment">// Long + Int =&gt; Long</span>
+</code></pre>

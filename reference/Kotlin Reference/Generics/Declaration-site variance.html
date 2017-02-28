@@ -1,0 +1,30 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">interface</span> <span class="cm-def">Source</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> {
+  <span class="cm-variable">T</span> <span class="cm-variable">nextT</span>();
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-variable-3">void</span> <span class="cm-def">demo</span>(<span class="cm-variable">Source</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span> <span class="cm-variable">strs</span>) {
+  <span class="cm-variable">Source</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">Object</span><span class="cm-operator">&gt;</span> <span class="cm-variable">objects</span> <span class="cm-operator">=</span> <span class="cm-variable">strs</span>; <span class="cm-comment">// !!! Not allowed in Java</span>
+  <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">abstract</span> <span class="cm-keyword">class</span> <span class="cm-def">Source</span><span class="cm-operator">&lt;</span><span class="cm-keyword">out</span> <span class="cm-variable">T</span><span class="cm-operator">&gt;</span> {
+    <span class="cm-keyword">abstract</span> <span class="cm-keyword">fun</span> <span class="cm-def">nextT</span>(): <span class="cm-variable">T</span>
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">demo</span>(<span class="cm-variable">strs</span>: <span class="cm-variable">Source</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">objects</span>: <span class="cm-variable">Source</span><span class="cm-operator">&lt;</span><span class="cm-variable">Any</span><span class="cm-operator">&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">strs</span> <span class="cm-comment">// This is OK, since T is an out-parameter</span>
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">abstract</span> <span class="cm-keyword">class</span> <span class="cm-variable-3">Comparable</span><span class="cm-operator">&lt;</span><span class="cm-keyword">in</span> <span class="cm-variable">T</span><span class="cm-operator">&gt;</span> {
+    <span class="cm-keyword">abstract</span> <span class="cm-keyword">fun</span> <span class="cm-def">compareTo</span>(<span class="cm-variable">other</span>: <span class="cm-variable">T</span>): <span class="cm-variable">Int</span>
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">demo</span>(<span class="cm-variable">x</span>: <span class="cm-variable-3">Comparable</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">Number</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-variable">x</span>.<span class="cm-variable">compareTo</span>(<span class="cm-number">1.0</span>) <span class="cm-comment">// 1.0 has type Double, which is a subtype of Number</span>
+    <span class="cm-comment">// Thus, we can assign x to a variable of type Comparable&lt;Double&gt;</span>
+    <span class="cm-keyword">val</span> <span class="cm-def">y</span>: <span class="cm-variable-3">Comparable</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">Double</span><span class="cm-operator">&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">x</span> <span class="cm-comment">// OK!</span>
+}
+</code></pre>

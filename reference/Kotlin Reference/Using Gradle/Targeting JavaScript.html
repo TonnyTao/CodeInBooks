@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">apply</span> <span class="cm-property">plugin:</span> <span class="cm-string">"kotlin2js"</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">sourceSets</span> {
+    <span class="cm-variable">main</span>.<span class="cm-property">kotlin</span>.<span class="cm-property">srcDirs</span> <span class="cm-operator">+=</span> <span class="cm-string">'src/main/myKotlin'</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">compileKotlin2Js</span> {
+    <span class="cm-variable">kotlinOptions</span>.<span class="cm-property">metaInfo</span> <span class="cm-operator">=</span> <span class="cm-atom">true</span>
+}
+</code></pre>

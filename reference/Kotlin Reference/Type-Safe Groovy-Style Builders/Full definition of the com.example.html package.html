@@ -1,0 +1,93 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">package</span> <span class="cm-def">com</span>.<span class="cm-variable">example</span>.<span class="cm-variable">html</span>
+
+<span class="cm-keyword">interface</span> <span class="cm-def">Element</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">render</span>(<span class="cm-variable">builder</span>: <span class="cm-variable">StringBuilder</span>, <span class="cm-variable">indent</span>: <span class="cm-variable-3">String</span>)
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">TextElement</span>(<span class="cm-keyword">val</span> <span class="cm-def">text</span>: <span class="cm-variable-3">String</span>) : <span class="cm-variable">Element</span> {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">render</span>(<span class="cm-variable">builder</span>: <span class="cm-variable">StringBuilder</span>, <span class="cm-variable">indent</span>: <span class="cm-variable-3">String</span>) {
+        <span class="cm-variable">builder</span>.<span class="cm-variable">append</span>(<span class="cm-string">"$indent$text\n"</span>)
+    }
+}
+
+<span class="cm-keyword">abstract</span> <span class="cm-keyword">class</span> <span class="cm-def">Tag</span>(<span class="cm-keyword">val</span> <span class="cm-def">name</span>: <span class="cm-variable-3">String</span>) : <span class="cm-variable">Element</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">children</span> <span class="cm-operator">=</span> <span class="cm-variable">arrayListOf</span><span class="cm-operator">&lt;</span><span class="cm-variable">Element</span><span class="cm-operator">&gt;</span>()
+    <span class="cm-keyword">val</span> <span class="cm-def">attributes</span> <span class="cm-operator">=</span> <span class="cm-variable">hashMapOf</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span>, <span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>()
+
+    <span class="cm-keyword">protected</span> <span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span> : <span class="cm-variable">Element</span><span class="cm-operator">&gt;</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">tag</span>: <span class="cm-variable">T</span>, <span class="cm-keyword">init</span>: <span class="cm-variable">T</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>): <span class="cm-variable">T</span> {
+        <span class="cm-variable">tag</span>.<span class="cm-keyword">init</span>()
+        <span class="cm-variable">children</span>.<span class="cm-variable">add</span>(<span class="cm-variable">tag</span>)
+        <span class="cm-keyword">return</span> <span class="cm-variable">tag</span>
+    }
+
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">render</span>(<span class="cm-variable">builder</span>: <span class="cm-variable">StringBuilder</span>, <span class="cm-variable">indent</span>: <span class="cm-variable-3">String</span>) {
+        <span class="cm-variable">builder</span>.<span class="cm-variable">append</span>(<span class="cm-string">"$indent&lt;$name${renderAttributes()}&gt;\n"</span>)
+        <span class="cm-keyword">for</span> (<span class="cm-variable">c</span> <span class="cm-keyword">in</span> <span class="cm-variable">children</span>) {
+            <span class="cm-variable">c</span>.<span class="cm-variable">render</span>(<span class="cm-variable">builder</span>, <span class="cm-variable">indent</span> <span class="cm-operator">+</span> <span class="cm-string">"  "</span>)
+        }
+        <span class="cm-variable">builder</span>.<span class="cm-variable">append</span>(<span class="cm-string">"$indent&lt;/$name&gt;\n"</span>)
+    }
+
+    <span class="cm-keyword">private</span> <span class="cm-keyword">fun</span> <span class="cm-def">renderAttributes</span>(): <span class="cm-variable-3">String</span> {
+        <span class="cm-keyword">val</span> <span class="cm-def">builder</span> <span class="cm-operator">=</span> <span class="cm-variable">StringBuilder</span>()
+        <span class="cm-keyword">for</span> (<span class="cm-variable">a</span> <span class="cm-keyword">in</span> <span class="cm-variable">attributes</span>.<span class="cm-variable">keys</span>) {
+            <span class="cm-variable">builder</span>.<span class="cm-variable">append</span>(<span class="cm-string">" $a=\"${attributes[a]}\""</span>)
+        }
+        <span class="cm-keyword">return</span> <span class="cm-variable">builder</span>.<span class="cm-variable">toString</span>()
+    }
+
+
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">toString</span>(): <span class="cm-variable-3">String</span> {
+        <span class="cm-keyword">val</span> <span class="cm-def">builder</span> <span class="cm-operator">=</span> <span class="cm-variable">StringBuilder</span>()
+        <span class="cm-variable">render</span>(<span class="cm-variable">builder</span>, <span class="cm-string">""</span>)
+        <span class="cm-keyword">return</span> <span class="cm-variable">builder</span>.<span class="cm-variable">toString</span>()
+    }
+}
+
+<span class="cm-keyword">abstract</span> <span class="cm-keyword">class</span> <span class="cm-def">TagWithText</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) : <span class="cm-variable">Tag</span>(<span class="cm-variable">name</span>) {
+    <span class="cm-keyword">operator</span> <span class="cm-keyword">fun</span> <span class="cm-variable-3">String</span>.<span class="cm-variable">unaryPlus</span>() {
+        <span class="cm-variable">children</span>.<span class="cm-variable">add</span>(<span class="cm-variable">TextElement</span>(<span class="cm-keyword">this</span>))
+    }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">HTML</span>() : <span class="cm-variable">TagWithText</span>(<span class="cm-string">"html"</span>) {
+    <span class="cm-keyword">fun</span> <span class="cm-def">head</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">Head</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">Head</span>(), <span class="cm-keyword">init</span>)
+
+    <span class="cm-keyword">fun</span> <span class="cm-def">body</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">Body</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">Body</span>(), <span class="cm-keyword">init</span>)
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">Head</span>() : <span class="cm-variable">TagWithText</span>(<span class="cm-string">"head"</span>) {
+    <span class="cm-keyword">fun</span> <span class="cm-def">title</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">Title</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">Title</span>(), <span class="cm-keyword">init</span>)
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">Title</span>() : <span class="cm-variable">TagWithText</span>(<span class="cm-string">"title"</span>)
+
+<span class="cm-keyword">abstract</span> <span class="cm-keyword">class</span> <span class="cm-def">BodyTag</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) : <span class="cm-variable">TagWithText</span>(<span class="cm-variable">name</span>) {
+    <span class="cm-keyword">fun</span> <span class="cm-def">b</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">B</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">B</span>(), <span class="cm-keyword">init</span>)
+    <span class="cm-keyword">fun</span> <span class="cm-def">p</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">P</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">P</span>(), <span class="cm-keyword">init</span>)
+    <span class="cm-keyword">fun</span> <span class="cm-def">h1</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">H1</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">H1</span>(), <span class="cm-keyword">init</span>)
+    <span class="cm-keyword">fun</span> <span class="cm-def">a</span>(<span class="cm-variable">href</span>: <span class="cm-variable-3">String</span>, <span class="cm-keyword">init</span>: <span class="cm-variable">A</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) {
+        <span class="cm-keyword">val</span> <span class="cm-def">a</span> <span class="cm-operator">=</span> <span class="cm-variable">initTag</span>(<span class="cm-variable">A</span>(), <span class="cm-keyword">init</span>)
+        <span class="cm-variable">a</span>.<span class="cm-variable">href</span> <span class="cm-operator">=</span> <span class="cm-variable">href</span>
+    }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">Body</span>() : <span class="cm-variable">BodyTag</span>(<span class="cm-string">"body"</span>)
+<span class="cm-keyword">class</span> <span class="cm-def">B</span>() : <span class="cm-variable">BodyTag</span>(<span class="cm-string">"b"</span>)
+<span class="cm-keyword">class</span> <span class="cm-def">P</span>() : <span class="cm-variable">BodyTag</span>(<span class="cm-string">"p"</span>)
+<span class="cm-keyword">class</span> <span class="cm-def">H1</span>() : <span class="cm-variable">BodyTag</span>(<span class="cm-string">"h1"</span>)
+
+<span class="cm-keyword">class</span> <span class="cm-def">A</span>() : <span class="cm-variable">BodyTag</span>(<span class="cm-string">"a"</span>) {
+    <span class="cm-keyword">public</span> <span class="cm-keyword">var</span> <span class="cm-def">href</span>: <span class="cm-variable-3">String</span>
+        <span class="cm-keyword">get</span>() <span class="cm-operator">=</span> <span class="cm-variable">attributes</span>[<span class="cm-string">"href"</span>]<span class="cm-operator">!!</span>
+        <span class="cm-keyword">set</span>(<span class="cm-variable">value</span>) {
+            <span class="cm-variable">attributes</span>[<span class="cm-string">"href"</span>] <span class="cm-operator">=</span> <span class="cm-variable">value</span>
+        }
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">html</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">HTML</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>): <span class="cm-variable">HTML</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">html</span> <span class="cm-operator">=</span> <span class="cm-variable">HTML</span>()
+    <span class="cm-variable">html</span>.<span class="cm-keyword">init</span>()
+    <span class="cm-keyword">return</span> <span class="cm-variable">html</span>
+}
+</code></pre>

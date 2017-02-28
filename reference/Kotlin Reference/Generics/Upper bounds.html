@@ -1,0 +1,13 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span> : <span class="cm-variable-3">Comparable</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">sort</span>(<span class="cm-variable">list</span>: <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">sort</span>(<span class="cm-variable">listOf</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>)) <span class="cm-comment">// OK. Int is a subtype of Comparable&lt;Int&gt;</span>
+<span class="cm-variable">sort</span>(<span class="cm-variable">listOf</span>(<span class="cm-variable">HashMap</span><span class="cm-operator">&lt;</span><span class="cm-variable">Int</span>, <span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>())) <span class="cm-comment">// Error: HashMap&lt;Int, String&gt; is not a subtype of Comparable&lt;HashMap&lt;Int, String&gt;&gt;</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">cloneWhenGreater</span>(<span class="cm-variable">list</span>: <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>, <span class="cm-variable">threshold</span>: <span class="cm-variable">T</span>): <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>
+    <span class="cm-keyword">where</span> <span class="cm-variable">T</span> : <span class="cm-variable-3">Comparable</span>,
+          <span class="cm-variable">T</span> : <span class="cm-variable-3">Cloneable</span> {
+  <span class="cm-keyword">return</span> <span class="cm-variable">list</span>.<span class="cm-variable">filter</span> { <span class="cm-variable">it</span> <span class="cm-operator">&gt;</span> <span class="cm-variable">threshold</span> }.<span class="cm-variable">map</span> { <span class="cm-variable">it</span>.<span class="cm-variable">clone</span>() }
+}
+</code></pre>

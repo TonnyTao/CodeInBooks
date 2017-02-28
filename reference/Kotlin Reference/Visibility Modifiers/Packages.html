@@ -1,0 +1,16 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// file name: example.kt</span>
+<span class="cm-keyword">package</span> <span class="cm-def">foo</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">baz</span>() {}
+<span class="cm-keyword">class</span> <span class="cm-def">Bar</span> {}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// file name: example.kt</span>
+<span class="cm-keyword">package</span> <span class="cm-def">foo</span>
+
+<span class="cm-keyword">private</span> <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {} <span class="cm-comment">// visible inside example.kt</span>
+
+<span class="cm-keyword">public</span> <span class="cm-keyword">var</span> <span class="cm-def">bar</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">5</span> <span class="cm-comment">// property is visible everywhere</span>
+    <span class="cm-keyword">private</span> <span class="cm-keyword">set</span>         <span class="cm-comment">// setter is visible only in example.kt</span>
+    
+<span class="cm-keyword">internal</span> <span class="cm-keyword">val</span> <span class="cm-def">baz</span> <span class="cm-operator">=</span> <span class="cm-number">6</span>    <span class="cm-comment">// visible inside the same module</span>
+</code></pre>

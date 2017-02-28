@@ -1,0 +1,10 @@
+<pre><code>val map = mapOf("key" to 42)
+// returns non-nullable Int value 42
+val value: Int = map.getValue("key")
+// throws NoSuchElementException
+map.getValue("key2")
+
+val mapWithDefault = map.withDefault { k -&gt; k.length }
+// returns 4
+val value2 = mapWithDefault.getValue("key2")
+</code></pre>

@@ -1,0 +1,7 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-keyword">val</span> <span class="cm-keyword">data</span>: <span class="cm-variable-3">String</span> <span class="cm-keyword">by</span> <span class="cm-variable">lazy</span> { <span class="cm-comment">/* calculate the data */</span> }
+    <span class="cm-keyword">if</span> (<span class="cm-variable">needData</span>()) {
+        <span class="cm-variable">println</span>(<span class="cm-keyword">data</span>)   <span class="cm-comment">// data is calculated at this point</span>
+    }
+}
+</code></pre>

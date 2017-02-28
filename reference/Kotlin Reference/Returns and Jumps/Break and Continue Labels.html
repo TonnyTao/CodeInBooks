@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">loop</span><span class="cm-variable">@</span> <span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-number">100</span>) {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">loop</span><span class="cm-variable">@</span> <span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-number">100</span>) {
+    <span class="cm-keyword">for</span> (<span class="cm-variable">j</span> <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-number">100</span>) {
+        <span class="cm-keyword">if</span> (...) <span class="cm-keyword">break</span><span class="cm-variable">@loop</span>
+    }
+}
+</code></pre>

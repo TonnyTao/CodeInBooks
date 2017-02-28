@@ -1,0 +1,11 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">if</span> (<span class="cm-variable">obj</span> <span class="cm-keyword">is</span> <span class="cm-variable-3">String</span>) {
+    <span class="cm-variable">print</span>(<span class="cm-variable">obj</span>.<span class="cm-variable">length</span>)
+}
+
+<span class="cm-keyword">if</span> (<span class="cm-variable">obj</span> <span class="cm-operator">!</span><span class="cm-keyword">is</span> <span class="cm-variable-3">String</span>) { <span class="cm-comment">// same as !(obj is String)</span>
+    <span class="cm-variable">print</span>(<span class="cm-string">"Not a String"</span>)
+}
+<span class="cm-keyword">else</span> {
+    <span class="cm-variable">print</span>(<span class="cm-variable">obj</span>.<span class="cm-variable">length</span>)
+}
+</code></pre>

@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">MyTest</span> {
+    <span class="cm-keyword">lateinit</span> <span class="cm-keyword">var</span> <span class="cm-def">subject</span>: <span class="cm-variable">TestSubject</span>
+
+    <span class="cm-variable">@SetUp</span> <span class="cm-keyword">fun</span> <span class="cm-def">setup</span>() {
+        <span class="cm-variable">subject</span> <span class="cm-operator">=</span> <span class="cm-variable">TestSubject</span>()
+    }
+
+    <span class="cm-variable">@Test</span> <span class="cm-keyword">fun</span> <span class="cm-def">test</span>() {
+        <span class="cm-variable">subject</span>.<span class="cm-variable">method</span>()  <span class="cm-comment">// dereference directly</span>
+    }
+}
+</code></pre>

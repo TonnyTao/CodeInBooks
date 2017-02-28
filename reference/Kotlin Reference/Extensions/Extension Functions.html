@@ -1,0 +1,19 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-variable-3">String</span>.<span class="cm-variable">spaceToCamelCase</span>() { ... }
+
+<span class="cm-string">"Convert this to camelcase"</span>.<span class="cm-variable">spaceToCamelCase</span>()
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">MutableList</span><span class="cm-operator">&lt;</span><span class="cm-variable">Int</span><span class="cm-operator">&gt;</span>.<span class="cm-variable">swap</span>(<span class="cm-variable">index1</span>: <span class="cm-variable">Int</span>, <span class="cm-variable">index2</span>: <span class="cm-variable">Int</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">tmp</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>[<span class="cm-variable">index1</span>] <span class="cm-comment">// 'this' corresponds to the list</span>
+    <span class="cm-keyword">this</span>[<span class="cm-variable">index1</span>] <span class="cm-operator">=</span> <span class="cm-keyword">this</span>[<span class="cm-variable">index2</span>]
+    <span class="cm-keyword">this</span>[<span class="cm-variable">index2</span>] <span class="cm-operator">=</span> <span class="cm-variable">tmp</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">l</span> <span class="cm-operator">=</span> <span class="cm-variable">mutableListOf</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>)
+<span class="cm-variable">l</span>.<span class="cm-variable">swap</span>(<span class="cm-number">0</span>, <span class="cm-number">2</span>) <span class="cm-comment">// 'this' inside 'swap()' will hold the value of 'l'</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">MutableList</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>.<span class="cm-variable">swap</span>(<span class="cm-variable">index1</span>: <span class="cm-variable">Int</span>, <span class="cm-variable">index2</span>: <span class="cm-variable">Int</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">tmp</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>[<span class="cm-variable">index1</span>] <span class="cm-comment">// 'this' corresponds to the list</span>
+    <span class="cm-keyword">this</span>[<span class="cm-variable">index1</span>] <span class="cm-operator">=</span> <span class="cm-keyword">this</span>[<span class="cm-variable">index2</span>]
+    <span class="cm-keyword">this</span>[<span class="cm-variable">index2</span>] <span class="cm-operator">=</span> <span class="cm-variable">tmp</span>
+}
+</code></pre>

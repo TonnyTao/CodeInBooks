@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">asList</span>(<span class="cm-keyword">vararg</span> <span class="cm-variable">ts</span>: <span class="cm-variable">T</span>): <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">result</span> <span class="cm-operator">=</span> <span class="cm-variable">ArrayList</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>()
+    <span class="cm-keyword">for</span> (<span class="cm-variable">t</span> <span class="cm-keyword">in</span> <span class="cm-variable">ts</span>) <span class="cm-comment">// ts is an Array</span>
+        <span class="cm-variable">result</span>.<span class="cm-variable">add</span>(<span class="cm-variable">t</span>)
+    <span class="cm-keyword">return</span> <span class="cm-variable">result</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">list</span> <span class="cm-operator">=</span> <span class="cm-variable">asList</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">a</span> <span class="cm-operator">=</span> <span class="cm-variable">arrayOf</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>)
+<span class="cm-keyword">val</span> <span class="cm-def">list</span> <span class="cm-operator">=</span> <span class="cm-variable">asList</span>(<span class="cm-operator">-</span><span class="cm-number">1</span>, <span class="cm-number">0</span>, <span class="cm-operator">*</span><span class="cm-variable">a</span>, <span class="cm-number">4</span>)
+</code></pre>

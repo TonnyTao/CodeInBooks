@@ -1,0 +1,11 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="application/xml"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">project</span> <span class="cm-attribute">name</span>=<span class="cm-string">"Ant Task Test"</span> <span class="cm-attribute">default</span>=<span class="cm-string">"build"</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">typedef</span> <span class="cm-attribute">resource</span>=<span class="cm-string">"org/jetbrains/kotlin/ant/antlib.xml"</span> <span class="cm-attribute">classpath</span>=<span class="cm-string">"${kotlin.lib}/kotlin-ant.jar"</span><span class="cm-tag cm-bracket">/&gt;</span>
+
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">target</span> <span class="cm-attribute">name</span>=<span class="cm-string">"build"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">kotlinc</span> <span class="cm-attribute">output</span>=<span class="cm-string">"hello.jar"</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">src</span> <span class="cm-attribute">path</span>=<span class="cm-string">"root1"</span><span class="cm-tag cm-bracket">/&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">src</span> <span class="cm-attribute">path</span>=<span class="cm-string">"root2"</span><span class="cm-tag cm-bracket">/&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">kotlinc</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">target</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">project</span><span class="cm-tag cm-bracket">&gt;</span>
+</code></pre>

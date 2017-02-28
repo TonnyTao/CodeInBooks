@@ -1,0 +1,4 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">numberRegex</span> <span class="cm-operator">=</span> <span class="cm-string">"\\d+"</span>.<span class="cm-variable">toRegex</span>()
+<span class="cm-keyword">val</span> <span class="cm-def">numbers</span> <span class="cm-operator">=</span> <span class="cm-variable">listOf</span>(<span class="cm-string">"abc"</span>, <span class="cm-string">"123"</span>, <span class="cm-string">"456"</span>).<span class="cm-variable">filter</span>(<span class="cm-variable">numberRegex</span>::<span class="cm-variable">matches</span>)
+<span class="cm-comment">// Result is list of "123", "456"</span>
+</code></pre>

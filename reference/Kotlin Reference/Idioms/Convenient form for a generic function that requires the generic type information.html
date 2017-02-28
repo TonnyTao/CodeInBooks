@@ -1,0 +1,7 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">//  public final class Gson {</span>
+<span class="cm-comment">//     ...</span>
+<span class="cm-comment">//     public &lt;T&gt; T fromJson(JsonElement json, Class&lt;T&gt; classOfT) throws JsonSyntaxException {</span>
+<span class="cm-comment">//     ...</span>
+
+<span class="cm-keyword">inline</span> <span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-keyword">reified</span> <span class="cm-variable">T</span>: <span class="cm-variable">Any</span><span class="cm-operator">&gt;</span> <span class="cm-variable">Gson</span>.<span class="cm-variable">fromJson</span>(<span class="cm-variable">json</span>): <span class="cm-variable">T</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">fromJson</span>(<span class="cm-variable">json</span>, <span class="cm-variable">T</span>::<span class="cm-keyword">class</span>.<span class="cm-variable">java</span>)
+</code></pre>

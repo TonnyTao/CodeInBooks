@@ -1,0 +1,18 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-variable">y</span><span class="cm-operator">-</span><span class="cm-number">1</span>) {
+    <span class="cm-variable">print</span>(<span class="cm-string">"OK"</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-operator">!</span><span class="cm-keyword">in</span> <span class="cm-number">0.</span>.<span class="cm-variable">array</span>.<span class="cm-variable">lastIndex</span>) {
+    <span class="cm-variable">print</span>(<span class="cm-string">"Out"</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">for</span> (<span class="cm-variable">x</span> <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-number">5</span>) {
+    <span class="cm-variable">print</span>(<span class="cm-variable">x</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-number">100</span>) { ... }  <span class="cm-comment">// closed range: includes 100</span>
+<span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-number">1</span> <span class="cm-variable">until</span> <span class="cm-number">100</span>) { ... } <span class="cm-comment">// half-open range: does not include 100</span>
+<span class="cm-keyword">for</span> (<span class="cm-variable">x</span> <span class="cm-keyword">in</span> <span class="cm-number">2.</span>.<span class="cm-number">10</span> <span class="cm-variable">step</span> <span class="cm-number">2</span>) { ... }
+<span class="cm-keyword">for</span> (<span class="cm-variable">x</span> <span class="cm-keyword">in</span> <span class="cm-number">10</span> <span class="cm-variable">downTo</span> <span class="cm-number">1</span>) { ... }
+<span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-keyword">in</span> <span class="cm-number">1.</span>.<span class="cm-number">10</span>) { ... }
+</code></pre>

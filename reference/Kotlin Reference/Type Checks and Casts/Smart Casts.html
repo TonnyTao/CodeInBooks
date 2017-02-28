@@ -1,0 +1,23 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">demo</span>(<span class="cm-variable">x</span>: <span class="cm-variable">Any</span>) {
+    <span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-keyword">is</span> <span class="cm-variable-3">String</span>) {
+        <span class="cm-variable">print</span>(<span class="cm-variable">x</span>.<span class="cm-variable">length</span>) <span class="cm-comment">// x is automatically cast to String</span>
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin">    <span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-operator">!</span><span class="cm-keyword">is</span> <span class="cm-variable-3">String</span>) <span class="cm-keyword">return</span>
+    <span class="cm-variable">print</span>(<span class="cm-variable">x</span>.<span class="cm-variable">length</span>) <span class="cm-comment">// x is automatically cast to String</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin">    <span class="cm-comment">// x is automatically cast to string on the right-hand side of `||`</span>
+    <span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-operator">!</span><span class="cm-keyword">is</span> <span class="cm-variable-3">String</span> <span class="cm-operator">||</span> <span class="cm-variable">x</span>.<span class="cm-variable">length</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>) <span class="cm-keyword">return</span>
+
+    <span class="cm-comment">// x is automatically cast to string on the right-hand side of `&amp;&amp;`</span>
+    <span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-keyword">is</span> <span class="cm-variable-3">String</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable">x</span>.<span class="cm-variable">length</span> <span class="cm-operator">&gt;</span> <span class="cm-number">0</span>) {
+        <span class="cm-variable">print</span>(<span class="cm-variable">x</span>.<span class="cm-variable">length</span>) <span class="cm-comment">// x is automatically cast to String</span>
+    }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">when</span> (<span class="cm-variable">x</span>) {
+    <span class="cm-keyword">is</span> <span class="cm-variable">Int</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-variable">x</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>)
+    <span class="cm-keyword">is</span> <span class="cm-variable-3">String</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-variable">x</span>.<span class="cm-variable">length</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>)
+    <span class="cm-keyword">is</span> <span class="cm-variable">IntArray</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">print</span>(<span class="cm-variable">x</span>.<span class="cm-variable">sum</span>())
+}
+</code></pre>

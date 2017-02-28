@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">window</span>.<span class="cm-variable">addMouseListener</span>(<span class="cm-keyword">object</span>: <span class="cm-variable">MouseAdapter</span>() {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">mouseClicked</span>(<span class="cm-variable">e</span>: <span class="cm-variable">MouseEvent</span>) {
+        <span class="cm-comment">// ...</span>
+    }
+                                                                                                            
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">mouseEntered</span>(<span class="cm-variable">e</span>: <span class="cm-variable">MouseEvent</span>) {
+        <span class="cm-comment">// ...</span>
+    }
+})
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">listener</span> <span class="cm-operator">=</span> <span class="cm-variable">ActionListener</span> { <span class="cm-variable">println</span>(<span class="cm-string">"clicked"</span>) }
+</code></pre>

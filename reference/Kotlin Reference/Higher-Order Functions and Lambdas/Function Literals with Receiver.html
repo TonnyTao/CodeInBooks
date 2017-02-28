@@ -1,0 +1,21 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">sum</span> : <span class="cm-variable">Int</span>.(<span class="cm-variable">other</span>: <span class="cm-variable">Int</span>) <span class="cm-operator">-&gt;</span> <span class="cm-variable">Int</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-number">1.</span><span class="cm-variable">sum</span>(<span class="cm-number">2</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">sum</span> <span class="cm-operator">=</span> <span class="cm-keyword">fun</span> <span class="cm-def">Int</span>.(<span class="cm-variable">other</span>: <span class="cm-variable">Int</span>): <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span> <span class="cm-operator">+</span> <span class="cm-variable">other</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">HTML</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">body</span>() { ... }
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">html</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">HTML</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>): <span class="cm-variable">HTML</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">html</span> <span class="cm-operator">=</span> <span class="cm-variable">HTML</span>()  <span class="cm-comment">// create the receiver object</span>
+    <span class="cm-variable">html</span>.<span class="cm-keyword">init</span>()        <span class="cm-comment">// pass the receiver object to the lambda</span>
+    <span class="cm-keyword">return</span> <span class="cm-variable">html</span>
+}
+
+
+<span class="cm-variable">html</span> {       <span class="cm-comment">// lambda with receiver begins here</span>
+    <span class="cm-variable">body</span>()   <span class="cm-comment">// calling a method on the receiver object</span>
+}
+</code></pre>

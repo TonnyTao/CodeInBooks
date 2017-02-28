@@ -1,0 +1,16 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">external</span> <span class="cm-keyword">interface</span> <span class="cm-def">JQuery</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">toggle</span>(<span class="cm-variable">duration</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-variable">definedExternally</span>): <span class="cm-variable">JQuery</span>
+    <span class="cm-keyword">fun</span> <span class="cm-def">click</span>(<span class="cm-variable">handler</span>: (<span class="cm-variable">Event</span>) <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>): <span class="cm-variable">JQuery</span>
+}
+
+<span class="cm-variable">@JsModule</span>(<span class="cm-string">"jquery"</span>)
+<span class="cm-variable">@JsNonModule</span>
+<span class="cm-variable">@JsName</span>(<span class="cm-string">"$"</span>)
+<span class="cm-keyword">external</span> <span class="cm-keyword">fun</span> <span class="cm-def">jquery</span>(<span class="cm-variable">selector</span>: <span class="cm-variable-3">String</span>): <span class="cm-variable">JQuery</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">args</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-variable">jquery</span>(<span class="cm-string">".toggle-button"</span>).<span class="cm-variable">click</span> {
+        <span class="cm-variable">jquery</span>(<span class="cm-string">".toggle-panel"</span>).<span class="cm-variable">toggle</span>(<span class="cm-number">300</span>)
+    }
+}
+</code></pre>

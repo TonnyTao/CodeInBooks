@@ -1,0 +1,23 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Example</span> {
+    <span class="cm-keyword">var</span> <span class="cm-def">p</span>: <span class="cm-variable-3">String</span> <span class="cm-keyword">by</span> <span class="cm-variable">Delegate</span>()
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Delegate</span> {
+    <span class="cm-keyword">operator</span> <span class="cm-keyword">fun</span> <span class="cm-def">getValue</span>(<span class="cm-variable">thisRef</span>: <span class="cm-variable">Any</span><span class="cm-operator">?</span>, <span class="cm-keyword">property</span>: <span class="cm-variable">KProperty</span><span class="cm-operator">&lt;*&gt;</span>): <span class="cm-variable-3">String</span> {
+        <span class="cm-keyword">return</span> <span class="cm-string">"$thisRef, thank you for delegating '${property.name}' to me!"</span>
+    }
+ 
+    <span class="cm-keyword">operator</span> <span class="cm-keyword">fun</span> <span class="cm-def">setValue</span>(<span class="cm-variable">thisRef</span>: <span class="cm-variable">Any</span><span class="cm-operator">?</span>, <span class="cm-keyword">property</span>: <span class="cm-variable">KProperty</span><span class="cm-operator">&lt;*&gt;</span>, <span class="cm-variable">value</span>: <span class="cm-variable-3">String</span>) {
+        <span class="cm-variable">println</span>(<span class="cm-string">"$value has been assigned to '${property.name} in $thisRef.'"</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">e</span> <span class="cm-operator">=</span> <span class="cm-variable">Example</span>()
+<span class="cm-variable">println</span>(<span class="cm-variable">e</span>.<span class="cm-variable">p</span>)
+</code></pre>
+<pre><code>Example@33a17727, thank you for delegating ‘p’ to me!
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">e</span>.<span class="cm-variable">p</span> <span class="cm-operator">=</span> <span class="cm-string">"NEW"</span>
+</code></pre>
+<pre><code>NEW has been assigned to ‘p’ in Example@33a17727.
+</code></pre>

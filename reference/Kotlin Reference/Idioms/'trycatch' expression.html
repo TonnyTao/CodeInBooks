@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">test</span>() {
+    <span class="cm-keyword">val</span> <span class="cm-def">result</span> <span class="cm-operator">=</span> <span class="cm-keyword">try</span> {
+        <span class="cm-variable">count</span>()
+    } <span class="cm-keyword">catch</span> (<span class="cm-variable">e</span>: <span class="cm-variable">ArithmeticException</span>) {
+        <span class="cm-keyword">throw</span> <span class="cm-variable">IllegalStateException</span>(<span class="cm-variable">e</span>)
+    }
+
+    <span class="cm-comment">// Working with result</span>
+}
+</code></pre>

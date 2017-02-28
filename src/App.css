@@ -14,7 +14,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 1;
     background: rgba(65, 65, 65, 1);
     height: 44px;
     text-align: center;
@@ -25,12 +25,12 @@
     align-items: center;
 }
 
-.logo {
-    padding: 2px 2px 0;
+.links {
+    display: flex;
 }
 
-.logo img {
-    width: 80%;
+.menu {
+    padding: 3px 8px 0;
 }
 
 .github {
@@ -66,6 +66,9 @@
     font-size: 1.0em;
     margin-top: 30px;
 }
+
+/*Swift Colde*/
+
 
 ol.code-lines {
     margin: 0;
@@ -353,6 +356,10 @@ code {
 .il {
     color: rgba(28, 0, 207, 1)
 }
+
+
+/*Kotlin Code*/
+
 
 
 /*Mobile first*/

@@ -1,8 +1,0 @@
-<pre><code class="code _highlighted" data-lang="text/x-kotlin">val runnable = Runnable { println(&quot;This runs in a runnable&quot;) }
-</code></pre>
-<pre><code class="code _highlighted" data-lang="text/x-kotlin">val executor = ThreadPoolExecutor()
-// Java signature: void execute(Runnable command)
-executor.execute { println(&quot;This runs in a thread pool&quot;) }
-</code></pre>
-<pre><code class="code _highlighted" data-lang="text/x-kotlin">executor.execute(Runnable { println(&quot;This runs in a thread pool&quot;) })
-</code></pre>

@@ -1,0 +1,25 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="application/xml"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">plugin</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span>org.apache.maven.plugins<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">groupId</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">artifactId</span><span class="cm-tag cm-bracket">&gt;</span>maven-assembly-plugin<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">artifactId</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">version</span><span class="cm-tag cm-bracket">&gt;</span>2.6<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">version</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">executions</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">execution</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">id</span><span class="cm-tag cm-bracket">&gt;</span>make-assembly<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">id</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">phase</span><span class="cm-tag cm-bracket">&gt;</span>package<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">phase</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">goals</span><span class="cm-tag cm-bracket">&gt;</span> <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">goal</span><span class="cm-tag cm-bracket">&gt;</span>single<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">goal</span><span class="cm-tag cm-bracket">&gt;</span> <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">goals</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">configuration</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">archive</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">manifest</span><span class="cm-tag cm-bracket">&gt;</span>
+                        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">mainClass</span><span class="cm-tag cm-bracket">&gt;</span>${main.class}<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">mainClass</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">manifest</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">archive</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">descriptorRefs</span><span class="cm-tag cm-bracket">&gt;</span>
+                    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">descriptorRef</span><span class="cm-tag cm-bracket">&gt;</span>jar-with-dependencies<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">descriptorRef</span><span class="cm-tag cm-bracket">&gt;</span>
+                <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">descriptorRefs</span><span class="cm-tag cm-bracket">&gt;</span>
+            <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">configuration</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">execution</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">executions</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">plugin</span><span class="cm-tag cm-bracket">&gt;</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-sh">java <span class="cm-attribute">-jar</span> target/mymodule-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+</code></pre>

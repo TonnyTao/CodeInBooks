@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">lock</span>(<span class="cm-variable">l</span>) { <span class="cm-variable">foo</span>() }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">l</span>.<span class="cm-variable">lock</span>()
+<span class="cm-keyword">try</span> {
+    <span class="cm-variable">foo</span>()
+}
+<span class="cm-keyword">finally</span> {
+    <span class="cm-variable">l</span>.<span class="cm-variable">unlock</span>()
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">inline</span> <span class="cm-keyword">fun</span> <span class="cm-def">lock</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>(<span class="cm-variable">lock</span>: <span class="cm-variable">Lock</span>, <span class="cm-variable">body</span>: () <span class="cm-operator">-&gt;</span> <span class="cm-variable">T</span>): <span class="cm-variable">T</span> {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>

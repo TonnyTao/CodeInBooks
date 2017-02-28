@@ -1,0 +1,16 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">Address</span> { 
+    <span class="cm-keyword">public</span> <span class="cm-keyword">var</span> <span class="cm-def">name</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">=</span> ...
+    <span class="cm-keyword">public</span> <span class="cm-keyword">var</span> <span class="cm-def">street</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">=</span> ...
+    <span class="cm-keyword">public</span> <span class="cm-keyword">var</span> <span class="cm-def">city</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">=</span> ...
+    <span class="cm-keyword">public</span> <span class="cm-keyword">var</span> <span class="cm-def">state</span>: <span class="cm-variable-3">String</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> ...
+    <span class="cm-keyword">public</span> <span class="cm-keyword">var</span> <span class="cm-def">zip</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">=</span> ...
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">copyAddress</span>(<span class="cm-variable">address</span>: <span class="cm-variable">Address</span>): <span class="cm-variable">Address</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">result</span> <span class="cm-operator">=</span> <span class="cm-variable">Address</span>() <span class="cm-comment">// there's no 'new' keyword in Kotlin</span>
+    <span class="cm-variable">result</span>.<span class="cm-variable">name</span> <span class="cm-operator">=</span> <span class="cm-variable">address</span>.<span class="cm-variable">name</span> <span class="cm-comment">// accessors are called</span>
+    <span class="cm-variable">result</span>.<span class="cm-variable">street</span> <span class="cm-operator">=</span> <span class="cm-variable">address</span>.<span class="cm-variable">street</span>
+    <span class="cm-comment">// ...</span>
+    <span class="cm-keyword">return</span> <span class="cm-variable">result</span>
+}
+</code></pre>

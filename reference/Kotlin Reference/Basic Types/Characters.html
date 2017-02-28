@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">check</span>(<span class="cm-variable">c</span>: <span class="cm-variable">Char</span>) {
+    <span class="cm-keyword">if</span> (<span class="cm-variable">c</span> <span class="cm-operator">==</span> <span class="cm-number">1</span>) { <span class="cm-comment">// ERROR: incompatible types</span>
+        <span class="cm-comment">// ...</span>
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">decimalDigitValue</span>(<span class="cm-variable">c</span>: <span class="cm-variable">Char</span>): <span class="cm-variable">Int</span> {
+    <span class="cm-keyword">if</span> (<span class="cm-variable">c</span> <span class="cm-operator">!</span><span class="cm-keyword">in</span> <span class="cm-string">'0'</span>..<span class="cm-string">'9'</span>)
+        <span class="cm-keyword">throw</span> <span class="cm-variable">IllegalArgumentException</span>(<span class="cm-string">"Out of range"</span>)
+    <span class="cm-keyword">return</span> <span class="cm-variable">c</span>.<span class="cm-variable">toInt</span>() <span class="cm-operator">-</span> <span class="cm-string">'0'</span>.<span class="cm-variable">toInt</span>() <span class="cm-comment">// Explicit conversions to numbers</span>
+}
+</code></pre>

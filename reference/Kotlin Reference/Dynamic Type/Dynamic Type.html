@@ -1,0 +1,11 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">dyn</span>: <span class="cm-keyword">dynamic</span> <span class="cm-operator">=</span> ...
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">dyn</span>.<span class="cm-variable">whatever</span>(<span class="cm-number">1</span>, <span class="cm-string">"foo"</span>, <span class="cm-variable">dyn</span>) <span class="cm-comment">// 'whatever' is not defined anywhere</span>
+<span class="cm-variable">dyn</span>.<span class="cm-variable">whatever</span>(<span class="cm-operator">*</span><span class="cm-variable">arrayOf</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>))
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">dyn</span>.<span class="cm-variable">foo</span>().<span class="cm-variable">bar</span>.<span class="cm-variable">baz</span>()
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">dyn</span>.<span class="cm-variable">foo</span> {
+    <span class="cm-variable">x</span> <span class="cm-operator">-&gt;</span> <span class="cm-variable">x</span>.<span class="cm-variable">bar</span>() <span class="cm-comment">// x is dynamic</span>
+}
+</code></pre>

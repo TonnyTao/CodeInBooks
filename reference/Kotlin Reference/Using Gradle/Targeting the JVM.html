@@ -1,0 +1,13 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">apply</span> <span class="cm-property">plugin:</span> <span class="cm-string">"kotlin"</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">project</span>
+    <span class="cm-operator">-</span> <span class="cm-variable">src</span>
+        <span class="cm-operator">-</span> <span class="cm-variable">main</span> (<span class="cm-variable">root</span>)
+            <span class="cm-operator">-</span> <span class="cm-variable">kotlin</span>
+            <span class="cm-operator">-</span> <span class="cm-variable">java</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">sourceSets</span> {
+    <span class="cm-variable">main</span>.<span class="cm-property">kotlin</span>.<span class="cm-property">srcDirs</span> <span class="cm-operator">+=</span> <span class="cm-string">'src/main/myKotlin'</span>
+    <span class="cm-variable">main</span>.<span class="cm-property">java</span>.<span class="cm-property">srcDirs</span> <span class="cm-operator">+=</span> <span class="cm-string">'src/main/myJava'</span>
+}
+</code></pre>

@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">Base</span> {
+    <span class="cm-keyword">open</span> <span class="cm-keyword">fun</span> <span class="cm-def">v</span>() {}
+    <span class="cm-keyword">fun</span> <span class="cm-def">nv</span>() {}
+}
+<span class="cm-keyword">class</span> <span class="cm-def">Derived</span>() : <span class="cm-variable">Base</span>() {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">v</span>() {}
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">AnotherDerived</span>() : <span class="cm-variable">Base</span>() {
+    <span class="cm-keyword">final</span> <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">v</span>() {}
+}
+</code></pre>

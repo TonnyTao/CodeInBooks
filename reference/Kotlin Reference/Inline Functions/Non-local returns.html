@@ -1,0 +1,26 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-variable">ordinaryFunction</span> {
+        <span class="cm-keyword">return</span> <span class="cm-comment">// ERROR: can not make `foo` return here</span>
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-variable">inlineFunction</span> {
+        <span class="cm-keyword">return</span> <span class="cm-comment">// OK: the lambda is inlined</span>
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">hasZeros</span>(<span class="cm-variable">ints</span>: <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">Int</span><span class="cm-operator">&gt;</span>): <span class="cm-variable-3">Boolean</span> {
+    <span class="cm-variable">ints</span>.<span class="cm-variable">forEach</span> {
+        <span class="cm-keyword">if</span> (<span class="cm-variable">it</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>) <span class="cm-keyword">return</span> <span class="cm-atom">true</span> <span class="cm-comment">// returns from hasZeros</span>
+    }
+    <span class="cm-keyword">return</span> <span class="cm-atom">false</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">inline</span> <span class="cm-keyword">fun</span> <span class="cm-def">f</span>(<span class="cm-keyword">crossinline</span> <span class="cm-variable">body</span>: () <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">f</span> <span class="cm-operator">=</span> <span class="cm-keyword">object</span>: <span class="cm-variable-3">Runnable</span> {
+        <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">run</span>() <span class="cm-operator">=</span> <span class="cm-variable">body</span>()
+    }
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>

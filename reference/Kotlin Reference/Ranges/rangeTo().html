@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Int</span> {
+    <span class="cm-comment">//...</span>
+    <span class="cm-keyword">operator</span> <span class="cm-keyword">fun</span> <span class="cm-def">rangeTo</span>(<span class="cm-variable">other</span>: <span class="cm-variable-3">Long</span>): <span class="cm-variable">LongRange</span> <span class="cm-operator">=</span> <span class="cm-variable">LongRange</span>(<span class="cm-keyword">this</span>, <span class="cm-variable">other</span>)
+    <span class="cm-comment">//...</span>
+    <span class="cm-keyword">operator</span> <span class="cm-keyword">fun</span> <span class="cm-def">rangeTo</span>(<span class="cm-variable">other</span>: <span class="cm-variable">Int</span>): <span class="cm-variable">IntRange</span> <span class="cm-operator">=</span> <span class="cm-variable">IntRange</span>(<span class="cm-keyword">this</span>, <span class="cm-variable">other</span>)
+    <span class="cm-comment">//...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin">    <span class="cm-keyword">public</span> <span class="cm-keyword">operator</span> <span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span>: <span class="cm-variable-3">Comparable</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">T</span>.<span class="cm-variable">rangeTo</span>(<span class="cm-variable">that</span>: <span class="cm-variable">T</span>): <span class="cm-variable">ClosedRange</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>
+</code></pre>

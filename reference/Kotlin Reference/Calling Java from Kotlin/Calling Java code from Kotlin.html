@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-operator">*</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">demo</span>(<span class="cm-variable">source</span>: <span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">Int</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">list</span> <span class="cm-operator">=</span> <span class="cm-variable">ArrayList</span><span class="cm-operator">&lt;</span><span class="cm-variable">Int</span><span class="cm-operator">&gt;</span>()
+    <span class="cm-comment">// 'for'-loops work for Java collections:</span>
+    <span class="cm-keyword">for</span> (<span class="cm-variable">item</span> <span class="cm-keyword">in</span> <span class="cm-variable">source</span>) {
+        <span class="cm-variable">list</span>.<span class="cm-variable">add</span>(<span class="cm-variable">item</span>)
+    }
+    <span class="cm-comment">// Operator conventions work as well:</span>
+    <span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-number">0.</span>.<span class="cm-variable">source</span>.<span class="cm-variable">size</span>() <span class="cm-operator">-</span> <span class="cm-number">1</span>) {
+        <span class="cm-variable">list</span>[<span class="cm-variable">i</span>] <span class="cm-operator">=</span> <span class="cm-variable">source</span>[<span class="cm-variable">i</span>] <span class="cm-comment">// get and set are called</span>
+    }
+}
+</code></pre>

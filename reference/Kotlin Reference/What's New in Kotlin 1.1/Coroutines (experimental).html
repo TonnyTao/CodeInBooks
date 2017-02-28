@@ -1,0 +1,31 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">seq</span> <span class="cm-operator">=</span> <span class="cm-variable">buildSequence</span> {
+    <span class="cm-variable">println</span>(<span class="cm-string">"Yielding 1"</span>)
+    <span class="cm-variable">yield</span>(<span class="cm-number">1</span>)
+    <span class="cm-variable">println</span>(<span class="cm-string">"Yielding 2"</span>)
+    <span class="cm-variable">yield</span>(<span class="cm-number">2</span>)
+    <span class="cm-variable">println</span>(<span class="cm-string">"Yielding a range"</span>)
+    <span class="cm-variable">yieldAll</span>(<span class="cm-number">3.</span>.<span class="cm-number">5</span>)
+}
+
+<span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-variable">seq</span>) {
+    <span class="cm-variable">println</span>(<span class="cm-string">"Generated $i"</span>)
+}
+</code></pre>
+<pre><code>Yielding 1
+Generated 1
+Yielding 2
+Generated 2
+Yielding a range
+Generated 3
+Generated 4
+Generated 5
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">future</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">original</span> <span class="cm-operator">=</span> <span class="cm-variable">asyncLoadImage</span>(<span class="cm-string">"...original..."</span>) <span class="cm-comment">// creates a Future</span>
+    <span class="cm-keyword">val</span> <span class="cm-def">overlay</span> <span class="cm-operator">=</span> <span class="cm-variable">asyncLoadImage</span>(<span class="cm-string">"...overlay..."</span>)   <span class="cm-comment">// creates a Future</span>
+    ...
+    <span class="cm-comment">// suspend while awaiting the loading of the images</span>
+    <span class="cm-comment">// then run `applyOverlay(...)` when they are both loaded</span>
+    <span class="cm-keyword">return</span> <span class="cm-variable">applyOverlay</span>(<span class="cm-variable">original</span>.<span class="cm-variable">await</span>(), <span class="cm-variable">overlay</span>.<span class="cm-variable">await</span>())
+}
+</code></pre>

@@ -1,0 +1,11 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">import</span> <span class="cm-variable">kotlin</span>.<span class="cm-variable">reflect</span>.<span class="cm-variable">jvm</span>.<span class="cm-operator">*</span>
+ 
+<span class="cm-keyword">class</span> <span class="cm-def">A</span>(<span class="cm-keyword">val</span> <span class="cm-def">p</span>: <span class="cm-variable">Int</span>)
+ 
+<span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">args</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-variable">println</span>(<span class="cm-variable">A</span>::<span class="cm-variable">p</span>.<span class="cm-variable">javaGetter</span>) <span class="cm-comment">// prints "public final int A.getP()"</span>
+    <span class="cm-variable">println</span>(<span class="cm-variable">A</span>::<span class="cm-variable">p</span>.<span class="cm-variable">javaField</span>)  <span class="cm-comment">// prints "private final int A.p"</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">getKClass</span>(<span class="cm-variable">o</span>: <span class="cm-variable">Any</span>): <span class="cm-variable">KClass</span><span class="cm-operator">&lt;</span><span class="cm-variable">Any</span><span class="cm-operator">&gt;</span> <span class="cm-operator">=</span> <span class="cm-variable">o</span>.<span class="cm-variable">javaClass</span>.<span class="cm-variable">kotlin</span>
+</code></pre>

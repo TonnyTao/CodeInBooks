@@ -1,0 +1,14 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">for</span> (<span class="cm-variable">name</span> <span class="cm-keyword">in</span> <span class="cm-variable">names</span>) {
+    <span class="cm-variable">println</span>(<span class="cm-variable">name</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">if</span> (<span class="cm-variable">text</span> <span class="cm-keyword">in</span> <span class="cm-variable">names</span>) { <span class="cm-comment">// names.contains(text) is called</span>
+    <span class="cm-variable">print</span>(<span class="cm-string">"Yes"</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">names</span>
+        .<span class="cm-variable">filter</span> { <span class="cm-variable">it</span>.<span class="cm-variable">startsWith</span>(<span class="cm-string">"A"</span>) }
+        .<span class="cm-variable">sortedBy</span> { <span class="cm-variable">it</span> }
+        .<span class="cm-variable">map</span> { <span class="cm-variable">it</span>.<span class="cm-variable">toUpperCase</span>() }
+        .<span class="cm-variable">forEach</span> { <span class="cm-variable">print</span>(<span class="cm-variable">it</span>) }
+</code></pre>

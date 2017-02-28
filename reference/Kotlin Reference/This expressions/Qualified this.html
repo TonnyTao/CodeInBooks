@@ -1,0 +1,23 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">A</span> { <span class="cm-comment">// implicit label @A</span>
+    <span class="cm-keyword">inner</span> <span class="cm-keyword">class</span> <span class="cm-def">B</span> { <span class="cm-comment">// implicit label @B</span>
+        <span class="cm-keyword">fun</span> <span class="cm-def">Int</span>.<span class="cm-variable">foo</span>() { <span class="cm-comment">// implicit label @foo</span>
+            <span class="cm-keyword">val</span> <span class="cm-def">a</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span><span class="cm-variable">@A</span> <span class="cm-comment">// A's this</span>
+            <span class="cm-keyword">val</span> <span class="cm-def">b</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span><span class="cm-variable">@B</span> <span class="cm-comment">// B's this</span>
+
+            <span class="cm-keyword">val</span> <span class="cm-def">c</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span> <span class="cm-comment">// foo()'s receiver, an Int</span>
+            <span class="cm-keyword">val</span> <span class="cm-def">c1</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span><span class="cm-variable">@foo</span> <span class="cm-comment">// foo()'s receiver, an Int</span>
+
+            <span class="cm-keyword">val</span> <span class="cm-def">funLit</span> <span class="cm-operator">=</span> <span class="cm-variable">lambda</span><span class="cm-variable">@</span> <span class="cm-keyword">fun</span> <span class="cm-variable-3">String</span>.() {
+                <span class="cm-keyword">val</span> <span class="cm-def">d</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span> <span class="cm-comment">// funLit's receiver</span>
+            }
+
+
+            <span class="cm-keyword">val</span> <span class="cm-def">funLit2</span> <span class="cm-operator">=</span> { <span class="cm-variable">s</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">-&gt;</span>
+                <span class="cm-comment">// foo()'s receiver, since enclosing lambda expression</span>
+                <span class="cm-comment">// doesn't have any receiver</span>
+                <span class="cm-keyword">val</span> <span class="cm-def">d1</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>
+            }
+        }
+    }
+}
+</code></pre>

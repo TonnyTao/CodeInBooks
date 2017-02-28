@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">l</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-keyword">if</span> (<span class="cm-variable">b</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) <span class="cm-variable">b</span>.<span class="cm-variable">length</span> <span class="cm-keyword">else</span> <span class="cm-operator">-</span><span class="cm-number">1</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">l</span> <span class="cm-operator">=</span> <span class="cm-variable">b</span><span class="cm-operator">?</span>.<span class="cm-variable">length</span> <span class="cm-operator">?</span>: <span class="cm-operator">-</span><span class="cm-number">1</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">foo</span>(<span class="cm-variable">node</span>: <span class="cm-variable">Node</span>): <span class="cm-variable-3">String</span><span class="cm-operator">?</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">parent</span> <span class="cm-operator">=</span> <span class="cm-variable">node</span>.<span class="cm-variable">getParent</span>() <span class="cm-operator">?</span>: <span class="cm-keyword">return</span> <span class="cm-atom">null</span>
+    <span class="cm-keyword">val</span> <span class="cm-def">name</span> <span class="cm-operator">=</span> <span class="cm-variable">node</span>.<span class="cm-variable">getName</span>() <span class="cm-operator">?</span>: <span class="cm-keyword">throw</span> <span class="cm-variable">IllegalArgumentException</span>(<span class="cm-string">"name expected"</span>)
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>

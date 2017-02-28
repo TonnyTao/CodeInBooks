@@ -1,0 +1,10 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">var</span> <span class="cm-def">a</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">=</span> <span class="cm-string">"abc"</span>
+<span class="cm-variable">a</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span> <span class="cm-comment">// compilation error</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">var</span> <span class="cm-def">b</span>: <span class="cm-variable-3">String</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-string">"abc"</span>
+<span class="cm-variable">b</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span> <span class="cm-comment">// ok</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">l</span> <span class="cm-operator">=</span> <span class="cm-variable">a</span>.<span class="cm-variable">length</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">l</span> <span class="cm-operator">=</span> <span class="cm-variable">b</span>.<span class="cm-variable">length</span> <span class="cm-comment">// error: variable 'b' can be null</span>
+</code></pre>

@@ -1,0 +1,26 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">C</span>
+
+<span class="cm-keyword">class</span> <span class="cm-def">D</span>: <span class="cm-variable">C</span>()
+
+<span class="cm-keyword">fun</span> <span class="cm-def">C</span>.<span class="cm-variable">foo</span>() <span class="cm-operator">=</span> <span class="cm-string">"c"</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">D</span>.<span class="cm-variable">foo</span>() <span class="cm-operator">=</span> <span class="cm-string">"d"</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">printFoo</span>(<span class="cm-variable">c</span>: <span class="cm-variable">C</span>) {
+    <span class="cm-variable">println</span>(<span class="cm-variable">c</span>.<span class="cm-variable">foo</span>())
+}
+
+<span class="cm-variable">printFoo</span>(<span class="cm-variable">D</span>())
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">C</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() { <span class="cm-variable">println</span>(<span class="cm-string">"member"</span>) }
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">C</span>.<span class="cm-variable">foo</span>() { <span class="cm-variable">println</span>(<span class="cm-string">"extension"</span>) }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">C</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() { <span class="cm-variable">println</span>(<span class="cm-string">"member"</span>) }
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-def">C</span>.<span class="cm-variable">foo</span>(<span class="cm-variable">i</span>: <span class="cm-variable">Int</span>) { <span class="cm-variable">println</span>(<span class="cm-string">"extension"</span>) }
+</code></pre>

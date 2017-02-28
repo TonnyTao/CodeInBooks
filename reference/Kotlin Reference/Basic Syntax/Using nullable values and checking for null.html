@@ -1,0 +1,33 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">parseInt</span>(<span class="cm-variable">str</span>: <span class="cm-variable-3">String</span>): <span class="cm-variable">Int</span><span class="cm-operator">?</span> {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">args</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-keyword">if</span> (<span class="cm-variable">args</span>.<span class="cm-variable">size</span> <span class="cm-operator">&lt;</span> <span class="cm-number">2</span>) {
+        <span class="cm-variable">print</span>(<span class="cm-string">"Two integers expected"</span>)
+        <span class="cm-keyword">return</span>
+    }
+
+    <span class="cm-keyword">val</span> <span class="cm-def">x</span> <span class="cm-operator">=</span> <span class="cm-variable">parseInt</span>(<span class="cm-variable">args</span>[<span class="cm-number">0</span>])
+    <span class="cm-keyword">val</span> <span class="cm-def">y</span> <span class="cm-operator">=</span> <span class="cm-variable">parseInt</span>(<span class="cm-variable">args</span>[<span class="cm-number">1</span>])
+
+    <span class="cm-comment">// Using `x * y` yields error because they may hold nulls.</span>
+    <span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable">y</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) {
+        <span class="cm-comment">// x and y are automatically cast to non-nullable after null check</span>
+        <span class="cm-variable">print</span>(<span class="cm-variable">x</span> <span class="cm-operator">*</span> <span class="cm-variable">y</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin">    <span class="cm-comment">// ...</span>
+    <span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>) {
+        <span class="cm-variable">print</span>(<span class="cm-string">"Wrong number format in '${args[0]}'"</span>)
+        <span class="cm-keyword">return</span>
+    }
+    <span class="cm-keyword">if</span> (<span class="cm-variable">y</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>) {
+        <span class="cm-variable">print</span>(<span class="cm-string">"Wrong number format in '${args[1]}'"</span>)
+        <span class="cm-keyword">return</span>
+    }
+
+    <span class="cm-comment">// x and y are automatically cast to non-nullable after null check</span>
+    <span class="cm-variable">print</span>(<span class="cm-variable">x</span> <span class="cm-operator">*</span> <span class="cm-variable">y</span>)
+</code></pre>

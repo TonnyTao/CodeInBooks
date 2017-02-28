@@ -1,0 +1,30 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-variable">ints</span>.<span class="cm-variable">forEach</span> {
+        <span class="cm-keyword">if</span> (<span class="cm-variable">it</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>) <span class="cm-keyword">return</span>
+        <span class="cm-variable">print</span>(<span class="cm-variable">it</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-variable">ints</span>.<span class="cm-variable">forEach</span> <span class="cm-variable">lit</span><span class="cm-variable">@</span> {
+        <span class="cm-keyword">if</span> (<span class="cm-variable">it</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>) <span class="cm-keyword">return</span><span class="cm-variable">@lit</span>
+        <span class="cm-variable">print</span>(<span class="cm-variable">it</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-variable">ints</span>.<span class="cm-variable">forEach</span> {
+        <span class="cm-keyword">if</span> (<span class="cm-variable">it</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>) <span class="cm-keyword">return</span><span class="cm-variable">@forEach</span>
+        <span class="cm-variable">print</span>(<span class="cm-variable">it</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-variable">ints</span>.<span class="cm-variable">forEach</span>(<span class="cm-keyword">fun</span>(<span class="cm-variable">value</span>: <span class="cm-variable">Int</span>) {
+        <span class="cm-keyword">if</span> (<span class="cm-variable">value</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>) <span class="cm-keyword">return</span>
+        <span class="cm-variable">print</span>(<span class="cm-variable">value</span>)
+    })
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">return</span><span class="cm-variable">@a</span> <span class="cm-number">1</span>
+</code></pre>

@@ -1,0 +1,24 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">buildscript</span> {
+   <span class="cm-variable">ext</span>.<span class="cm-property">kotlin_version</span> <span class="cm-operator">=</span> <span class="cm-string">'&lt;version to use&gt;'</span>
+  <span class="cm-variable">repositories</span> {
+    <span class="cm-variable">mavenCentral</span>()
+  }
+  <span class="cm-variable">dependencies</span> {
+    <span class="cm-variable">classpath</span> <span class="cm-string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span>
+  }
+}
+
+<span class="cm-variable">apply</span> <span class="cm-property">plugin:</span> <span class="cm-string">"kotlin"</span> <span class="cm-comment">// or apply plugin: "kotlin2js" if targeting JavaScript</span>
+
+<span class="cm-variable">repositories</span> {
+  <span class="cm-variable">mavenCentral</span>()
+}
+
+<span class="cm-variable">dependencies</span> {
+  <span class="cm-variable">compile</span> <span class="cm-string">"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">compile</span> <span class="cm-string">"org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"</span>
+<span class="cm-variable">testCompile</span> <span class="cm-string">"org.jetbrains.kotlin:kotlin-test:$kotlin_version"</span>
+<span class="cm-variable">testCompile</span> <span class="cm-string">"org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"</span>
+</code></pre>

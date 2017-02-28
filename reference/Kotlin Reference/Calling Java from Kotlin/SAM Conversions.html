@@ -1,0 +1,8 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">runnable</span> <span class="cm-operator">=</span> <span class="cm-variable-3">Runnable</span> { <span class="cm-variable">println</span>(<span class="cm-string">"This runs in a runnable"</span>) }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">executor</span> <span class="cm-operator">=</span> <span class="cm-variable">ThreadPoolExecutor</span>()
+<span class="cm-comment">// Java signature: void execute(Runnable command)</span>
+<span class="cm-variable">executor</span>.<span class="cm-variable">execute</span> { <span class="cm-variable">println</span>(<span class="cm-string">"This runs in a thread pool"</span>) }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">executor</span>.<span class="cm-variable">execute</span>(<span class="cm-variable-3">Runnable</span> { <span class="cm-variable">println</span>(<span class="cm-string">"This runs in a thread pool"</span>) })
+</code></pre>

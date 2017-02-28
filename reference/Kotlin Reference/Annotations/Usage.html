@@ -1,0 +1,15 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">@Fancy</span> <span class="cm-keyword">class</span> <span class="cm-def">Foo</span> {
+    <span class="cm-variable">@Fancy</span> <span class="cm-keyword">fun</span> <span class="cm-def">baz</span>(<span class="cm-variable">@Fancy</span> <span class="cm-variable">foo</span>: <span class="cm-variable">Int</span>): <span class="cm-variable">Int</span> {
+        <span class="cm-keyword">return</span> (<span class="cm-variable">@Fancy</span> <span class="cm-number">1</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Foo</span> <span class="cm-def">@Inject</span> <span class="cm-keyword">constructor</span>(<span class="cm-variable">dependency</span>: <span class="cm-variable">MyDependency</span>) {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Foo</span> {
+    <span class="cm-keyword">var</span> <span class="cm-def">x</span>: <span class="cm-variable">MyDependency</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>
+        <span class="cm-variable">@Inject</span> <span class="cm-keyword">set</span>
+}
+</code></pre>

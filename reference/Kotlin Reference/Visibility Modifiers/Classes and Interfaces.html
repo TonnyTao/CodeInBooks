@@ -1,0 +1,25 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">Outer</span> {
+    <span class="cm-keyword">private</span> <span class="cm-keyword">val</span> <span class="cm-def">a</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>
+    <span class="cm-keyword">protected</span> <span class="cm-keyword">open</span> <span class="cm-keyword">val</span> <span class="cm-def">b</span> <span class="cm-operator">=</span> <span class="cm-number">2</span>
+    <span class="cm-keyword">internal</span> <span class="cm-keyword">val</span> <span class="cm-def">c</span> <span class="cm-operator">=</span> <span class="cm-number">3</span>
+    <span class="cm-keyword">val</span> <span class="cm-def">d</span> <span class="cm-operator">=</span> <span class="cm-number">4</span>  <span class="cm-comment">// public by default</span>
+    
+    <span class="cm-keyword">protected</span> <span class="cm-keyword">class</span> <span class="cm-def">Nested</span> {
+        <span class="cm-keyword">public</span> <span class="cm-keyword">val</span> <span class="cm-def">e</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">5</span>
+    }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">Subclass</span> : <span class="cm-variable">Outer</span>() {
+    <span class="cm-comment">// a is not visible</span>
+    <span class="cm-comment">// b, c and d are visible</span>
+    <span class="cm-comment">// Nested and e are visible</span>
+
+    <span class="cm-keyword">override</span> <span class="cm-keyword">val</span> <span class="cm-def">b</span> <span class="cm-operator">=</span> <span class="cm-number">5</span>   <span class="cm-comment">// 'b' is protected</span>
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">Unrelated</span>(<span class="cm-variable">o</span>: <span class="cm-variable">Outer</span>) {
+    <span class="cm-comment">// o.a, o.b are not visible</span>
+    <span class="cm-comment">// o.c and o.d are visible (same module)</span>
+    <span class="cm-comment">// Outer.Nested is not visible, and Nested::e is not visible either </span>
+}
+</code></pre>

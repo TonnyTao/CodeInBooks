@@ -1,0 +1,22 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Person</span> <span class="cm-keyword">constructor</span>(<span class="cm-variable">firstName</span>: <span class="cm-variable-3">String</span>) {
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Person</span>(<span class="cm-variable">firstName</span>: <span class="cm-variable-3">String</span>) {
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Customer</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) {
+    <span class="cm-keyword">init</span> {
+        <span class="cm-variable">logger</span>.<span class="cm-variable">info</span>(<span class="cm-string">"Customer initialized with value ${name}"</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Customer</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">customerKey</span> <span class="cm-operator">=</span> <span class="cm-variable">name</span>.<span class="cm-variable">toUpperCase</span>()
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Person</span>(<span class="cm-keyword">val</span> <span class="cm-def">firstName</span>: <span class="cm-variable-3">String</span>, <span class="cm-keyword">val</span> <span class="cm-def">lastName</span>: <span class="cm-variable-3">String</span>, <span class="cm-keyword">var</span> <span class="cm-def">age</span>: <span class="cm-variable">Int</span>) {
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Customer</span> <span class="cm-keyword">public</span> <span class="cm-variable">@Inject</span> <span class="cm-keyword">constructor</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) { ... }
+</code></pre>

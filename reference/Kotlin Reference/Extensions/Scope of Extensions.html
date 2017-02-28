@@ -1,0 +1,15 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">package</span> <span class="cm-def">foo</span>.<span class="cm-variable">bar</span>
+ 
+<span class="cm-keyword">fun</span> <span class="cm-def">Baz</span>.<span class="cm-variable">goo</span>() { ... } 
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">package</span> <span class="cm-def">com</span>.<span class="cm-variable">example</span>.<span class="cm-variable">usage</span>
+
+<span class="cm-keyword">import</span> <span class="cm-variable">foo</span>.<span class="cm-variable">bar</span>.<span class="cm-variable">goo</span> <span class="cm-comment">// importing all extensions by name "goo"</span>
+                   <span class="cm-comment">// or</span>
+<span class="cm-keyword">import</span> <span class="cm-variable">foo</span>.<span class="cm-variable">bar</span>.<span class="cm-operator">*</span>   <span class="cm-comment">// importing everything from "foo.bar"</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">usage</span>(<span class="cm-variable">baz</span>: <span class="cm-variable">Baz</span>) {
+    <span class="cm-variable">baz</span>.<span class="cm-variable">goo</span>()
+)
+
+</code></pre>

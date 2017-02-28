@@ -1,0 +1,17 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">table</span> {
+    <span class="cm-variable">tr</span> {
+        <span class="cm-variable">td</span> { <span class="cm-operator">+</span><span class="cm-string">"Text"</span> }
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">@DslMarker</span>
+<span class="cm-keyword">annotation</span> <span class="cm-keyword">class</span> <span class="cm-def">HtmlTagMarker</span>
+
+<span class="cm-def">@HtmlTagMarker</span>
+<span class="cm-keyword">abstract</span> <span class="cm-keyword">class</span> <span class="cm-def">Tag</span>(<span class="cm-keyword">val</span> <span class="cm-def">name</span>: <span class="cm-variable-3">String</span>) { ... }
+
+<span class="cm-keyword">class</span> <span class="cm-def">TD</span>() : <span class="cm-variable">Tag</span>(<span class="cm-string">"td"</span>) { ... }
+
+<span class="cm-keyword">fun</span> <span class="cm-def">Tag</span>.<span class="cm-variable">td</span>(<span class="cm-keyword">init</span>: <span class="cm-variable">TD</span>.() <span class="cm-operator">-&gt;</span> <span class="cm-variable">Unit</span>) {
+}
+</code></pre>

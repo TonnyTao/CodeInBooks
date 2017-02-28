@@ -1,0 +1,5 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">stream</span> <span class="cm-operator">=</span> <span class="cm-variable">Files</span>.<span class="cm-variable">newInputStream</span>(<span class="cm-variable">Paths</span>.<span class="cm-keyword">get</span>(<span class="cm-string">"/some/file.txt"</span>))
+<span class="cm-variable">stream</span>.<span class="cm-variable">buffered</span>().<span class="cm-variable">reader</span>().<span class="cm-variable">use</span> { <span class="cm-variable">reader</span> <span class="cm-operator">-&gt;</span>
+    <span class="cm-variable">println</span>(<span class="cm-variable">reader</span>.<span class="cm-variable">readText</span>())
+}
+</code></pre>

@@ -1,0 +1,9 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Outer</span> {
+    <span class="cm-keyword">private</span> <span class="cm-keyword">val</span> <span class="cm-def">bar</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>
+    <span class="cm-keyword">class</span> <span class="cm-def">Nested</span> {
+        <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() <span class="cm-operator">=</span> <span class="cm-number">2</span>
+    }
+}
+
+<span class="cm-keyword">val</span> <span class="cm-def">demo</span> <span class="cm-operator">=</span> <span class="cm-variable">Outer</span>.<span class="cm-variable">Nested</span>().<span class="cm-variable">foo</span>() <span class="cm-comment">// == 2</span>
+</code></pre>

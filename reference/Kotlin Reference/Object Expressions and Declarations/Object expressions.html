@@ -1,0 +1,42 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">window</span>.<span class="cm-variable">addMouseListener</span>(<span class="cm-keyword">object</span> : <span class="cm-variable">MouseAdapter</span>() {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">mouseClicked</span>(<span class="cm-variable">e</span>: <span class="cm-variable">MouseEvent</span>) {
+        <span class="cm-comment">// ...</span>
+    }
+
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">mouseEntered</span>(<span class="cm-variable">e</span>: <span class="cm-variable">MouseEvent</span>) {
+        <span class="cm-comment">// ...</span>
+    }
+})
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">A</span>(<span class="cm-variable">x</span>: <span class="cm-variable">Int</span>) {
+    <span class="cm-keyword">public</span> <span class="cm-keyword">open</span> <span class="cm-keyword">val</span> <span class="cm-def">y</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-variable">x</span>
+}
+
+<span class="cm-keyword">interface</span> <span class="cm-def">B</span> {...}
+
+<span class="cm-keyword">val</span> <span class="cm-def">ab</span>: <span class="cm-variable">A</span> <span class="cm-operator">=</span> <span class="cm-keyword">object</span> : <span class="cm-variable">A</span>(<span class="cm-number">1</span>), <span class="cm-variable">B</span> {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">val</span> <span class="cm-def">y</span> <span class="cm-operator">=</span> <span class="cm-number">15</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">adHoc</span> <span class="cm-operator">=</span> <span class="cm-keyword">object</span> {
+    <span class="cm-keyword">var</span> <span class="cm-def">x</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>
+    <span class="cm-keyword">var</span> <span class="cm-def">y</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>
+}
+<span class="cm-variable">print</span>(<span class="cm-variable">adHoc</span>.<span class="cm-variable">x</span> <span class="cm-operator">+</span> <span class="cm-variable">adHoc</span>.<span class="cm-variable">y</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">countClicks</span>(<span class="cm-variable">window</span>: <span class="cm-variable">JComponent</span>) {
+    <span class="cm-keyword">var</span> <span class="cm-def">clickCount</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>
+    <span class="cm-keyword">var</span> <span class="cm-def">enterCount</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>
+
+    <span class="cm-variable">window</span>.<span class="cm-variable">addMouseListener</span>(<span class="cm-keyword">object</span> : <span class="cm-variable">MouseAdapter</span>() {
+        <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">mouseClicked</span>(<span class="cm-variable">e</span>: <span class="cm-variable">MouseEvent</span>) {
+            <span class="cm-variable">clickCount</span><span class="cm-operator">++</span>
+        }
+
+        <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">mouseEntered</span>(<span class="cm-variable">e</span>: <span class="cm-variable">MouseEvent</span>) {
+            <span class="cm-variable">enterCount</span><span class="cm-operator">++</span>
+        }
+    })
+    <span class="cm-comment">// ...</span>
+}
+</code></pre>

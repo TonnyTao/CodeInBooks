@@ -1,0 +1,21 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">interface</span> <span class="cm-def">A</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() { <span class="cm-variable">print</span>(<span class="cm-string">"A"</span>) }
+    <span class="cm-keyword">fun</span> <span class="cm-def">bar</span>()
+}
+
+<span class="cm-keyword">interface</span> <span class="cm-def">B</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() { <span class="cm-variable">print</span>(<span class="cm-string">"B"</span>) }
+    <span class="cm-keyword">fun</span> <span class="cm-def">bar</span>() { <span class="cm-variable">print</span>(<span class="cm-string">"bar"</span>) }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">C</span> : <span class="cm-variable">A</span> {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">bar</span>() { <span class="cm-variable">print</span>(<span class="cm-string">"bar"</span>) }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">D</span> : <span class="cm-variable">A</span>, <span class="cm-variable">B</span> {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+        <span class="cm-keyword">super</span><span class="cm-operator">&lt;</span><span class="cm-variable">A</span><span class="cm-operator">&gt;</span>.<span class="cm-variable">foo</span>()
+        <span class="cm-keyword">super</span><span class="cm-operator">&lt;</span><span class="cm-variable">B</span><span class="cm-operator">&gt;</span>.<span class="cm-variable">foo</span>()
+    }
+}
+</code></pre>

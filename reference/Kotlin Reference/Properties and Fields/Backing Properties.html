@@ -1,0 +1,9 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">private</span> <span class="cm-keyword">var</span> <span class="cm-def">_table</span>: <span class="cm-variable">Map</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span>, <span class="cm-variable">Int</span><span class="cm-operator">&gt;?</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>
+<span class="cm-keyword">public</span> <span class="cm-keyword">val</span> <span class="cm-def">table</span>: <span class="cm-variable">Map</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span>, <span class="cm-variable">Int</span><span class="cm-operator">&gt;</span>
+    <span class="cm-keyword">get</span>() {
+        <span class="cm-keyword">if</span> (<span class="cm-variable">_table</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>) {
+            <span class="cm-variable">_table</span> <span class="cm-operator">=</span> <span class="cm-variable">HashMap</span>() <span class="cm-comment">// Type parameters are inferred</span>
+        }
+        <span class="cm-keyword">return</span> <span class="cm-variable">_table</span> <span class="cm-operator">?</span>: <span class="cm-keyword">throw</span> <span class="cm-variable">AssertionError</span>(<span class="cm-string">"Set to null by another thread"</span>)
+    }
+</code></pre>

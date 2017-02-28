@@ -1,0 +1,26 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">MyClass</span> {
+    <span class="cm-keyword">companion</span> <span class="cm-keyword">object</span> <span class="cm-def">Factory</span> {
+        <span class="cm-keyword">fun</span> <span class="cm-def">create</span>(): <span class="cm-variable">MyClass</span> <span class="cm-operator">=</span> <span class="cm-variable">MyClass</span>()
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">instance</span> <span class="cm-operator">=</span> <span class="cm-variable">MyClass</span>.<span class="cm-variable">create</span>()
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">MyClass</span> {
+    <span class="cm-keyword">companion</span> <span class="cm-keyword">object</span> {
+    }
+}
+
+<span class="cm-keyword">val</span> <span class="cm-def">x</span> <span class="cm-operator">=</span> <span class="cm-variable">MyClass</span>.<span class="cm-variable">Companion</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">interface</span> <span class="cm-def">Factory</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">create</span>(): <span class="cm-variable">T</span>
+}
+
+
+<span class="cm-keyword">class</span> <span class="cm-def">MyClass</span> {
+    <span class="cm-keyword">companion</span> <span class="cm-keyword">object</span> : <span class="cm-variable">Factory</span><span class="cm-operator">&lt;</span><span class="cm-variable">MyClass</span><span class="cm-operator">&gt;</span> {
+        <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">create</span>(): <span class="cm-variable">MyClass</span> <span class="cm-operator">=</span> <span class="cm-variable">MyClass</span>()
+    }
+}
+</code></pre>

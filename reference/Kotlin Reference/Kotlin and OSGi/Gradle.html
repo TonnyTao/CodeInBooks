@@ -1,0 +1,9 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">compile</span> <span class="cm-string">"org.jetbrains.kotlin:kotlin-osgi-bundle:$kotlinVersion"</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">dependencies</span> {
+ <span class="cm-variable">compile</span> (
+   [<span class="cm-property">group:</span> <span class="cm-string">'some.group.id'</span>, <span class="cm-property">name:</span> <span class="cm-string">'some.library'</span>, <span class="cm-property">version:</span> <span class="cm-string">'someversion'</span>],
+   .....) {
+  <span class="cm-variable">exclude</span> <span class="cm-property">group:</span> <span class="cm-string">'org.jetbrains.kotlin'</span>
+}
+</code></pre>

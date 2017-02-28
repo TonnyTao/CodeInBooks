@@ -1,0 +1,34 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">var</span> <span class="cm-operator">&lt;</span><span class="cm-variable">propertyName</span><span class="cm-operator">&gt;</span>: <span class="cm-operator">&lt;</span><span class="cm-variable">PropertyType</span><span class="cm-operator">&gt;</span> [<span class="cm-operator">=</span> <span class="cm-operator">&lt;</span><span class="cm-variable">property_initializer</span><span class="cm-operator">&gt;</span>]
+    [<span class="cm-operator">&lt;</span><span class="cm-variable">getter</span><span class="cm-operator">&gt;</span>]
+    [<span class="cm-operator">&lt;</span><span class="cm-variable">setter</span><span class="cm-operator">&gt;</span>]
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">var</span> <span class="cm-def">allByDefault</span>: <span class="cm-variable">Int</span><span class="cm-operator">?</span> <span class="cm-comment">// error: explicit initializer required, default getter and setter implied</span>
+<span class="cm-keyword">var</span> <span class="cm-def">initialized</span> <span class="cm-operator">=</span> <span class="cm-number">1</span> <span class="cm-comment">// has type Int, default getter and setter</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">simple</span>: <span class="cm-variable">Int</span><span class="cm-operator">?</span> <span class="cm-comment">// has type Int, default getter, must be initialized in constructor</span>
+<span class="cm-keyword">val</span> <span class="cm-def">inferredType</span> <span class="cm-operator">=</span> <span class="cm-number">1</span> <span class="cm-comment">// has type Int and a default getter</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">isEmpty</span>: <span class="cm-variable-3">Boolean</span>
+    <span class="cm-keyword">get</span>() <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">size</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">var</span> <span class="cm-def">stringRepresentation</span>: <span class="cm-variable-3">String</span>
+    <span class="cm-keyword">get</span>() <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">toString</span>()
+    <span class="cm-keyword">set</span>(<span class="cm-variable">value</span>) {
+        <span class="cm-variable">setDataFromString</span>(<span class="cm-variable">value</span>) <span class="cm-comment">// parses the string and assigns values to other properties</span>
+    }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">var</span> <span class="cm-def">setterVisibility</span>: <span class="cm-variable-3">String</span> <span class="cm-operator">=</span> <span class="cm-string">"abc"</span>
+    <span class="cm-keyword">private</span> <span class="cm-keyword">set</span> <span class="cm-comment">// the setter is private and has the default implementation</span>
+
+<span class="cm-keyword">var</span> <span class="cm-def">setterWithAnnotation</span>: <span class="cm-variable">Any</span><span class="cm-operator">?</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>
+    <span class="cm-variable">@Inject</span> <span class="cm-keyword">set</span> <span class="cm-comment">// annotate the setter with Inject</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">import</span> <span class="cm-variable">java</span>.<span class="cm-variable">util</span>.<span class="cm-variable">Calendar</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">calendarDemo</span>() {
+    <span class="cm-keyword">val</span> <span class="cm-def">calendar</span> <span class="cm-operator">=</span> <span class="cm-variable">Calendar</span>.<span class="cm-variable">getInstance</span>()
+    <span class="cm-keyword">if</span> (<span class="cm-variable">calendar</span>.<span class="cm-variable">firstDayOfWeek</span> <span class="cm-operator">==</span> <span class="cm-variable">Calendar</span>.<span class="cm-variable">SUNDAY</span>) {  <span class="cm-comment">// call getFirstDayOfWeek()</span>
+        <span class="cm-variable">calendar</span>.<span class="cm-variable">firstDayOfWeek</span> <span class="cm-operator">=</span> <span class="cm-variable">Calendar</span>.<span class="cm-variable">MONDAY</span>       <span class="cm-comment">// call setFirstDayOfWeek()</span>
+    }
+}
+</code></pre>

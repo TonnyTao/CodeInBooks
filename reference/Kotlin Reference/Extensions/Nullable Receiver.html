@@ -1,0 +1,7 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">Any</span><span class="cm-operator">?</span>.<span class="cm-variable">toString</span>(): <span class="cm-variable-3">String</span> {
+    <span class="cm-keyword">if</span> (<span class="cm-keyword">this</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>) <span class="cm-keyword">return</span> <span class="cm-string">"null"</span>
+    <span class="cm-comment">// after the null check, 'this' is autocast to a non-null type, so the toString() below</span>
+    <span class="cm-comment">// resolves to the member function of the Any class</span>
+    <span class="cm-keyword">return</span> <span class="cm-variable">toString</span>()
+}
+</code></pre>

@@ -1,0 +1,8 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-variable-3">Long</span>.<span class="cm-variable">downTo</span>(<span class="cm-variable">other</span>: <span class="cm-variable">Int</span>): <span class="cm-variable">LongProgression</span> {
+    <span class="cm-keyword">return</span> <span class="cm-variable">LongProgression</span>.<span class="cm-variable">fromClosedRange</span>(<span class="cm-keyword">this</span>, <span class="cm-variable">other</span>, <span class="cm-operator">-</span><span class="cm-number">1.0</span>)
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-variable-3">Byte</span>.<span class="cm-variable">downTo</span>(<span class="cm-variable">other</span>: <span class="cm-variable">Int</span>): <span class="cm-variable">IntProgression</span> {
+    <span class="cm-keyword">return</span> <span class="cm-variable">IntProgression</span>.<span class="cm-variable">fromClosedRange</span>(<span class="cm-keyword">this</span>, <span class="cm-variable">other</span>, <span class="cm-operator">-</span><span class="cm-number">1</span>)
+}
+</code></pre>

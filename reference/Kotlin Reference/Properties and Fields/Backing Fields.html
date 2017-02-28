@@ -1,0 +1,8 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">var</span> <span class="cm-def">counter</span> <span class="cm-operator">=</span> <span class="cm-number">0</span> <span class="cm-comment">// the initializer value is written directly to the backing field</span>
+    <span class="cm-keyword">set</span>(<span class="cm-variable">value</span>) {
+        <span class="cm-keyword">if</span> (<span class="cm-variable">value</span> <span class="cm-operator">&gt;=</span> <span class="cm-number">0</span>) <span class="cm-keyword">field</span> <span class="cm-operator">=</span> <span class="cm-variable">value</span>
+    }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">isEmpty</span>: <span class="cm-variable-3">Boolean</span>
+    <span class="cm-keyword">get</span>() <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">size</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>
+</code></pre>

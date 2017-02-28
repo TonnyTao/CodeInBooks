@@ -1,0 +1,18 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">Foo</span> {
+    <span class="cm-keyword">open</span> <span class="cm-keyword">val</span> <span class="cm-def">x</span>: <span class="cm-variable">Int</span> <span class="cm-keyword">get</span> { ... }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">Bar1</span> : <span class="cm-variable">Foo</span>() {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">val</span> <span class="cm-def">x</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> ...
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">interface</span> <span class="cm-def">Foo</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">count</span>: <span class="cm-variable">Int</span>
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">Bar1</span>(<span class="cm-keyword">override</span> <span class="cm-keyword">val</span> <span class="cm-def">count</span>: <span class="cm-variable">Int</span>) : <span class="cm-variable">Foo</span>
+
+<span class="cm-keyword">class</span> <span class="cm-def">Bar2</span> : <span class="cm-variable">Foo</span> {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">var</span> <span class="cm-def">count</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>
+}
+</code></pre>

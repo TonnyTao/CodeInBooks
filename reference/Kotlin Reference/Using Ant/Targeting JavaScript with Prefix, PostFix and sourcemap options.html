@@ -1,0 +1,8 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="application/xml"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">project</span> <span class="cm-attribute">name</span>=<span class="cm-string">"Ant Task Test"</span> <span class="cm-attribute">default</span>=<span class="cm-string">"build"</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">taskdef</span> <span class="cm-attribute">resource</span>=<span class="cm-string">"org/jetbrains/kotlin/ant/antlib.xml"</span> <span class="cm-attribute">classpath</span>=<span class="cm-string">"${kotlin.lib}/kotlin-ant.jar"</span><span class="cm-tag cm-bracket">/&gt;</span>
+
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">target</span> <span class="cm-attribute">name</span>=<span class="cm-string">"build"</span><span class="cm-tag cm-bracket">&gt;</span>
+        <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">kotlin2js</span> <span class="cm-attribute">src</span>=<span class="cm-string">"root1"</span> <span class="cm-attribute">output</span>=<span class="cm-string">"out.js"</span> <span class="cm-attribute">outputPrefix</span>=<span class="cm-string">"prefix"</span> <span class="cm-attribute">outputPostfix</span>=<span class="cm-string">"postfix"</span> <span class="cm-attribute">sourcemap</span>=<span class="cm-string">"true"</span><span class="cm-tag cm-bracket">/&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">target</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">project</span><span class="cm-tag cm-bracket">&gt;</span>
+</code></pre>

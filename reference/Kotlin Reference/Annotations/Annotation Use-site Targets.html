@@ -1,0 +1,15 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Example</span>(<span class="cm-variable">@field</span>:<span class="cm-variable">Ann</span> <span class="cm-keyword">val</span> <span class="cm-def">foo</span>,    <span class="cm-comment">// annotate Java field</span>
+              <span class="cm-variable">@get</span>:<span class="cm-variable">Ann</span> <span class="cm-keyword">val</span> <span class="cm-def">bar</span>,      <span class="cm-comment">// annotate Java getter</span>
+              <span class="cm-variable">@param</span>:<span class="cm-variable">Ann</span> <span class="cm-keyword">val</span> <span class="cm-def">quux</span>)   <span class="cm-comment">// annotate Java constructor parameter</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">@file</span>:<span class="cm-variable">JvmName</span>(<span class="cm-string">"Foo"</span>)
+
+<span class="cm-keyword">package</span> <span class="cm-def">org</span>.<span class="cm-variable">jetbrains</span>.<span class="cm-variable">demo</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">Example</span> {
+     <span class="cm-variable">@set</span>:[<span class="cm-variable">Inject</span> <span class="cm-variable">VisibleForTesting</span>]
+     <span class="cm-keyword">var</span> <span class="cm-def">collaborator</span>: <span class="cm-variable">Collaborator</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">@receiver</span>:<span class="cm-variable">Fancy</span> <span class="cm-variable-3">String</span>.<span class="cm-variable">myExtension</span>() { }
+</code></pre>

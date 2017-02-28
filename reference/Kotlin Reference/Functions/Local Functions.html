@@ -1,0 +1,21 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">dfs</span>(<span class="cm-variable">graph</span>: <span class="cm-variable">Graph</span>) {
+    <span class="cm-keyword">fun</span> <span class="cm-def">dfs</span>(<span class="cm-variable">current</span>: <span class="cm-variable">Vertex</span>, <span class="cm-variable">visited</span>: <span class="cm-variable">Set</span><span class="cm-operator">&lt;</span><span class="cm-variable">Vertex</span><span class="cm-operator">&gt;</span>) {
+        <span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable">visited</span>.<span class="cm-variable">add</span>(<span class="cm-variable">current</span>)) <span class="cm-keyword">return</span>
+        <span class="cm-keyword">for</span> (<span class="cm-variable">v</span> <span class="cm-keyword">in</span> <span class="cm-variable">current</span>.<span class="cm-variable">neighbors</span>)
+            <span class="cm-variable">dfs</span>(<span class="cm-variable">v</span>, <span class="cm-variable">visited</span>)
+    }
+
+    <span class="cm-variable">dfs</span>(<span class="cm-variable">graph</span>.<span class="cm-variable">vertices</span>[<span class="cm-number">0</span>], <span class="cm-variable">HashSet</span>())
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">dfs</span>(<span class="cm-variable">graph</span>: <span class="cm-variable">Graph</span>) {
+    <span class="cm-keyword">val</span> <span class="cm-def">visited</span> <span class="cm-operator">=</span> <span class="cm-variable">HashSet</span><span class="cm-operator">&lt;</span><span class="cm-variable">Vertex</span><span class="cm-operator">&gt;</span>()
+    <span class="cm-keyword">fun</span> <span class="cm-def">dfs</span>(<span class="cm-variable">current</span>: <span class="cm-variable">Vertex</span>) {
+        <span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable">visited</span>.<span class="cm-variable">add</span>(<span class="cm-variable">current</span>)) <span class="cm-keyword">return</span>
+        <span class="cm-keyword">for</span> (<span class="cm-variable">v</span> <span class="cm-keyword">in</span> <span class="cm-variable">current</span>.<span class="cm-variable">neighbors</span>)
+            <span class="cm-variable">dfs</span>(<span class="cm-variable">v</span>)
+    }
+
+    <span class="cm-variable">dfs</span>(<span class="cm-variable">graph</span>.<span class="cm-variable">vertices</span>[<span class="cm-number">0</span>])
+}
+</code></pre>

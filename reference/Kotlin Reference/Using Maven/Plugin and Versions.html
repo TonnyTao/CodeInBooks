@@ -1,0 +1,16 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-groovy"><span class="cm-variable">buildscript</span> {
+   <span class="cm-variable">ext</span>.<span class="cm-property">kotlin_version</span> <span class="cm-operator">=</span> <span class="cm-string">'&lt;version to use&gt;'</span>
+
+   <span class="cm-variable">repositories</span> {
+     <span class="cm-variable">mavenCentral</span>()
+   }
+
+   <span class="cm-variable">dependencies</span> {
+     <span class="cm-variable">classpath</span> <span class="cm-string">"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"</span>
+   }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="application/xml"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">properties</span><span class="cm-tag cm-bracket">&gt;</span>
+    <span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">kotlin.version</span><span class="cm-tag cm-bracket">&gt;</span>1.0.6<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">kotlin.version</span><span class="cm-tag cm-bracket">&gt;</span>
+<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">properties</span><span class="cm-tag cm-bracket">&gt;</span>
+</code></pre>

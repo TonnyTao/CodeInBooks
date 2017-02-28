@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">printHello</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span><span class="cm-operator">?</span>): <span class="cm-variable">Unit</span> {
+    <span class="cm-keyword">if</span> (<span class="cm-variable">name</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span>)
+        <span class="cm-variable">println</span>(<span class="cm-string">"Hello ${name}"</span>)
+    <span class="cm-keyword">else</span>
+        <span class="cm-variable">println</span>(<span class="cm-string">"Hi there!"</span>)
+    <span class="cm-comment">// `return Unit` or `return` is optional</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">printHello</span>(<span class="cm-variable">name</span>: <span class="cm-variable-3">String</span><span class="cm-operator">?</span>) {
+    ...
+}
+</code></pre>

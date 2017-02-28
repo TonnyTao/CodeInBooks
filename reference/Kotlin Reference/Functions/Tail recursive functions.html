@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">tailrec</span> <span class="cm-keyword">fun</span> <span class="cm-def">findFixPoint</span>(<span class="cm-variable">x</span>: <span class="cm-variable-3">Double</span> <span class="cm-operator">=</span> <span class="cm-number">1.0</span>): <span class="cm-variable-3">Double</span>
+        <span class="cm-operator">=</span> <span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-operator">==</span> <span class="cm-variable-3">Math</span>.<span class="cm-variable">cos</span>(<span class="cm-variable">x</span>)) <span class="cm-variable">x</span> <span class="cm-keyword">else</span> <span class="cm-variable">findFixPoint</span>(<span class="cm-variable-3">Math</span>.<span class="cm-variable">cos</span>(<span class="cm-variable">x</span>))
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">private</span> <span class="cm-keyword">fun</span> <span class="cm-def">findFixPoint</span>(): <span class="cm-variable-3">Double</span> {
+    <span class="cm-keyword">var</span> <span class="cm-def">x</span> <span class="cm-operator">=</span> <span class="cm-number">1.0</span>
+    <span class="cm-keyword">while</span> (<span class="cm-atom">true</span>) {
+        <span class="cm-keyword">val</span> <span class="cm-def">y</span> <span class="cm-operator">=</span> <span class="cm-variable-3">Math</span>.<span class="cm-variable">cos</span>(<span class="cm-variable">x</span>)
+        <span class="cm-keyword">if</span> (<span class="cm-variable">x</span> <span class="cm-operator">==</span> <span class="cm-variable">y</span>) <span class="cm-keyword">return</span> <span class="cm-variable">y</span>
+        <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-variable">y</span>
+    }
+}
+</code></pre>

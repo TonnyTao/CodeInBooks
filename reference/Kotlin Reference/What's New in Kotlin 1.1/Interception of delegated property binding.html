@@ -1,0 +1,16 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">ResourceLoader</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>(<span class="cm-variable">id</span>: <span class="cm-variable">ResourceID</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-keyword">operator</span> <span class="cm-keyword">fun</span> <span class="cm-def">provideDelegate</span>(<span class="cm-variable">thisRef</span>: <span class="cm-variable">MyUI</span>, <span class="cm-keyword">property</span>: <span class="cm-variable">KProperty</span><span class="cm-operator">&lt;*&gt;</span>): <span class="cm-variable">ReadOnlyProperty</span><span class="cm-operator">&lt;</span><span class="cm-variable">MyUI</span>, <span class="cm-variable">T</span><span class="cm-operator">&gt;</span> {
+        <span class="cm-variable">checkProperty</span>(<span class="cm-variable">thisRef</span>, <span class="cm-keyword">property</span>.<span class="cm-variable">name</span>)
+        ... <span class="cm-comment">// property creation</span>
+    }
+
+    <span class="cm-keyword">private</span> <span class="cm-keyword">fun</span> <span class="cm-def">checkProperty</span>(<span class="cm-variable">thisRef</span>: <span class="cm-variable">MyUI</span>, <span class="cm-variable">name</span>: <span class="cm-variable-3">String</span>) { ... }
+}
+
+<span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">bindResource</span>(<span class="cm-variable">id</span>: <span class="cm-variable">ResourceID</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>): <span class="cm-variable">ResourceLoader</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> { ... }
+
+<span class="cm-keyword">class</span> <span class="cm-def">MyUI</span> {
+    <span class="cm-keyword">val</span> <span class="cm-def">image</span> <span class="cm-keyword">by</span> <span class="cm-variable">bindResource</span>(<span class="cm-variable">ResourceID</span>.<span class="cm-variable">image_id</span>)
+    <span class="cm-keyword">val</span> <span class="cm-def">text</span> <span class="cm-keyword">by</span> <span class="cm-variable">bindResource</span>(<span class="cm-variable">ResourceID</span>.<span class="cm-variable">text_id</span>)
+}
+</code></pre>

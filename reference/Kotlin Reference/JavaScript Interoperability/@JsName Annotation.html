@@ -1,0 +1,17 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// Module 'kjs'</span>
+
+<span class="cm-keyword">class</span> <span class="cm-def">Person</span>(<span class="cm-keyword">val</span> <span class="cm-def">name</span>: <span class="cm-variable-3">String</span>) {
+    <span class="cm-keyword">fun</span> <span class="cm-def">hello</span>() {
+        <span class="cm-variable">println</span>(<span class="cm-string">"Hello $name!"</span>)
+    }
+
+    <span class="cm-variable">@JsName</span>(<span class="cm-string">"helloWithGreeting"</span>)
+    <span class="cm-keyword">fun</span> <span class="cm-def">hello</span>(<span class="cm-variable">greeting</span>: <span class="cm-variable-3">String</span>) {
+        <span class="cm-variable">println</span>(<span class="cm-string">"$greeting $name!"</span>)
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/javascript"><span class="cm-keyword">var</span> <span class="cm-def">person</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">kjs</span>.<span class="cm-property">Person</span>(<span class="cm-string">"Dmitry"</span>);   <span class="cm-comment">// refers to module 'kjs'</span>
+<span class="cm-variable">person</span>.<span class="cm-property">hello</span>();                          <span class="cm-comment">// prints "Hello Dmitry!"</span>
+<span class="cm-variable">person</span>.<span class="cm-property">helloWithGreeting</span>(<span class="cm-string">"Servus"</span>);      <span class="cm-comment">// prints "Servus Dmitry!"</span>
+</code></pre>

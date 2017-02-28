@@ -1,0 +1,27 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">TreeNode</span>.<span class="cm-variable">findParentOfType</span>(<span class="cm-variable">clazz</span>: <span class="cm-variable-3">Class</span><span class="cm-operator">&lt;</span><span class="cm-variable">T</span><span class="cm-operator">&gt;</span>): <span class="cm-variable">T</span><span class="cm-operator">?</span> {
+    <span class="cm-keyword">var</span> <span class="cm-def">p</span> <span class="cm-operator">=</span> <span class="cm-variable">parent</span>
+    <span class="cm-keyword">while</span> (<span class="cm-variable">p</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-operator">!</span><span class="cm-variable">clazz</span>.<span class="cm-variable">isInstance</span>(<span class="cm-variable">p</span>)) {
+        <span class="cm-variable">p</span> <span class="cm-operator">=</span> <span class="cm-variable">p</span><span class="cm-operator">?</span>.<span class="cm-variable">parent</span>
+    }
+    <span class="cm-variable">@Suppress</span>(<span class="cm-string">"UNCHECKED_CAST"</span>)
+    <span class="cm-keyword">return</span> <span class="cm-variable">p</span> <span class="cm-keyword">as</span> <span class="cm-variable">T</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">myTree</span>.<span class="cm-variable">findParentOfType</span>(<span class="cm-variable">MyTreeNodeType</span>::<span class="cm-keyword">class</span>.<span class="cm-variable">java</span>)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">myTree</span>.<span class="cm-variable">findParentOfType</span><span class="cm-operator">&lt;</span><span class="cm-variable">MyTreeNodeType</span><span class="cm-operator">&gt;</span>()
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">inline</span> <span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-keyword">reified</span> <span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">TreeNode</span>.<span class="cm-variable">findParentOfType</span>(): <span class="cm-variable">T</span><span class="cm-operator">?</span> {
+    <span class="cm-keyword">var</span> <span class="cm-def">p</span> <span class="cm-operator">=</span> <span class="cm-variable">parent</span>
+    <span class="cm-keyword">while</span> (<span class="cm-variable">p</span> <span class="cm-operator">!=</span> <span class="cm-atom">null</span> <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable">p</span> <span class="cm-operator">!</span><span class="cm-keyword">is</span> <span class="cm-variable">T</span>) {
+        <span class="cm-variable">p</span> <span class="cm-operator">=</span> <span class="cm-variable">p</span><span class="cm-operator">?</span>.<span class="cm-variable">parent</span>
+    }
+    <span class="cm-keyword">return</span> <span class="cm-variable">p</span> <span class="cm-keyword">as</span> <span class="cm-variable">T</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">inline</span> <span class="cm-keyword">fun</span> <span class="cm-operator">&lt;</span><span class="cm-keyword">reified</span> <span class="cm-variable">T</span><span class="cm-operator">&gt;</span> <span class="cm-variable">membersOf</span>() <span class="cm-operator">=</span> <span class="cm-variable">T</span>::<span class="cm-keyword">class</span>.<span class="cm-variable">members</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">main</span>(<span class="cm-variable">s</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">String</span><span class="cm-operator">&gt;</span>) {
+    <span class="cm-variable">println</span>(<span class="cm-variable">membersOf</span><span class="cm-operator">&lt;</span><span class="cm-variable">StringBuilder</span><span class="cm-operator">&gt;</span>().<span class="cm-variable">joinToString</span>(<span class="cm-string">"\n"</span>))
+}
+</code></pre>

@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">read</span>(<span class="cm-variable">b</span>: <span class="cm-variable">Array</span><span class="cm-operator">&lt;</span><span class="cm-variable-3">Byte</span><span class="cm-operator">&gt;</span>, <span class="cm-variable">off</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>, <span class="cm-variable">len</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-variable">b</span>.<span class="cm-variable">size</span>()) {
+...
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">open</span> <span class="cm-keyword">class</span> <span class="cm-def">A</span> {
+    <span class="cm-keyword">open</span> <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>(<span class="cm-variable">i</span>: <span class="cm-variable">Int</span> <span class="cm-operator">=</span> <span class="cm-number">10</span>) { ... }
+}
+
+<span class="cm-keyword">class</span> <span class="cm-def">B</span> : <span class="cm-variable">A</span>() {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>(<span class="cm-variable">i</span>: <span class="cm-variable">Int</span>) { ... }  <span class="cm-comment">// no default value allowed</span>
+}
+</code></pre>

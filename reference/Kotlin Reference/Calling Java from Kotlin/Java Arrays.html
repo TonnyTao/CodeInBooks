@@ -1,0 +1,25 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-def">JavaArrayExample</span> {
+
+    <span class="cm-keyword">public</span> <span class="cm-variable-3">void</span> <span class="cm-variable">removeIndices</span>(<span class="cm-variable-3">int</span>[] <span class="cm-variable">indices</span>) {
+        <span class="cm-comment">// code here...</span>
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">javaObj</span> <span class="cm-operator">=</span> <span class="cm-variable">JavaArrayExample</span>()
+<span class="cm-keyword">val</span> <span class="cm-def">array</span> <span class="cm-operator">=</span> <span class="cm-variable">intArrayOf</span>(<span class="cm-number">0</span>, <span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>)
+<span class="cm-variable">javaObj</span>.<span class="cm-variable">removeIndices</span>(<span class="cm-variable">array</span>)  <span class="cm-comment">// passes int[] to method</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">array</span> <span class="cm-operator">=</span> <span class="cm-variable">arrayOf</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>, <span class="cm-number">3</span>, <span class="cm-number">4</span>)
+<span class="cm-variable">array</span>[<span class="cm-variable">x</span>] <span class="cm-operator">=</span> <span class="cm-variable">array</span>[<span class="cm-variable">x</span>] <span class="cm-operator">*</span> <span class="cm-number">2</span> <span class="cm-comment">// no actual calls to get() and set() generated</span>
+<span class="cm-keyword">for</span> (<span class="cm-variable">x</span> <span class="cm-keyword">in</span> <span class="cm-variable">array</span>) { <span class="cm-comment">// no iterator created</span>
+    <span class="cm-variable">print</span>(<span class="cm-variable">x</span>)
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">for</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-variable">array</span>.<span class="cm-variable">indices</span>) { <span class="cm-comment">// no iterator created</span>
+    <span class="cm-variable">array</span>[<span class="cm-variable">i</span>] <span class="cm-operator">+=</span> <span class="cm-number">2</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">if</span> (<span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-variable">array</span>.<span class="cm-variable">indices</span>) { <span class="cm-comment">// same as (i &gt;= 0 &amp;&amp; i &lt; array.size)</span>
+    <span class="cm-variable">print</span>(<span class="cm-variable">array</span>[<span class="cm-variable">i</span>])
+}
+</code></pre>

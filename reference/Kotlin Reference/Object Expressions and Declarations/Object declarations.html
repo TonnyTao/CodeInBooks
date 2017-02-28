@@ -1,0 +1,21 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">object</span> <span class="cm-def">DataProviderManager</span> {
+    <span class="cm-keyword">fun</span> <span class="cm-def">registerDataProvider</span>(<span class="cm-variable">provider</span>: <span class="cm-variable">DataProvider</span>) {
+        <span class="cm-comment">// ...</span>
+    }
+
+    <span class="cm-keyword">val</span> <span class="cm-def">allDataProviders</span>: <span class="cm-variable">Collection</span><span class="cm-operator">&lt;</span><span class="cm-variable">DataProvider</span><span class="cm-operator">&gt;</span>
+        <span class="cm-keyword">get</span>() <span class="cm-operator">=</span> <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">DataProviderManager</span>.<span class="cm-variable">registerDataProvider</span>(...)
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">object</span> <span class="cm-def">DefaultListener</span> : <span class="cm-variable">MouseAdapter</span>() {
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">mouseClicked</span>(<span class="cm-variable">e</span>: <span class="cm-variable">MouseEvent</span>) {
+        <span class="cm-comment">// ...</span>
+    }
+
+    <span class="cm-keyword">override</span> <span class="cm-keyword">fun</span> <span class="cm-def">mouseEntered</span>(<span class="cm-variable">e</span>: <span class="cm-variable">MouseEvent</span>) {
+        <span class="cm-comment">// ...</span>
+    }
+}
+</code></pre>

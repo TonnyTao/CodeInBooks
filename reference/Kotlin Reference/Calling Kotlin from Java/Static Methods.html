@@ -1,0 +1,20 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">class</span> <span class="cm-def">C</span> {
+    <span class="cm-keyword">companion</span> <span class="cm-keyword">object</span> {
+        <span class="cm-variable">@JvmStatic</span> <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {}
+        <span class="cm-keyword">fun</span> <span class="cm-def">bar</span>() {}
+    }
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-variable">C</span>.<span class="cm-variable">foo</span>(); <span class="cm-comment">// works fine</span>
+<span class="cm-variable">C</span>.<span class="cm-variable">bar</span>(); <span class="cm-comment">// error: not a static method</span>
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">object</span> <span class="cm-def">Obj</span> {
+    <span class="cm-variable">@JvmStatic</span> <span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {}
+    <span class="cm-keyword">fun</span> <span class="cm-def">bar</span>() {}
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-variable">Obj</span>.<span class="cm-variable">foo</span>(); <span class="cm-comment">// works fine</span>
+<span class="cm-variable">Obj</span>.<span class="cm-variable">bar</span>(); <span class="cm-comment">// error</span>
+<span class="cm-variable">Obj</span>.<span class="cm-variable">INSTANCE</span>.<span class="cm-variable">bar</span>(); <span class="cm-comment">// works, a call through the singleton instance</span>
+<span class="cm-variable">Obj</span>.<span class="cm-variable">INSTANCE</span>.<span class="cm-variable">foo</span>(); <span class="cm-comment">// works too</span>
+</code></pre>

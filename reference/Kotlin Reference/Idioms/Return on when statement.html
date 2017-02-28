@@ -1,0 +1,9 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">transform</span>(<span class="cm-variable">color</span>: <span class="cm-variable-3">String</span>): <span class="cm-variable">Int</span> {
+    <span class="cm-keyword">return</span> <span class="cm-keyword">when</span> (<span class="cm-variable">color</span>) {
+        <span class="cm-string">"Red"</span> <span class="cm-operator">-&gt;</span> <span class="cm-number">0</span>
+        <span class="cm-string">"Green"</span> <span class="cm-operator">-&gt;</span> <span class="cm-number">1</span>
+        <span class="cm-string">"Blue"</span> <span class="cm-operator">-&gt;</span> <span class="cm-number">2</span>
+        <span class="cm-keyword">else</span> <span class="cm-operator">-&gt;</span> <span class="cm-keyword">throw</span> <span class="cm-variable">IllegalArgumentException</span>(<span class="cm-string">"Invalid color param value"</span>)
+    }
+}
+</code></pre>

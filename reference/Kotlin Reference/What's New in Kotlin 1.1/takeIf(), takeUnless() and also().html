@@ -1,0 +1,12 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">fun</span> <span class="cm-def">Block</span>.<span class="cm-variable">copy</span>() <span class="cm-operator">=</span> <span class="cm-variable">Block</span>().<span class="cm-variable">also</span> { <span class="cm-variable">it</span>.<span class="cm-variable">content</span> <span class="cm-operator">=</span> <span class="cm-keyword">this</span>.<span class="cm-variable">content</span> }
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">val</span> <span class="cm-def">outDirFile</span> <span class="cm-operator">=</span> <span class="cm-variable">File</span>(<span class="cm-variable">outputDir</span>.<span class="cm-variable">path</span>).<span class="cm-variable">takeIf</span> { <span class="cm-variable">it</span>.<span class="cm-variable">exists</span>() } <span class="cm-operator">?</span>: <span class="cm-keyword">return</span> <span class="cm-atom">false</span>
+<span class="cm-comment">// do something with existing outDirFile</span>
+
+<span class="cm-keyword">val</span> <span class="cm-def">index</span> <span class="cm-operator">=</span> <span class="cm-variable">input</span>.<span class="cm-variable">indexOf</span>(<span class="cm-variable">keyword</span>).<span class="cm-variable">takeIf</span> { <span class="cm-variable">it</span> <span class="cm-operator">&gt;=</span> <span class="cm-number">0</span> } <span class="cm-operator">?</span>: <span class="cm-variable">error</span>(<span class="cm-string">"keyword not found"</span>)
+<span class="cm-comment">// do something with index of keyword in input string, given that it's found</span>
+</code></pre>
+<pre><code>val index = input.indexOf(keyword).takeUnless { it &lt; 0 } ?: error("keyword not found")
+</code></pre>
+<pre><code>val notEmptyString = string.takeUnless(String::isEmpty)
+</code></pre>

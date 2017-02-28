@@ -1,0 +1,29 @@
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-comment">// example.kt</span>
+<span class="cm-keyword">package</span> <span class="cm-def">demo</span>
+
+<span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-keyword">throw</span> <span class="cm-variable">IOException</span>()
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-comment">// Java</span>
+<span class="cm-keyword">try</span> {
+  <span class="cm-variable">demo</span>.<span class="cm-variable">Example</span>.<span class="cm-variable">foo</span>();
+}
+<span class="cm-keyword">catch</span> (<span class="cm-variable">IOException</span> <span class="cm-variable">e</span>) { <span class="cm-comment">// error: foo() does not declare IOException in the throws list</span>
+  <span class="cm-comment">// ...</span>
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-variable">@Throws</span>(<span class="cm-variable">IOException</span>::<span class="cm-keyword">class</span>)
+<span class="cm-keyword">fun</span> <span class="cm-def">foo</span>() {
+    <span class="cm-keyword">throw</span> <span class="cm-variable">IOException</span>()
+}
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-java"><span class="cm-variable">Appendable</span> <span class="cm-def">append</span>(<span class="cm-variable">CharSequence</span> <span class="cm-variable">csq</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">IOException</span>;
+</code></pre>
+<pre><code class="code _highlighted cm-s-default" data-lang="text/x-kotlin"><span class="cm-keyword">try</span> {
+    <span class="cm-variable">log</span>.<span class="cm-variable">append</span>(<span class="cm-variable">message</span>)
+}
+<span class="cm-keyword">catch</span> (<span class="cm-variable">IOException</span> <span class="cm-variable">e</span>) {
+    <span class="cm-comment">// Must be safe</span>
+}
+</code></pre>
