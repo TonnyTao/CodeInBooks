@@ -1,0 +1,23 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">re1</code> <code class="o">=</code> <code class="sr">/ab/i</code><code class="p">,</code>
+    <code class="nx">re2</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">RegExp</code><code class="p">(</code><code class="nx">re1</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">re1</code> <code class="o">=</code> <code class="sr">/ab/i</code><code class="p">,</code>
+
+    <code class="c1">// throws an error in ES5, okay in ES6</code>
+    <code class="nx">re2</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">RegExp</code><code class="p">(</code><code class="nx">re1</code><code class="p">,</code> <code class="s2">"g"</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">re1</code> <code class="o">=</code> <code class="sr">/ab/i</code><code class="p">,</code>
+
+    <code class="c1">// throws an error in ES5, okay in ES6</code>
+    <code class="nx">re2</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">RegExp</code><code class="p">(</code><code class="nx">re1</code><code class="p">,</code> <code class="s2">"g"</code><code class="p">);</code>
+
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">re1</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>            <code class="c1">// "/ab/i"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">re2</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>            <code class="c1">// "/ab/g"</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">re1</code><code class="p">.</code><code class="nx">test</code><code class="p">(</code><code class="s2">"ab"</code><code class="p">));</code>            <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">re2</code><code class="p">.</code><code class="nx">test</code><code class="p">(</code><code class="s2">"ab"</code><code class="p">));</code>            <code class="c1">// true</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">re1</code><code class="p">.</code><code class="nx">test</code><code class="p">(</code><code class="s2">"AB"</code><code class="p">));</code>            <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">re2</code><code class="p">.</code><code class="nx">test</code><code class="p">(</code><code class="s2">"AB"</code><code class="p">));</code>            <code class="c1">// false</code>
+</pre>

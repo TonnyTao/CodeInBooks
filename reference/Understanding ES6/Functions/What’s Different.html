@@ -1,0 +1,39 @@
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// optimized</code>
+    <code class="k">return</code> <code class="nx">doSomethingElse</code><code class="p">();</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// not optimized - no return</code>
+    <code class="nx">doSomethingElse</code><code class="p">();</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// not optimized - must add after returning</code>
+    <code class="k">return</code> <code class="mi">1</code> <code class="o">+</code> <code class="nx">doSomethingElse</code><code class="p">();</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// not optimized - call isn't in tail position</code>
+    <code class="kd">var</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">doSomethingElse</code><code class="p">();</code>
+    <code class="k">return</code> <code class="nx">result</code><code class="p">;</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">num</code> <code class="o">=</code> <code class="mi">1</code><code class="p">,</code>
+        <code class="nx">func</code> <code class="o">=</code> <code class="p">()</code> <code class="o">=&gt;</code> <code class="nx">num</code><code class="p">;</code>
+
+    <code class="c1">// not optimized - function is a closure</code>
+    <code class="k">return</code> <code class="nx">func</code><code class="p">();</code>
+<code class="p">}</code>
+</pre>

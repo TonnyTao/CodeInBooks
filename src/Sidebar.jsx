@@ -4,6 +4,8 @@ import Sidebar from 'react-sidebar';
 import Content from './App.jsx'
 import './Sidebar.css'
 
+import books from '../reference/books.json'
+
 var App = React.createClass({
   getInitialState() {
     return {sidebarOpen: false, sidebarDocked: false, bookTitle:'Swift Language'};
@@ -14,7 +16,7 @@ var App = React.createClass({
   },
 
   openDraw: function() {
-    this.setState({sidebarOpen: true});
+    this.setState({sidebarOpen: true, sidebarDocked:false, bookTitle:this.state.bookTitle});
   },
 
   componentWillMount: function() {
@@ -32,7 +34,7 @@ var App = React.createClass({
   },
 
   selectBookTitle: function(title) {
-     this.setState({sidebarOpen: false, bookTitle:title});
+     this.setState({sidebarOpen: false, sidebarDocked:false, bookTitle:title});
   },
 
   render: function() {
@@ -42,17 +44,19 @@ var App = React.createClass({
         <span>Tonny&Sunm</span>
       </a></div>
       <ul className="menuTitle">
-        <li><a onClick={()=>this.selectBookTitle('Swift Language')}>Swift Language</a></li>
-        <li><a onClick={()=>this.selectBookTitle('Kotlin Reference')}>Kotlin Reference</a></li>
+        {books.map((item, i)=>{
+          return <li><a onClick={()=>this.selectBookTitle(item)}>{item}</a></li>  
+        })}
       </ul>
     </div>)
 
     return (
-      <Sidebar className="sidebar"
-               sidebar={sidebarContent}
+      <Sidebar sidebar={sidebarContent}
                open={this.state.sidebarOpen}
                docked={this.state.sidebarDocked}
                onSetOpen={this.onSetSidebarOpen}
+               shadow={false}
+               transitions={false}
                touch={true}>
          <Content openDraw={this.openDraw} bookTitle={this.state.bookTitle} />
       </Sidebar>

@@ -1,0 +1,34 @@
+<pre><code></code><code class="nx">obj</code> <code class="k">instanceof</code> <code class="nb">Array</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="nb">Array</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">hasInstance</code><code class="p">](</code><code class="nx">obj</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">MyObject</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// ...</code>
+<code class="p">}</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">MyObject</code><code class="p">,</code> <code class="nx">Symbol</code><code class="p">.</code><code class="nx">hasInstance</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">value</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">v</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="kc">false</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">obj</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyObject</code><code class="p">();</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">obj</code> <code class="k">instanceof</code> <code class="nx">MyObject</code><code class="p">);</code>       <code class="c1">// false</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">SpecialNumber</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// empty</code>
+<code class="p">}</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">SpecialNumber</code><code class="p">,</code> <code class="nx">Symbol</code><code class="p">.</code><code class="nx">hasInstance</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">value</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">v</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="p">(</code><code class="nx">v</code> <code class="k">instanceof</code> <code class="nb">Number</code><code class="p">)</code> <code class="o">&amp;&amp;</code> <code class="p">(</code><code class="nx">v</code> <code class="o">&gt;=</code><code class="mi">1</code> <code class="o">&amp;&amp;</code> <code class="nx">v</code> <code class="o">&lt;=</code> <code class="mi">100</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">two</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Number</code><code class="p">(</code><code class="mi">2</code><code class="p">),</code>
+    <code class="nx">zero</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Number</code><code class="p">(</code><code class="mi">0</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">two</code> <code class="k">instanceof</code> <code class="nx">SpecialNumber</code><code class="p">);</code>    <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">zero</code> <code class="k">instanceof</code> <code class="nx">SpecialNumber</code><code class="p">);</code>   <code class="c1">// false</code>
+</pre>

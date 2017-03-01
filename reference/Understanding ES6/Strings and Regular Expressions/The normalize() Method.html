@@ -1,0 +1,40 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">normalized</code> <code class="o">=</code> <code class="nx">values</code><code class="p">.</code><code class="nx">map</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">text</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">text</code><code class="p">.</code><code class="nx">normalize</code><code class="p">();</code>
+<code class="p">});</code>
+
+<code class="nx">normalized</code><code class="p">.</code><code class="nx">sort</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">if</code> <code class="p">(</code><code class="nx">first</code> <code class="o">&lt;</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="o">-</code><code class="mi">1</code><code class="p">;</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="k">if</code> <code class="p">(</code><code class="nx">first</code> <code class="o">===</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="mi">0</code><code class="p">;</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="mi">1</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="nx">values</code><code class="p">.</code><code class="nx">sort</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">firstNormalized</code> <code class="o">=</code> <code class="nx">first</code><code class="p">.</code><code class="nx">normalize</code><code class="p">(),</code>
+        <code class="nx">secondNormalized</code> <code class="o">=</code> <code class="nx">second</code><code class="p">.</code><code class="nx">normalize</code><code class="p">();</code>
+
+    <code class="k">if</code> <code class="p">(</code><code class="nx">firstNormalized</code> <code class="o">&lt;</code> <code class="nx">secondNormalized</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="o">-</code><code class="mi">1</code><code class="p">;</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="k">if</code> <code class="p">(</code><code class="nx">firstNormalized</code> <code class="o">===</code> <code class="nx">secondNormalized</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="mi">0</code><code class="p">;</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="mi">1</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="nx">values</code><code class="p">.</code><code class="nx">sort</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">firstNormalized</code> <code class="o">=</code> <code class="nx">first</code><code class="p">.</code><code class="nx">normalize</code><code class="p">(</code><code class="s2">"NFD"</code><code class="p">),</code>
+        <code class="nx">secondNormalized</code> <code class="o">=</code> <code class="nx">second</code><code class="p">.</code><code class="nx">normalize</code><code class="p">(</code><code class="s2">"NFD"</code><code class="p">);</code>
+
+    <code class="k">if</code> <code class="p">(</code><code class="nx">firstNormalized</code> <code class="o">&lt;</code> <code class="nx">secondNormalized</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="o">-</code><code class="mi">1</code><code class="p">;</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="k">if</code> <code class="p">(</code><code class="nx">firstNormalized</code> <code class="o">===</code> <code class="nx">secondNormalized</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="mi">0</code><code class="p">;</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="mi">1</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+</pre>

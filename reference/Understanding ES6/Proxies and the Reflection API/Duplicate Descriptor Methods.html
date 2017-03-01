@@ -1,0 +1,62 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="kd">let</code> <code class="nx">result1</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="s2">"name"</code><code class="p">,</code> <code class="p">{</code> <code class="nx">value</code><code class="o">:</code> <code class="s2">"target "</code><code class="p">});</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">target</code> <code class="o">===</code> <code class="nx">result1</code><code class="p">);</code>        <code class="c1">// true</code>
+
+<code class="kd">let</code> <code class="nx">result2</code> <code class="o">=</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="s2">"name"</code><code class="p">,</code> <code class="p">{</code> <code class="nx">value</code><code class="o">:</code> <code class="s2">"reflect"</code> <code class="p">});</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result2</code><code class="p">);</code>                   <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">descriptor1</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getOwnPropertyDescriptor</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="s2">"name"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">descriptor1</code><code class="p">);</code>       <code class="c1">// undefined</code>
+
+<code class="c1">// throws an error</code>
+<code class="kd">let</code> <code class="nx">descriptor2</code> <code class="o">=</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">getOwnPropertyDescriptor</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="s2">"name"</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">({},</code> <code class="p">{</code>
+    <code class="nx">ownKeys</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">ownKeys</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">).</code><code class="nx">filter</code><code class="p">(</code><code class="nx">key</code> <code class="o">=&gt;</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="k">typeof</code> <code class="nx">key</code> <code class="o">!==</code> <code class="s2">"string"</code> <code class="o">||</code> <code class="nx">key</code><code class="p">[</code><code class="mi">0</code><code class="p">]</code> <code class="o">!==</code> <code class="s2">"_"</code><code class="p">;</code>
+        <code class="p">});</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">nameSymbol</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">(</code><code class="s2">"name"</code><code class="p">);</code>
+
+<code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="s2">"proxy"</code><code class="p">;</code>
+<code class="nx">proxy</code><code class="p">.</code><code class="nx">_name</code> <code class="o">=</code> <code class="s2">"private"</code><code class="p">;</code>
+<code class="nx">proxy</code><code class="p">[</code><code class="nx">nameSymbol</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"symbol"</code><code class="p">;</code>
+
+<code class="kd">let</code> <code class="nx">names</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getOwnPropertyNames</code><code class="p">(</code><code class="nx">proxy</code><code class="p">),</code>
+    <code class="nx">keys</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">keys</code><code class="p">(</code><code class="nx">proxy</code><code class="p">);</code>
+    <code class="nx">symbols</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getOwnPropertySymbols</code><code class="p">(</code><code class="nx">proxy</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">names</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>      <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">names</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>          <code class="c1">// "name"</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">keys</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>      <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">keys</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>          <code class="c1">// "name"</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">symbols</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>    <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">symbols</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>        <code class="c1">// "Symbol(name)"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code> <code class="k">return</code> <code class="mi">42</code> <code class="p">},</code>
+    <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{</code>
+        <code class="nx">apply</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">thisArg</code><code class="p">,</code> <code class="nx">argumentList</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">apply</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">thisArg</code><code class="p">,</code> <code class="nx">argumentList</code><code class="p">);</code>
+        <code class="p">},</code>
+        <code class="nx">construct</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">argumentList</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">construct</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">argumentList</code><code class="p">);</code>
+        <code class="p">}</code>
+    <code class="p">});</code>
+
+<code class="c1">// a proxy with a function as its target looks like a function</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">proxy</code><code class="p">);</code>                  <code class="c1">// "function"</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">());</code>                       <code class="c1">// 42</code>
+
+<code class="kd">var</code> <code class="nx">instance</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">proxy</code><code class="p">();</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">instance</code> <code class="k">instanceof</code> <code class="nx">proxy</code><code class="p">);</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">instance</code> <code class="k">instanceof</code> <code class="nx">target</code><code class="p">);</code>    <code class="c1">// true</code>
+</pre>

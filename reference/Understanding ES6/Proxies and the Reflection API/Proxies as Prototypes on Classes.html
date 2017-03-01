@@ -1,0 +1,105 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">NoSuchProperty</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// empty</code>
+<code class="p">}</code>
+
+<code class="nx">NoSuchProperty</code><code class="p">.</code><code class="nx">prototype</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">({},</code> <code class="p">{</code>
+    <code class="nx">get</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nx">ReferenceError</code><code class="p">(</code><code class="sb">`</code><code class="si">${</code><code class="nx">key</code><code class="si">}</code><code class="sb"> doesn't exist`</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">thing</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">NoSuchProperty</code><code class="p">();</code>
+
+<code class="c1">// throws error due to `get` proxy trap</code>
+<code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">thing</code><code class="p">.</code><code class="nx">name</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">NoSuchProperty</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// empty</code>
+<code class="p">}</code>
+
+<code class="nx">NoSuchProperty</code><code class="p">.</code><code class="nx">prototype</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">({},</code> <code class="p">{</code>
+    <code class="nx">get</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nx">ReferenceError</code><code class="p">(</code><code class="sb">`</code><code class="si">${</code><code class="nx">key</code><code class="si">}</code><code class="sb"> doesn't exist`</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">NoSuchProperty</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="kr">super</code><code class="p">();</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">shape</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Square</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">6</code><code class="p">);</code>
+
+<code class="kd">let</code> <code class="nx">area1</code> <code class="o">=</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">width</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">area1</code><code class="p">);</code>                         <code class="c1">// 12</code>
+
+<code class="c1">// throws an error because "wdth" doesn't exist</code>
+<code class="kd">let</code> <code class="nx">area2</code> <code class="o">=</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">wdth</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">NoSuchProperty</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// empty</code>
+<code class="p">}</code>
+
+<code class="c1">// store a reference to the proxy that will be the prototype</code>
+<code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">({},</code> <code class="p">{</code>
+    <code class="nx">get</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nx">ReferenceError</code><code class="p">(</code><code class="sb">`</code><code class="si">${</code><code class="nx">key</code><code class="si">}</code><code class="sb"> doesn't exist`</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="nx">NoSuchProperty</code><code class="p">.</code><code class="nx">prototype</code> <code class="o">=</code> <code class="nx">proxy</code><code class="p">;</code>
+
+<code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">NoSuchProperty</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="kr">super</code><code class="p">();</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">shape</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Square</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">6</code><code class="p">);</code>
+
+<code class="kd">let</code> <code class="nx">shapeProto</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getPrototypeOf</code><code class="p">(</code><code class="nx">shape</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">shapeProto</code> <code class="o">===</code> <code class="nx">proxy</code><code class="p">);</code>                  <code class="c1">// false</code>
+
+<code class="kd">let</code> <code class="nx">secondLevelProto</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getPrototypeOf</code><code class="p">(</code><code class="nx">shapeProto</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">secondLevelProto</code> <code class="o">===</code> <code class="nx">proxy</code><code class="p">);</code>            <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">NoSuchProperty</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// empty</code>
+<code class="p">}</code>
+
+<code class="nx">NoSuchProperty</code><code class="p">.</code><code class="nx">prototype</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">({},</code> <code class="p">{</code>
+    <code class="nx">get</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nx">ReferenceError</code><code class="p">(</code><code class="sb">`</code><code class="si">${</code><code class="nx">key</code><code class="si">}</code><code class="sb"> doesn't exist`</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">NoSuchProperty</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="kr">super</code><code class="p">();</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">getArea</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="k">this</code><code class="p">.</code><code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">shape</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Square</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">6</code><code class="p">);</code>
+
+<code class="kd">let</code> <code class="nx">area1</code> <code class="o">=</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">width</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">area1</code><code class="p">);</code>                         <code class="c1">// 12</code>
+
+<code class="kd">let</code> <code class="nx">area2</code> <code class="o">=</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">getArea</code><code class="p">();</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">area2</code><code class="p">);</code>                         <code class="c1">// 12</code>
+
+<code class="c1">// throws an error because "wdth" doesn't exist</code>
+<code class="kd">let</code> <code class="nx">area3</code> <code class="o">=</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="nx">shape</code><code class="p">.</code><code class="nx">wdth</code><code class="p">;</code>
+</pre>

@@ -1,0 +1,61 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">(),</code>
+    <code class="nx">key</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="nx">set</code><code class="p">.</code><code class="nx">add</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">size</code><code class="p">);</code>      <code class="c1">// 1</code>
+
+<code class="c1">// eliminate original reference</code>
+<code class="nx">key</code> <code class="o">=</code> <code class="kc">null</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">size</code><code class="p">);</code>      <code class="c1">// 1</code>
+
+<code class="c1">// get the original reference back</code>
+<code class="nx">key</code> <code class="o">=</code> <code class="p">[...</code><code class="nx">set</code><code class="p">][</code><code class="mi">0</code><code class="p">];</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">WeakSet</code><code class="p">(),</code>
+    <code class="nx">key</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="c1">// add the object to the set</code>
+<code class="nx">set</code><code class="p">.</code><code class="nx">add</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">key</code><code class="p">));</code>      <code class="c1">// true</code>
+
+<code class="nx">set</code><code class="p">.</code><code class="k">delete</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">key</code><code class="p">));</code>      <code class="c1">// false</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">key1</code> <code class="o">=</code> <code class="p">{},</code>
+    <code class="nx">key2</code> <code class="o">=</code> <code class="p">{},</code>
+    <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">WeakSet</code><code class="p">([</code><code class="nx">key1</code><code class="p">,</code> <code class="nx">key2</code><code class="p">]);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">key1</code><code class="p">));</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">key2</code><code class="p">));</code>     <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">WeakSet</code><code class="p">(),</code>
+    <code class="nx">key</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="c1">// add the object to the set</code>
+<code class="nx">set</code><code class="p">.</code><code class="nx">add</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">key</code><code class="p">));</code>      <code class="c1">// true</code>
+
+<code class="c1">// remove the last strong reference to key, also removes from weak set</code>
+<code class="nx">key</code> <code class="o">=</code> <code class="kc">null</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">();</code>
+<code class="nx">map</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"title"</code><code class="p">,</code> <code class="s2">"Understanding ES6"</code><code class="p">);</code>
+<code class="nx">map</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"year"</code><code class="p">,</code> <code class="mi">2016</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="s2">"title"</code><code class="p">));</code>      <code class="c1">// "Understanding ES6"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="s2">"year"</code><code class="p">));</code>       <code class="c1">// 2016</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">(),</code>
+    <code class="nx">key1</code> <code class="o">=</code> <code class="p">{},</code>
+    <code class="nx">key2</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="nx">map</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">key1</code><code class="p">,</code> <code class="mi">5</code><code class="p">);</code>
+<code class="nx">map</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">key2</code><code class="p">,</code> <code class="mi">42</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">key1</code><code class="p">));</code>         <code class="c1">// 5</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">key2</code><code class="p">));</code>         <code class="c1">// 42</code>
+</pre>

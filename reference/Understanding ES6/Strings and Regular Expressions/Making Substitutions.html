@@ -1,0 +1,18 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">name</code> <code class="o">=</code> <code class="s2">"Nicholas"</code><code class="p">,</code>
+    <code class="nx">message</code> <code class="o">=</code> <code class="sb">`Hello, </code><code class="si">${</code><code class="nx">name</code><code class="si">}</code><code class="sb">.`</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">message</code><code class="p">);</code>       <code class="c1">// "Hello, Nicholas."</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">count</code> <code class="o">=</code> <code class="mi">10</code><code class="p">,</code>
+    <code class="nx">price</code> <code class="o">=</code> <code class="mf">0.25</code><code class="p">,</code>
+    <code class="nx">message</code> <code class="o">=</code> <code class="sb">`</code><code class="si">${</code><code class="nx">count</code><code class="si">}</code><code class="sb"> items cost $</code><code class="si">${</code><code class="p">(</code><code class="nx">count</code> <code class="o">*</code> <code class="nx">price</code><code class="p">).</code><code class="nx">toFixed</code><code class="p">(</code><code class="mi">2</code><code class="p">)</code><code class="si">}</code><code class="sb">.`</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">message</code><code class="p">);</code>       <code class="c1">// "10 items cost $2.50."</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">name</code> <code class="o">=</code> <code class="s2">"Nicholas"</code><code class="p">,</code>
+    <code class="nx">message</code> <code class="o">=</code> <code class="sb">`Hello, </code><code class="si">${</code>
+        <code class="sb">`my name is </code><code class="si">${</code> <code class="nx">name</code> <code class="si">}</code><code class="sb">`</code>
+    <code class="si">}</code><code class="sb">.`</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">message</code><code class="p">);</code>        <code class="c1">// "Hello, my name is Nicholas."</code>
+</pre>

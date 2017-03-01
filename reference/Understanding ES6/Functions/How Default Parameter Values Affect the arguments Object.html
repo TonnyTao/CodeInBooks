@@ -1,0 +1,53 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">mixArgs</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">first</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">second</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>
+    <code class="nx">first</code> <code class="o">=</code> <code class="s2">"c"</code><code class="p">;</code>
+    <code class="nx">second</code> <code class="o">=</code> <code class="s2">"d"</code><code class="p">;</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">first</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">second</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>
+<code class="p">}</code>
+
+<code class="nx">mixArgs</code><code class="p">(</code><code class="s2">"a"</code><code class="p">,</code> <code class="s2">"b"</code><code class="p">);</code>
+</pre>
+<pre><code></code>true
+true
+true
+true
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">mixArgs</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+    <code class="s2">"use strict"</code><code class="p">;</code>
+
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">first</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">second</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>
+    <code class="nx">first</code> <code class="o">=</code> <code class="s2">"c"</code><code class="p">;</code>
+    <code class="nx">second</code> <code class="o">=</code> <code class="s2">"d"</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">first</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">second</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>
+<code class="p">}</code>
+
+<code class="nx">mixArgs</code><code class="p">(</code><code class="s2">"a"</code><code class="p">,</code> <code class="s2">"b"</code><code class="p">);</code>
+</pre>
+<pre><code></code>true
+true
+false
+false
+</pre>
+<pre><code></code><code class="c1">// not in strict mode</code>
+<code class="kd">function</code> <code class="nx">mixArgs</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code> <code class="o">=</code> <code class="s2">"b"</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">arguments</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">first</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">second</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>
+    <code class="nx">first</code> <code class="o">=</code> <code class="s2">"c"</code><code class="p">;</code>
+    <code class="nx">second</code> <code class="o">=</code> <code class="s2">"d"</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">first</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">second</code> <code class="o">===</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>
+<code class="p">}</code>
+
+<code class="nx">mixArgs</code><code class="p">(</code><code class="s2">"a"</code><code class="p">);</code>
+</pre>
+<pre><code></code>1
+true
+false
+false
+false
+</pre>

@@ -1,0 +1,35 @@
+<pre><code></code><code class="c">&lt;!-- load a module JavaScript file --&gt;</code>
+<code class="p">&lt;</code><code class="nt">script</code> <code class="na">type</code><code class="o">=</code><code class="s">"module"</code> <code class="na">src</code><code class="o">=</code><code class="s">"module.js"</code><code class="p">&gt;&lt;/</code><code class="nt">script</code><code class="p">&gt;</code>
+
+<code class="c">&lt;!-- include a module inline --&gt;</code>
+<code class="p">&lt;</code><code class="nt">script</code> <code class="na">type</code><code class="o">=</code><code class="s">"module"</code><code class="p">&gt;</code>
+
+<code class="kr">import</code> <code class="p">{</code> <code class="nx">sum</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+
+<code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">sum</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">);</code>
+
+<code class="p">&lt;/</code><code class="nt">script</code><code class="p">&gt;</code>
+</pre>
+<pre><code></code><code class="c">&lt;!-- this will execute first --&gt;</code>
+<code class="p">&lt;</code><code class="nt">script</code> <code class="na">type</code><code class="o">=</code><code class="s">"module"</code> <code class="na">src</code><code class="o">=</code><code class="s">"module1.js"</code><code class="p">&gt;&lt;/</code><code class="nt">script</code><code class="p">&gt;</code>
+
+<code class="c">&lt;!-- this will execute second --&gt;</code>
+<code class="p">&lt;</code><code class="nt">script</code> <code class="na">type</code><code class="o">=</code><code class="s">"module"</code><code class="p">&gt;</code>
+<code class="kr">import</code> <code class="p">{</code> <code class="nx">sum</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+
+<code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">sum</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">);</code>
+<code class="p">&lt;/</code><code class="nt">script</code><code class="p">&gt;</code>
+
+<code class="c">&lt;!-- this will execute third --&gt;</code>
+<code class="p">&lt;</code><code class="nt">script</code> <code class="na">type</code><code class="o">=</code><code class="s">"module"</code> <code class="na">src</code><code class="o">=</code><code class="s">"module2.js"</code><code class="p">&gt;&lt;/</code><code class="nt">script</code><code class="p">&gt;</code>
+</pre>
+<pre><code></code><code class="c">&lt;!-- no guarantee which one of these will execute first --&gt;</code>
+<code class="p">&lt;</code><code class="nt">script</code> <code class="na">type</code><code class="o">=</code><code class="s">"module"</code> <code class="na">async</code> <code class="na">src</code><code class="o">=</code><code class="s">"module1.js"</code><code class="p">&gt;&lt;/</code><code class="nt">script</code><code class="p">&gt;</code>
+<code class="p">&lt;</code><code class="nt">script</code> <code class="na">type</code><code class="o">=</code><code class="s">"module"</code> <code class="na">async</code> <code class="na">src</code><code class="o">=</code><code class="s">"module2.js"</code><code class="p">&gt;&lt;/</code><code class="nt">script</code><code class="p">&gt;</code>
+</pre>
+<pre><code></code><code class="c1">// load script.js as a script</code>
+<code class="kd">let</code> <code class="nx">worker</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Worker</code><code class="p">(</code><code class="s2">"script.js"</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="c1">// load module.js as a module</code>
+<code class="kd">let</code> <code class="nx">worker</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Worker</code><code class="p">(</code><code class="s2">"module.js"</code><code class="p">,</code> <code class="p">{</code> <code class="nx">type</code><code class="o">:</code> <code class="s2">"module"</code> <code class="p">});</code>
+</pre>

@@ -1,0 +1,22 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">if</code> <code class="p">(</code><code class="k">this</code> <code class="k">instanceof</code> <code class="nx">Person</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>   <code class="c1">// using new</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"You must use new with Person."</code><code class="p">)</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="kd">var</code> <code class="nx">notAPerson</code> <code class="o">=</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>  <code class="c1">// throws error</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">if</code> <code class="p">(</code><code class="k">this</code> <code class="k">instanceof</code> <code class="nx">Person</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>   <code class="c1">// using new</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"You must use new with Person."</code><code class="p">)</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="kd">var</code> <code class="nx">notAPerson</code> <code class="o">=</code> <code class="nx">Person</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">person</code><code class="p">,</code> <code class="s2">"Michael"</code><code class="p">);</code>    <code class="c1">// works!</code>
+</pre>

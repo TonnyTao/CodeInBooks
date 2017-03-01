@@ -1,0 +1,47 @@
+<pre><code></code><code class="kr">class</code> <code class="nx">Person</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">PersonProxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">Person</code><code class="p">,</code> <code class="p">{</code>
+        <code class="nx">apply</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">thisArg</code><code class="p">,</code> <code class="nx">argumentList</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="k">new</code> <code class="nx">trapTarget</code><code class="p">(...</code><code class="nx">argumentList</code><code class="p">);</code>
+        <code class="p">}</code>
+    <code class="p">});</code>
+
+
+<code class="kd">let</code> <code class="nx">me</code> <code class="o">=</code> <code class="nx">PersonProxy</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">me</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>                   <code class="c1">// "Nicholas"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">me</code> <code class="k">instanceof</code> <code class="nx">Person</code><code class="p">);</code>      <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">me</code> <code class="k">instanceof</code> <code class="nx">PersonProxy</code><code class="p">);</code> <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"target"</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">proxy</code><code class="p">,</code> <code class="nx">revoke</code> <code class="p">}</code> <code class="o">=</code> <code class="nb">Proxy</code><code class="p">.</code><code class="nx">revocable</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{});</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>        <code class="c1">// "target"</code>
+
+<code class="nx">revoke</code><code class="p">();</code>
+
+<code class="c1">// throws error</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code><code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code><code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 3</code>
+
+<code class="nx">colors</code><code class="p">[</code><code class="mi">3</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"black"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 4</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">3</code><code class="p">]);</code>             <code class="c1">// "black"</code>
+
+<code class="nx">colors</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="mi">2</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">3</code><code class="p">]);</code>             <code class="c1">// undefined</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">2</code><code class="p">]);</code>             <code class="c1">// undefined</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>             <code class="c1">// "green"</code>
+</pre>

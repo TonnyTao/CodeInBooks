@@ -1,0 +1,22 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">PersonClass</code> <code class="o">=</code> <code class="kr">class</code> <code class="p">{</code>
+
+    <code class="c1">// equivalent of the PersonType constructor</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="c1">// equivalent of PersonType.prototype.sayName</code>
+    <code class="nx">sayName</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">PersonClass</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="nx">person</code><code class="p">.</code><code class="nx">sayName</code><code class="p">();</code>   <code class="c1">// outputs "Nicholas"</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code> <code class="k">instanceof</code> <code class="nx">PersonClass</code><code class="p">);</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code> <code class="k">instanceof</code> <code class="nb">Object</code><code class="p">);</code>          <code class="c1">// true</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">PersonClass</code><code class="p">);</code>                    <code class="c1">// "function"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">PersonClass</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">sayName</code><code class="p">);</code>  <code class="c1">// "function"</code>
+</pre>

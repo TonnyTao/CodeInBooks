@@ -1,0 +1,65 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">text</code> <code class="o">=</code> <code class="s2">"hello1 hello2 hello3"</code><code class="p">,</code>
+    <code class="nx">pattern</code> <code class="o">=</code> <code class="sr">/hello\d\s?/</code><code class="p">,</code>
+    <code class="nx">result</code> <code class="o">=</code> <code class="nx">pattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">),</code>
+    <code class="nx">globalPattern</code> <code class="o">=</code> <code class="sr">/hello\d\s?/g</code><code class="p">,</code>
+    <code class="nx">globalResult</code> <code class="o">=</code> <code class="nx">globalPattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">),</code>
+    <code class="nx">stickyPattern</code> <code class="o">=</code> <code class="err">/hello\d\s?/y,</code>
+    <code class="nx">stickyResult</code> <code class="o">=</code> <code class="nx">stickyPattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>         <code class="c1">// "hello1 "</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">globalResult</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>   <code class="c1">// "hello1 "</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">stickyResult</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>   <code class="c1">// "hello1 "</code>
+
+<code class="nx">pattern</code><code class="p">.</code><code class="nx">lastIndex</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+<code class="nx">globalPattern</code><code class="p">.</code><code class="nx">lastIndex</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+<code class="nx">stickyPattern</code><code class="p">.</code><code class="nx">lastIndex</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+
+<code class="nx">result</code> <code class="o">=</code> <code class="nx">pattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">);</code>
+<code class="nx">globalResult</code> <code class="o">=</code> <code class="nx">globalPattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">);</code>
+<code class="nx">stickyResult</code> <code class="o">=</code> <code class="nx">stickyPattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>         <code class="c1">// "hello1 "</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">globalResult</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>   <code class="c1">// "hello2 "</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">stickyResult</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>   <code class="c1">// Error! stickyResult is null</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">text</code> <code class="o">=</code> <code class="s2">"hello1 hello2 hello3"</code><code class="p">,</code>
+    <code class="nx">pattern</code> <code class="o">=</code> <code class="sr">/hello\d\s?/</code><code class="p">,</code>
+    <code class="nx">result</code> <code class="o">=</code> <code class="nx">pattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">),</code>
+    <code class="nx">globalPattern</code> <code class="o">=</code> <code class="sr">/hello\d\s?/g</code><code class="p">,</code>
+    <code class="nx">globalResult</code> <code class="o">=</code> <code class="nx">globalPattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">),</code>
+    <code class="nx">stickyPattern</code> <code class="o">=</code> <code class="err">/hello\d\s?/y,</code>
+    <code class="nx">stickyResult</code> <code class="o">=</code> <code class="nx">stickyPattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>         <code class="c1">// "hello1 "</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">globalResult</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>   <code class="c1">// "hello1 "</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">stickyResult</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>   <code class="c1">// "hello1 "</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">pattern</code><code class="p">.</code><code class="nx">lastIndex</code><code class="p">);</code>         <code class="c1">// 0</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">globalPattern</code><code class="p">.</code><code class="nx">lastIndex</code><code class="p">);</code>   <code class="c1">// 7</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">stickyPattern</code><code class="p">.</code><code class="nx">lastIndex</code><code class="p">);</code>   <code class="c1">// 7</code>
+
+<code class="nx">result</code> <code class="o">=</code> <code class="nx">pattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">);</code>
+<code class="nx">globalResult</code> <code class="o">=</code> <code class="nx">globalPattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">);</code>
+<code class="nx">stickyResult</code> <code class="o">=</code> <code class="nx">stickyPattern</code><code class="p">.</code><code class="nx">exec</code><code class="p">(</code><code class="nx">text</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>         <code class="c1">// "hello1 "</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">globalResult</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>   <code class="c1">// "hello2 "</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">stickyResult</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>   <code class="c1">// "hello2 "</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">pattern</code><code class="p">.</code><code class="nx">lastIndex</code><code class="p">);</code>         <code class="c1">// 0</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">globalPattern</code><code class="p">.</code><code class="nx">lastIndex</code><code class="p">);</code>   <code class="c1">// 14</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">stickyPattern</code><code class="p">.</code><code class="nx">lastIndex</code><code class="p">);</code>   <code class="c1">// 14</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">pattern</code> <code class="o">=</code> <code class="err">/hello\d/y;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">pattern</code><code class="p">.</code><code class="nx">sticky</code><code class="p">);</code>    <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">hasRegExpY</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">try</code> <code class="p">{</code>
+        <code class="kd">var</code> <code class="nx">pattern</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">RegExp</code><code class="p">(</code><code class="s2">"."</code><code class="p">,</code> <code class="s2">"y"</code><code class="p">);</code>
+        <code class="k">return</code> <code class="kc">true</code><code class="p">;</code>
+    <code class="p">}</code> <code class="k">catch</code> <code class="p">(</code><code class="nx">ex</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="kc">false</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+</pre>

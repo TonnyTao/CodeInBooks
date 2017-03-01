@@ -1,0 +1,22 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">collection</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">items</code><code class="o">:</code> <code class="p">[],</code>
+    <code class="o">*</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">iterator</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">item</code> <code class="k">of</code> <code class="k">this</code><code class="p">.</code><code class="nx">items</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">yield</code> <code class="nx">item</code><code class="p">;</code>
+        <code class="p">}</code>
+    <code class="p">}</code>
+
+<code class="p">};</code>
+
+<code class="nx">collection</code><code class="p">.</code><code class="nx">items</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="mi">1</code><code class="p">);</code>
+<code class="nx">collection</code><code class="p">.</code><code class="nx">items</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="mi">2</code><code class="p">);</code>
+<code class="nx">collection</code><code class="p">.</code><code class="nx">items</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="mi">3</code><code class="p">);</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">x</code> <code class="k">of</code> <code class="nx">collection</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">x</code><code class="p">);</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code>1
+2
+3
+</pre>

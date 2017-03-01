@@ -1,0 +1,393 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="s2">"Hello"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">dog</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="s2">"Woof"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+
+<code class="kd">let</code> <code class="nx">friend</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getPrototypeOf</code><code class="p">(</code><code class="k">this</code><code class="p">).</code><code class="nx">getGreeting</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="k">this</code><code class="p">)</code> <code class="o">+</code> <code class="s2">", hi!"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="c1">// set prototype to person</code>
+<code class="nb">Object</code><code class="p">.</code><code class="nx">setPrototypeOf</code><code class="p">(</code><code class="nx">friend</code><code class="p">,</code> <code class="nx">person</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">friend</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>                      <code class="c1">// "Hello, hi!"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">getPrototypeOf</code><code class="p">(</code><code class="nx">friend</code><code class="p">)</code> <code class="o">===</code> <code class="nx">person</code><code class="p">);</code>  <code class="c1">// true</code>
+
+<code class="c1">// set prototype to dog</code>
+<code class="nb">Object</code><code class="p">.</code><code class="nx">setPrototypeOf</code><code class="p">(</code><code class="nx">friend</code><code class="p">,</code> <code class="nx">dog</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">friend</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>                      <code class="c1">// "Woof, hi!"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">getPrototypeOf</code><code class="p">(</code><code class="nx">friend</code><code class="p">)</code> <code class="o">===</code> <code class="nx">dog</code><code class="p">);</code>     <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">friend</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="c1">// in the previous example, this is the same as:</code>
+        <code class="c1">// Object.getPrototypeOf(this).getGreeting.call(this)</code>
+        <code class="k">return</code> <code class="kr">super</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">()</code> <code class="o">+</code> <code class="s2">", hi!"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">friend</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="c1">// syntax error</code>
+        <code class="k">return</code> <code class="kr">super</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">()</code> <code class="o">+</code> <code class="s2">", hi!"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="s2">"Hello"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="c1">// prototype is person</code>
+<code class="kd">let</code> <code class="nx">friend</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getPrototypeOf</code><code class="p">(</code><code class="k">this</code><code class="p">).</code><code class="nx">getGreeting</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="k">this</code><code class="p">)</code> <code class="o">+</code> <code class="s2">", hi!"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+<code class="nb">Object</code><code class="p">.</code><code class="nx">setPrototypeOf</code><code class="p">(</code><code class="nx">friend</code><code class="p">,</code> <code class="nx">person</code><code class="p">);</code>
+
+
+<code class="c1">// prototype is friend</code>
+<code class="kd">let</code> <code class="nx">relative</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="nx">friend</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>                  <code class="c1">// "Hello"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">friend</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>                  <code class="c1">// "Hello, hi!"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">relative</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>                <code class="c1">// error!</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="s2">"Hello"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="c1">// prototype is person</code>
+<code class="kd">let</code> <code class="nx">friend</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="kr">super</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">()</code> <code class="o">+</code> <code class="s2">", hi!"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+<code class="nb">Object</code><code class="p">.</code><code class="nx">setPrototypeOf</code><code class="p">(</code><code class="nx">friend</code><code class="p">,</code> <code class="nx">person</code><code class="p">);</code>
+
+
+<code class="c1">// prototype is friend</code>
+<code class="kd">let</code> <code class="nx">relative</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="nx">friend</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>                  <code class="c1">// "Hello"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">friend</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>                  <code class="c1">// "Hello, hi!"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">relative</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>                <code class="c1">// "Hello, hi!"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+
+    <code class="c1">// method</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="s2">"Hello"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="c1">// not a method</code>
+<code class="kd">function</code> <code class="nx">shareGreeting</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="s2">"Hi!"</code><code class="p">;</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="s2">"Hello"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="c1">// prototype is person</code>
+<code class="kd">let</code> <code class="nx">friend</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">getGreeting</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="kr">super</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">()</code> <code class="o">+</code> <code class="s2">", hi!"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+<code class="nb">Object</code><code class="p">.</code><code class="nx">setPrototypeOf</code><code class="p">(</code><code class="nx">friend</code><code class="p">,</code> <code class="nx">person</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">friend</code><code class="p">.</code><code class="nx">getGreeting</code><code class="p">());</code>  <code class="c1">// "Hello, hi!"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">options</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">repeat</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">save</code><code class="o">:</code> <code class="kc">false</code>
+    <code class="p">};</code>
+
+<code class="c1">// extract data from the object</code>
+<code class="kd">let</code> <code class="nx">repeat</code> <code class="o">=</code> <code class="nx">options</code><code class="p">.</code><code class="nx">repeat</code><code class="p">,</code>
+    <code class="nx">save</code> <code class="o">=</code> <code class="nx">options</code><code class="p">.</code><code class="nx">save</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code>
+    <code class="p">};</code>
+
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">type</code><code class="p">,</code> <code class="nx">name</code> <code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">type</code><code class="p">);</code>      <code class="c1">// "Identifier"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>      <code class="c1">// "foo"</code>
+</pre>
+<pre><code></code><code class="c1">// syntax error!</code>
+<code class="kd">var</code> <code class="p">{</code> <code class="nx">type</code><code class="p">,</code> <code class="nx">name</code> <code class="p">};</code>
+
+<code class="c1">// syntax error!</code>
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">type</code><code class="p">,</code> <code class="nx">name</code> <code class="p">};</code>
+
+<code class="c1">// syntax error!</code>
+<code class="kr">const</code> <code class="p">{</code> <code class="nx">type</code><code class="p">,</code> <code class="nx">name</code> <code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code>
+    <code class="p">},</code>
+    <code class="nx">type</code> <code class="o">=</code> <code class="s2">"Literal"</code><code class="p">,</code>
+    <code class="nx">name</code> <code class="o">=</code> <code class="mi">5</code><code class="p">;</code>
+
+<code class="c1">// assign different values using destructuring</code>
+<code class="p">({</code> <code class="nx">type</code><code class="p">,</code> <code class="nx">name</code> <code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">type</code><code class="p">);</code>      <code class="c1">// "Identifier"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>      <code class="c1">// "foo"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code>
+    <code class="p">},</code>
+    <code class="nx">type</code> <code class="o">=</code> <code class="s2">"Literal"</code><code class="p">,</code>
+    <code class="nx">name</code> <code class="o">=</code> <code class="mi">5</code><code class="p">;</code>
+
+<code class="kd">function</code> <code class="nx">outputInfo</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code> <code class="o">===</code> <code class="nx">node</code><code class="p">);</code>        <code class="c1">// true</code>
+<code class="p">}</code>
+
+<code class="nx">outputInfo</code><code class="p">({</code> <code class="nx">type</code><code class="p">,</code> <code class="nx">name</code> <code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">type</code><code class="p">);</code>      <code class="c1">// "Identifier"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>      <code class="c1">// "foo"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code>
+    <code class="p">};</code>
+
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">type</code><code class="p">,</code> <code class="nx">name</code><code class="p">,</code> <code class="nx">value</code> <code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">type</code><code class="p">);</code>      <code class="c1">// "Identifier"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>      <code class="c1">// "foo"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>     <code class="c1">// undefined</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code>
+    <code class="p">};</code>
+
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">type</code><code class="p">,</code> <code class="nx">name</code><code class="p">,</code> <code class="nx">value</code> <code class="o">=</code> <code class="kc">true</code> <code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">type</code><code class="p">);</code>      <code class="c1">// "Identifier"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>      <code class="c1">// "foo"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>     <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code>
+    <code class="p">};</code>
+
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">type</code><code class="o">:</code> <code class="nx">localType</code><code class="p">,</code> <code class="nx">name</code><code class="o">:</code> <code class="nx">localName</code> <code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">localType</code><code class="p">);</code>     <code class="c1">// "Identifier"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">localName</code><code class="p">);</code>     <code class="c1">// "foo"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code>
+    <code class="p">};</code>
+
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">type</code><code class="o">:</code> <code class="nx">localType</code><code class="p">,</code> <code class="nx">name</code><code class="o">:</code> <code class="nx">localName</code> <code class="o">=</code> <code class="s2">"bar"</code> <code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">localType</code><code class="p">);</code>     <code class="c1">// "Identifier"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">localName</code><code class="p">);</code>     <code class="c1">// "bar"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code><code class="p">,</code>
+        <code class="nx">loc</code><code class="o">:</code> <code class="p">{</code>
+            <code class="nx">start</code><code class="o">:</code> <code class="p">{</code>
+                <code class="nx">line</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+                <code class="nx">column</code><code class="o">:</code> <code class="mi">1</code>
+            <code class="p">},</code>
+            <code class="nx">end</code><code class="o">:</code> <code class="p">{</code>
+                <code class="nx">line</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+                <code class="nx">column</code><code class="o">:</code> <code class="mi">4</code>
+            <code class="p">}</code>
+        <code class="p">}</code>
+    <code class="p">};</code>
+
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">loc</code><code class="o">:</code> <code class="p">{</code> <code class="nx">start</code> <code class="p">}}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">start</code><code class="p">.</code><code class="nx">line</code><code class="p">);</code>        <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">start</code><code class="p">.</code><code class="nx">column</code><code class="p">);</code>      <code class="c1">// 1</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code><code class="p">,</code>
+        <code class="nx">loc</code><code class="o">:</code> <code class="p">{</code>
+            <code class="nx">start</code><code class="o">:</code> <code class="p">{</code>
+                <code class="nx">line</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+                <code class="nx">column</code><code class="o">:</code> <code class="mi">1</code>
+            <code class="p">},</code>
+            <code class="nx">end</code><code class="o">:</code> <code class="p">{</code>
+                <code class="nx">line</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+                <code class="nx">column</code><code class="o">:</code> <code class="mi">4</code>
+            <code class="p">}</code>
+        <code class="p">}</code>
+    <code class="p">};</code>
+
+<code class="c1">// extract node.loc.start</code>
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">loc</code><code class="o">:</code> <code class="p">{</code> <code class="nx">start</code><code class="o">:</code> <code class="nx">localStart</code> <code class="p">}}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">localStart</code><code class="p">.</code><code class="nx">line</code><code class="p">);</code>   <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">localStart</code><code class="p">.</code><code class="nx">column</code><code class="p">);</code> <code class="c1">// 1</code>
+</pre>
+<pre><code></code><code class="c1">// no variables declared!</code>
+<code class="kd">let</code> <code class="p">{</code> <code class="nx">loc</code><code class="o">:</code> <code class="p">{}</code> <code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+
+<code class="kd">let</code> <code class="p">[</code> <code class="nx">firstColor</code><code class="p">,</code> <code class="nx">secondColor</code> <code class="p">]</code> <code class="o">=</code> <code class="nx">colors</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">firstColor</code><code class="p">);</code>        <code class="c1">// "red"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">secondColor</code><code class="p">);</code>       <code class="c1">// "green"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+
+<code class="kd">let</code> <code class="p">[</code> <code class="p">,</code> <code class="p">,</code> <code class="nx">thirdColor</code> <code class="p">]</code> <code class="o">=</code> <code class="nx">colors</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">thirdColor</code><code class="p">);</code>        <code class="c1">// "blue"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">],</code>
+    <code class="nx">firstColor</code> <code class="o">=</code> <code class="s2">"black"</code><code class="p">,</code>
+    <code class="nx">secondColor</code> <code class="o">=</code> <code class="s2">"purple"</code><code class="p">;</code>
+
+<code class="p">[</code> <code class="nx">firstColor</code><code class="p">,</code> <code class="nx">secondColor</code> <code class="p">]</code> <code class="o">=</code> <code class="nx">colors</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">firstColor</code><code class="p">);</code>        <code class="c1">// "red"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">secondColor</code><code class="p">);</code>       <code class="c1">// "green"</code>
+</pre>
+<pre><code></code><code class="c1">// Swapping variables in ECMAScript 5</code>
+<code class="kd">let</code> <code class="nx">a</code> <code class="o">=</code> <code class="mi">1</code><code class="p">,</code>
+    <code class="nx">b</code> <code class="o">=</code> <code class="mi">2</code><code class="p">,</code>
+    <code class="nx">tmp</code><code class="p">;</code>
+
+<code class="nx">tmp</code> <code class="o">=</code> <code class="nx">a</code><code class="p">;</code>
+<code class="nx">a</code> <code class="o">=</code> <code class="nx">b</code><code class="p">;</code>
+<code class="nx">b</code> <code class="o">=</code> <code class="nx">tmp</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">a</code><code class="p">);</code>     <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">b</code><code class="p">);</code>     <code class="c1">// 1</code>
+</pre>
+<pre><code></code><code class="c1">// Swapping variables in ECMAScript 6</code>
+<code class="kd">let</code> <code class="nx">a</code> <code class="o">=</code> <code class="mi">1</code><code class="p">,</code>
+    <code class="nx">b</code> <code class="o">=</code> <code class="mi">2</code><code class="p">;</code>
+
+<code class="p">[</code> <code class="nx">a</code><code class="p">,</code> <code class="nx">b</code> <code class="p">]</code> <code class="o">=</code> <code class="p">[</code> <code class="nx">b</code><code class="p">,</code> <code class="nx">a</code> <code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">a</code><code class="p">);</code>     <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">b</code><code class="p">);</code>     <code class="c1">// 1</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code> <code class="p">];</code>
+
+<code class="kd">let</code> <code class="p">[</code> <code class="nx">firstColor</code><code class="p">,</code> <code class="nx">secondColor</code> <code class="o">=</code> <code class="s2">"green"</code> <code class="p">]</code> <code class="o">=</code> <code class="nx">colors</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">firstColor</code><code class="p">);</code>        <code class="c1">// "red"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">secondColor</code><code class="p">);</code>       <code class="c1">// "green"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="p">[</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"lightgreen"</code> <code class="p">],</code> <code class="s2">"blue"</code> <code class="p">];</code>
+
+<code class="c1">// later</code>
+
+<code class="kd">let</code> <code class="p">[</code> <code class="nx">firstColor</code><code class="p">,</code> <code class="p">[</code> <code class="nx">secondColor</code> <code class="p">]</code> <code class="p">]</code> <code class="o">=</code> <code class="nx">colors</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">firstColor</code><code class="p">);</code>        <code class="c1">// "red"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">secondColor</code><code class="p">);</code>       <code class="c1">// "green"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+
+<code class="kd">let</code> <code class="p">[</code> <code class="nx">firstColor</code><code class="p">,</code> <code class="p">...</code><code class="nx">restColors</code> <code class="p">]</code> <code class="o">=</code> <code class="nx">colors</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">firstColor</code><code class="p">);</code>        <code class="c1">// "red"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">restColors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code> <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">restColors</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>     <code class="c1">// "green"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">restColors</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>     <code class="c1">// "blue"</code>
+</pre>
+<pre><code></code><code class="c1">// cloning an array in ECMAScript 5</code>
+<code class="kd">var</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+<code class="kd">var</code> <code class="nx">clonedColors</code> <code class="o">=</code> <code class="nx">colors</code><code class="p">.</code><code class="nx">concat</code><code class="p">();</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">clonedColors</code><code class="p">);</code>      <code class="c1">//"[red,green,blue]"</code>
+</pre>
+<pre><code></code><code class="c1">// cloning an array in ECMAScript 6</code>
+<code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+<code class="kd">let</code> <code class="p">[</code> <code class="p">...</code><code class="nx">clonedColors</code> <code class="p">]</code> <code class="o">=</code> <code class="nx">colors</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">clonedColors</code><code class="p">);</code>      <code class="c1">//"[red,green,blue]"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">node</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"Identifier"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"foo"</code><code class="p">,</code>
+        <code class="nx">loc</code><code class="o">:</code> <code class="p">{</code>
+            <code class="nx">start</code><code class="o">:</code> <code class="p">{</code>
+                <code class="nx">line</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+                <code class="nx">column</code><code class="o">:</code> <code class="mi">1</code>
+            <code class="p">},</code>
+            <code class="nx">end</code><code class="o">:</code> <code class="p">{</code>
+                <code class="nx">line</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+                <code class="nx">column</code><code class="o">:</code> <code class="mi">4</code>
+            <code class="p">}</code>
+        <code class="p">},</code>
+        <code class="nx">range</code><code class="o">:</code> <code class="p">[</code><code class="mi">0</code><code class="p">,</code> <code class="mi">3</code><code class="p">]</code>
+    <code class="p">};</code>
+
+<code class="kd">let</code> <code class="p">{</code>
+    <code class="nx">loc</code><code class="o">:</code> <code class="p">{</code> <code class="nx">start</code> <code class="p">},</code>
+    <code class="nx">range</code><code class="o">:</code> <code class="p">[</code> <code class="nx">startIndex</code> <code class="p">]</code>
+<code class="p">}</code> <code class="o">=</code> <code class="nx">node</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">start</code><code class="p">.</code><code class="nx">line</code><code class="p">);</code>        <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">start</code><code class="p">.</code><code class="nx">column</code><code class="p">);</code>      <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">startIndex</code><code class="p">);</code>        <code class="c1">// 0</code>
+</pre>
+<pre><code></code><code class="c1">// properties on options represent additional parameters</code>
+<code class="kd">function</code> <code class="nx">setCookie</code><code class="p">(</code><code class="nx">name</code><code class="p">,</code> <code class="nx">value</code><code class="p">,</code> <code class="nx">options</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="nx">options</code> <code class="o">=</code> <code class="nx">options</code> <code class="o">||</code> <code class="p">{};</code>
+
+    <code class="kd">let</code> <code class="nx">secure</code> <code class="o">=</code> <code class="nx">options</code><code class="p">.</code><code class="nx">secure</code><code class="p">,</code>
+        <code class="nx">path</code> <code class="o">=</code> <code class="nx">options</code><code class="p">.</code><code class="nx">path</code><code class="p">,</code>
+        <code class="nx">domain</code> <code class="o">=</code> <code class="nx">options</code><code class="p">.</code><code class="nx">domain</code><code class="p">,</code>
+        <code class="nx">expires</code> <code class="o">=</code> <code class="nx">options</code><code class="p">.</code><code class="nx">expires</code><code class="p">;</code>
+
+    <code class="c1">// code to set the cookie</code>
+<code class="p">}</code>
+
+<code class="c1">// third argument maps to options</code>
+<code class="nx">setCookie</code><code class="p">(</code><code class="s2">"type"</code><code class="p">,</code> <code class="s2">"js"</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">secure</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+    <code class="nx">expires</code><code class="o">:</code> <code class="mi">60000</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">setCookie</code><code class="p">(</code><code class="nx">name</code><code class="p">,</code> <code class="nx">value</code><code class="p">,</code> <code class="p">{</code> <code class="nx">secure</code><code class="p">,</code> <code class="nx">path</code><code class="p">,</code> <code class="nx">domain</code><code class="p">,</code> <code class="nx">expires</code> <code class="p">})</code> <code class="p">{</code>
+
+    <code class="c1">// code to set the cookie</code>
+<code class="p">}</code>
+
+<code class="nx">setCookie</code><code class="p">(</code><code class="s2">"type"</code><code class="p">,</code> <code class="s2">"js"</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">secure</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+    <code class="nx">expires</code><code class="o">:</code> <code class="mi">60000</code>
+<code class="p">});</code>
+</pre>

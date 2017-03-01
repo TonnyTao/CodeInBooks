@@ -1,10 +1,10 @@
 .sidebar {
-	background: white;
-	height: 100%;
-	width: 200px;
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
+    background: white;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -18,23 +18,23 @@
 }
 
 .menuTitle {
-	list-style: none;
-	margin-top: 50px;
-	margin-left: 10px;
-	padding: 0;
+    list-style: none;
+    margin-top: 50px;
+    margin-left: 10px;
+    padding: 0;
 }
 
 .menuTitle li {
-	margin: 10px 0;
-	padding: 0;
-	color: rgba(100, 100, 100, 1);
-	font-size: 1.2em;
+    margin: 10px 0;
+    padding: 0;
+    color: rgba(100, 100, 100, 1);
+    font-size: 1.2em;
 }
 
 .logo {
-	text-align: center;
-	text-decoration: none;
-	color: white;
-	display: flex;
-	align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
 }

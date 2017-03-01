@@ -1,0 +1,31 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">run</code><code class="p">(</code><code class="nx">taskDef</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// create the iterator, make available elsewhere</code>
+    <code class="kd">let</code> <code class="nx">task</code> <code class="o">=</code> <code class="nx">taskDef</code><code class="p">();</code>
+
+    <code class="c1">// start the task</code>
+    <code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">();</code>
+
+    <code class="c1">// recursive function to keep calling next()</code>
+    <code class="kd">function</code> <code class="nx">step</code><code class="p">()</code> <code class="p">{</code>
+
+        <code class="c1">// if there's more to do</code>
+        <code class="k">if</code> <code class="p">(</code><code class="o">!</code><code class="nx">result</code><code class="p">.</code><code class="nx">done</code><code class="p">)</code> <code class="p">{</code>
+            <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">();</code>
+            <code class="nx">step</code><code class="p">();</code>
+        <code class="p">}</code>
+    <code class="p">}</code>
+
+    <code class="c1">// start the process</code>
+    <code class="nx">step</code><code class="p">();</code>
+
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="nx">run</code><code class="p">(</code><code class="kd">function</code><code class="o">*</code><code class="p">()</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="mi">1</code><code class="p">);</code>
+    <code class="k">yield</code><code class="p">;</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="mi">2</code><code class="p">);</code>
+    <code class="k">yield</code><code class="p">;</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="mi">3</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>

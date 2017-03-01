@@ -1,0 +1,92 @@
+<pre><code></code><code class="kr">class</code> <code class="nx">Thing</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="k">this</code><code class="p">,</code> <code class="p">{});</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">myThing</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Thing</code><code class="p">();</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">myThing</code> <code class="k">instanceof</code> <code class="nx">Thing</code><code class="p">);</code>      <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">toUint32</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nb">Math</code><code class="p">.</code><code class="nx">floor</code><code class="p">(</code><code class="nb">Math</code><code class="p">.</code><code class="nx">abs</code><code class="p">(</code><code class="nb">Number</code><code class="p">(</code><code class="nx">value</code><code class="p">)))</code> <code class="o">%</code> <code class="nb">Math</code><code class="p">.</code><code class="nx">pow</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">32</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="kd">function</code> <code class="nx">isArrayIndex</code><code class="p">(</code><code class="nx">key</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">let</code> <code class="nx">numericKey</code> <code class="o">=</code> <code class="nx">toUint32</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+    <code class="k">return</code> <code class="nb">String</code><code class="p">(</code><code class="nx">numericKey</code><code class="p">)</code> <code class="o">==</code> <code class="nx">key</code> <code class="o">&amp;&amp;</code> <code class="nx">numericKey</code> <code class="o">&lt;</code> <code class="p">(</code><code class="nb">Math</code><code class="p">.</code><code class="nx">pow</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">32</code><code class="p">)</code> <code class="o">-</code> <code class="mi">1</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="kr">class</code> <code class="nx">MyArray</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="o">=</code><code class="mi">0</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+
+        <code class="k">return</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="k">this</code><code class="p">,</code> <code class="p">{</code>
+            <code class="nx">set</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+
+                <code class="kd">let</code> <code class="nx">currentLength</code> <code class="o">=</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="s2">"length"</code><code class="p">);</code>
+
+                <code class="c1">// the special case</code>
+                <code class="k">if</code> <code class="p">(</code><code class="nx">isArrayIndex</code><code class="p">(</code><code class="nx">key</code><code class="p">))</code> <code class="p">{</code>
+                    <code class="kd">let</code> <code class="nx">numericKey</code> <code class="o">=</code> <code class="nb">Number</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+
+                    <code class="k">if</code> <code class="p">(</code><code class="nx">numericKey</code> <code class="o">&gt;=</code> <code class="nx">currentLength</code><code class="p">)</code> <code class="p">{</code>
+                        <code class="nx">Reflect</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="s2">"length"</code><code class="p">,</code> <code class="nx">numericKey</code> <code class="o">+</code> <code class="mi">1</code><code class="p">);</code>
+                    <code class="p">}</code>
+                <code class="p">}</code> <code class="k">else</code> <code class="k">if</code> <code class="p">(</code><code class="nx">key</code> <code class="o">===</code> <code class="s2">"length"</code><code class="p">)</code> <code class="p">{</code>
+
+                    <code class="k">if</code> <code class="p">(</code><code class="nx">value</code> <code class="o">&lt;</code> <code class="nx">currentLength</code><code class="p">)</code> <code class="p">{</code>
+                        <code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">index</code> <code class="o">=</code> <code class="nx">currentLength</code> <code class="o">-</code> <code class="mi">1</code><code class="p">;</code> <code class="nx">index</code> <code class="o">&gt;=</code> <code class="nx">value</code><code class="p">;</code> <code class="nx">i</code><code class="o">\</code>
+<code class="nx">ndex</code><code class="o">--</code><code class="p">)</code> <code class="p">{</code>
+                            <code class="nx">Reflect</code><code class="p">.</code><code class="nx">deleteProperty</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">index</code><code class="p">);</code>
+                        <code class="p">}</code>
+                    <code class="p">}</code>
+
+                <code class="p">}</code>
+
+                <code class="c1">// always do this regardless of key type</code>
+                <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">value</code><code class="p">);</code>
+            <code class="p">}</code>
+        <code class="p">});</code>
+
+    <code class="p">}</code>
+<code class="p">}</code>
+
+
+<code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyArray</code><code class="p">(</code><code class="mi">3</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code> <code class="k">instanceof</code> <code class="nx">MyArray</code><code class="p">);</code>     <code class="c1">// true</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 3</code>
+
+<code class="nx">colors</code><code class="p">[</code><code class="mi">0</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"red"</code><code class="p">;</code>
+<code class="nx">colors</code><code class="p">[</code><code class="mi">1</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"green"</code><code class="p">;</code>
+<code class="nx">colors</code><code class="p">[</code><code class="mi">2</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"blue"</code><code class="p">;</code>
+<code class="nx">colors</code><code class="p">[</code><code class="mi">3</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"black"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 4</code>
+
+<code class="nx">colors</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="mi">2</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">3</code><code class="p">]);</code>             <code class="c1">// undefined</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">2</code><code class="p">]);</code>             <code class="c1">// undefined</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>             <code class="c1">// "green"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>             <code class="c1">// "red"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{};</code>
+<code class="kd">let</code> <code class="nx">newTarget</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{</code>
+
+    <code class="c1">// never called</code>
+    <code class="nx">defineProperty</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">name</code><code class="p">,</code> <code class="nx">descriptor</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="c1">// would cause an error if called</code>
+        <code class="k">return</code> <code class="kc">false</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}));</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">newTarget</code><code class="p">,</code> <code class="s2">"name"</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">value</code><code class="o">:</code> <code class="s2">"newTarget"</code>
+<code class="p">});</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">newTarget</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>                    <code class="c1">// "newTarget"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">newTarget</code><code class="p">.</code><code class="nx">hasOwnProperty</code><code class="p">(</code><code class="s2">"name"</code><code class="p">));</code>  <code class="c1">// true</code>
+</pre>

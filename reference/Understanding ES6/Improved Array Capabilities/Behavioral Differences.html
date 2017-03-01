@@ -1,0 +1,26 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">ints</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int16Array</code><code class="p">([</code><code class="mi">25</code><code class="p">,</code> <code class="mi">50</code><code class="p">]);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 25</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// 50</code>
+
+<code class="nx">ints</code><code class="p">[</code><code class="mi">2</code><code class="p">]</code> <code class="o">=</code> <code class="mi">5</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">[</code><code class="mi">2</code><code class="p">]);</code>              <code class="c1">// undefined</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">ints</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int16Array</code><code class="p">([</code><code class="s2">"hi"</code><code class="p">]);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>       <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>           <code class="c1">// 0</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">ints</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int16Array</code><code class="p">([</code><code class="mi">25</code><code class="p">,</code> <code class="mi">50</code><code class="p">]),</code>
+    <code class="nx">mapped</code> <code class="o">=</code> <code class="nx">ints</code><code class="p">.</code><code class="nx">map</code><code class="p">(</code><code class="nx">v</code> <code class="o">=&gt;</code> <code class="s2">"hi"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">mapped</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>        <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">mapped</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>            <code class="c1">// 0</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">mapped</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>            <code class="c1">// 0</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">mapped</code> <code class="k">instanceof</code> <code class="nx">Int16Array</code><code class="p">);</code>  <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">mapped</code> <code class="k">instanceof</code> <code class="nb">Array</code><code class="p">);</code>       <code class="c1">// false</code>
+</pre>

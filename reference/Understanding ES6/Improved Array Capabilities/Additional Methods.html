@@ -1,0 +1,16 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">ints</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int16Array</code><code class="p">(</code><code class="mi">4</code><code class="p">);</code>
+
+<code class="nx">ints</code><code class="p">.</code><code class="nx">set</code><code class="p">([</code><code class="mi">25</code><code class="p">,</code> <code class="mi">50</code><code class="p">]);</code>
+<code class="nx">ints</code><code class="p">.</code><code class="nx">set</code><code class="p">([</code><code class="mi">75</code><code class="p">,</code> <code class="mi">100</code><code class="p">],</code> <code class="mi">2</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>   <code class="c1">// 25,50,75,100</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">ints</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int16Array</code><code class="p">([</code><code class="mi">25</code><code class="p">,</code> <code class="mi">50</code><code class="p">,</code> <code class="mi">75</code><code class="p">,</code> <code class="mi">100</code><code class="p">]),</code>
+    <code class="nx">subints1</code> <code class="o">=</code> <code class="nx">ints</code><code class="p">.</code><code class="nx">subarray</code><code class="p">(),</code>
+    <code class="nx">subints2</code> <code class="o">=</code> <code class="nx">ints</code><code class="p">.</code><code class="nx">subarray</code><code class="p">(</code><code class="mi">2</code><code class="p">),</code>
+    <code class="nx">subints3</code> <code class="o">=</code> <code class="nx">ints</code><code class="p">.</code><code class="nx">subarray</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">3</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">subints1</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>   <code class="c1">// 25,50,75,100</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">subints2</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>   <code class="c1">// 75,100</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">subints3</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>   <code class="c1">// 50,75</code>
+</pre>

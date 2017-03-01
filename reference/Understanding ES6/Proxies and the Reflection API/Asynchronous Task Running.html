@@ -1,0 +1,268 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">fs</code> <code class="o">=</code> <code class="nx">require</code><code class="p">(</code><code class="s2">"fs"</code><code class="p">);</code>
+
+<code class="kd">function</code> <code class="nx">run</code><code class="p">(</code><code class="nx">taskDef</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// create the iterator, make available elsewhere</code>
+    <code class="kd">let</code> <code class="nx">task</code> <code class="o">=</code> <code class="nx">taskDef</code><code class="p">();</code>
+
+    <code class="c1">// start the task</code>
+    <code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">();</code>
+
+    <code class="c1">// recursive function to keep calling next()</code>
+    <code class="kd">function</code> <code class="nx">step</code><code class="p">()</code> <code class="p">{</code>
+
+        <code class="c1">// if there's more to do</code>
+        <code class="k">if</code> <code class="p">(</code><code class="o">!</code><code class="nx">result</code><code class="p">.</code><code class="nx">done</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">if</code> <code class="p">(</code><code class="k">typeof</code> <code class="nx">result</code><code class="p">.</code><code class="nx">value</code> <code class="o">===</code> <code class="s2">"function"</code><code class="p">)</code> <code class="p">{</code>
+                <code class="nx">result</code><code class="p">.</code><code class="nx">value</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">data</code><code class="p">)</code> <code class="p">{</code>
+                    <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+                        <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="k">throw</code><code class="p">(</code><code class="nx">err</code><code class="p">);</code>
+                        <code class="k">return</code><code class="p">;</code>
+                    <code class="p">}</code>
+
+                    <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">(</code><code class="nx">data</code><code class="p">);</code>
+                    <code class="nx">step</code><code class="p">();</code>
+                <code class="p">});</code>
+            <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+                <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">(</code><code class="nx">result</code><code class="p">.</code><code class="nx">value</code><code class="p">);</code>
+                <code class="nx">step</code><code class="p">();</code>
+            <code class="p">}</code>
+
+        <code class="p">}</code>
+    <code class="p">}</code>
+
+    <code class="c1">// start the process</code>
+    <code class="nx">step</code><code class="p">();</code>
+
+<code class="p">}</code>
+
+<code class="c1">// Define a function to use with the task runner</code>
+
+<code class="kd">function</code> <code class="nx">readFile</code><code class="p">(</code><code class="nx">filename</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="kd">function</code><code class="p">(</code><code class="nx">callback</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">fs</code><code class="p">.</code><code class="nx">readFile</code><code class="p">(</code><code class="nx">filename</code><code class="p">,</code> <code class="nx">callback</code><code class="p">);</code>
+    <code class="p">};</code>
+<code class="p">}</code>
+
+<code class="c1">// Run a task</code>
+
+<code class="nx">run</code><code class="p">(</code><code class="kd">function</code><code class="o">*</code><code class="p">()</code> <code class="p">{</code>
+    <code class="kd">let</code> <code class="nx">contents</code> <code class="o">=</code> <code class="k">yield</code> <code class="nx">readFile</code><code class="p">(</code><code class="s2">"config.json"</code><code class="p">);</code>
+    <code class="nx">doSomethingWith</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Done"</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">fs</code> <code class="o">=</code> <code class="nx">require</code><code class="p">(</code><code class="s2">"fs"</code><code class="p">);</code>
+
+<code class="kd">function</code> <code class="nx">run</code><code class="p">(</code><code class="nx">taskDef</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// create the iterator</code>
+    <code class="kd">let</code> <code class="nx">task</code> <code class="o">=</code> <code class="nx">taskDef</code><code class="p">();</code>
+
+    <code class="c1">// start the task</code>
+    <code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">();</code>
+
+    <code class="c1">// recursive function to iterate through</code>
+    <code class="p">(</code><code class="kd">function</code> <code class="nx">step</code><code class="p">()</code> <code class="p">{</code>
+
+        <code class="c1">// if there's more to do</code>
+        <code class="k">if</code> <code class="p">(</code><code class="o">!</code><code class="nx">result</code><code class="p">.</code><code class="nx">done</code><code class="p">)</code> <code class="p">{</code>
+
+            <code class="c1">// resolve to a promise to make it easy</code>
+            <code class="kd">let</code> <code class="nx">promise</code> <code class="o">=</code> <code class="nb">Promise</code><code class="p">.</code><code class="nx">resolve</code><code class="p">(</code><code class="nx">result</code><code class="p">.</code><code class="nx">value</code><code class="p">);</code>
+            <code class="nx">promise</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+                <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+                <code class="nx">step</code><code class="p">();</code>
+            <code class="p">}).</code><code class="k">catch</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">error</code><code class="p">)</code> <code class="p">{</code>
+                <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="k">throw</code><code class="p">(</code><code class="nx">error</code><code class="p">);</code>
+                <code class="nx">step</code><code class="p">();</code>
+            <code class="p">});</code>
+        <code class="p">}</code>
+    <code class="p">}());</code>
+<code class="p">}</code>
+
+<code class="c1">// Define a function to use with the task runner</code>
+
+<code class="kd">function</code> <code class="nx">readFile</code><code class="p">(</code><code class="nx">filename</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">fs</code><code class="p">.</code><code class="nx">readFile</code><code class="p">(</code><code class="nx">filename</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">contents</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+                <code class="nx">reject</code><code class="p">(</code><code class="nx">err</code><code class="p">);</code>
+            <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+                <code class="nx">resolve</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+            <code class="p">}</code>
+        <code class="p">});</code>
+    <code class="p">});</code>
+<code class="p">}</code>
+
+<code class="c1">// Run a task</code>
+
+<code class="nx">run</code><code class="p">(</code><code class="kd">function</code><code class="o">*</code><code class="p">()</code> <code class="p">{</code>
+    <code class="kd">let</code> <code class="nx">contents</code> <code class="o">=</code> <code class="k">yield</code> <code class="nx">readFile</code><code class="p">(</code><code class="s2">"config.json"</code><code class="p">);</code>
+    <code class="nx">doSomethingWith</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Done"</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code><code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code><code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 3</code>
+
+<code class="nx">colors</code><code class="p">[</code><code class="mi">3</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"black"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 4</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">3</code><code class="p">]);</code>             <code class="c1">// "black"</code>
+
+<code class="nx">colors</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="mi">2</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">3</code><code class="p">]);</code>             <code class="c1">// undefined</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">2</code><code class="p">]);</code>             <code class="c1">// undefined</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>             <code class="c1">// "green"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{});</code>
+
+<code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="s2">"proxy"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>        <code class="c1">// "proxy"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">target</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>       <code class="c1">// "proxy"</code>
+
+<code class="nx">target</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="s2">"target"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>        <code class="c1">// "target"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">target</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>       <code class="c1">// "target"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"target"</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">set</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">value</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="c1">// ignore existing properties so as not to affect them</code>
+        <code class="k">if</code> <code class="p">(</code><code class="o">!</code><code class="nx">trapTarget</code><code class="p">.</code><code class="nx">hasOwnProperty</code><code class="p">(</code><code class="nx">key</code><code class="p">))</code> <code class="p">{</code>
+            <code class="k">if</code> <code class="p">(</code><code class="nb">isNaN</code><code class="p">(</code><code class="nx">value</code><code class="p">))</code> <code class="p">{</code>
+                <code class="k">throw</code> <code class="k">new</code> <code class="nx">TypeError</code><code class="p">(</code><code class="s2">"Property must be a number."</code><code class="p">);</code>
+            <code class="p">}</code>
+        <code class="p">}</code>
+
+        <code class="c1">// add the property</code>
+        <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">value</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="c1">// adding a new property</code>
+<code class="nx">proxy</code><code class="p">.</code><code class="nx">count</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">.</code><code class="nx">count</code><code class="p">);</code>       <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">target</code><code class="p">.</code><code class="nx">count</code><code class="p">);</code>      <code class="c1">// 1</code>
+
+<code class="c1">// you can assign to name because it exists on target already</code>
+<code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="s2">"proxy"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>        <code class="c1">// "proxy"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">target</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>       <code class="c1">// "proxy"</code>
+
+<code class="c1">// throws an error</code>
+<code class="nx">proxy</code><code class="p">.</code><code class="nx">anotherName</code> <code class="o">=</code> <code class="s2">"proxy"</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">target</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>       <code class="c1">// undefined</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">({},</code> <code class="p">{</code>
+        <code class="nx">get</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">if</code> <code class="p">(</code><code class="o">!</code><code class="p">(</code><code class="nx">key</code> <code class="k">in</code> <code class="nx">receiver</code><code class="p">))</code> <code class="p">{</code>
+                <code class="k">throw</code> <code class="k">new</code> <code class="nx">TypeError</code><code class="p">(</code><code class="s2">"Property "</code> <code class="o">+</code> <code class="nx">key</code> <code class="o">+</code> <code class="s2">" doesn't exist."</code><code class="p">);</code>
+            <code class="p">}</code>
+
+            <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">);</code>
+        <code class="p">}</code>
+    <code class="p">});</code>
+
+<code class="c1">// adding a property still works</code>
+<code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="s2">"proxy"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>            <code class="c1">// "proxy"</code>
+
+<code class="c1">// nonexistent properties throw an error</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">proxy</code><code class="p">.</code><code class="nx">nme</code><code class="p">);</code>             <code class="c1">// throws error</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">value</code><code class="o">:</code> <code class="mi">42</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"value"</code> <code class="k">in</code> <code class="nx">target</code><code class="p">);</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"toString"</code> <code class="k">in</code> <code class="nx">target</code><code class="p">);</code>  <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"target"</code><code class="p">,</code>
+    <code class="nx">value</code><code class="o">:</code> <code class="mi">42</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">has</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="k">if</code> <code class="p">(</code><code class="nx">key</code> <code class="o">===</code> <code class="s2">"value"</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="kc">false</code><code class="p">;</code>
+        <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">);</code>
+        <code class="p">}</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"value"</code> <code class="k">in</code> <code class="nx">proxy</code><code class="p">);</code>      <code class="c1">// false</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"name"</code> <code class="k">in</code> <code class="nx">proxy</code><code class="p">);</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"toString"</code> <code class="k">in</code> <code class="nx">proxy</code><code class="p">);</code>   <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"target"</code><code class="p">,</code>
+    <code class="nx">value</code><code class="o">:</code> <code class="mi">42</code>
+<code class="p">};</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="s2">"name"</code><code class="p">,</code> <code class="p">{</code> <code class="nx">configurable</code><code class="o">:</code> <code class="kc">false</code> <code class="p">});</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"value"</code> <code class="k">in</code> <code class="nx">target</code><code class="p">);</code>     <code class="c1">// true</code>
+
+<code class="kd">let</code> <code class="nx">result1</code> <code class="o">=</code> <code class="k">delete</code> <code class="nx">target</code><code class="p">.</code><code class="nx">value</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result1</code><code class="p">);</code>               <code class="c1">// true</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"value"</code> <code class="k">in</code> <code class="nx">target</code><code class="p">);</code>     <code class="c1">// false</code>
+
+<code class="c1">// Note: The following line throws an error in strict mode</code>
+<code class="kd">let</code> <code class="nx">result2</code> <code class="o">=</code> <code class="k">delete</code> <code class="nx">target</code><code class="p">.</code><code class="nx">name</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result2</code><code class="p">);</code>               <code class="c1">// false</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"name"</code> <code class="k">in</code> <code class="nx">target</code><code class="p">);</code>      <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"target"</code><code class="p">,</code>
+    <code class="nx">value</code><code class="o">:</code> <code class="mi">42</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">deleteProperty</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="k">if</code> <code class="p">(</code><code class="nx">key</code> <code class="o">===</code> <code class="s2">"value"</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="kc">false</code><code class="p">;</code>
+        <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">deleteProperty</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">);</code>
+        <code class="p">}</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="c1">// Attempt to delete proxy.value</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"value"</code> <code class="k">in</code> <code class="nx">proxy</code><code class="p">);</code>      <code class="c1">// true</code>
+
+<code class="kd">let</code> <code class="nx">result1</code> <code class="o">=</code> <code class="k">delete</code> <code class="nx">proxy</code><code class="p">.</code><code class="nx">value</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result1</code><code class="p">);</code>               <code class="c1">// false</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"value"</code> <code class="k">in</code> <code class="nx">proxy</code><code class="p">);</code>      <code class="c1">// true</code>
+
+<code class="c1">// Attempt to delete proxy.name</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"name"</code> <code class="k">in</code> <code class="nx">proxy</code><code class="p">);</code>       <code class="c1">// true</code>
+
+<code class="kd">let</code> <code class="nx">result2</code> <code class="o">=</code> <code class="k">delete</code> <code class="nx">proxy</code><code class="p">.</code><code class="nx">name</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">result2</code><code class="p">);</code>               <code class="c1">// true</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"name"</code> <code class="k">in</code> <code class="nx">proxy</code><code class="p">);</code>       <code class="c1">// false</code>
+</pre>

@@ -1,0 +1,24 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">Temperature</code><code class="p">(</code><code class="nx">degrees</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">degrees</code> <code class="o">=</code> <code class="nx">degrees</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">Temperature</code><code class="p">.</code><code class="nx">prototype</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">toPrimitive</code><code class="p">]</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">hint</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="k">switch</code> <code class="p">(</code><code class="nx">hint</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">case</code> <code class="s2">"string"</code><code class="o">:</code>
+            <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">degrees</code> <code class="o">+</code> <code class="s2">"\u00b0"</code><code class="p">;</code> <code class="c1">// degrees symbol</code>
+
+        <code class="k">case</code> <code class="s2">"number"</code><code class="o">:</code>
+            <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">degrees</code><code class="p">;</code>
+
+        <code class="k">case</code> <code class="s2">"default"</code><code class="o">:</code>
+            <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">degrees</code> <code class="o">+</code> <code class="s2">" degrees"</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">freezing</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Temperature</code><code class="p">(</code><code class="mi">32</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">freezing</code> <code class="o">+</code> <code class="s2">"!"</code><code class="p">);</code>            <code class="c1">// "32 degrees!"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">freezing</code> <code class="o">/</code> <code class="mi">2</code><code class="p">);</code>              <code class="c1">// 16</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">String</code><code class="p">(</code><code class="nx">freezing</code><code class="p">));</code>          <code class="c1">// "32째"</code>
+</pre>

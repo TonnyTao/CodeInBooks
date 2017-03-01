@@ -1,0 +1,59 @@
+<pre><code></code><code class="nx">readFile</code><code class="p">(</code><code class="s2">"example.txt"</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">contents</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="nx">err</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+<code class="p">});</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Hi!"</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="nx">readFile</code><code class="p">(</code><code class="s2">"example.txt"</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">contents</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="nx">err</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">writeFile</code><code class="p">(</code><code class="s2">"example.txt"</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">throw</code> <code class="nx">err</code><code class="p">;</code>
+        <code class="p">}</code>
+
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"File was written!"</code><code class="p">);</code>
+    <code class="p">});</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="nx">method1</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">result</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="nx">err</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">method2</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">result</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">throw</code> <code class="nx">err</code><code class="p">;</code>
+        <code class="p">}</code>
+
+        <code class="nx">method3</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">result</code><code class="p">)</code> <code class="p">{</code>
+
+            <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+                <code class="k">throw</code> <code class="nx">err</code><code class="p">;</code>
+            <code class="p">}</code>
+
+            <code class="nx">method4</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">result</code><code class="p">)</code> <code class="p">{</code>
+
+                <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+                    <code class="k">throw</code> <code class="nx">err</code><code class="p">;</code>
+                <code class="p">}</code>
+
+                <code class="nx">method5</code><code class="p">(</code><code class="nx">result</code><code class="p">);</code>
+            <code class="p">});</code>
+
+        <code class="p">});</code>
+
+    <code class="p">});</code>
+
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="c1">// readFile promises to complete at some point in the future</code>
+<code class="kd">let</code> <code class="nx">promise</code> <code class="o">=</code> <code class="nx">readFile</code><code class="p">(</code><code class="s2">"example.txt"</code><code class="p">);</code>
+</pre>

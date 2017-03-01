@@ -1,0 +1,35 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{},</code>
+    <code class="nx">lastName</code> <code class="o">=</code> <code class="s2">"last name"</code><code class="p">;</code>
+
+<code class="nx">person</code><code class="p">[</code><code class="s2">"first name"</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"Nicholas"</code><code class="p">;</code>
+<code class="nx">person</code><code class="p">[</code><code class="nx">lastName</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"Zakas"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="s2">"first name"</code><code class="p">]);</code>      <code class="c1">// "Nicholas"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="nx">lastName</code><code class="p">]);</code>          <code class="c1">// "Zakas"</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="s2">"first name"</code><code class="o">:</code> <code class="s2">"Nicholas"</code>
+<code class="p">};</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="s2">"first name"</code><code class="p">]);</code>      <code class="c1">// "Nicholas"</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">lastName</code> <code class="o">=</code> <code class="s2">"last name"</code><code class="p">;</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="s2">"first name"</code><code class="o">:</code> <code class="s2">"Nicholas"</code><code class="p">,</code>
+    <code class="p">[</code><code class="nx">lastName</code><code class="p">]</code><code class="o">:</code> <code class="s2">"Zakas"</code>
+<code class="p">};</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="s2">"first name"</code><code class="p">]);</code>      <code class="c1">// "Nicholas"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="nx">lastName</code><code class="p">]);</code>          <code class="c1">// "Zakas"</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">suffix</code> <code class="o">=</code> <code class="s2">" name"</code><code class="p">;</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="p">[</code><code class="s2">"first"</code> <code class="o">+</code> <code class="nx">suffix</code><code class="p">]</code><code class="o">:</code> <code class="s2">"Nicholas"</code><code class="p">,</code>
+    <code class="p">[</code><code class="s2">"last"</code> <code class="o">+</code> <code class="nx">suffix</code><code class="p">]</code><code class="o">:</code> <code class="s2">"Zakas"</code>
+<code class="p">};</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="s2">"first name"</code><code class="p">]);</code>      <code class="c1">// "Nicholas"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="s2">"last name"</code><code class="p">]);</code>       <code class="c1">// "Zakas"</code>
+</pre>

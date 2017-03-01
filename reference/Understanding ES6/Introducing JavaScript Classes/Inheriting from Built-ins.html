@@ -1,0 +1,41 @@
+<pre><code></code><code class="c1">// built-in array behavior</code>
+<code class="kd">var</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[];</code>
+<code class="nx">colors</code><code class="p">[</code><code class="mi">0</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"red"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 1</code>
+
+<code class="nx">colors</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>             <code class="c1">// undefined</code>
+
+<code class="c1">// trying to inherit from array in ES5</code>
+
+<code class="kd">function</code> <code class="nx">MyArray</code><code class="p">()</code> <code class="p">{</code>
+    <code class="nb">Array</code><code class="p">.</code><code class="nx">apply</code><code class="p">(</code><code class="k">this</code><code class="p">,</code> <code class="nx">arguments</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="nx">MyArray</code><code class="p">.</code><code class="nx">prototype</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="nb">Array</code><code class="p">.</code><code class="nx">prototype</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="o">:</code> <code class="p">{</code>
+        <code class="nx">value</code><code class="o">:</code> <code class="nx">MyArray</code><code class="p">,</code>
+        <code class="nx">writable</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">configurable</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">enumerable</code><code class="o">:</code> <code class="kc">true</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="kd">var</code> <code class="nx">colors</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyArray</code><code class="p">();</code>
+<code class="nx">colors</code><code class="p">[</code><code class="mi">0</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"red"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 0</code>
+
+<code class="nx">colors</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>             <code class="c1">// "red"</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">MyArray</code> <code class="kr">extends</code> <code class="nb">Array</code> <code class="p">{</code>
+    <code class="c1">// empty</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">colors</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyArray</code><code class="p">();</code>
+<code class="nx">colors</code><code class="p">[</code><code class="mi">0</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"red"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 1</code>
+
+<code class="nx">colors</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>             <code class="c1">// undefined</code>
+</pre>

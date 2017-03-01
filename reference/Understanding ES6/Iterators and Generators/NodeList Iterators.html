@@ -1,0 +1,23 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">divs</code> <code class="o">=</code> <code class="nb">document</code><code class="p">.</code><code class="nx">getElementsByTagName</code><code class="p">(</code><code class="s2">"div"</code><code class="p">);</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">div</code> <code class="k">of</code> <code class="nx">divs</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">div</code><code class="p">.</code><code class="nx">id</code><code class="p">);</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">,</code> <code class="mi">5</code><code class="p">]),</code>
+    <code class="nx">array</code> <code class="o">=</code> <code class="p">[...</code><code class="nx">set</code><code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">array</code><code class="p">);</code>             <code class="c1">// [1,2,3,4,5]</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">([</code> <code class="p">[</code><code class="s2">"name"</code><code class="p">,</code> <code class="s2">"Nicholas"</code><code class="p">],</code> <code class="p">[</code><code class="s2">"age"</code><code class="p">,</code> <code class="mi">25</code><code class="p">]]),</code>
+    <code class="nx">array</code> <code class="o">=</code> <code class="p">[...</code><code class="nx">map</code><code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">array</code><code class="p">);</code>         <code class="c1">// [ ["name", "Nicholas"], ["age", 25]]</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">smallNumbers</code> <code class="o">=</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">],</code>
+    <code class="nx">bigNumbers</code> <code class="o">=</code> <code class="p">[</code><code class="mi">100</code><code class="p">,</code> <code class="mi">101</code><code class="p">,</code> <code class="mi">102</code><code class="p">],</code>
+    <code class="nx">allNumbers</code> <code class="o">=</code> <code class="p">[</code><code class="mi">0</code><code class="p">,</code> <code class="p">...</code><code class="nx">smallNumbers</code><code class="p">,</code> <code class="p">...</code><code class="nx">bigNumbers</code><code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">allNumbers</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>     <code class="c1">// 7</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">allNumbers</code><code class="p">);</code>    <code class="c1">// [0, 1, 2, 3, 100, 101, 102]</code>
+</pre>

@@ -1,0 +1,16 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">createIterator</code> <code class="o">=</code> <code class="kd">function</code> <code class="o">*</code><code class="p">(</code><code class="nx">items</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">i</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code> <code class="nx">i</code> <code class="o">&lt;</code> <code class="nx">items</code><code class="p">.</code><code class="nx">length</code><code class="p">;</code> <code class="nx">i</code><code class="o">++</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">yield</code> <code class="nx">items</code><code class="p">[</code><code class="nx">i</code><code class="p">];</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">iterator</code> <code class="o">=</code> <code class="nx">createIterator</code><code class="p">([</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">]);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: 1, done: false }"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: 2, done: false }"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: 3, done: false }"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: undefined, done: true }"</code>
+
+<code class="c1">// for all further calls</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: undefined, done: true }"</code>
+</pre>

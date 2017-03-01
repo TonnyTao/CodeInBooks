@@ -1,0 +1,18 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">makeRequest</code><code class="p">(</code><code class="nx">url</code><code class="p">,</code> <code class="nx">timeout</code><code class="p">,</code> <code class="nx">callback</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="nx">timeout</code> <code class="o">=</code> <code class="nx">timeout</code> <code class="o">||</code> <code class="mi">2000</code><code class="p">;</code>
+    <code class="nx">callback</code> <code class="o">=</code> <code class="nx">callback</code> <code class="o">||</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{};</code>
+
+    <code class="c1">// the rest of the function</code>
+
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">makeRequest</code><code class="p">(</code><code class="nx">url</code><code class="p">,</code> <code class="nx">timeout</code><code class="p">,</code> <code class="nx">callback</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="nx">timeout</code> <code class="o">=</code> <code class="p">(</code><code class="k">typeof</code> <code class="nx">timeout</code> <code class="o">!==</code> <code class="s2">"undefined"</code><code class="p">)</code> <code class="o">?</code> <code class="nx">timeout</code> <code class="o">:</code> <code class="mi">2000</code><code class="p">;</code>
+    <code class="nx">callback</code> <code class="o">=</code> <code class="p">(</code><code class="k">typeof</code> <code class="nx">callback</code> <code class="o">!==</code> <code class="s2">"undefined"</code><code class="p">)</code> <code class="o">?</code> <code class="nx">callback</code> <code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{};</code>
+
+    <code class="c1">// the rest of the function</code>
+
+<code class="p">}</code>
+</pre>

@@ -1,0 +1,17 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">numbers</code> <code class="o">=</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">];</code>
+
+<code class="c1">// paste values into array starting at index 2</code>
+<code class="c1">// copy values from array starting at index 0</code>
+<code class="nx">numbers</code><code class="p">.</code><code class="nx">copyWithin</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">0</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">numbers</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>    <code class="c1">// 1,2,1,2</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">numbers</code> <code class="o">=</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">];</code>
+
+<code class="c1">// paste values into array starting at index 2</code>
+<code class="c1">// copy values from array starting at index 0</code>
+<code class="c1">// stop copying values when you hit index 1</code>
+<code class="nx">numbers</code><code class="p">.</code><code class="nx">copyWithin</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">0</code><code class="p">,</code> <code class="mi">1</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">numbers</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>    <code class="c1">// 1,2,1,4</code>
+</pre>

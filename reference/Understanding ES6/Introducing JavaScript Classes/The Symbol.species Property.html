@@ -1,0 +1,122 @@
+<pre><code></code><code class="kr">class</code> <code class="nx">MyArray</code> <code class="kr">extends</code> <code class="nb">Array</code> <code class="p">{</code>
+    <code class="c1">// empty</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">items</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyArray</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">),</code>
+    <code class="nx">subitems</code> <code class="o">=</code> <code class="nx">items</code><code class="p">.</code><code class="nx">slice</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">3</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code> <code class="k">instanceof</code> <code class="nx">MyArray</code><code class="p">);</code>      <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">subitems</code> <code class="k">instanceof</code> <code class="nx">MyArray</code><code class="p">);</code>   <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="c1">// several builtin types use species similar to this</code>
+<code class="kr">class</code> <code class="nx">MyClass</code> <code class="p">{</code>
+    <code class="kr">static</code> <code class="nx">get</code> <code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">species</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">value</code> <code class="o">=</code> <code class="nx">value</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">clone</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">new</code> <code class="k">this</code><code class="p">.</code><code class="nx">constructor</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">species</code><code class="p">](</code><code class="k">this</code><code class="p">.</code><code class="nx">value</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">MyClass</code> <code class="p">{</code>
+    <code class="kr">static</code> <code class="nx">get</code> <code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">species</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">value</code> <code class="o">=</code> <code class="nx">value</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">clone</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">new</code> <code class="k">this</code><code class="p">.</code><code class="nx">constructor</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">species</code><code class="p">](</code><code class="k">this</code><code class="p">.</code><code class="nx">value</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kr">class</code> <code class="nx">MyDerivedClass1</code> <code class="kr">extends</code> <code class="nx">MyClass</code> <code class="p">{</code>
+    <code class="c1">// empty</code>
+<code class="p">}</code>
+
+<code class="kr">class</code> <code class="nx">MyDerivedClass2</code> <code class="kr">extends</code> <code class="nx">MyClass</code> <code class="p">{</code>
+    <code class="kr">static</code> <code class="nx">get</code> <code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">species</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">MyClass</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">instance1</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyDerivedClass1</code><code class="p">(</code><code class="s2">"foo"</code><code class="p">),</code>
+    <code class="nx">clone1</code> <code class="o">=</code> <code class="nx">instance1</code><code class="p">.</code><code class="nx">clone</code><code class="p">(),</code>
+    <code class="nx">instance2</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyDerivedClass2</code><code class="p">(</code><code class="s2">"bar"</code><code class="p">),</code>
+    <code class="nx">clone2</code> <code class="o">=</code> <code class="nx">instance2</code><code class="p">.</code><code class="nx">clone</code><code class="p">();</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">clone1</code> <code class="k">instanceof</code> <code class="nx">MyClass</code><code class="p">);</code>             <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">clone1</code> <code class="k">instanceof</code> <code class="nx">MyDerivedClass1</code><code class="p">);</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">clone2</code> <code class="k">instanceof</code> <code class="nx">MyClass</code><code class="p">);</code>             <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">clone2</code> <code class="k">instanceof</code> <code class="nx">MyDerivedClass2</code><code class="p">);</code>     <code class="c1">// false</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">MyArray</code> <code class="kr">extends</code> <code class="nb">Array</code> <code class="p">{</code>
+    <code class="kr">static</code> <code class="nx">get</code> <code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">species</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nb">Array</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">items</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyArray</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">),</code>
+    <code class="nx">subitems</code> <code class="o">=</code> <code class="nx">items</code><code class="p">.</code><code class="nx">slice</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">3</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code> <code class="k">instanceof</code> <code class="nx">MyArray</code><code class="p">);</code>      <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">subitems</code> <code class="k">instanceof</code> <code class="nb">Array</code><code class="p">);</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">subitems</code> <code class="k">instanceof</code> <code class="nx">MyArray</code><code class="p">);</code>   <code class="c1">// false</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">===</code> <code class="nx">Rectangle</code><code class="p">);</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="c1">// new.target is Rectangle</code>
+<code class="kd">var</code> <code class="nx">obj</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Rectangle</code><code class="p">(</code><code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">);</code>      <code class="c1">// outputs true</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">===</code> <code class="nx">Rectangle</code><code class="p">);</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">)</code> <code class="p">{</code>
+        <code class="kr">super</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">length</code><code class="p">)</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="c1">// new.target is Square</code>
+<code class="kd">var</code> <code class="nx">obj</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Square</code><code class="p">(</code><code class="mi">3</code><code class="p">);</code>      <code class="c1">// outputs false</code>
+</pre>
+<pre><code></code><code class="c1">// abstract base class</code>
+<code class="kr">class</code> <code class="nx">Shape</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">if</code> <code class="p">(</code><code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">===</code> <code class="nx">Shape</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"This class cannot be instantiated directly."</code><code class="p">)</code>
+        <code class="p">}</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kr">class</code> <code class="nx">Rectangle</code> <code class="kr">extends</code> <code class="nx">Shape</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="kr">super</code><code class="p">();</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">x</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Shape</code><code class="p">();</code>                <code class="c1">// throws error</code>
+
+<code class="kd">var</code> <code class="nx">y</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Rectangle</code><code class="p">(</code><code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">);</code>        <code class="c1">// no error</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">y</code> <code class="k">instanceof</code> <code class="nx">Shape</code><code class="p">);</code>    <code class="c1">// true</code>
+</pre>

@@ -1,0 +1,11 @@
+<pre><code></code><code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"x"</code><code class="p">.</code><code class="nx">repeat</code><code class="p">(</code><code class="mi">3</code><code class="p">));</code>         <code class="c1">// "xxx"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"hello"</code><code class="p">.</code><code class="nx">repeat</code><code class="p">(</code><code class="mi">2</code><code class="p">));</code>     <code class="c1">// "hellohello"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"abc"</code><code class="p">.</code><code class="nx">repeat</code><code class="p">(</code><code class="mi">4</code><code class="p">));</code>       <code class="c1">// "abcabcabcabc"</code>
+</pre>
+<pre><code></code><code class="c1">// indent using a specified number of spaces</code>
+<code class="kd">var</code> <code class="nx">indent</code> <code class="o">=</code> <code class="s2">" "</code><code class="p">.</code><code class="nx">repeat</code><code class="p">(</code><code class="mi">4</code><code class="p">),</code>
+    <code class="nx">indentLevel</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code>
+
+<code class="c1">// whenever you increase the indent</code>
+<code class="kd">var</code> <code class="nx">newIndent</code> <code class="o">=</code> <code class="nx">indent</code><code class="p">.</code><code class="nx">repeat</code><code class="p">(</code><code class="o">++</code><code class="nx">indentLevel</code><code class="p">);</code>
+</pre>

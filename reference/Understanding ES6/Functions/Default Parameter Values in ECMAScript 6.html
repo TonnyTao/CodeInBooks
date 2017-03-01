@@ -1,0 +1,36 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">makeRequest</code><code class="p">(</code><code class="nx">url</code><code class="p">,</code> <code class="nx">timeout</code> <code class="o">=</code> <code class="mi">2000</code><code class="p">,</code> <code class="nx">callback</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{})</code> <code class="p">{</code>
+
+    <code class="c1">// the rest of the function</code>
+
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="c1">// uses default timeout and callback</code>
+<code class="nx">makeRequest</code><code class="p">(</code><code class="s2">"/foo"</code><code class="p">);</code>
+
+<code class="c1">// uses default callback</code>
+<code class="nx">makeRequest</code><code class="p">(</code><code class="s2">"/foo"</code><code class="p">,</code> <code class="mi">500</code><code class="p">);</code>
+
+<code class="c1">// doesn't use defaults</code>
+<code class="nx">makeRequest</code><code class="p">(</code><code class="s2">"/foo"</code><code class="p">,</code> <code class="mi">500</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">body</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">doSomething</code><code class="p">(</code><code class="nx">body</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">makeRequest</code><code class="p">(</code><code class="nx">url</code><code class="p">,</code> <code class="nx">timeout</code> <code class="o">=</code> <code class="mi">2000</code><code class="p">,</code> <code class="nx">callback</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// the rest of the function</code>
+
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="c1">// uses default timeout</code>
+<code class="nx">makeRequest</code><code class="p">(</code><code class="s2">"/foo"</code><code class="p">,</code> <code class="kc">undefined</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">body</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">doSomething</code><code class="p">(</code><code class="nx">body</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="c1">// uses default timeout</code>
+<code class="nx">makeRequest</code><code class="p">(</code><code class="s2">"/foo"</code><code class="p">);</code>
+
+<code class="c1">// doesn't use default timeout</code>
+<code class="nx">makeRequest</code><code class="p">(</code><code class="s2">"/foo"</code><code class="p">,</code> <code class="kc">null</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">body</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">doSomething</code><code class="p">(</code><code class="nx">body</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>

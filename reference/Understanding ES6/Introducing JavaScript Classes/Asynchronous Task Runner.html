@@ -1,0 +1,78 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">fetchData</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="kd">function</code><code class="p">(</code><code class="nx">callback</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">callback</code><code class="p">(</code><code class="kc">null</code><code class="p">,</code> <code class="s2">"Hi!"</code><code class="p">);</code>
+    <code class="p">};</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">fetchData</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="kd">function</code><code class="p">(</code><code class="nx">callback</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">setTimeout</code><code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+            <code class="nx">callback</code><code class="p">(</code><code class="kc">null</code><code class="p">,</code> <code class="s2">"Hi!"</code><code class="p">);</code>
+        <code class="p">},</code> <code class="mi">50</code><code class="p">);</code>
+    <code class="p">};</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">run</code><code class="p">(</code><code class="nx">taskDef</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// create the iterator, make available elsewhere</code>
+    <code class="kd">let</code> <code class="nx">task</code> <code class="o">=</code> <code class="nx">taskDef</code><code class="p">();</code>
+
+    <code class="c1">// start the task</code>
+    <code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">();</code>
+
+    <code class="c1">// recursive function to keep calling next()</code>
+    <code class="kd">function</code> <code class="nx">step</code><code class="p">()</code> <code class="p">{</code>
+
+        <code class="c1">// if there's more to do</code>
+        <code class="k">if</code> <code class="p">(</code><code class="o">!</code><code class="nx">result</code><code class="p">.</code><code class="nx">done</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">if</code> <code class="p">(</code><code class="k">typeof</code> <code class="nx">result</code><code class="p">.</code><code class="nx">value</code> <code class="o">===</code> <code class="s2">"function"</code><code class="p">)</code> <code class="p">{</code>
+                <code class="nx">result</code><code class="p">.</code><code class="nx">value</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">,</code> <code class="nx">data</code><code class="p">)</code> <code class="p">{</code>
+                    <code class="k">if</code> <code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+                        <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="k">throw</code><code class="p">(</code><code class="nx">err</code><code class="p">);</code>
+                        <code class="k">return</code><code class="p">;</code>
+                    <code class="p">}</code>
+
+                    <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">(</code><code class="nx">data</code><code class="p">);</code>
+                    <code class="nx">step</code><code class="p">();</code>
+                <code class="p">});</code>
+            <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+                <code class="nx">result</code> <code class="o">=</code> <code class="nx">task</code><code class="p">.</code><code class="nx">next</code><code class="p">(</code><code class="nx">result</code><code class="p">.</code><code class="nx">value</code><code class="p">);</code>
+                <code class="nx">step</code><code class="p">();</code>
+            <code class="p">}</code>
+
+        <code class="p">}</code>
+    <code class="p">}</code>
+
+    <code class="c1">// start the process</code>
+    <code class="nx">step</code><code class="p">();</code>
+
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">fs</code> <code class="o">=</code> <code class="nx">require</code><code class="p">(</code><code class="s2">"fs"</code><code class="p">);</code>
+
+<code class="kd">function</code> <code class="nx">readFile</code><code class="p">(</code><code class="nx">filename</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="kd">function</code><code class="p">(</code><code class="nx">callback</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">fs</code><code class="p">.</code><code class="nx">readFile</code><code class="p">(</code><code class="nx">filename</code><code class="p">,</code> <code class="nx">callback</code><code class="p">);</code>
+    <code class="p">};</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="nx">run</code><code class="p">(</code><code class="kd">function</code><code class="o">*</code><code class="p">()</code> <code class="p">{</code>
+    <code class="kd">let</code> <code class="nx">contents</code> <code class="o">=</code> <code class="k">yield</code> <code class="nx">readFile</code><code class="p">(</code><code class="s2">"config.json"</code><code class="p">);</code>
+    <code class="nx">doSomethingWith</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Done"</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">PersonType</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">PersonType</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">sayName</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">PersonType</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="nx">person</code><code class="p">.</code><code class="nx">sayName</code><code class="p">();</code>   <code class="c1">// outputs "Nicholas"</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code> <code class="k">instanceof</code> <code class="nx">PersonType</code><code class="p">);</code>  <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code> <code class="k">instanceof</code> <code class="nb">Object</code><code class="p">);</code>      <code class="c1">// true</code>
+</pre>

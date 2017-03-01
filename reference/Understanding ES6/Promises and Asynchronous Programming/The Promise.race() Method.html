@@ -1,0 +1,67 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">p1</code> <code class="o">=</code> <code class="nb">Promise</code><code class="p">.</code><code class="nx">resolve</code><code class="p">(</code><code class="mi">42</code><code class="p">);</code>
+
+<code class="kd">let</code> <code class="nx">p2</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">43</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">p3</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">44</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">p4</code> <code class="o">=</code> <code class="nb">Promise</code><code class="p">.</code><code class="nx">race</code><code class="p">([</code><code class="nx">p1</code><code class="p">,</code> <code class="nx">p2</code><code class="p">,</code> <code class="nx">p3</code><code class="p">]);</code>
+
+<code class="nx">p4</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>     <code class="c1">// 42</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">p1</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">42</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">p2</code> <code class="o">=</code> <code class="nb">Promise</code><code class="p">.</code><code class="nx">reject</code><code class="p">(</code><code class="mi">43</code><code class="p">);</code>
+
+<code class="kd">let</code> <code class="nx">p3</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">44</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">p4</code> <code class="o">=</code> <code class="nb">Promise</code><code class="p">.</code><code class="nx">race</code><code class="p">([</code><code class="nx">p1</code><code class="p">,</code> <code class="nx">p2</code><code class="p">,</code> <code class="nx">p3</code><code class="p">]);</code>
+
+<code class="nx">p4</code><code class="p">.</code><code class="k">catch</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>     <code class="c1">// 43</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">MyPromise</code> <code class="kr">extends</code> <code class="nb">Promise</code> <code class="p">{</code>
+
+    <code class="c1">// use default constructor</code>
+
+    <code class="nx">success</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">);</code>
+    <code class="p">}</code>
+
+    <code class="nx">failure</code><code class="p">(</code><code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="k">catch</code><code class="p">(</code><code class="nx">reject</code><code class="p">);</code>
+    <code class="p">}</code>
+
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">promise</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyPromise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">42</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="nx">promise</code><code class="p">.</code><code class="nx">success</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>             <code class="c1">// 42</code>
+<code class="p">}).</code><code class="nx">failure</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">p1</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">42</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">p2</code> <code class="o">=</code> <code class="nx">MyPromise</code><code class="p">.</code><code class="nx">resolve</code><code class="p">(</code><code class="nx">p1</code><code class="p">);</code>
+<code class="nx">p2</code><code class="p">.</code><code class="nx">success</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>         <code class="c1">// 42</code>
+<code class="p">});</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">p2</code> <code class="k">instanceof</code> <code class="nx">MyPromise</code><code class="p">);</code>   <code class="c1">// true</code>
+</pre>

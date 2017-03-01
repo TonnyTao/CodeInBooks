@@ -1,0 +1,37 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">values</code> <code class="o">=</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="kc">NaN</code><code class="p">,</code> <code class="mi">2</code><code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">values</code><code class="p">.</code><code class="nx">indexOf</code><code class="p">(</code><code class="kc">NaN</code><code class="p">));</code>       <code class="c1">// -1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">values</code><code class="p">.</code><code class="nx">includes</code><code class="p">(</code><code class="kc">NaN</code><code class="p">));</code>      <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">values</code> <code class="o">=</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="o">+</code><code class="mi">0</code><code class="p">,</code> <code class="mi">2</code><code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">values</code><code class="p">.</code><code class="nx">indexOf</code><code class="p">(</code><code class="o">-</code><code class="mi">0</code><code class="p">));</code>        <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">values</code><code class="p">.</code><code class="nx">includes</code><code class="p">(</code><code class="o">-</code><code class="mi">0</code><code class="p">));</code>       <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">doSomething</code><code class="p">(</code><code class="nx">first</code> <code class="o">=</code> <code class="k">this</code><code class="p">)</code> <code class="p">{</code>
+    <code class="s2">"use strict"</code><code class="p">;</code>
+
+    <code class="k">return</code> <code class="nx">first</code><code class="p">;</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="c1">// okay - using simple parameter list</code>
+<code class="kd">function</code> <code class="nx">okay</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+    <code class="s2">"use strict"</code><code class="p">;</code>
+
+    <code class="k">return</code> <code class="nx">first</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="c1">// syntax error</code>
+<code class="kd">function</code> <code class="nx">notOkay1</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code><code class="o">=</code><code class="nx">first</code><code class="p">)</code> <code class="p">{</code>
+    <code class="s2">"use strict"</code><code class="p">;</code>
+
+    <code class="k">return</code> <code class="nx">first</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="c1">// syntax error</code>
+<code class="kd">function</code> <code class="nx">notOkay2</code><code class="p">({</code> <code class="nx">first</code><code class="p">,</code> <code class="nx">second</code> <code class="p">})</code> <code class="p">{</code>
+    <code class="s2">"use strict"</code><code class="p">;</code>
+
+    <code class="k">return</code> <code class="nx">first</code><code class="p">;</code>
+<code class="p">}</code>
+</pre>

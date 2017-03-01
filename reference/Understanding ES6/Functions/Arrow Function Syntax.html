@@ -1,0 +1,52 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">reflect</code> <code class="o">=</code> <code class="nx">value</code> <code class="o">=&gt;</code> <code class="nx">value</code><code class="p">;</code>
+
+<code class="c1">// effectively equivalent to:</code>
+
+<code class="kd">var</code> <code class="nx">reflect</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">value</code><code class="p">;</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">sum</code> <code class="o">=</code> <code class="p">(</code><code class="nx">num1</code><code class="p">,</code> <code class="nx">num2</code><code class="p">)</code> <code class="o">=&gt;</code> <code class="nx">num1</code> <code class="o">+</code> <code class="nx">num2</code><code class="p">;</code>
+
+<code class="c1">// effectively equivalent to:</code>
+
+<code class="kd">var</code> <code class="nx">sum</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">num1</code><code class="p">,</code> <code class="nx">num2</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">num1</code> <code class="o">+</code> <code class="nx">num2</code><code class="p">;</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">getName</code> <code class="o">=</code> <code class="p">()</code> <code class="o">=&gt;</code> <code class="s2">"Nicholas"</code><code class="p">;</code>
+
+<code class="c1">// effectively equivalent to:</code>
+
+<code class="kd">var</code> <code class="nx">getName</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="s2">"Nicholas"</code><code class="p">;</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">sum</code> <code class="o">=</code> <code class="p">(</code><code class="nx">num1</code><code class="p">,</code> <code class="nx">num2</code><code class="p">)</code> <code class="o">=&gt;</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">num1</code> <code class="o">+</code> <code class="nx">num2</code><code class="p">;</code>
+<code class="p">};</code>
+
+<code class="c1">// effectively equivalent to:</code>
+
+<code class="kd">var</code> <code class="nx">sum</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">num1</code><code class="p">,</code> <code class="nx">num2</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">num1</code> <code class="o">+</code> <code class="nx">num2</code><code class="p">;</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">doNothing</code> <code class="o">=</code> <code class="p">()</code> <code class="o">=&gt;</code> <code class="p">{};</code>
+
+<code class="c1">// effectively equivalent to:</code>
+
+<code class="kd">var</code> <code class="nx">doNothing</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">getTempItem</code> <code class="o">=</code> <code class="nx">id</code> <code class="o">=&gt;</code> <code class="p">({</code> <code class="nx">id</code><code class="o">:</code> <code class="nx">id</code><code class="p">,</code> <code class="nx">name</code><code class="o">:</code> <code class="s2">"Temp"</code> <code class="p">});</code>
+
+<code class="c1">// effectively equivalent to:</code>
+
+<code class="kd">var</code> <code class="nx">getTempItem</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">id</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="k">return</code> <code class="p">{</code>
+        <code class="nx">id</code><code class="o">:</code> <code class="nx">id</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"Temp"</code>
+    <code class="p">};</code>
+<code class="p">};</code>
+</pre>

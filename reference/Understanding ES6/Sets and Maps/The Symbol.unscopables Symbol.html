@@ -1,0 +1,64 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">values</code> <code class="o">=</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">],</code>
+    <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code><code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code><code class="p">],</code>
+    <code class="nx">color</code> <code class="o">=</code> <code class="s2">"black"</code><code class="p">;</code>
+
+<code class="kd">with</code><code class="p">(</code><code class="nx">colors</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">push</code><code class="p">(</code><code class="nx">color</code><code class="p">);</code>
+    <code class="nx">push</code><code class="p">(...</code><code class="nx">values</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors</code><code class="p">);</code>    <code class="c1">// ["red", "green", "blue", "black", 1, 2, 3]</code>
+</pre>
+<pre><code></code><code class="c1">// built into ECMAScript 6 by default</code>
+<code class="nb">Array</code><code class="p">.</code><code class="nx">prototype</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">unscopables</code><code class="p">]</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">assign</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="kc">null</code><code class="p">),</code> <code class="p">{</code>
+    <code class="nx">copyWithin</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+    <code class="nx">entries</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+    <code class="nx">fill</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+    <code class="nx">find</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+    <code class="nx">findIndex</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+    <code class="nx">keys</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+    <code class="nx">values</code><code class="o">:</code> <code class="kc">true</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="kc">null</code><code class="p">);</code>
+
+<code class="nx">set</code><code class="p">.</code><code class="nx">foo</code> <code class="o">=</code> <code class="kc">true</code><code class="p">;</code>
+
+<code class="c1">// checking for existence</code>
+<code class="k">if</code> <code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">foo</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// do something</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="kc">null</code><code class="p">);</code>
+
+<code class="nx">map</code><code class="p">.</code><code class="nx">foo</code> <code class="o">=</code> <code class="s2">"bar"</code><code class="p">;</code>
+
+<code class="c1">// retrieving a value</code>
+<code class="kd">let</code> <code class="nx">value</code> <code class="o">=</code> <code class="nx">map</code><code class="p">.</code><code class="nx">foo</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>         <code class="c1">// "bar"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="kc">null</code><code class="p">);</code>
+
+<code class="nx">map</code><code class="p">[</code><code class="mi">5</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"foo"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">[</code><code class="s2">"5"</code><code class="p">]);</code>      <code class="c1">// "foo"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="kc">null</code><code class="p">),</code>
+    <code class="nx">key1</code> <code class="o">=</code> <code class="p">{},</code>
+    <code class="nx">key2</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="nx">map</code><code class="p">[</code><code class="nx">key1</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"foo"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">[</code><code class="nx">key2</code><code class="p">]);</code>     <code class="c1">// "foo"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="kc">null</code><code class="p">);</code>
+
+<code class="nx">map</code><code class="p">.</code><code class="nx">count</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+
+<code class="c1">// checking for the existence of "count" or a nonzero value?</code>
+<code class="k">if</code> <code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">count</code><code class="p">)</code> <code class="p">{</code>
+    <code class="c1">// ...</code>
+<code class="p">}</code>
+</pre>

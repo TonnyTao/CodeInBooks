@@ -1,0 +1,10 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">data</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">();</code>
+
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"title"</code><code class="p">,</code> <code class="s2">"Understanding ECMAScript 6"</code><code class="p">);</code>
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"format"</code><code class="p">,</code> <code class="s2">"ebook"</code><code class="p">);</code>
+
+<code class="c1">// same as using data.entries()</code>
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="p">[</code><code class="nx">key</code><code class="p">,</code> <code class="nx">value</code><code class="p">]</code> <code class="k">of</code> <code class="nx">data</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">key</code> <code class="o">+</code> <code class="s2">"="</code> <code class="o">+</code> <code class="nx">value</code><code class="p">);</code>
+<code class="p">}</code>
+</pre>

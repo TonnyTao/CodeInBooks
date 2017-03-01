@@ -1,0 +1,37 @@
+<pre><code></code><code class="c1">// Valid constant</code>
+<code class="kr">const</code> <code class="nx">maxItems</code> <code class="o">=</code> <code class="mi">30</code><code class="p">;</code>
+
+<code class="c1">// Syntax error: missing initialization</code>
+<code class="kr">const</code> <code class="nx">name</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="k">if</code> <code class="p">(</code><code class="nx">condition</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kr">const</code> <code class="nx">maxItems</code> <code class="o">=</code> <code class="mi">5</code><code class="p">;</code>
+
+    <code class="c1">// more code</code>
+<code class="p">}</code>
+
+<code class="c1">// maxItems isn't accessible here</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">message</code> <code class="o">=</code> <code class="s2">"Hello!"</code><code class="p">;</code>
+<code class="kd">let</code> <code class="nx">age</code> <code class="o">=</code> <code class="mi">25</code><code class="p">;</code>
+
+<code class="c1">// Each of these would throw an error.</code>
+<code class="kr">const</code> <code class="nx">message</code> <code class="o">=</code> <code class="s2">"Goodbye!"</code><code class="p">;</code>
+<code class="kr">const</code> <code class="nx">age</code> <code class="o">=</code> <code class="mi">30</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kr">const</code> <code class="nx">maxItems</code> <code class="o">=</code> <code class="mi">5</code><code class="p">;</code>
+
+<code class="nx">maxItems</code> <code class="o">=</code> <code class="mi">6</code><code class="p">;</code>      <code class="c1">// throws error</code>
+</pre>
+<pre><code></code><code class="kr">const</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"Nicholas"</code>
+<code class="p">};</code>
+
+<code class="c1">// works</code>
+<code class="nx">person</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="s2">"Greg"</code><code class="p">;</code>
+
+<code class="c1">// throws an error</code>
+<code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"Greg"</code>
+<code class="p">};</code>
+</pre>

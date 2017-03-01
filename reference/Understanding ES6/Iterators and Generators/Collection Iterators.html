@@ -1,0 +1,115 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+<code class="kd">let</code> <code class="nx">tracking</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1234</code><code class="p">,</code> <code class="mi">5678</code><code class="p">,</code> <code class="mi">9012</code><code class="p">]);</code>
+<code class="kd">let</code> <code class="nx">data</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">();</code>
+
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"title"</code><code class="p">,</code> <code class="s2">"Understanding ECMAScript 6"</code><code class="p">);</code>
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"format"</code><code class="p">,</code> <code class="s2">"ebook"</code><code class="p">);</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">entry</code> <code class="k">of</code> <code class="nx">colors</code><code class="p">.</code><code class="nx">entries</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">entry</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">entry</code> <code class="k">of</code> <code class="nx">tracking</code><code class="p">.</code><code class="nx">entries</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">entry</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">entry</code> <code class="k">of</code> <code class="nx">data</code><code class="p">.</code><code class="nx">entries</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">entry</code><code class="p">);</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="k">[0, "red"]</code>
+<code class="k">[1, "green"]</code>
+<code class="k">[2, "blue"]</code>
+<code class="k">[1234, 1234]</code>
+<code class="k">[5678, 5678]</code>
+<code class="k">[9012, 9012]</code>
+<code class="k">["title", "Understanding ECMAScript 6"]</code>
+<code class="k">["format", "ebook"]</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+<code class="kd">let</code> <code class="nx">tracking</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1234</code><code class="p">,</code> <code class="mi">5678</code><code class="p">,</code> <code class="mi">9012</code><code class="p">]);</code>
+<code class="kd">let</code> <code class="nx">data</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">();</code>
+
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"title"</code><code class="p">,</code> <code class="s2">"Understanding ECMAScript 6"</code><code class="p">);</code>
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"format"</code><code class="p">,</code> <code class="s2">"ebook"</code><code class="p">);</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">value</code> <code class="k">of</code> <code class="nx">colors</code><code class="p">.</code><code class="nx">values</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">value</code> <code class="k">of</code> <code class="nx">tracking</code><code class="p">.</code><code class="nx">values</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">value</code> <code class="k">of</code> <code class="nx">data</code><code class="p">.</code><code class="nx">values</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code>"red"
+"green"
+"blue"
+1234
+5678
+9012
+"Understanding ECMAScript 6"
+"ebook"
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+<code class="kd">let</code> <code class="nx">tracking</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1234</code><code class="p">,</code> <code class="mi">5678</code><code class="p">,</code> <code class="mi">9012</code><code class="p">]);</code>
+<code class="kd">let</code> <code class="nx">data</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">();</code>
+
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"title"</code><code class="p">,</code> <code class="s2">"Understanding ECMAScript 6"</code><code class="p">);</code>
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"format"</code><code class="p">,</code> <code class="s2">"ebook"</code><code class="p">);</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">key</code> <code class="k">of</code> <code class="nx">colors</code><code class="p">.</code><code class="nx">keys</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">key</code> <code class="k">of</code> <code class="nx">tracking</code><code class="p">.</code><code class="nx">keys</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">key</code> <code class="k">of</code> <code class="nx">data</code><code class="p">.</code><code class="nx">keys</code><code class="p">())</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code>0
+1
+2
+1234
+5678
+9012
+"title"
+"format"
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code> <code class="p">];</code>
+<code class="kd">let</code> <code class="nx">tracking</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1234</code><code class="p">,</code> <code class="mi">5678</code><code class="p">,</code> <code class="mi">9012</code><code class="p">]);</code>
+<code class="kd">let</code> <code class="nx">data</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">();</code>
+
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"title"</code><code class="p">,</code> <code class="s2">"Understanding ECMAScript 6"</code><code class="p">);</code>
+<code class="nx">data</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="s2">"format"</code><code class="p">,</code> <code class="s2">"print"</code><code class="p">);</code>
+
+<code class="c1">// same as using colors.values()</code>
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">value</code> <code class="k">of</code> <code class="nx">colors</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="c1">// same as using tracking.values()</code>
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">num</code> <code class="k">of</code> <code class="nx">tracking</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">num</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="c1">// same as using data.entries()</code>
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">entry</code> <code class="k">of</code> <code class="nx">data</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">entry</code><code class="p">);</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code>"red"
+"green"
+"blue"
+1234
+5678
+9012
+["title", "Understanding ECMAScript 6"]
+["format", "print"]
+</pre>

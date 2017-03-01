@@ -1,0 +1,50 @@
+<pre><code></code><code class="c1">// import the default</code>
+<code class="kr">import</code> <code class="nx">sum</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">sum</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">));</code>     <code class="c1">// 3</code>
+</pre>
+<pre><code></code><code class="kr">export</code> <code class="kd">let</code> <code class="nx">color</code> <code class="o">=</code> <code class="s2">"red"</code><code class="p">;</code>
+
+<code class="kr">export</code> <code class="k">default</code> <code class="kd">function</code><code class="p">(</code><code class="nx">num1</code><code class="p">,</code> <code class="nx">num2</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">num1</code> <code class="o">+</code> <code class="nx">num2</code><code class="p">;</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kr">import</code> <code class="nx">sum</code><code class="p">,</code> <code class="p">{</code> <code class="nx">color</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">sum</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">));</code>     <code class="c1">// 3</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">color</code><code class="p">);</code>         <code class="c1">// "red"</code>
+</pre>
+<pre><code></code><code class="c1">// equivalent to previous example</code>
+<code class="kr">import</code> <code class="p">{</code> <code class="k">default</code> <code class="nx">as</code> <code class="nx">sum</code><code class="p">,</code> <code class="nx">color</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"example"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">sum</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">));</code>     <code class="c1">// 3</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">color</code><code class="p">);</code>         <code class="c1">// "red"</code>
+</pre>
+<pre><code></code><code class="kr">import</code> <code class="p">{</code> <code class="nx">sum</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+<code class="kr">export</code> <code class="p">{</code> <code class="nx">sum</code> <code class="p">}</code>
+</pre>
+<pre><code></code><code class="kr">export</code> <code class="p">{</code> <code class="nx">sum</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kr">export</code> <code class="p">{</code> <code class="nx">sum</code> <code class="nx">as</code> <code class="nx">add</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kr">export</code> <code class="o">*</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="c1">// module code without exports or imports</code>
+<code class="nb">Array</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">pushAll</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">items</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// items must be an array</code>
+    <code class="k">if</code> <code class="p">(</code><code class="o">!</code><code class="nb">Array</code><code class="p">.</code><code class="nx">isArray</code><code class="p">(</code><code class="nx">items</code><code class="p">))</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nx">TypeError</code><code class="p">(</code><code class="s2">"Argument must be an array."</code><code class="p">);</code>
+    <code class="p">}</code>
+
+    <code class="c1">// use built-in push() and spread operator</code>
+    <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">push</code><code class="p">(...</code><code class="nx">items</code><code class="p">);</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kr">import</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+
+<code class="kd">let</code> <code class="nx">colors</code> <code class="o">=</code> <code class="p">[</code><code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code><code class="p">,</code> <code class="s2">"blue"</code><code class="p">];</code>
+<code class="kd">let</code> <code class="nx">items</code> <code class="o">=</code> <code class="p">[];</code>
+
+<code class="nx">items</code><code class="p">.</code><code class="nx">pushAll</code><code class="p">(</code><code class="nx">colors</code><code class="p">);</code>
+</pre>

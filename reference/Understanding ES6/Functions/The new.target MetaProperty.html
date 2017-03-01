@@ -1,0 +1,51 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">if</code> <code class="p">(</code><code class="k">typeof</code> <code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">!==</code> <code class="s2">"undefined"</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>   <code class="c1">// using new</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"You must use new with Person."</code><code class="p">)</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="kd">var</code> <code class="nx">notAPerson</code> <code class="o">=</code> <code class="nx">Person</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">person</code><code class="p">,</code> <code class="s2">"Michael"</code><code class="p">);</code>    <code class="c1">// error!</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">if</code> <code class="p">(</code><code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">===</code> <code class="nx">Person</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>   <code class="c1">// using new</code>
+    <code class="p">}</code> <code class="k">else</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"You must use new with Person."</code><code class="p">)</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">function</code> <code class="nx">AnotherPerson</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">Person</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="k">this</code><code class="p">,</code> <code class="nx">name</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="kd">var</code> <code class="nx">anotherPerson</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">AnotherPerson</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>  <code class="c1">// error!</code>
+</pre>
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="k">if</code> <code class="p">(</code><code class="kc">true</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// Throws a syntax error in ES5, not so in ES6</code>
+    <code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+        <code class="c1">// ...</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="k">if</code> <code class="p">(</code><code class="kc">true</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">doSomething</code><code class="p">);</code>        <code class="c1">// "function"</code>
+
+    <code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+        <code class="c1">// ...</code>
+    <code class="p">}</code>
+
+    <code class="nx">doSomething</code><code class="p">();</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">doSomething</code><code class="p">);</code>            <code class="c1">// "undefined"</code>
+</pre>

@@ -1,0 +1,37 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">doSomething</code> <code class="o">=</code> <code class="kd">function</code> <code class="nx">doSomethingElse</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// ...</code>
+<code class="p">};</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">get</code> <code class="nx">firstName</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="s2">"Nicholas"</code>
+    <code class="p">},</code>
+    <code class="nx">sayName</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">doSomething</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>      <code class="c1">// "doSomethingElse"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">.</code><code class="nx">sayName</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>   <code class="c1">// "sayName"</code>
+
+<code class="kd">var</code> <code class="nx">descriptor</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getOwnPropertyDescriptor</code><code class="p">(</code><code class="nx">person</code><code class="p">,</code> <code class="s2">"firstName"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">descriptor</code><code class="p">.</code><code class="nx">get</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code> <code class="c1">// "get firstName"</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">doSomething</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="c1">// ...</code>
+<code class="p">};</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">doSomething</code><code class="p">.</code><code class="nx">bind</code><code class="p">().</code><code class="nx">name</code><code class="p">);</code>   <code class="c1">// "bound doSomething"</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">((</code><code class="k">new</code> <code class="nb">Function</code><code class="p">()).</code><code class="nx">name</code><code class="p">);</code>     <code class="c1">// "anonymous"</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="kd">var</code> <code class="nx">notAPerson</code> <code class="o">=</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">);</code>        <code class="c1">// "[Object object]"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">notAPerson</code><code class="p">);</code>    <code class="c1">// "undefined"</code>
+</pre>

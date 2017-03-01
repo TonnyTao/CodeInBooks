@@ -1,0 +1,87 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">10</code><code class="p">),</code>
+    <code class="nx">view</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">DataView</code><code class="p">(</code><code class="nx">buffer</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">10</code><code class="p">),</code>
+    <code class="nx">view</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">DataView</code><code class="p">(</code><code class="nx">buffer</code><code class="p">,</code> <code class="mi">5</code><code class="p">,</code> <code class="mi">2</code><code class="p">);</code>      <code class="c1">// cover bytes 5 and 6</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">10</code><code class="p">),</code>
+    <code class="nx">view1</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">DataView</code><code class="p">(</code><code class="nx">buffer</code><code class="p">),</code>           <code class="c1">// cover all bytes</code>
+    <code class="nx">view2</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">DataView</code><code class="p">(</code><code class="nx">buffer</code><code class="p">,</code> <code class="mi">5</code><code class="p">,</code> <code class="mi">2</code><code class="p">);</code>     <code class="c1">// cover bytes 5 and 6</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view1</code><code class="p">.</code><code class="nx">buffer</code> <code class="o">===</code> <code class="nx">buffer</code><code class="p">);</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view2</code><code class="p">.</code><code class="nx">buffer</code> <code class="o">===</code> <code class="nx">buffer</code><code class="p">);</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view1</code><code class="p">.</code><code class="nx">byteOffset</code><code class="p">);</code>              <code class="c1">// 0</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view2</code><code class="p">.</code><code class="nx">byteOffset</code><code class="p">);</code>              <code class="c1">// 5</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view1</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>              <code class="c1">// 10</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view2</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>              <code class="c1">// 2</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">2</code><code class="p">),</code>
+    <code class="nx">view</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">DataView</code><code class="p">(</code><code class="nx">buffer</code><code class="p">);</code>
+
+<code class="nx">view</code><code class="p">.</code><code class="nx">setInt8</code><code class="p">(</code><code class="mi">0</code><code class="p">,</code> <code class="mi">5</code><code class="p">);</code>
+<code class="nx">view</code><code class="p">.</code><code class="nx">setInt8</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="o">-</code><code class="mi">1</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view</code><code class="p">.</code><code class="nx">getInt8</code><code class="p">(</code><code class="mi">0</code><code class="p">));</code>       <code class="c1">// 5</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view</code><code class="p">.</code><code class="nx">getInt8</code><code class="p">(</code><code class="mi">1</code><code class="p">));</code>       <code class="c1">// -1</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">2</code><code class="p">),</code>
+    <code class="nx">view</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">DataView</code><code class="p">(</code><code class="nx">buffer</code><code class="p">);</code>
+
+<code class="nx">view</code><code class="p">.</code><code class="nx">setInt8</code><code class="p">(</code><code class="mi">0</code><code class="p">,</code> <code class="mi">5</code><code class="p">);</code>
+<code class="nx">view</code><code class="p">.</code><code class="nx">setInt8</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="o">-</code><code class="mi">1</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view</code><code class="p">.</code><code class="nx">getInt16</code><code class="p">(</code><code class="mi">0</code><code class="p">));</code>      <code class="c1">// 1535</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view</code><code class="p">.</code><code class="nx">getInt8</code><code class="p">(</code><code class="mi">0</code><code class="p">));</code>       <code class="c1">// 5</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view</code><code class="p">.</code><code class="nx">getInt8</code><code class="p">(</code><code class="mi">1</code><code class="p">));</code>       <code class="c1">// -1</code>
+</pre>
+<pre><code></code>new ArrayBuffer(2)      0000000000000000
+view.setInt8(0, 5);     0000010100000000
+view.setInt8(1, -1);    0000010111111111
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">10</code><code class="p">),</code>
+    <code class="nx">view1</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int8Array</code><code class="p">(</code><code class="nx">buffer</code><code class="p">),</code>
+    <code class="nx">view2</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int8Array</code><code class="p">(</code><code class="nx">buffer</code><code class="p">,</code> <code class="mi">5</code><code class="p">,</code> <code class="mi">2</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view1</code><code class="p">.</code><code class="nx">buffer</code> <code class="o">===</code> <code class="nx">buffer</code><code class="p">);</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view2</code><code class="p">.</code><code class="nx">buffer</code> <code class="o">===</code> <code class="nx">buffer</code><code class="p">);</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view1</code><code class="p">.</code><code class="nx">byteOffset</code><code class="p">);</code>              <code class="c1">// 0</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view2</code><code class="p">.</code><code class="nx">byteOffset</code><code class="p">);</code>              <code class="c1">// 5</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view1</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>              <code class="c1">// 10</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">view2</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>              <code class="c1">// 2</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">ints</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int16Array</code><code class="p">(</code><code class="mi">2</code><code class="p">),</code>
+    <code class="nx">floats</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Float32Array</code><code class="p">(</code><code class="mi">5</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>       <code class="c1">// 4</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>           <code class="c1">// 2</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">floats</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>     <code class="c1">// 20</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">floats</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>         <code class="c1">// 5</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">ints1</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int16Array</code><code class="p">([</code><code class="mi">25</code><code class="p">,</code> <code class="mi">50</code><code class="p">]),</code>
+    <code class="nx">ints2</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int32Array</code><code class="p">(</code><code class="nx">ints1</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints1</code><code class="p">.</code><code class="nx">buffer</code> <code class="o">===</code> <code class="nx">ints2</code><code class="p">.</code><code class="nx">buffer</code><code class="p">);</code>     <code class="c1">// false</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints1</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>      <code class="c1">// 4</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints1</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints1</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 25</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints1</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// 50</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints2</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>      <code class="c1">// 8</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints2</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints2</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 25</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints2</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// 50</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">ints</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Int16Array</code><code class="p">([</code><code class="mi">25</code><code class="p">,</code> <code class="mi">50</code><code class="p">]);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 25</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// 50</code>
+
+<code class="nx">ints</code><code class="p">[</code><code class="mi">0</code><code class="p">]</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+<code class="nx">ints</code><code class="p">[</code><code class="mi">1</code><code class="p">]</code> <code class="o">=</code> <code class="mi">2</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ints</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// 2</code>
+</pre>

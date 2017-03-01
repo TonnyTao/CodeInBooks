@@ -559,7 +559,7 @@ span.CodeMirror-selectedtext { background: none; }
 /*Modify by Tonny*/
 
 .code pre {
-    margin: 0;
+    margin: 0px;
     padding: 10px;
     margin-bottom: 25px;
     background-color: #f4f4f4;

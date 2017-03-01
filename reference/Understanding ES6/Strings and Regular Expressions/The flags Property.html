@@ -1,0 +1,15 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">getFlags</code><code class="p">(</code><code class="nx">re</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">text</code> <code class="o">=</code> <code class="nx">re</code><code class="p">.</code><code class="nx">toString</code><code class="p">();</code>
+    <code class="k">return</code> <code class="nx">text</code><code class="p">.</code><code class="nx">substring</code><code class="p">(</code><code class="nx">text</code><code class="p">.</code><code class="nx">lastIndexOf</code><code class="p">(</code><code class="s2">"/"</code><code class="p">)</code> <code class="o">+</code> <code class="mi">1</code><code class="p">,</code> <code class="nx">text</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="c1">// toString() is "/ab/g"</code>
+<code class="kd">var</code> <code class="nx">re</code> <code class="o">=</code> <code class="sr">/ab/g</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">getFlags</code><code class="p">(</code><code class="nx">re</code><code class="p">));</code>          <code class="c1">// "g"</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">re</code> <code class="o">=</code> <code class="sr">/ab/g</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">re</code><code class="p">.</code><code class="nx">source</code><code class="p">);</code>     <code class="c1">// "ab"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">re</code><code class="p">.</code><code class="nx">flags</code><code class="p">);</code>      <code class="c1">// "g"</code>
+</pre>

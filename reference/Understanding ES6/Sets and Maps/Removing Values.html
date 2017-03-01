@@ -1,0 +1,16 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">();</code>
+<code class="nx">set</code><code class="p">.</code><code class="nx">add</code><code class="p">(</code><code class="mi">5</code><code class="p">);</code>
+<code class="nx">set</code><code class="p">.</code><code class="nx">add</code><code class="p">(</code><code class="s2">"5"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="mi">5</code><code class="p">));</code>    <code class="c1">// true</code>
+
+<code class="nx">set</code><code class="p">.</code><code class="k">delete</code><code class="p">(</code><code class="mi">5</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="mi">5</code><code class="p">));</code>    <code class="c1">// false</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">size</code><code class="p">);</code>      <code class="c1">// 1</code>
+
+<code class="nx">set</code><code class="p">.</code><code class="nx">clear</code><code class="p">();</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="s2">"5"</code><code class="p">));</code>  <code class="c1">// false</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">set</code><code class="p">.</code><code class="nx">size</code><code class="p">);</code>      <code class="c1">// 0</code>
+</pre>

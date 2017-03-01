@@ -1,0 +1,76 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">mixin</code><code class="p">(</code><code class="nx">receiver</code><code class="p">,</code> <code class="nx">supplier</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nb">Object</code><code class="p">.</code><code class="nx">keys</code><code class="p">(</code><code class="nx">supplier</code><code class="p">).</code><code class="nx">forEach</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">key</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">receiver</code><code class="p">[</code><code class="nx">key</code><code class="p">]</code> <code class="o">=</code> <code class="nx">supplier</code><code class="p">[</code><code class="nx">key</code><code class="p">];</code>
+    <code class="p">});</code>
+
+    <code class="k">return</code> <code class="nx">receiver</code><code class="p">;</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">EventTarget</code><code class="p">()</code> <code class="p">{</code> <code class="cm">/*...*/</code> <code class="p">}</code>
+<code class="nx">EventTarget</code><code class="p">.</code><code class="nx">prototype</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="o">:</code> <code class="nx">EventTarget</code><code class="p">,</code>
+    <code class="nx">emit</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code> <code class="cm">/*...*/</code> <code class="p">},</code>
+    <code class="nx">on</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code> <code class="cm">/*...*/</code> <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="kd">var</code> <code class="nx">myObject</code> <code class="o">=</code> <code class="p">{};</code>
+<code class="nx">mixin</code><code class="p">(</code><code class="nx">myObject</code><code class="p">,</code> <code class="nx">EventTarget</code><code class="p">.</code><code class="nx">prototype</code><code class="p">);</code>
+
+<code class="nx">myObject</code><code class="p">.</code><code class="nx">emit</code><code class="p">(</code><code class="s2">"somethingChanged"</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">EventTarget</code><code class="p">()</code> <code class="p">{</code> <code class="cm">/*...*/</code> <code class="p">}</code>
+<code class="nx">EventTarget</code><code class="p">.</code><code class="nx">prototype</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="o">:</code> <code class="nx">EventTarget</code><code class="p">,</code>
+    <code class="nx">emit</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code> <code class="cm">/*...*/</code> <code class="p">},</code>
+    <code class="nx">on</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code> <code class="cm">/*...*/</code> <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">myObject</code> <code class="o">=</code> <code class="p">{}</code>
+<code class="nb">Object</code><code class="p">.</code><code class="nx">assign</code><code class="p">(</code><code class="nx">myObject</code><code class="p">,</code> <code class="nx">EventTarget</code><code class="p">.</code><code class="nx">prototype</code><code class="p">);</code>
+
+<code class="nx">myObject</code><code class="p">.</code><code class="nx">emit</code><code class="p">(</code><code class="s2">"somethingChanged"</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">receiver</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">assign</code><code class="p">(</code><code class="nx">receiver</code><code class="p">,</code>
+    <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"js"</code><code class="p">,</code>
+        <code class="nx">name</code><code class="o">:</code> <code class="s2">"file.js"</code>
+    <code class="p">},</code>
+    <code class="p">{</code>
+        <code class="nx">type</code><code class="o">:</code> <code class="s2">"css"</code>
+    <code class="p">}</code>
+<code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">receiver</code><code class="p">.</code><code class="nx">type</code><code class="p">);</code>     <code class="c1">// "css"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">receiver</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>     <code class="c1">// "file.js"</code>
+</pre>
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"Nicholas"</code><code class="p">,</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"Greg"</code>        <code class="c1">// syntax error in ES5 strict mode</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="s2">"use strict"</code><code class="p">;</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"Nicholas"</code><code class="p">,</code>
+    <code class="nx">name</code><code class="o">:</code> <code class="s2">"Greg"</code>        <code class="c1">// no error in ES6 strict mode</code>
+<code class="p">};</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>       <code class="c1">// "Greg"</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">obj</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">a</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+    <code class="mi">0</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+    <code class="nx">c</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+    <code class="mi">2</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+    <code class="nx">b</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+    <code class="mi">1</code><code class="o">:</code> <code class="mi">1</code>
+<code class="p">};</code>
+
+<code class="nx">obj</code><code class="p">.</code><code class="nx">d</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">getOwnPropertyNames</code><code class="p">(</code><code class="nx">obj</code><code class="p">).</code><code class="nx">join</code><code class="p">(</code><code class="s2">""</code><code class="p">));</code>     <code class="c1">// "012acbd"</code>
+</pre>

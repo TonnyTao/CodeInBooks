@@ -1,0 +1,9 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">toUint32</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nb">Math</code><code class="p">.</code><code class="nx">floor</code><code class="p">(</code><code class="nb">Math</code><code class="p">.</code><code class="nx">abs</code><code class="p">(</code><code class="nb">Number</code><code class="p">(</code><code class="nx">value</code><code class="p">)))</code> <code class="o">%</code> <code class="nb">Math</code><code class="p">.</code><code class="nx">pow</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">32</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="kd">function</code> <code class="nx">isArrayIndex</code><code class="p">(</code><code class="nx">key</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">let</code> <code class="nx">numericKey</code> <code class="o">=</code> <code class="nx">toUint32</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+    <code class="k">return</code> <code class="nb">String</code><code class="p">(</code><code class="nx">numericKey</code><code class="p">)</code> <code class="o">==</code> <code class="nx">key</code> <code class="o">&amp;&amp;</code> <code class="nx">numericKey</code> <code class="o">&lt;</code> <code class="p">(</code><code class="nb">Math</code><code class="p">.</code><code class="nx">pow</code><code class="p">(</code><code class="mi">2</code><code class="p">,</code> <code class="mi">32</code><code class="p">)</code> <code class="o">-</code> <code class="mi">1</code><code class="p">);</code>
+<code class="p">}</code>
+</pre>

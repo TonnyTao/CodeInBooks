@@ -1,0 +1,58 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">isArray</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">toString</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="o">===</code> <code class="s2">"[object Array]"</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">isArray</code><code class="p">([]));</code>   <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">supportsNativeJSON</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">typeof</code> <code class="nx">JSON</code> <code class="o">!==</code> <code class="s2">"undefined"</code> <code class="o">&amp;&amp;</code>
+        <code class="nb">Object</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">toString</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">JSON</code><code class="p">)</code> <code class="o">===</code> <code class="s2">"[object JSON]"</code><code class="p">;</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">Person</code><code class="p">.</code><code class="nx">prototype</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">toStringTag</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"Person"</code><code class="p">;</code>
+
+<code class="kd">let</code> <code class="nx">me</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">me</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>                         <code class="c1">// "[object Person]"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">toString</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">me</code><code class="p">));</code>    <code class="c1">// "[object Person]"</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">Person</code><code class="p">.</code><code class="nx">prototype</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">toStringTag</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"Person"</code><code class="p">;</code>
+
+<code class="nx">Person</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">toString</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">;</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">me</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">me</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>                         <code class="c1">// "Nicholas"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">toString</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">me</code><code class="p">));</code>    <code class="c1">// "[object Person]"</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">Person</code><code class="p">.</code><code class="nx">prototype</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">toStringTag</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"Array"</code><code class="p">;</code>
+
+<code class="nx">Person</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">toString</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">;</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">me</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Person</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">me</code><code class="p">.</code><code class="nx">toString</code><code class="p">());</code>                         <code class="c1">// "Nicholas"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">toString</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">me</code><code class="p">));</code>    <code class="c1">// "[object Array]"</code>
+</pre>
+<pre><code></code><code class="nb">Array</code><code class="p">.</code><code class="nx">prototype</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">toStringTag</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"Magic"</code><code class="p">;</code>
+
+<code class="kd">let</code> <code class="nx">values</code> <code class="o">=</code> <code class="p">[];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">toString</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">values</code><code class="p">));</code>    <code class="c1">// "[object Magic]"</code>
+</pre>

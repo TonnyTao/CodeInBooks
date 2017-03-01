@@ -1,0 +1,29 @@
+<pre><code></code><code class="kr">class</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">getArea</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="k">this</code><code class="p">.</code><code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="kr">static</code> <code class="nx">create</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">new</code> <code class="nx">Rectangle</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="c1">// same as Rectangle.call(this, length, length)</code>
+        <code class="kr">super</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">length</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">rect</code> <code class="o">=</code> <code class="nx">Square</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">rect</code> <code class="k">instanceof</code> <code class="nx">Rectangle</code><code class="p">);</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">rect</code><code class="p">.</code><code class="nx">getArea</code><code class="p">());</code>                <code class="c1">// 12</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">rect</code> <code class="k">instanceof</code> <code class="nx">Square</code><code class="p">);</code>        <code class="c1">// false</code>
+</pre>

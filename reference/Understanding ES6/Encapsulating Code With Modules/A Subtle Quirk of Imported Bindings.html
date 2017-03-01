@@ -1,0 +1,25 @@
+<pre><code></code><code class="kr">export</code> <code class="kd">var</code> <code class="nx">name</code> <code class="o">=</code> <code class="s2">"Nicholas"</code><code class="p">;</code>
+<code class="kr">export</code> <code class="kd">function</code> <code class="nx">setName</code><code class="p">(</code><code class="nx">newName</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">name</code> <code class="o">=</code> <code class="nx">newName</code><code class="p">;</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kr">import</code> <code class="p">{</code> <code class="nx">name</code><code class="p">,</code> <code class="nx">setName</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>       <code class="c1">// "Nicholas"</code>
+<code class="nx">setName</code><code class="p">(</code><code class="s2">"Greg"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>       <code class="c1">// "Greg"</code>
+
+<code class="nx">name</code> <code class="o">=</code> <code class="s2">"Nicholas"</code><code class="p">;</code>       <code class="c1">// error</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">sum</code><code class="p">(</code><code class="nx">num1</code><code class="p">,</code> <code class="nx">num2</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">num1</code> <code class="o">+</code> <code class="nx">num2</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="kr">export</code> <code class="p">{</code> <code class="nx">sum</code> <code class="nx">as</code> <code class="nx">add</code> <code class="p">};</code>
+</pre>
+<pre><code></code><code class="kr">import</code> <code class="p">{</code> <code class="nx">add</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kr">import</code> <code class="p">{</code> <code class="nx">add</code> <code class="nx">as</code> <code class="nx">sum</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example.js"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">add</code><code class="p">);</code>            <code class="c1">// "undefined"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">sum</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">));</code>             <code class="c1">// 3</code>
+</pre>

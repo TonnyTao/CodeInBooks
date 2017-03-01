@@ -1,0 +1,38 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">items</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Array</code><code class="p">(</code><code class="mi">2</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// undefined</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// undefined</code>
+
+<code class="nx">items</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Array</code><code class="p">(</code><code class="s2">"2"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// "2"</code>
+
+<code class="nx">items</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Array</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// 2</code>
+
+<code class="nx">items</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Array</code><code class="p">(</code><code class="mi">3</code><code class="p">,</code> <code class="s2">"2"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 3</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// "2"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">items</code> <code class="o">=</code> <code class="nb">Array</code><code class="p">.</code><code class="k">of</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">1</code><code class="p">]);</code>              <code class="c1">// 2</code>
+
+<code class="nx">items</code> <code class="o">=</code> <code class="nb">Array</code><code class="p">.</code><code class="k">of</code><code class="p">(</code><code class="mi">2</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// 2</code>
+
+<code class="nx">items</code> <code class="o">=</code> <code class="nb">Array</code><code class="p">.</code><code class="k">of</code><code class="p">(</code><code class="s2">"2"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>          <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">items</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>              <code class="c1">// "2"</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">createArray</code><code class="p">(</code><code class="nx">arrayCreator</code><code class="p">,</code> <code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">arrayCreator</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">items</code> <code class="o">=</code> <code class="nx">createArray</code><code class="p">(</code><code class="nb">Array</code><code class="p">.</code><code class="k">of</code><code class="p">,</code> <code class="nx">value</code><code class="p">);</code>
+</pre>

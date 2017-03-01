@@ -1,0 +1,35 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">Numbers</code><code class="p">(...</code><code class="nx">values</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="k">if</code> <code class="p">(</code><code class="k">typeof</code> <code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">===</code> <code class="s2">"undefined"</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nx">TypeError</code><code class="p">(</code><code class="s2">"This function must be called with new."</code><code class="p">);</code>
+    <code class="p">}</code>
+
+    <code class="k">this</code><code class="p">.</code><code class="nx">values</code> <code class="o">=</code> <code class="nx">values</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">instance</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Numbers</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">instance</code><code class="p">.</code><code class="nx">values</code><code class="p">);</code>               <code class="c1">// [1,2,3,4]</code>
+
+<code class="c1">// throws error</code>
+<code class="nx">Numbers</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Numbers</code><code class="p">(...</code><code class="nx">values</code><code class="p">)</code> <code class="p">{</code>
+
+    <code class="k">if</code> <code class="p">(</code><code class="k">typeof</code> <code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">===</code> <code class="s2">"undefined"</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">throw</code> <code class="k">new</code> <code class="nx">TypeError</code><code class="p">(</code><code class="s2">"This function must be called with new."</code><code class="p">);</code>
+    <code class="p">}</code>
+
+    <code class="k">this</code><code class="p">.</code><code class="nx">values</code> <code class="o">=</code> <code class="nx">values</code><code class="p">;</code>
+<code class="p">}</code>
+
+
+<code class="kd">let</code> <code class="nx">NumbersProxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">Numbers</code><code class="p">,</code> <code class="p">{</code>
+        <code class="nx">apply</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">thisArg</code><code class="p">,</code> <code class="nx">argumentsList</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">construct</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">argumentsList</code><code class="p">);</code>
+        <code class="p">}</code>
+    <code class="p">});</code>
+
+
+<code class="kd">let</code> <code class="nx">instance</code> <code class="o">=</code> <code class="nx">NumbersProxy</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">instance</code><code class="p">.</code><code class="nx">values</code><code class="p">);</code>               <code class="c1">// [1,2,3,4]</code>
+</pre>

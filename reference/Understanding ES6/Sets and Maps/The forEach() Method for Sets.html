@@ -1,0 +1,40 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">]);</code>
+
+<code class="nx">set</code><code class="p">.</code><code class="nx">forEach</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">ownerSet</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">key</code> <code class="o">+</code> <code class="s2">" "</code> <code class="o">+</code> <code class="nx">value</code><code class="p">);</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">ownerSet</code> <code class="o">===</code> <code class="nx">set</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code>1 1
+true
+2 2
+true
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">]);</code>
+
+<code class="kd">let</code> <code class="nx">processor</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">output</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+    <code class="p">},</code>
+    <code class="nx">process</code><code class="p">(</code><code class="nx">dataSet</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">dataSet</code><code class="p">.</code><code class="nx">forEach</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">this</code><code class="p">.</code><code class="nx">output</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+        <code class="p">},</code> <code class="k">this</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="nx">processor</code><code class="p">.</code><code class="nx">process</code><code class="p">(</code><code class="nx">set</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">]);</code>
+
+<code class="kd">let</code> <code class="nx">processor</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">output</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+    <code class="p">},</code>
+    <code class="nx">process</code><code class="p">(</code><code class="nx">dataSet</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">dataSet</code><code class="p">.</code><code class="nx">forEach</code><code class="p">((</code><code class="nx">value</code><code class="p">)</code> <code class="o">=&gt;</code> <code class="k">this</code><code class="p">.</code><code class="nx">output</code><code class="p">(</code><code class="nx">value</code><code class="p">));</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="nx">processor</code><code class="p">.</code><code class="nx">process</code><code class="p">(</code><code class="nx">set</code><code class="p">);</code>
+</pre>

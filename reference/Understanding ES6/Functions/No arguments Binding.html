@@ -1,0 +1,8 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">createArrowFunctionReturningFirstArg</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="p">()</code> <code class="o">=&gt;</code> <code class="nx">arguments</code><code class="p">[</code><code class="mi">0</code><code class="p">];</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">arrowFunction</code> <code class="o">=</code> <code class="nx">createArrowFunctionReturningFirstArg</code><code class="p">(</code><code class="mi">5</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">arrowFunction</code><code class="p">());</code>       <code class="c1">// 5</code>
+</pre>

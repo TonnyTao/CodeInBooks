@@ -1,0 +1,38 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{};</code>
+<code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">isExtensible</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">);</code>
+    <code class="p">},</code>
+    <code class="nx">preventExtensions</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">preventExtensions</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">target</code><code class="p">));</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">proxy</code><code class="p">));</code>        <code class="c1">// true</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">preventExtensions</code><code class="p">(</code><code class="nx">proxy</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">target</code><code class="p">));</code>       <code class="c1">// false</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">proxy</code><code class="p">));</code>        <code class="c1">// false</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{};</code>
+<code class="kd">let</code> <code class="nx">proxy</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">isExtensible</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">);</code>
+    <code class="p">},</code>
+    <code class="nx">preventExtensions</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="kc">false</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">target</code><code class="p">));</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">proxy</code><code class="p">));</code>        <code class="c1">// true</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">preventExtensions</code><code class="p">(</code><code class="nx">proxy</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">target</code><code class="p">));</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nb">Object</code><code class="p">.</code><code class="nx">isExtensible</code><code class="p">(</code><code class="nx">proxy</code><code class="p">));</code>        <code class="c1">// true</code>
+</pre>

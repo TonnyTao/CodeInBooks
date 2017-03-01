@@ -1,0 +1,18 @@
+<pre><code></code><code class="c1">// imports from https://www.example.com/modules/example1.js</code>
+<code class="kr">import</code> <code class="p">{</code> <code class="nx">first</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"./example1.js"</code><code class="p">;</code>
+
+<code class="c1">// imports from https://www.example.com/example2.js</code>
+<code class="kr">import</code> <code class="p">{</code> <code class="nx">second</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"../example2.js"</code><code class="p">;</code>
+
+<code class="c1">// imports from https://www.example.com/example3.js</code>
+<code class="kr">import</code> <code class="p">{</code> <code class="nx">third</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"/example3.js"</code><code class="p">;</code>
+
+<code class="c1">// imports from https://www2.example.com/example4.js</code>
+<code class="kr">import</code> <code class="p">{</code> <code class="nx">fourth</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"https://www2.example.com/example4.js"</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="c1">// invalid - doesn't begin with /, ./, or ../</code>
+<code class="kr">import</code> <code class="p">{</code> <code class="nx">first</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"example.js"</code><code class="p">;</code>
+
+<code class="c1">// invalid - doesn't begin with /, ./, or ../</code>
+<code class="kr">import</code> <code class="p">{</code> <code class="nx">second</code> <code class="p">}</code> <code class="nx">from</code> <code class="s2">"example/index.js"</code><code class="p">;</code>
+</pre>

@@ -1,0 +1,298 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">PersonClass</code> <code class="o">=</code> <code class="kr">class</code> <code class="nx">PersonClass2</code> <code class="p">{</code>
+
+    <code class="c1">// equivalent of the PersonType constructor</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="c1">// equivalent of PersonType.prototype.sayName</code>
+    <code class="nx">sayName</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">PersonClass</code><code class="p">);</code>        <code class="c1">// "function"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">PersonClass2</code><code class="p">);</code>       <code class="c1">// "undefined"</code>
+</pre>
+<pre><code></code><code class="c1">// direct equivalent of PersonClass named class expression</code>
+<code class="kd">let</code> <code class="nx">PersonClass</code> <code class="o">=</code> <code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+
+    <code class="s2">"use strict"</code><code class="p">;</code>
+
+    <code class="kr">const</code> <code class="nx">PersonClass2</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="c1">// make sure the function was called with new</code>
+        <code class="k">if</code> <code class="p">(</code><code class="k">typeof</code> <code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">===</code> <code class="s2">"undefined"</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"Constructor must be called with new."</code><code class="p">);</code>
+        <code class="p">}</code>
+
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">PersonClass2</code><code class="p">.</code><code class="nx">prototype</code><code class="p">,</code> <code class="s2">"sayName"</code><code class="p">,</code> <code class="p">{</code>
+        <code class="nx">value</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+
+            <code class="c1">// make sure the method wasn't called with new</code>
+            <code class="k">if</code> <code class="p">(</code><code class="k">typeof</code> <code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">!==</code> <code class="s2">"undefined"</code><code class="p">)</code> <code class="p">{</code>
+                <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"Method cannot be called with new."</code><code class="p">);</code>
+            <code class="p">}</code>
+
+            <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+        <code class="p">},</code>
+        <code class="nx">enumerable</code><code class="o">:</code> <code class="kc">false</code><code class="p">,</code>
+        <code class="nx">writable</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">configurable</code><code class="o">:</code> <code class="kc">true</code>
+    <code class="p">});</code>
+
+    <code class="k">return</code> <code class="nx">PersonClass2</code><code class="p">;</code>
+<code class="p">}());</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">createObject</code><code class="p">(</code><code class="nx">classDef</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">new</code> <code class="nx">classDef</code><code class="p">();</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">obj</code> <code class="o">=</code> <code class="nx">createObject</code><code class="p">(</code><code class="kr">class</code> <code class="p">{</code>
+
+    <code class="nx">sayHi</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Hi!"</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="nx">obj</code><code class="p">.</code><code class="nx">sayHi</code><code class="p">();</code>        <code class="c1">// "Hi!"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="k">new</code> <code class="kr">class</code> <code class="p">{</code>
+
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">sayName</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+    <code class="p">}</code>
+
+<code class="p">}(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+
+<code class="nx">person</code><code class="p">.</code><code class="nx">sayName</code><code class="p">();</code>       <code class="c1">// "Nicholas"</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">CustomHTMLElement</code> <code class="p">{</code>
+
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">element</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">element</code> <code class="o">=</code> <code class="nx">element</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">get</code> <code class="nx">html</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">element</code><code class="p">.</code><code class="nx">innerHTML</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">set</code> <code class="nx">html</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">element</code><code class="p">.</code><code class="nx">innerHTML</code> <code class="o">=</code> <code class="nx">value</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">descriptor</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getOwnPropertyDescriptor</code><code class="p">(</code><code class="nx">CustomHTMLElement</code><code class="p">.</code><code class="nx">prototype</code><code class="p">,</code><code class="o">\</code>
+ <code class="s2">"html"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"get"</code> <code class="k">in</code> <code class="nx">descriptor</code><code class="p">);</code>   <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"set"</code> <code class="k">in</code> <code class="nx">descriptor</code><code class="p">);</code>   <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">descriptor</code><code class="p">.</code><code class="nx">enumerable</code><code class="p">);</code> <code class="c1">// false</code>
+</pre>
+<pre><code></code><code class="c1">// direct equivalent to previous example</code>
+<code class="kd">let</code> <code class="nx">CustomHTMLElement</code> <code class="o">=</code> <code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+
+    <code class="s2">"use strict"</code><code class="p">;</code>
+
+    <code class="kr">const</code> <code class="nx">CustomHTMLElement</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">element</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="c1">// make sure the function was called with new</code>
+        <code class="k">if</code> <code class="p">(</code><code class="k">typeof</code> <code class="k">new</code><code class="p">.</code><code class="nx">target</code> <code class="o">===</code> <code class="s2">"undefined"</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"Constructor must be called with new."</code><code class="p">);</code>
+        <code class="p">}</code>
+
+        <code class="k">this</code><code class="p">.</code><code class="nx">element</code> <code class="o">=</code> <code class="nx">element</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">CustomHTMLElement</code><code class="p">.</code><code class="nx">prototype</code><code class="p">,</code> <code class="s2">"html"</code><code class="p">,</code> <code class="p">{</code>
+        <code class="nx">enumerable</code><code class="o">:</code> <code class="kc">false</code><code class="p">,</code>
+        <code class="nx">configurable</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">get</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">element</code><code class="p">.</code><code class="nx">innerHTML</code><code class="p">;</code>
+        <code class="p">},</code>
+        <code class="nx">set</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">this</code><code class="p">.</code><code class="nx">element</code><code class="p">.</code><code class="nx">innerHTML</code> <code class="o">=</code> <code class="nx">value</code><code class="p">;</code>
+        <code class="p">}</code>
+    <code class="p">});</code>
+
+    <code class="k">return</code> <code class="nx">CustomHTMLElement</code><code class="p">;</code>
+<code class="p">}());</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">methodName</code> <code class="o">=</code> <code class="s2">"sayName"</code><code class="p">;</code>
+
+<code class="kr">class</code> <code class="nx">PersonClass</code> <code class="p">{</code>
+
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="p">[</code><code class="nx">methodName</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">me</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">PersonClass</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+<code class="nx">me</code><code class="p">.</code><code class="nx">sayName</code><code class="p">();</code>           <code class="c1">// "Nicholas"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">propertyName</code> <code class="o">=</code> <code class="s2">"html"</code><code class="p">;</code>
+
+<code class="kr">class</code> <code class="nx">CustomHTMLElement</code> <code class="p">{</code>
+
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">element</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">element</code> <code class="o">=</code> <code class="nx">element</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">get</code> <code class="p">[</code><code class="nx">propertyName</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">element</code><code class="p">.</code><code class="nx">innerHTML</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">set</code> <code class="p">[</code><code class="nx">propertyName</code><code class="p">](</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">element</code><code class="p">.</code><code class="nx">innerHTML</code> <code class="o">=</code> <code class="nx">value</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">MyClass</code> <code class="p">{</code>
+
+    <code class="o">*</code><code class="nx">createIterator</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">yield</code> <code class="mi">1</code><code class="p">;</code>
+        <code class="k">yield</code> <code class="mi">2</code><code class="p">;</code>
+        <code class="k">yield</code> <code class="mi">3</code><code class="p">;</code>
+    <code class="p">}</code>
+
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">instance</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyClass</code><code class="p">();</code>
+<code class="kd">let</code> <code class="nx">iterator</code> <code class="o">=</code> <code class="nx">instance</code><code class="p">.</code><code class="nx">createIterator</code><code class="p">();</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">Collection</code> <code class="p">{</code>
+
+    <code class="nx">constructor</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">items</code> <code class="o">=</code> <code class="p">[];</code>
+    <code class="p">}</code>
+
+    <code class="o">*</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">iterator</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="k">yield</code> <code class="o">*</code><code class="k">this</code><code class="p">.</code><code class="nx">items</code><code class="p">.</code><code class="nx">values</code><code class="p">();</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">collection</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Collection</code><code class="p">();</code>
+<code class="nx">collection</code><code class="p">.</code><code class="nx">items</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="mi">1</code><code class="p">);</code>
+<code class="nx">collection</code><code class="p">.</code><code class="nx">items</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="mi">2</code><code class="p">);</code>
+<code class="nx">collection</code><code class="p">.</code><code class="nx">items</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="mi">3</code><code class="p">);</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">x</code> <code class="k">of</code> <code class="nx">collection</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">x</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="c1">// Output:</code>
+<code class="c1">// 1</code>
+<code class="c1">// 2</code>
+<code class="c1">// 3</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">PersonType</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="c1">// static method</code>
+<code class="nx">PersonType</code><code class="p">.</code><code class="nx">create</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">new</code> <code class="nx">PersonType</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>
+<code class="p">};</code>
+
+<code class="c1">// instance method</code>
+<code class="nx">PersonType</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">sayName</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+<code class="p">};</code>
+
+<code class="kd">var</code> <code class="nx">person</code> <code class="o">=</code> <code class="nx">PersonType</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">PersonClass</code> <code class="p">{</code>
+
+    <code class="c1">// equivalent of the PersonType constructor</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="c1">// equivalent of PersonType.prototype.sayName</code>
+    <code class="nx">sayName</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">this</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>
+    <code class="p">}</code>
+
+    <code class="c1">// equivalent of PersonType.create</code>
+    <code class="kr">static</code> <code class="nx">create</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">new</code> <code class="nx">PersonClass</code><code class="p">(</code><code class="nx">name</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="nx">PersonClass</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="s2">"Nicholas"</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Rectangle</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">Rectangle</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">getArea</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="k">this</code><code class="p">.</code><code class="nx">width</code><code class="p">;</code>
+<code class="p">};</code>
+
+<code class="kd">function</code> <code class="nx">Square</code><code class="p">(</code><code class="nx">length</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">Rectangle</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="k">this</code><code class="p">,</code> <code class="nx">length</code><code class="p">,</code> <code class="nx">length</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="nx">Square</code><code class="p">.</code><code class="nx">prototype</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="nx">Rectangle</code><code class="p">.</code><code class="nx">prototype</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="o">:</code> <code class="p">{</code>
+        <code class="nx">value</code><code class="o">:</code><code class="nx">Square</code><code class="p">,</code>
+        <code class="nx">enumerable</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">writable</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">configurable</code><code class="o">:</code> <code class="kc">true</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="kd">var</code> <code class="nx">square</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Square</code><code class="p">(</code><code class="mi">3</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">square</code><code class="p">.</code><code class="nx">getArea</code><code class="p">());</code>              <code class="c1">// 9</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">square</code> <code class="k">instanceof</code> <code class="nx">Square</code><code class="p">);</code>      <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">square</code> <code class="k">instanceof</code> <code class="nx">Rectangle</code><code class="p">);</code>   <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">width</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">=</code> <code class="nx">length</code><code class="p">;</code>
+        <code class="k">this</code><code class="p">.</code><code class="nx">width</code> <code class="o">=</code> <code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+
+    <code class="nx">getArea</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="k">this</code><code class="p">.</code><code class="nx">width</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">)</code> <code class="p">{</code>
+
+        <code class="c1">// same as Rectangle.call(this, length, length)</code>
+        <code class="kr">super</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">length</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+
+<code class="kd">var</code> <code class="nx">square</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Square</code><code class="p">(</code><code class="mi">3</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">square</code><code class="p">.</code><code class="nx">getArea</code><code class="p">());</code>              <code class="c1">// 9</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">square</code> <code class="k">instanceof</code> <code class="nx">Square</code><code class="p">);</code>      <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">square</code> <code class="k">instanceof</code> <code class="nx">Rectangle</code><code class="p">);</code>   <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="c1">// no constructor</code>
+<code class="p">}</code>
+
+<code class="c1">// Is equivalent to</code>
+
+<code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(...</code><code class="nx">args</code><code class="p">)</code> <code class="p">{</code>
+        <code class="kr">super</code><code class="p">(...</code><code class="nx">args</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+</pre>

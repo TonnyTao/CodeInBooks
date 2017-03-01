@@ -1,0 +1,18 @@
+<pre><code></code><code class="c1">// syntax error</code>
+<code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="o">-</code><code class="mi">5</code> <code class="o">**</code> <code class="mi">2</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="c1">// ok</code>
+<code class="kd">let</code> <code class="nx">result1</code> <code class="o">=</code> <code class="o">-</code><code class="p">(</code><code class="mi">5</code> <code class="o">**</code> <code class="mi">2</code><code class="p">);</code>    <code class="c1">// equal to -25</code>
+
+<code class="c1">// also ok</code>
+<code class="kd">let</code> <code class="nx">result2</code> <code class="o">=</code> <code class="p">(</code><code class="o">-</code><code class="mi">5</code><code class="p">)</code> <code class="o">**</code> <code class="mi">2</code><code class="p">;</code>    <code class="c1">// equal to 25</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">num1</code> <code class="o">=</code> <code class="mi">2</code><code class="p">,</code>
+    <code class="nx">num2</code> <code class="o">=</code> <code class="mi">2</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="o">++</code><code class="nx">num1</code> <code class="o">**</code> <code class="mi">2</code><code class="p">);</code>       <code class="c1">// 9</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">num1</code><code class="p">);</code>              <code class="c1">// 3</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">num2</code><code class="o">--</code> <code class="o">**</code> <code class="mi">2</code><code class="p">);</code>       <code class="c1">// 4</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">num2</code><code class="p">);</code>              <code class="c1">// 1</code>
+</pre>

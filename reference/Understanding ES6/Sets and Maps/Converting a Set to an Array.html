@@ -1,0 +1,14 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">set</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Set</code><code class="p">([</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">,</code> <code class="mi">5</code><code class="p">]),</code>
+    <code class="nx">array</code> <code class="o">=</code> <code class="p">[...</code><code class="nx">set</code><code class="p">];</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">array</code><code class="p">);</code>             <code class="c1">// [1,2,3,4,5]</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">eliminateDuplicates</code><code class="p">(</code><code class="nx">items</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="p">[...</code><code class="k">new</code> <code class="nx">Set</code><code class="p">(</code><code class="nx">items</code><code class="p">)];</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">numbers</code> <code class="o">=</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">3</code><code class="p">,</code> <code class="mi">4</code><code class="p">,</code> <code class="mi">5</code><code class="p">],</code>
+    <code class="nx">noDuplicates</code> <code class="o">=</code> <code class="nx">eliminateDuplicates</code><code class="p">(</code><code class="nx">numbers</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">noDuplicates</code><code class="p">);</code>      <code class="c1">// [1,2,3,4,5]</code>
+</pre>

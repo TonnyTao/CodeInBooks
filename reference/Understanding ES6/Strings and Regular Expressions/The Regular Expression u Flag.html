@@ -1,0 +1,23 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">text</code> <code class="o">=</code> <code class="s2">"𠮷"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">text</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>           <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="sr">/^.$/</code><code class="p">.</code><code class="nx">test</code><code class="p">(</code><code class="nx">text</code><code class="p">));</code>      <code class="c1">// false</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="err">/^.$/u.test(text));     // true</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">codePointLength</code><code class="p">(</code><code class="nx">text</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">result</code> <code class="o">=</code> <code class="nx">text</code><code class="p">.</code><code class="nx">match</code><code class="p">(</code><code class="err">/[\s\S]/gu);</code>
+    <code class="k">return</code> <code class="nx">result</code> <code class="o">?</code> <code class="nx">result</code><code class="p">.</code><code class="nx">length</code> <code class="o">:</code> <code class="mi">0</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">codePointLength</code><code class="p">(</code><code class="s2">"abc"</code><code class="p">));</code>    <code class="c1">// 3</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">codePointLength</code><code class="p">(</code><code class="s2">"𠮷bc"</code><code class="p">));</code>   <code class="c1">// 3</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">hasRegExpU</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">try</code> <code class="p">{</code>
+        <code class="kd">var</code> <code class="nx">pattern</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">RegExp</code><code class="p">(</code><code class="s2">"."</code><code class="p">,</code> <code class="s2">"u"</code><code class="p">);</code>
+        <code class="k">return</code> <code class="kc">true</code><code class="p">;</code>
+    <code class="p">}</code> <code class="k">catch</code> <code class="p">(</code><code class="nx">ex</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="kc">false</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+</pre>

@@ -1,0 +1,19 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">values</code> <code class="o">=</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">];</code>
+<code class="kd">let</code> <code class="nx">iterator</code> <code class="o">=</code> <code class="nx">values</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">iterator</code><code class="p">]();</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: 1, done: false }"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: 2, done: false }"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: 3, done: false }"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">iterator</code><code class="p">.</code><code class="nx">next</code><code class="p">());</code>           <code class="c1">// "{ value: undefined, done: true }"</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">isIterable</code><code class="p">(</code><code class="nx">object</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">typeof</code> <code class="nx">object</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">iterator</code><code class="p">]</code> <code class="o">===</code> <code class="s2">"function"</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">isIterable</code><code class="p">([</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">]));</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">isIterable</code><code class="p">(</code><code class="s2">"Hello"</code><code class="p">));</code>       <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">isIterable</code><code class="p">(</code><code class="k">new</code> <code class="nx">Map</code><code class="p">()));</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">isIterable</code><code class="p">(</code><code class="k">new</code> <code class="nx">Set</code><code class="p">()));</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">isIterable</code><code class="p">(</code><code class="k">new</code> <code class="nx">WeakMap</code><code class="p">()));</code> <code class="c1">// false</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">isIterable</code><code class="p">(</code><code class="k">new</code> <code class="nx">WeakSet</code><code class="p">()));</code> <code class="c1">// false</code>
+</pre>

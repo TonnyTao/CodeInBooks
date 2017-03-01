@@ -1,0 +1,18 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">comparator</code> <code class="o">=</code> <code class="p">(</code><code class="nx">a</code><code class="p">,</code> <code class="nx">b</code><code class="p">)</code> <code class="o">=&gt;</code> <code class="nx">a</code> <code class="o">-</code> <code class="nx">b</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="k">typeof</code> <code class="nx">comparator</code><code class="p">);</code>                 <code class="c1">// "function"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">comparator</code> <code class="k">instanceof</code> <code class="nb">Function</code><code class="p">);</code>    <code class="c1">// true</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">sum</code> <code class="o">=</code> <code class="p">(</code><code class="nx">num1</code><code class="p">,</code> <code class="nx">num2</code><code class="p">)</code> <code class="o">=&gt;</code> <code class="nx">num1</code> <code class="o">+</code> <code class="nx">num2</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">sum</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="kc">null</code><code class="p">,</code> <code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">));</code>      <code class="c1">// 3</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">sum</code><code class="p">.</code><code class="nx">apply</code><code class="p">(</code><code class="kc">null</code><code class="p">,</code> <code class="p">[</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">]));</code>   <code class="c1">// 3</code>
+
+<code class="kd">var</code> <code class="nx">boundSum</code> <code class="o">=</code> <code class="nx">sum</code><code class="p">.</code><code class="nx">bind</code><code class="p">(</code><code class="kc">null</code><code class="p">,</code> <code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">boundSum</code><code class="p">());</code>                <code class="c1">// 3</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">doSomethingElse</code><code class="p">();</code>   <code class="c1">// tail call</code>
+<code class="p">}</code>
+</pre>

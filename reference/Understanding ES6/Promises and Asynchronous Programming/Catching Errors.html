@@ -1,0 +1,21 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">p1</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">42</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="nx">p1</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"Boom!"</code><code class="p">);</code>
+<code class="p">}).</code><code class="k">catch</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">error</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">error</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>     <code class="c1">// "Boom!"</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">p1</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"Explosion!"</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="nx">p1</code><code class="p">.</code><code class="k">catch</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">error</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">error</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>     <code class="c1">// "Explosion!"</code>
+    <code class="k">throw</code> <code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"Boom!"</code><code class="p">);</code>
+<code class="p">}).</code><code class="k">catch</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">error</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">error</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>     <code class="c1">// "Boom!"</code>
+<code class="p">});</code>
+</pre>

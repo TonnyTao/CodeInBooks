@@ -1,0 +1,29 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">funcs</code> <code class="o">=</code> <code class="p">[];</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">i</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code> <code class="nx">i</code> <code class="o">&lt;</code> <code class="mi">10</code><code class="p">;</code> <code class="nx">i</code><code class="o">++</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">funcs</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">i</code><code class="p">);</code>
+    <code class="p">});</code>
+<code class="p">}</code>
+
+<code class="nx">funcs</code><code class="p">.</code><code class="nx">forEach</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">func</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">func</code><code class="p">();</code>     <code class="c1">// outputs 0, then 1, then 2, up to 9</code>
+<code class="p">})</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">funcs</code> <code class="o">=</code> <code class="p">[],</code>
+    <code class="nx">object</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">a</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">b</code><code class="o">:</code> <code class="kc">true</code><code class="p">,</code>
+        <code class="nx">c</code><code class="o">:</code> <code class="kc">true</code>
+    <code class="p">};</code>
+
+<code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">key</code> <code class="k">in</code> <code class="nx">object</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">funcs</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">key</code><code class="p">);</code>
+    <code class="p">});</code>
+<code class="p">}</code>
+
+<code class="nx">funcs</code><code class="p">.</code><code class="nx">forEach</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">func</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">func</code><code class="p">();</code>     <code class="c1">// outputs "a", then "b", then "c"</code>
+<code class="p">});</code>
+</pre>

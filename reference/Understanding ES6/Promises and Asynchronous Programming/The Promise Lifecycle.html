@@ -1,0 +1,44 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">promise</code> <code class="o">=</code> <code class="nx">readFile</code><code class="p">(</code><code class="s2">"example.txt"</code><code class="p">);</code>
+
+<code class="nx">promise</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">contents</code><code class="p">)</code> <code class="p">{</code>
+    <code class="c1">// fulfillment</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+<code class="p">},</code> <code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+    <code class="c1">// rejection</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">error</code><code class="p">(</code><code class="nx">err</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="nx">promise</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">contents</code><code class="p">)</code> <code class="p">{</code>
+    <code class="c1">// fulfillment</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="nx">promise</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kc">null</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+    <code class="c1">// rejection</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">error</code><code class="p">(</code><code class="nx">err</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="nx">promise</code><code class="p">.</code><code class="k">catch</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+    <code class="c1">// rejection</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">error</code><code class="p">(</code><code class="nx">err</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="c1">// is the same as:</code>
+
+<code class="nx">promise</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kc">null</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">err</code><code class="p">)</code> <code class="p">{</code>
+    <code class="c1">// rejection</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">error</code><code class="p">(</code><code class="nx">err</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">promise</code> <code class="o">=</code> <code class="nx">readFile</code><code class="p">(</code><code class="s2">"example.txt"</code><code class="p">);</code>
+
+<code class="c1">// original fulfillment handler</code>
+<code class="nx">promise</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">contents</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+
+    <code class="c1">// now add another</code>
+    <code class="nx">promise</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">contents</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">contents</code><code class="p">);</code>
+    <code class="p">});</code>
+<code class="p">});</code>
+</pre>

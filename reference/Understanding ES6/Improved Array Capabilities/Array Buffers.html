@@ -1,0 +1,11 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">10</code><code class="p">);</code>   <code class="c1">// allocate 10 bytes</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">10</code><code class="p">);</code>   <code class="c1">// allocate 10 bytes</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">buffer</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>     <code class="c1">// 10</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">buffer</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">ArrayBuffer</code><code class="p">(</code><code class="mi">10</code><code class="p">);</code>   <code class="c1">// allocate 10 bytes</code>
+
+
+<code class="kd">let</code> <code class="nx">buffer2</code> <code class="o">=</code> <code class="nx">buffer</code><code class="p">.</code><code class="nx">slice</code><code class="p">(</code><code class="mi">4</code><code class="p">,</code> <code class="mi">6</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">buffer2</code><code class="p">.</code><code class="nx">byteLength</code><code class="p">);</code>    <code class="c1">// 2</code>
+</pre>

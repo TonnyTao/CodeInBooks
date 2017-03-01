@@ -1,0 +1,102 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">setCookie</code><code class="p">(</code><code class="nx">name</code><code class="p">,</code> <code class="nx">value</code><code class="p">,</code>
+    <code class="p">{</code>
+        <code class="nx">secure</code> <code class="o">=</code> <code class="kc">false</code><code class="p">,</code>
+        <code class="nx">path</code> <code class="o">=</code> <code class="s2">"/"</code><code class="p">,</code>
+        <code class="nx">domain</code> <code class="o">=</code> <code class="s2">"example.com"</code><code class="p">,</code>
+        <code class="nx">expires</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Date</code><code class="p">(</code><code class="nb">Date</code><code class="p">.</code><code class="nx">now</code><code class="p">()</code> <code class="o">+</code> <code class="mi">360000000</code><code class="p">)</code>
+    <code class="p">}</code> <code class="o">=</code> <code class="p">{}</code>
+<code class="p">)</code> <code class="p">{</code>
+
+    <code class="c1">// ...</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">firstName</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">();</code>
+<code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="nx">person</code><code class="p">[</code><code class="nx">firstName</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"Nicholas"</code><code class="p">;</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="nx">firstName</code><code class="p">]);</code>     <code class="c1">// "Nicholas"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">firstName</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">(</code><code class="s2">"first name"</code><code class="p">);</code>
+<code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="nx">person</code><code class="p">[</code><code class="nx">firstName</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"Nicholas"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"first name"</code> <code class="k">in</code> <code class="nx">person</code><code class="p">);</code>        <code class="c1">// false</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="nx">firstName</code><code class="p">]);</code>             <code class="c1">// "Nicholas"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">firstName</code><code class="p">);</code>                     <code class="c1">// "Symbol(first name)"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">firstName</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">(</code><code class="s2">"first name"</code><code class="p">);</code>
+
+<code class="c1">// use a computed object literal property</code>
+<code class="kd">let</code> <code class="nx">person</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="p">[</code><code class="nx">firstName</code><code class="p">]</code><code class="o">:</code> <code class="s2">"Nicholas"</code>
+<code class="p">};</code>
+
+<code class="c1">// make the property read only</code>
+<code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="nx">person</code><code class="p">,</code> <code class="nx">firstName</code><code class="p">,</code> <code class="p">{</code> <code class="nx">writable</code><code class="o">:</code> <code class="kc">false</code> <code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">lastName</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">(</code><code class="s2">"last name"</code><code class="p">);</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperties</code><code class="p">(</code><code class="nx">person</code><code class="p">,</code> <code class="p">{</code>
+    <code class="p">[</code><code class="nx">lastName</code><code class="p">]</code><code class="o">:</code> <code class="p">{</code>
+        <code class="nx">value</code><code class="o">:</code> <code class="s2">"Zakas"</code><code class="p">,</code>
+        <code class="nx">writable</code><code class="o">:</code> <code class="kc">false</code>
+    <code class="p">}</code>
+<code class="p">});</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="nx">firstName</code><code class="p">]);</code>     <code class="c1">// "Nicholas"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">person</code><code class="p">[</code><code class="nx">lastName</code><code class="p">]);</code>      <code class="c1">// "Zakas"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">uid</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">);</code>
+<code class="kd">let</code> <code class="nx">object</code> <code class="o">=</code> <code class="p">{};</code>
+
+<code class="nx">object</code><code class="p">[</code><code class="nx">uid</code><code class="p">]</code> <code class="o">=</code> <code class="s2">"12345"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">object</code><code class="p">[</code><code class="nx">uid</code><code class="p">]);</code>       <code class="c1">// "12345"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">uid</code><code class="p">);</code>               <code class="c1">// "Symbol(uid)"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">uid</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">);</code>
+<code class="kd">let</code> <code class="nx">object</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="p">[</code><code class="nx">uid</code><code class="p">]</code><code class="o">:</code> <code class="s2">"12345"</code>
+<code class="p">};</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">object</code><code class="p">[</code><code class="nx">uid</code><code class="p">]);</code>       <code class="c1">// "12345"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">uid</code><code class="p">);</code>               <code class="c1">// "Symbol(uid)"</code>
+
+<code class="kd">let</code> <code class="nx">uid2</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">uid</code> <code class="o">===</code> <code class="nx">uid2</code><code class="p">);</code>      <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">object</code><code class="p">[</code><code class="nx">uid2</code><code class="p">]);</code>      <code class="c1">// "12345"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">uid2</code><code class="p">);</code>              <code class="c1">// "Symbol(uid)"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">uid</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">keyFor</code><code class="p">(</code><code class="nx">uid</code><code class="p">));</code>    <code class="c1">// "uid"</code>
+
+<code class="kd">let</code> <code class="nx">uid2</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">keyFor</code><code class="p">(</code><code class="nx">uid2</code><code class="p">));</code>   <code class="c1">// "uid"</code>
+
+<code class="kd">let</code> <code class="nx">uid3</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">keyFor</code><code class="p">(</code><code class="nx">uid3</code><code class="p">));</code>   <code class="c1">// undefined</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">uid</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">),</code>
+    <code class="nx">desc</code> <code class="o">=</code> <code class="nb">String</code><code class="p">(</code><code class="nx">uid</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">desc</code><code class="p">);</code>              <code class="c1">// "Symbol(uid)"</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">uid</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">),</code>
+    <code class="nx">desc</code> <code class="o">=</code> <code class="nx">uid</code> <code class="o">+</code> <code class="s2">""</code><code class="p">;</code>            <code class="c1">// error!</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">uid</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">),</code>
+    <code class="nx">sum</code> <code class="o">=</code> <code class="nx">uid</code> <code class="o">/</code> <code class="mi">1</code><code class="p">;</code>            <code class="c1">// error!</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">uid</code> <code class="o">=</code> <code class="nx">Symbol</code><code class="p">.</code><code class="k">for</code><code class="p">(</code><code class="s2">"uid"</code><code class="p">);</code>
+<code class="kd">let</code> <code class="nx">object</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="p">[</code><code class="nx">uid</code><code class="p">]</code><code class="o">:</code> <code class="s2">"12345"</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">symbols</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getOwnPropertySymbols</code><code class="p">(</code><code class="nx">object</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">symbols</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>        <code class="c1">// 1</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">symbols</code><code class="p">[</code><code class="mi">0</code><code class="p">]);</code>            <code class="c1">// "Symbol(uid)"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">object</code><code class="p">[</code><code class="nx">symbols</code><code class="p">[</code><code class="mi">0</code><code class="p">]]);</code>    <code class="c1">// "12345"</code>
+</pre>

@@ -1,0 +1,48 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">PageHandler</code> <code class="o">=</code> <code class="p">{</code>
+
+    <code class="nx">id</code><code class="o">:</code> <code class="s2">"123456"</code><code class="p">,</code>
+
+    <code class="nx">init</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nb">document</code><code class="p">.</code><code class="nx">addEventListener</code><code class="p">(</code><code class="s2">"click"</code><code class="p">,</code> <code class="kd">function</code><code class="p">(</code><code class="nx">event</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">this</code><code class="p">.</code><code class="nx">doSomething</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">type</code><code class="p">);</code>     <code class="c1">// error</code>
+        <code class="p">},</code> <code class="kc">false</code><code class="p">);</code>
+    <code class="p">},</code>
+
+    <code class="nx">doSomething</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">type</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Handling "</code> <code class="o">+</code> <code class="nx">type</code>  <code class="o">+</code> <code class="s2">" for "</code> <code class="o">+</code> <code class="k">this</code><code class="p">.</code><code class="nx">id</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">PageHandler</code> <code class="o">=</code> <code class="p">{</code>
+
+    <code class="nx">id</code><code class="o">:</code> <code class="s2">"123456"</code><code class="p">,</code>
+
+    <code class="nx">init</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nb">document</code><code class="p">.</code><code class="nx">addEventListener</code><code class="p">(</code><code class="s2">"click"</code><code class="p">,</code> <code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">event</code><code class="p">)</code> <code class="p">{</code>
+            <code class="k">this</code><code class="p">.</code><code class="nx">doSomething</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">type</code><code class="p">);</code>     <code class="c1">// no error</code>
+        <code class="p">}).</code><code class="nx">bind</code><code class="p">(</code><code class="k">this</code><code class="p">),</code> <code class="kc">false</code><code class="p">);</code>
+    <code class="p">},</code>
+
+    <code class="nx">doSomething</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">type</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Handling "</code> <code class="o">+</code> <code class="nx">type</code>  <code class="o">+</code> <code class="s2">" for "</code> <code class="o">+</code> <code class="k">this</code><code class="p">.</code><code class="nx">id</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">PageHandler</code> <code class="o">=</code> <code class="p">{</code>
+
+    <code class="nx">id</code><code class="o">:</code> <code class="s2">"123456"</code><code class="p">,</code>
+
+    <code class="nx">init</code><code class="o">:</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="nb">document</code><code class="p">.</code><code class="nx">addEventListener</code><code class="p">(</code><code class="s2">"click"</code><code class="p">,</code>
+                <code class="nx">event</code> <code class="o">=&gt;</code> <code class="k">this</code><code class="p">.</code><code class="nx">doSomething</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">type</code><code class="p">),</code> <code class="kc">false</code><code class="p">);</code>
+    <code class="p">},</code>
+
+    <code class="nx">doSomething</code><code class="o">:</code> <code class="kd">function</code><code class="p">(</code><code class="nx">type</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Handling "</code> <code class="o">+</code> <code class="nx">type</code>  <code class="o">+</code> <code class="s2">" for "</code> <code class="o">+</code> <code class="k">this</code><code class="p">.</code><code class="nx">id</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">MyType</code> <code class="o">=</code> <code class="p">()</code> <code class="o">=&gt;</code> <code class="p">{},</code>
+    <code class="nx">object</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">MyType</code><code class="p">();</code>  <code class="c1">// error - you can't use arrow functions with 'ne\</code>
+<code class="nx">w</code><code class="err">'</code>
+</pre>

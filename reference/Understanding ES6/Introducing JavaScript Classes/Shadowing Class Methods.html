@@ -1,0 +1,22 @@
+<pre><code></code><code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">)</code> <code class="p">{</code>
+        <code class="kr">super</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">length</code><code class="p">);</code>
+    <code class="p">}</code>
+
+    <code class="c1">// override and shadow Rectangle.prototype.getArea()</code>
+    <code class="nx">getArea</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">length</code> <code class="o">*</code> <code class="k">this</code><code class="p">.</code><code class="nx">length</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kr">class</code> <code class="nx">Square</code> <code class="kr">extends</code> <code class="nx">Rectangle</code> <code class="p">{</code>
+    <code class="nx">constructor</code><code class="p">(</code><code class="nx">length</code><code class="p">)</code> <code class="p">{</code>
+        <code class="kr">super</code><code class="p">(</code><code class="nx">length</code><code class="p">,</code> <code class="nx">length</code><code class="p">);</code>
+    <code class="p">}</code>
+
+    <code class="c1">// override, shadow, and call Rectangle.prototype.getArea()</code>
+    <code class="nx">getArea</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="kr">super</code><code class="p">.</code><code class="nx">getArea</code><code class="p">();</code>
+    <code class="p">}</code>
+<code class="p">}</code>
+</pre>

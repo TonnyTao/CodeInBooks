@@ -1,0 +1,20 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">target</code> <code class="o">=</code> <code class="p">{};</code>
+<code class="kd">let</code> <code class="nx">thing</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">create</code><code class="p">(</code><code class="k">new</code> <code class="nb">Proxy</code><code class="p">(</code><code class="nx">target</code><code class="p">,</code> <code class="p">{</code>
+    <code class="nx">set</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">value</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">Reflect</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">trapTarget</code><code class="p">,</code> <code class="nx">key</code><code class="p">,</code> <code class="nx">value</code><code class="p">,</code> <code class="nx">receiver</code><code class="p">);</code>
+    <code class="p">}</code>
+<code class="p">}));</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">thing</code><code class="p">.</code><code class="nx">hasOwnProperty</code><code class="p">(</code><code class="s2">"name"</code><code class="p">));</code>      <code class="c1">// false</code>
+
+<code class="c1">// triggers the `set` proxy trap</code>
+<code class="nx">thing</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="s2">"thing"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">thing</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>                        <code class="c1">// "thing"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">thing</code><code class="p">.</code><code class="nx">hasOwnProperty</code><code class="p">(</code><code class="s2">"name"</code><code class="p">));</code>      <code class="c1">// true</code>
+
+<code class="c1">// does not trigger the `set` proxy trap</code>
+<code class="nx">thing</code><code class="p">.</code><code class="nx">name</code> <code class="o">=</code> <code class="s2">"boo"</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">thing</code><code class="p">.</code><code class="nx">name</code><code class="p">);</code>                        <code class="c1">// "boo"</code>
+</pre>

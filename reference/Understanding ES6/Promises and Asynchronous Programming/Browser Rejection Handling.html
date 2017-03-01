@@ -1,0 +1,65 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">rejected</code><code class="p">;</code>
+
+<code class="nb">window</code><code class="p">.</code><code class="nx">onunhandledrejection</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">event</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">type</code><code class="p">);</code>                    <code class="c1">// "unhandledrejection"</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">reason</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>          <code class="c1">// "Explosion!"</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">rejected</code> <code class="o">===</code> <code class="nx">event</code><code class="p">.</code><code class="nx">promise</code><code class="p">);</code>    <code class="c1">// true</code>
+<code class="p">};</code>
+
+<code class="nb">window</code><code class="p">.</code><code class="nx">onrejectionhandled</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">event</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">type</code><code class="p">);</code>                    <code class="c1">// "rejectionhandled"</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">reason</code><code class="p">.</code><code class="nx">message</code><code class="p">);</code>          <code class="c1">// "Explosion!"</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">rejected</code> <code class="o">===</code> <code class="nx">event</code><code class="p">.</code><code class="nx">promise</code><code class="p">);</code>    <code class="c1">// true</code>
+<code class="p">};</code>
+
+<code class="nx">rejected</code> <code class="o">=</code> <code class="nb">Promise</code><code class="p">.</code><code class="nx">reject</code><code class="p">(</code><code class="k">new</code> <code class="nb">Error</code><code class="p">(</code><code class="s2">"Explosion!"</code><code class="p">));</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">possiblyUnhandledRejections</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">Map</code><code class="p">();</code>
+
+<code class="c1">// when a rejection is unhandled, add it to the map</code>
+<code class="nb">window</code><code class="p">.</code><code class="nx">onunhandledrejection</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">event</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">possiblyUnhandledRejections</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">promise</code><code class="p">,</code> <code class="nx">event</code><code class="p">.</code><code class="nx">reason</code><code class="p">);</code>
+<code class="p">};</code>
+
+<code class="nb">window</code><code class="p">.</code><code class="nx">onrejectionhandled</code> <code class="o">=</code> <code class="kd">function</code><code class="p">(</code><code class="nx">event</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">possiblyUnhandledRejections</code><code class="p">.</code><code class="k">delete</code><code class="p">(</code><code class="nx">event</code><code class="p">.</code><code class="nx">promise</code><code class="p">);</code>
+<code class="p">};</code>
+
+<code class="nx">setInterval</code><code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+
+    <code class="nx">possiblyUnhandledRejections</code><code class="p">.</code><code class="nx">forEach</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">reason</code><code class="p">,</code> <code class="nx">promise</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">reason</code><code class="p">.</code><code class="nx">message</code> <code class="o">?</code> <code class="nx">reason</code><code class="p">.</code><code class="nx">message</code> <code class="o">:</code> <code class="nx">reason</code><code class="p">);</code>
+
+        <code class="c1">// do something to handle these rejections</code>
+        <code class="nx">handleRejection</code><code class="p">(</code><code class="nx">promise</code><code class="p">,</code> <code class="nx">reason</code><code class="p">);</code>
+    <code class="p">});</code>
+
+    <code class="nx">possiblyUnhandledRejections</code><code class="p">.</code><code class="nx">clear</code><code class="p">();</code>
+
+<code class="p">},</code> <code class="mi">60000</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">p1</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">42</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="nx">p1</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+<code class="p">}).</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Finished"</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>
+<pre><code></code>42
+Finished
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">p1</code> <code class="o">=</code> <code class="k">new</code> <code class="nb">Promise</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">resolve</code><code class="p">,</code> <code class="nx">reject</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">resolve</code><code class="p">(</code><code class="mi">42</code><code class="p">);</code>
+<code class="p">});</code>
+
+<code class="kd">let</code> <code class="nx">p2</code> <code class="o">=</code> <code class="nx">p1</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>
+<code class="p">})</code>
+
+<code class="nx">p2</code><code class="p">.</code><code class="nx">then</code><code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="s2">"Finished"</code><code class="p">);</code>
+<code class="p">});</code>
+</pre>

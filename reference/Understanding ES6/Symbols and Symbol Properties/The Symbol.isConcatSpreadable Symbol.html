@@ -1,0 +1,24 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">colors1</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code> <code class="p">],</code>
+    <code class="nx">colors2</code> <code class="o">=</code> <code class="nx">colors1</code><code class="p">.</code><code class="nx">concat</code><code class="p">([</code> <code class="s2">"blue"</code><code class="p">,</code> <code class="s2">"black"</code> <code class="p">]);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors2</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>    <code class="c1">// 4</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors2</code><code class="p">);</code>           <code class="c1">// ["red","green","blue","black"]</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">colors1</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"red"</code><code class="p">,</code> <code class="s2">"green"</code> <code class="p">],</code>
+    <code class="nx">colors2</code> <code class="o">=</code> <code class="nx">colors1</code><code class="p">.</code><code class="nx">concat</code><code class="p">([</code> <code class="s2">"blue"</code><code class="p">,</code> <code class="s2">"black"</code> <code class="p">],</code> <code class="s2">"brown"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors2</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>    <code class="c1">// 5</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">colors2</code><code class="p">);</code>           <code class="c1">// ["red","green","blue","black","brown"]</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">collection</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="mi">0</code><code class="o">:</code> <code class="s2">"Hello"</code><code class="p">,</code>
+    <code class="mi">1</code><code class="o">:</code> <code class="s2">"world"</code><code class="p">,</code>
+    <code class="nx">length</code><code class="o">:</code> <code class="mi">2</code><code class="p">,</code>
+    <code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">isConcatSpreadable</code><code class="p">]</code><code class="o">:</code> <code class="kc">true</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">messages</code> <code class="o">=</code> <code class="p">[</code> <code class="s2">"Hi"</code> <code class="p">].</code><code class="nx">concat</code><code class="p">(</code><code class="nx">collection</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">messages</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>    <code class="c1">// 3</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">messages</code><code class="p">);</code>           <code class="c1">// ["Hi","Hello","world"]</code>
+</pre>

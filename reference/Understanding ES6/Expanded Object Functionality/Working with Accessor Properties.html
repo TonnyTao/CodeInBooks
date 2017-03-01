@@ -1,0 +1,14 @@
+<pre><code></code><code class="kd">var</code> <code class="nx">receiver</code> <code class="o">=</code> <code class="p">{},</code>
+    <code class="nx">supplier</code> <code class="o">=</code> <code class="p">{</code>
+        <code class="nx">get</code> <code class="nx">name</code><code class="p">()</code> <code class="p">{</code>
+            <code class="k">return</code> <code class="s2">"file.js"</code>
+        <code class="p">}</code>
+    <code class="p">};</code>
+
+<code class="nb">Object</code><code class="p">.</code><code class="nx">assign</code><code class="p">(</code><code class="nx">receiver</code><code class="p">,</code> <code class="nx">supplier</code><code class="p">);</code>
+
+<code class="kd">var</code> <code class="nx">descriptor</code> <code class="o">=</code> <code class="nb">Object</code><code class="p">.</code><code class="nx">getOwnPropertyDescriptor</code><code class="p">(</code><code class="nx">receiver</code><code class="p">,</code> <code class="s2">"name"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">descriptor</code><code class="p">.</code><code class="nx">value</code><code class="p">);</code>      <code class="c1">// "file.js"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">descriptor</code><code class="p">.</code><code class="nx">get</code><code class="p">);</code>        <code class="c1">// undefined</code>
+</pre>

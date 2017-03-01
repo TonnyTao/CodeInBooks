@@ -1,0 +1,34 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">getValue</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">value</code> <code class="o">+</code> <code class="mi">5</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="kd">function</code> <code class="nx">add</code><code class="p">(</code><code class="nx">first</code><code class="p">,</code> <code class="nx">second</code> <code class="o">=</code> <code class="nx">getValue</code><code class="p">(</code><code class="nx">first</code><code class="p">))</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">first</code> <code class="o">+</code> <code class="nx">second</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">add</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">1</code><code class="p">));</code>     <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">add</code><code class="p">(</code><code class="mi">1</code><code class="p">));</code>        <code class="c1">// 7</code>
+</pre>
+<pre><code></code><code class="c1">// JavaScript representation of call to add(1, 1)</code>
+<code class="kd">let</code> <code class="nx">first</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+<code class="kd">let</code> <code class="nx">second</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+
+<code class="c1">// JavaScript representation of call to add(1)</code>
+<code class="kd">let</code> <code class="nx">first</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+<code class="kd">let</code> <code class="nx">second</code> <code class="o">=</code> <code class="nx">getValue</code><code class="p">(</code><code class="nx">first</code><code class="p">);</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">add</code><code class="p">(</code><code class="nx">first</code> <code class="o">=</code> <code class="nx">second</code><code class="p">,</code> <code class="nx">second</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nx">first</code> <code class="o">+</code> <code class="nx">second</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">add</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">1</code><code class="p">));</code>         <code class="c1">// 2</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">add</code><code class="p">(</code><code class="kc">undefined</code><code class="p">,</code> <code class="mi">1</code><code class="p">));</code> <code class="c1">// throws error</code>
+</pre>
+<pre><code></code><code class="c1">// JavaScript representation of call to add(1, 1)</code>
+<code class="kd">let</code> <code class="nx">first</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+<code class="kd">let</code> <code class="nx">second</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+
+<code class="c1">// JavaScript representation of call to add(undefined, 1)</code>
+<code class="kd">let</code> <code class="nx">first</code> <code class="o">=</code> <code class="nx">second</code><code class="p">;</code>
+<code class="kd">let</code> <code class="nx">second</code> <code class="o">=</code> <code class="mi">1</code><code class="p">;</code>
+</pre>

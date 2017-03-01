@@ -1,0 +1,68 @@
+<pre><code></code><code class="kd">function</code> <code class="nx">makeArray</code><code class="p">(</code><code class="nx">arrayLike</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">result</code> <code class="o">=</code> <code class="p">[];</code>
+
+    <code class="k">for</code> <code class="p">(</code><code class="kd">var</code> <code class="nx">i</code> <code class="o">=</code> <code class="mi">0</code><code class="p">,</code> <code class="nx">len</code> <code class="o">=</code> <code class="nx">arrayLike</code><code class="p">.</code><code class="nx">length</code><code class="p">;</code> <code class="nx">i</code> <code class="o">&lt;</code> <code class="nx">len</code><code class="p">;</code> <code class="nx">i</code><code class="o">++</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">result</code><code class="p">.</code><code class="nx">push</code><code class="p">(</code><code class="nx">arrayLike</code><code class="p">[</code><code class="nx">i</code><code class="p">]);</code>
+    <code class="p">}</code>
+
+    <code class="k">return</code> <code class="nx">result</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">args</code> <code class="o">=</code> <code class="nx">makeArray</code><code class="p">(</code><code class="nx">arguments</code><code class="p">);</code>
+
+    <code class="c1">// use args</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">makeArray</code><code class="p">(</code><code class="nx">arrayLike</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nb">Array</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">slice</code><code class="p">.</code><code class="nx">call</code><code class="p">(</code><code class="nx">arrayLike</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">args</code> <code class="o">=</code> <code class="nx">makeArray</code><code class="p">(</code><code class="nx">arguments</code><code class="p">);</code>
+
+    <code class="c1">// use args</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">doSomething</code><code class="p">()</code> <code class="p">{</code>
+    <code class="kd">var</code> <code class="nx">args</code> <code class="o">=</code> <code class="nb">Array</code><code class="p">.</code><code class="nx">from</code><code class="p">(</code><code class="nx">arguments</code><code class="p">);</code>
+
+    <code class="c1">// use args</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">translate</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nb">Array</code><code class="p">.</code><code class="nx">from</code><code class="p">(</code><code class="nx">arguments</code><code class="p">,</code> <code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="o">=&gt;</code> <code class="nx">value</code> <code class="o">+</code> <code class="mi">1</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">numbers</code> <code class="o">=</code> <code class="nx">translate</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">numbers</code><code class="p">);</code>               <code class="c1">// 2,3,4</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">helper</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="nx">diff</code><code class="o">:</code> <code class="mi">1</code><code class="p">,</code>
+
+    <code class="nx">add</code><code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">value</code> <code class="o">+</code> <code class="k">this</code><code class="p">.</code><code class="nx">diff</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="kd">function</code> <code class="nx">translate</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="nb">Array</code><code class="p">.</code><code class="nx">from</code><code class="p">(</code><code class="nx">arguments</code><code class="p">,</code> <code class="nx">helper</code><code class="p">.</code><code class="nx">add</code><code class="p">,</code> <code class="nx">helper</code><code class="p">);</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">numbers</code> <code class="o">=</code> <code class="nx">translate</code><code class="p">(</code><code class="mi">1</code><code class="p">,</code> <code class="mi">2</code><code class="p">,</code> <code class="mi">3</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">numbers</code><code class="p">);</code>               <code class="c1">// 2,3,4</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">numbers</code> <code class="o">=</code> <code class="p">{</code>
+    <code class="o">*</code><code class="p">[</code><code class="nx">Symbol</code><code class="p">.</code><code class="nx">iterator</code><code class="p">]()</code> <code class="p">{</code>
+        <code class="k">yield</code> <code class="mi">1</code><code class="p">;</code>
+        <code class="k">yield</code> <code class="mi">2</code><code class="p">;</code>
+        <code class="k">yield</code> <code class="mi">3</code><code class="p">;</code>
+    <code class="p">}</code>
+<code class="p">};</code>
+
+<code class="kd">let</code> <code class="nx">numbers2</code> <code class="o">=</code> <code class="nb">Array</code><code class="p">.</code><code class="nx">from</code><code class="p">(</code><code class="nx">numbers</code><code class="p">,</code> <code class="p">(</code><code class="nx">value</code><code class="p">)</code> <code class="o">=&gt;</code> <code class="nx">value</code> <code class="o">+</code> <code class="mi">1</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">numbers2</code><code class="p">);</code>              <code class="c1">// 2,3,4</code>
+</pre>

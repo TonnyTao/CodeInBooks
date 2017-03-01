@@ -1,0 +1,78 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">WeakMap</code><code class="p">(),</code>
+    <code class="nx">element</code> <code class="o">=</code> <code class="nb">document</code><code class="p">.</code><code class="nx">querySelector</code><code class="p">(</code><code class="s2">".element"</code><code class="p">);</code>
+
+<code class="nx">map</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">element</code><code class="p">,</code> <code class="s2">"Original"</code><code class="p">);</code>
+
+<code class="kd">let</code> <code class="nx">value</code> <code class="o">=</code> <code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">element</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">value</code><code class="p">);</code>             <code class="c1">// "Original"</code>
+
+<code class="c1">// remove the element</code>
+<code class="nx">element</code><code class="p">.</code><code class="nx">parentNode</code><code class="p">.</code><code class="nx">removeChild</code><code class="p">(</code><code class="nx">element</code><code class="p">);</code>
+<code class="nx">element</code> <code class="o">=</code> <code class="kc">null</code><code class="p">;</code>
+
+<code class="c1">// the weak map is empty at this point</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">key1</code> <code class="o">=</code> <code class="p">{},</code>
+    <code class="nx">key2</code> <code class="o">=</code> <code class="p">{},</code>
+    <code class="nx">map</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">WeakMap</code><code class="p">([[</code><code class="nx">key1</code><code class="p">,</code> <code class="s2">"Hello"</code><code class="p">],</code> <code class="p">[</code><code class="nx">key2</code><code class="p">,</code> <code class="mi">42</code><code class="p">]]);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">key1</code><code class="p">));</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">key1</code><code class="p">));</code>     <code class="c1">// "Hello"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">key2</code><code class="p">));</code>     <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">key2</code><code class="p">));</code>     <code class="c1">// 42</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">map</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">WeakMap</code><code class="p">(),</code>
+    <code class="nx">element</code> <code class="o">=</code> <code class="nb">document</code><code class="p">.</code><code class="nx">querySelector</code><code class="p">(</code><code class="s2">".element"</code><code class="p">);</code>
+
+<code class="nx">map</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="nx">element</code><code class="p">,</code> <code class="s2">"Original"</code><code class="p">);</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">element</code><code class="p">));</code>   <code class="c1">// true</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">element</code><code class="p">));</code>   <code class="c1">// "Original"</code>
+
+<code class="nx">map</code><code class="p">.</code><code class="k">delete</code><code class="p">(</code><code class="nx">element</code><code class="p">);</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">has</code><code class="p">(</code><code class="nx">element</code><code class="p">));</code>   <code class="c1">// false</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">map</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="nx">element</code><code class="p">));</code>   <code class="c1">// undefined</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+    <code class="k">this</code><code class="p">.</code><code class="nx">_name</code> <code class="o">=</code> <code class="nx">name</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="nx">Person</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">getName</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+    <code class="k">return</code> <code class="k">this</code><code class="p">.</code><code class="nx">_name</code><code class="p">;</code>
+<code class="p">};</code>
+</pre>
+<pre><code></code><code class="kd">var</code> <code class="nx">Person</code> <code class="o">=</code> <code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+
+    <code class="kd">var</code> <code class="nx">privateData</code> <code class="o">=</code> <code class="p">{},</code>
+        <code class="nx">privateId</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code>
+
+    <code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nb">Object</code><code class="p">.</code><code class="nx">defineProperty</code><code class="p">(</code><code class="k">this</code><code class="p">,</code> <code class="s2">"_id"</code><code class="p">,</code> <code class="p">{</code> <code class="nx">value</code><code class="o">:</code> <code class="nx">privateId</code><code class="o">++</code> <code class="p">});</code>
+
+        <code class="nx">privateData</code><code class="p">[</code><code class="k">this</code><code class="p">.</code><code class="nx">_id</code><code class="p">]</code> <code class="o">=</code> <code class="p">{</code>
+            <code class="nx">name</code><code class="o">:</code> <code class="nx">name</code>
+        <code class="p">};</code>
+    <code class="p">}</code>
+
+    <code class="nx">Person</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">getName</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">privateData</code><code class="p">[</code><code class="k">this</code><code class="p">.</code><code class="nx">_id</code><code class="p">].</code><code class="nx">name</code><code class="p">;</code>
+    <code class="p">};</code>
+
+    <code class="k">return</code> <code class="nx">Person</code><code class="p">;</code>
+<code class="p">}());</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">Person</code> <code class="o">=</code> <code class="p">(</code><code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+
+    <code class="kd">let</code> <code class="nx">privateData</code> <code class="o">=</code> <code class="k">new</code> <code class="nx">WeakMap</code><code class="p">();</code>
+
+    <code class="kd">function</code> <code class="nx">Person</code><code class="p">(</code><code class="nx">name</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">privateData</code><code class="p">.</code><code class="nx">set</code><code class="p">(</code><code class="k">this</code><code class="p">,</code> <code class="p">{</code> <code class="nx">name</code><code class="o">:</code> <code class="nx">name</code> <code class="p">});</code>
+    <code class="p">}</code>
+
+    <code class="nx">Person</code><code class="p">.</code><code class="nx">prototype</code><code class="p">.</code><code class="nx">getName</code> <code class="o">=</code> <code class="kd">function</code><code class="p">()</code> <code class="p">{</code>
+        <code class="k">return</code> <code class="nx">privateData</code><code class="p">.</code><code class="nx">get</code><code class="p">(</code><code class="k">this</code><code class="p">).</code><code class="nx">name</code><code class="p">;</code>
+    <code class="p">};</code>
+
+    <code class="k">return</code> <code class="nx">Person</code><code class="p">;</code>
+<code class="p">}());</code>
+</pre>

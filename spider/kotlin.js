@@ -63,7 +63,7 @@ var handleRequest = function(doc) {
         var sections = chaptersDic[chapter] || []
         let exist = false
         sections.map((item, i)=>{
-            if (item === fileName || item.fileName === fileName) {
+            if (item === fileName || item.file === fileName) {
                 exist = true
             }
         })

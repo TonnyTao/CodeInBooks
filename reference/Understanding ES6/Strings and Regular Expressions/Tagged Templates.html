@@ -1,0 +1,58 @@
+<pre><code></code><code class="kd">let</code> <code class="nx">message</code> <code class="o">=</code> <code class="nx">tag</code><code class="sb">`Hello world`</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">tag</code><code class="p">(</code><code class="nx">literals</code><code class="p">,</code> <code class="p">...</code><code class="nx">substitutions</code><code class="p">)</code> <code class="p">{</code>
+    <code class="c1">// return a string</code>
+<code class="p">}</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">count</code> <code class="o">=</code> <code class="mi">10</code><code class="p">,</code>
+    <code class="nx">price</code> <code class="o">=</code> <code class="mf">0.25</code><code class="p">,</code>
+    <code class="nx">message</code> <code class="o">=</code> <code class="nx">passthru</code><code class="sb">`</code><code class="si">${</code><code class="nx">count</code><code class="si">}</code><code class="sb"> items cost $</code><code class="si">${</code><code class="p">(</code><code class="nx">count</code> <code class="o">*</code> <code class="nx">price</code><code class="p">).</code><code class="nx">toFixed</code><code class="p">(</code><code class="mi">2</code><code class="p">)</code><code class="si">}</code><code class="sb">.`</code><code class="p">;</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">passthru</code><code class="p">(</code><code class="nx">literals</code><code class="p">,</code> <code class="p">...</code><code class="nx">substitutions</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="s2">""</code><code class="p">;</code>
+
+    <code class="c1">// run the loop only for the substitution count</code>
+    <code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">i</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code> <code class="nx">i</code> <code class="o">&lt;</code> <code class="nx">substitutions</code><code class="p">.</code><code class="nx">length</code><code class="p">;</code> <code class="nx">i</code><code class="o">++</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">result</code> <code class="o">+=</code> <code class="nx">literals</code><code class="p">[</code><code class="nx">i</code><code class="p">];</code>
+        <code class="nx">result</code> <code class="o">+=</code> <code class="nx">substitutions</code><code class="p">[</code><code class="nx">i</code><code class="p">];</code>
+    <code class="p">}</code>
+
+    <code class="c1">// add the last literal</code>
+    <code class="nx">result</code> <code class="o">+=</code> <code class="nx">literals</code><code class="p">[</code><code class="nx">literals</code><code class="p">.</code><code class="nx">length</code> <code class="o">-</code> <code class="mi">1</code><code class="p">];</code>
+
+    <code class="k">return</code> <code class="nx">result</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">count</code> <code class="o">=</code> <code class="mi">10</code><code class="p">,</code>
+    <code class="nx">price</code> <code class="o">=</code> <code class="mf">0.25</code><code class="p">,</code>
+    <code class="nx">message</code> <code class="o">=</code> <code class="nx">passthru</code><code class="sb">`</code><code class="si">${</code><code class="nx">count</code><code class="si">}</code><code class="sb"> items cost $</code><code class="si">${</code><code class="p">(</code><code class="nx">count</code> <code class="o">*</code> <code class="nx">price</code><code class="p">).</code><code class="nx">toFixed</code><code class="p">(</code><code class="mi">2</code><code class="p">)</code><code class="si">}</code><code class="sb">.`</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">message</code><code class="p">);</code>       <code class="c1">// "10 items cost $2.50."</code>
+</pre>
+<pre><code></code><code class="kd">let</code> <code class="nx">message1</code> <code class="o">=</code> <code class="sb">`Multiline</code><code class="err">\</code><code class="sb">nstring`</code><code class="p">,</code>
+    <code class="nx">message2</code> <code class="o">=</code> <code class="nb">String</code><code class="p">.</code><code class="nx">raw</code><code class="sb">`Multiline</code><code class="err">\</code><code class="sb">nstring`</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">message1</code><code class="p">);</code>          <code class="c1">// "Multiline</code>
+                                <code class="c1">//  string"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">message2</code><code class="p">);</code>          <code class="c1">// "Multiline\\nstring"</code>
+</pre>
+<pre><code></code><code class="kd">function</code> <code class="nx">raw</code><code class="p">(</code><code class="nx">literals</code><code class="p">,</code> <code class="p">...</code><code class="nx">substitutions</code><code class="p">)</code> <code class="p">{</code>
+    <code class="kd">let</code> <code class="nx">result</code> <code class="o">=</code> <code class="s2">""</code><code class="p">;</code>
+
+    <code class="c1">// run the loop only for the substitution count</code>
+    <code class="k">for</code> <code class="p">(</code><code class="kd">let</code> <code class="nx">i</code> <code class="o">=</code> <code class="mi">0</code><code class="p">;</code> <code class="nx">i</code> <code class="o">&lt;</code> <code class="nx">substitutions</code><code class="p">.</code><code class="nx">length</code><code class="p">;</code> <code class="nx">i</code><code class="o">++</code><code class="p">)</code> <code class="p">{</code>
+        <code class="nx">result</code> <code class="o">+=</code> <code class="nx">literals</code><code class="p">.</code><code class="nx">raw</code><code class="p">[</code><code class="nx">i</code><code class="p">];</code>      <code class="c1">// use raw values instead</code>
+        <code class="nx">result</code> <code class="o">+=</code> <code class="nx">substitutions</code><code class="p">[</code><code class="nx">i</code><code class="p">];</code>
+    <code class="p">}</code>
+
+    <code class="c1">// add the last literal</code>
+    <code class="nx">result</code> <code class="o">+=</code> <code class="nx">literals</code><code class="p">.</code><code class="nx">raw</code><code class="p">[</code><code class="nx">literals</code><code class="p">.</code><code class="nx">length</code> <code class="o">-</code> <code class="mi">1</code><code class="p">];</code>
+
+    <code class="k">return</code> <code class="nx">result</code><code class="p">;</code>
+<code class="p">}</code>
+
+<code class="kd">let</code> <code class="nx">message</code> <code class="o">=</code> <code class="nx">raw</code><code class="sb">`Multiline</code><code class="err">\</code><code class="sb">nstring`</code><code class="p">;</code>
+
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">message</code><code class="p">);</code>           <code class="c1">// "Multiline\\nstring"</code>
+<code class="nx">console</code><code class="p">.</code><code class="nx">log</code><code class="p">(</code><code class="nx">message</code><code class="p">.</code><code class="nx">length</code><code class="p">);</code>    <code class="c1">// 17</code>
+</pre>
