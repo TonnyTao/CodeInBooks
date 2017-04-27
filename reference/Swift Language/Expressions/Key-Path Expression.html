@@ -5,19 +5,24 @@
             <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">someProperty</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
             <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">someProperty</span> = <span class="vc">someProperty</span></code></li>
             <li><code class="code-voice">    }</code></li>
-            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">keyPathTest</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
-            <li><code class="code-voice">        <span class="kt">return</span> <span class="kt">#keyPath</span>(<span class="vc">someProperty</span>)</code></li>
-            <li><code class="code-voice">    }</code></li>
             <li><code class="code-voice">}</code></li>
             <li><code class="code-voice"> </code></li>
             <li><code class="code-voice"><span class="kt">let</span> <span class="vc">c</span> = <span class="vc">SomeClass</span>(<span class="vc">someProperty</span>: <span class="m">12</span>)</code></li>
             <li><code class="code-voice"><span class="kt">let</span> <span class="vc">keyPath</span> = <span class="kt">#keyPath</span>(<span class="vc">SomeClass</span>.<span class="vc">someProperty</span>)</code></li>
-            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">keyPath</span> == <span class="vc">c</span>.<span class="vc">keyPathTest</span>())</code></li>
-            <li><code class="code-voice"><span class="c">// Prints &quot;true&quot;</span></code></li>
             <li><code class="code-voice"> </code></li>
             <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">value</span> = <span class="vc">c</span>.<span class="vc">value</span>(<span class="vc">forKey</span>: <span class="vc">keyPath</span>) {</code></li>
             <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">value</span>)</code></li>
             <li><code class="code-voice">}</code></li>
             <li><code class="code-voice"><span class="c">// Prints &quot;12&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->SomeClass<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">getSomeKeyPath</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="kt">#keyPath</span>(<span class="vc">someProperty</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">keyPath</span> == <span class="vc">c</span>.<span class="vc">getSomeKeyPath</span>())</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;true&quot;</span></code></li>
         </ol>
       

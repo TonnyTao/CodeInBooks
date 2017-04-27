@@ -1,0 +1,60 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Stack<!-- /a --></span> <span class="kt">where</span> <span class="vc">Element</span>: <span class="vc">Equatable</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">isTop</span>(<span class="kt">_</span> <span class="vc">item</span>: <span class="n"><!-- a href="" -->Element<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Bool<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">guard</span> <span class="kt">let</span> <span class="vc">topItem</span> = <span class="vc">items</span>.<span class="vc">last</span> <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="kt">false</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">topItem</span> == <span class="vc">item</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">stackOfStrings</span>.<span class="vc">isTop</span>(<span class="s">&quot;tres&quot;</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Top element is tres.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Top element is something else.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Top element is tres.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">NotEquatable</span> { }</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">notEquatableStack</span> = <span class="vc">Stack</span>&lt;<span class="n"><!-- a href="" -->NotEquatable<!-- /a --></span>&gt;()</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">notEquatableValue</span> = <span class="vc">NotEquatable</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">notEquatableStack</span>.<span class="vc">push</span>(<span class="vc">notEquatableValue</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">notEquatableStack</span>.<span class="vc">isTop</span>(<span class="vc">notEquatableValue</span>)  <span class="c">// Error</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Container<!-- /a --></span> <span class="kt">where</span> <span class="vc">Item</span>: <span class="vc">Equatable</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">startsWith</span>(<span class="kt">_</span> <span class="vc">item</span>: <span class="n"><!-- a href="" -->Item<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Bool<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">count</span> &gt;= <span class="m">1</span> &amp;&amp; <span class="kt">self</span>[<span class="m">0</span>] == <span class="vc">item</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> [<span class="m">9</span>, <span class="m">9</span>, <span class="m">9</span>].<span class="vc">startsWith</span>(<span class="m">42</span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Starts with 42.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;Starts with something else.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Starts with something else.&quot;</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Container<!-- /a --></span> <span class="kt">where</span> <span class="vc">Item</span> == <span class="vc">Double</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">average</span>() -&gt; <span class="n"><!-- a href="" -->Double<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">var</span> <span class="vc">sum</span> = <span class="m">0.0</span></code></li>
+            <li><code class="code-voice">        <span class="kt">for</span> <span class="vc">index</span> <span class="kt">in</span> <span class="m">0</span>..&lt;<span class="vc">count</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">sum</span> += <span class="kt">self</span>[<span class="vc">index</span>]</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">sum</span> / <span class="vc">Double</span>(<span class="vc">count</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>([<span class="m">1260.0</span>, <span class="m">1200.0</span>, <span class="m">98.6</span>, <span class="m">37.0</span>].<span class="vc">average</span>())</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;648.9&quot;</span></code></li>
+        </ol>
+      

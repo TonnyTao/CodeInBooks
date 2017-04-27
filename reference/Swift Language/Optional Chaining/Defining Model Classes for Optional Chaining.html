@@ -39,7 +39,7 @@
             <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">buildingNumber</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
             <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">street</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
             <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">buildingIdentifier</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>? {</code></li>
-            <li><code class="code-voice">        <span class="kt">if</span> <span class="vc">buildingNumber</span> != <span class="kt">nil</span> &amp;&amp; <span class="vc">street</span> != <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="kt">let</span> <span class="vc">buildingNumber</span> = <span class="vc">buildingNumber</span>, <span class="kt">let</span> <span class="vc">street</span> = <span class="vc">street</span> {</code></li>
             <li><code class="code-voice">            <span class="kt">return</span> <span class="s">&quot;</span>\(<span class="vc">buildingNumber</span>)<span class="s"> </span>\(<span class="vc">street</span>)<span class="s">&quot;</span></code></li>
             <li><code class="code-voice">        } <span class="kt">else</span> <span class="kt">if</span> <span class="vc">buildingName</span> != <span class="kt">nil</span> {</code></li>
             <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">buildingName</span></code></li>

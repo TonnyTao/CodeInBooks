@@ -1,10 +1,10 @@
 
         <ol class="code-lines">
             <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">Container</span> {</code></li>
-            <li><code class="code-voice">    <span class="kt">associatedtype</span> <span class="vc">ItemType</span></code></li>
-            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">append</span>(<span class="kt">_</span> <span class="vc">item</span>: <span class="n"><!-- a href="" -->ItemType<!-- /a --></span>)</code></li>
+            <li><code class="code-voice">    <span class="kt">associatedtype</span> <span class="vc">Item</span></code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">append</span>(<span class="kt">_</span> <span class="vc">item</span>: <span class="n"><!-- a href="" -->Item<!-- /a --></span>)</code></li>
             <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">count</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> { <span class="kt">get</span> }</code></li>
-            <li><code class="code-voice">    <span class="kt">subscript</span>(<span class="vc">i</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->ItemType<!-- /a --></span> { <span class="kt">get</span> }</code></li>
+            <li><code class="code-voice">    <span class="kt">subscript</span>(<span class="vc">i</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Item<!-- /a --></span> { <span class="kt">get</span> }</code></li>
             <li><code class="code-voice">}</code></li>
         </ol>
       
@@ -19,7 +19,7 @@
             <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">items</span>.<span class="vc">removeLast</span>()</code></li>
             <li><code class="code-voice">    }</code></li>
             <li><code class="code-voice">    <span class="c">// conformance to the Container protocol</span></code></li>
-            <li><code class="code-voice">    <span class="kt">typealias</span> <span class="vc">ItemType</span> = <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">typealias</span> <span class="vc">Item</span> = <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
             <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">append</span>(<span class="kt">_</span> <span class="vc">item</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
             <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">push</span>(<span class="vc">item</span>)</code></li>
             <li><code class="code-voice">    }</code></li>
