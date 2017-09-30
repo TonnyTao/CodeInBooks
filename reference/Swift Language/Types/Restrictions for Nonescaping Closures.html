@@ -1,0 +1,15 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">external</span>: (<span class="kt">Any</span>) -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span> = { <span class="kt">_</span> <span class="kt">in</span> () }</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">takesTwoFunctions</span>(<span class="vc">first</span>: (<span class="kt">Any</span>) -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>, <span class="vc">second</span>: (<span class="kt">Any</span>) -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">first</span>(<span class="vc">first</span>)    <span class="c">// Error</span></code></li>
+            <li><code class="code-voice">    <span class="vc">second</span>(<span class="vc">second</span>)  <span class="c">// Error</span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="vc">first</span>(<span class="vc">second</span>)   <span class="c">// Error</span></code></li>
+            <li><code class="code-voice">    <span class="vc">second</span>(<span class="vc">first</span>)   <span class="c">// Error</span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="vc">first</span>(<span class="vc">external</span>) <span class="c">// OK</span></code></li>
+            <li><code class="code-voice">    <span class="vc">external</span>(<span class="vc">first</span>) <span class="c">// OK</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

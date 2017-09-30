@@ -1,0 +1,19 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">playerInformation</span> = (<span class="vc">health</span>: <span class="m">10</span>, <span class="vc">energy</span>: <span class="m">20</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">balance</span>(&amp;<span class="vc">playerInformation</span>.<span class="vc">health</span>, &amp;<span class="vc">playerInformation</span>.<span class="vc">energy</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Error: conflicting access to properties of playerInformation</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">holly</span> = <span class="vc">Player</span>(<span class="vc">name</span>: <span class="s">&quot;Holly&quot;</span>, <span class="vc">health</span>: <span class="m">10</span>, <span class="vc">energy</span>: <span class="m">10</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">balance</span>(&amp;<span class="vc">holly</span>.<span class="vc">health</span>, &amp;<span class="vc">holly</span>.<span class="vc">energy</span>)  <span class="c">// Error</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunction</span>() {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">oscar</span> = <span class="vc">Player</span>(<span class="vc">name</span>: <span class="s">&quot;Oscar&quot;</span>, <span class="vc">health</span>: <span class="m">10</span>, <span class="vc">energy</span>: <span class="m">10</span>)</code></li>
+            <li><code class="code-voice">    <span class="vc">balance</span>(&amp;<span class="vc">oscar</span>.<span class="vc">health</span>, &amp;<span class="vc">oscar</span>.<span class="vc">energy</span>)  <span class="c">// OK</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      

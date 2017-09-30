@@ -1,0 +1,36 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">stepSize</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">increment</span>(<span class="kt">_</span> <span class="vc">number</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">number</span> += <span class="vc">stepSize</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">increment</span>(&amp;<span class="vc">stepSize</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Error: conflicting accesses to stepSize</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// Make an explicit copy.</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">copyOfStepSize</span> = <span class="vc">stepSize</span></code></li>
+            <li><code class="code-voice"><span class="vc">increment</span>(&amp;<span class="vc">copyOfStepSize</span>)</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// Update the original.</span></code></li>
+            <li><code class="code-voice"><span class="vc">stepSize</span> = <span class="vc">copyOfStepSize</span></code></li>
+            <li><code class="code-voice"><span class="c">// stepSize is now 2</span></code></li>
+            <li><code class="code-voice">// stepSize is now 2</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">balance</span>(<span class="kt">_</span> <span class="vc">x</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="kt">_</span> <span class="vc">y</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">sum</span> = <span class="vc">x</span> + <span class="vc">y</span></code></li>
+            <li><code class="code-voice">    <span class="vc">x</span> = <span class="vc">sum</span> / <span class="m">2</span></code></li>
+            <li><code class="code-voice">    <span class="vc">y</span> = <span class="vc">sum</span> - <span class="vc">x</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">playerOneScore</span> = <span class="m">42</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">playerTwoScore</span> = <span class="m">30</span></code></li>
+            <li><code class="code-voice"><span class="vc">balance</span>(&amp;<span class="vc">playerOneScore</span>, &amp;<span class="vc">playerTwoScore</span>)  <span class="c">// OK</span></code></li>
+            <li><code class="code-voice"><span class="vc">balance</span>(&amp;<span class="vc">playerOneScore</span>, &amp;<span class="vc">playerOneScore</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Error: Conflicting accesses to playerOneScore</span></code></li>
+        </ol>
+      

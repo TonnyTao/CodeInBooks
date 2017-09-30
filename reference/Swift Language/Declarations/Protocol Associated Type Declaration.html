@@ -1,0 +1,15 @@
+
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">SomeProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">associatedtype</span> <span class="vc">SomeType</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">SubProtocolA</span>: <span class="n"><!-- a href="" -->SomeProtocol<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// This syntax produces a warning.</span></code></li>
+            <li><code class="code-voice">    <span class="kt">associatedtype</span> <span class="vc">SomeType</span>: <span class="n"><!-- a href="" -->Equatable<!-- /a --></span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// This syntax is preferred.</span></code></li>
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">SubProtocolB</span>: <span class="n"><!-- a href="" -->SomeProtocol<!-- /a --></span> <span class="kt">where</span> <span class="n"><!-- a href="" -->SomeType<!-- /a --></span>: <span class="n"><!-- a href="" -->Equatable<!-- /a --></span> {}</code></li>
+        </ol>
+      

@@ -1,11 +1,21 @@
 
         <ol class="code-lines">
             <li><code class="code-voice"><span class="kt">let</span> <span class="vc">age</span> = <span class="m">-3</span></code></li>
-            <li><code class="code-voice"><span class="vc">assert</span>(<span class="vc">age</span> &gt;= <span class="m">0</span>, <span class="s">&quot;A person&apos;s age cannot be less than zero&quot;</span>)</code></li>
-            <li><code class="code-voice"><span class="c">// this causes the assertion to trigger, because age is not &gt;= 0</span></code></li>
+            <li><code class="code-voice"><span class="vc">assert</span>(<span class="vc">age</span> &gt;= <span class="m">0</span>, <span class="s">&quot;A person&apos;s age can&apos;t be less than zero.&quot;</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// This assertion fails because -3 is not &gt;= 0.</span></code></li>
         </ol>
       
         <ol class="code-lines">
             <li><code class="code-voice"><span class="vc">assert</span>(<span class="vc">age</span> &gt;= <span class="m">0</span>)</code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">age</span> &gt; <span class="m">10</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;You can ride the roller-coaster or the ferris wheel.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> <span class="kt">if</span> <span class="vc">age</span> &gt; <span class="m">0</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">&quot;You can ride the ferris wheel.&quot;</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">assertionFailure</span>(<span class="s">&quot;A person&apos;s age can&apos;t be less than zero.&quot;</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
         </ol>
       

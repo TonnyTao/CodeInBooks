@@ -1,28 +1,53 @@
 
         <ol class="code-lines">
-            <li><code class="code-voice"><span class="kt">@objc</span> <span class="kt">class</span> <span class="vc">SomeClass</span>: <span class="n"><!-- a href="" -->NSObject<!-- /a --></span> {</code></li>
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">SomeStructure</span> {</code></li>
             <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">someProperty</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">s</span> = <span class="vc">SomeStructure</span>(<span class="vc">someProperty</span>: <span class="m">12</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">keyPath</span> = \<span class="vc">SomeStructure</span>.<span class="vc">someProperty</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">value</span> = <span class="vc">s</span>[<span class="vc">keyPath</span>: <span class="vc">keyPath</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// value is 12</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeClass</span>: <span class="n"><!-- a href="" -->NSObject<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">@objc</span> <span class="kt">var</span> <span class="vc">someProperty</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
             <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">someProperty</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
             <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">someProperty</span> = <span class="vc">someProperty</span></code></li>
             <li><code class="code-voice">    }</code></li>
             <li><code class="code-voice">}</code></li>
             <li><code class="code-voice"> </code></li>
-            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">c</span> = <span class="vc">SomeClass</span>(<span class="vc">someProperty</span>: <span class="m">12</span>)</code></li>
-            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">keyPath</span> = <span class="kt">#keyPath</span>(<span class="vc">SomeClass</span>.<span class="vc">someProperty</span>)</code></li>
-            <li><code class="code-voice"> </code></li>
-            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">value</span> = <span class="vc">c</span>.<span class="vc">value</span>(<span class="vc">forKey</span>: <span class="vc">keyPath</span>) {</code></li>
-            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">value</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">c</span> = <span class="vc">SomeClass</span>(<span class="vc">someProperty</span>: <span class="m">10</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">c</span>.<span class="vc">observe</span>(\.<span class="vc">someProperty</span>) { <span class="vc">object</span>, <span class="vc">change</span> <span class="kt">in</span></code></li>
+            <li><code class="code-voice">    <span class="c">// ...</span></code></li>
             <li><code class="code-voice">}</code></li>
-            <li><code class="code-voice"><span class="c">// Prints &quot;12&quot;</span></code></li>
         </ol>
       
         <ol class="code-lines">
-            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->SomeClass<!-- /a --></span> {</code></li>
-            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">getSomeKeyPath</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> {</code></li>
-            <li><code class="code-voice">        <span class="kt">return</span> <span class="kt">#keyPath</span>(<span class="vc">someProperty</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">OuterStructure</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">outerProperty</span>: <span class="n"><!-- a href="" -->SomeStructure<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">someProperty</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="kt">self</span>.<span class="vc">outerProperty</span> = <span class="vc">SomeStructure</span>(<span class="vc">someProperty</span>: <span class="vc">someProperty</span>)</code></li>
             <li><code class="code-voice">    }</code></li>
             <li><code class="code-voice">}</code></li>
-            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">keyPath</span> == <span class="vc">c</span>.<span class="vc">getSomeKeyPath</span>())</code></li>
-            <li><code class="code-voice"><span class="c">// Prints &quot;true&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">nested</span> = <span class="vc">OuterStructure</span>(<span class="vc">someProperty</span>: <span class="m">24</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">nestedKeyPath</span> = \<span class="vc">OuterStructure</span>.<span class="vc">outerProperty</span>.<span class="vc">someProperty</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">nestedValue</span> = <span class="vc">nested</span>[<span class="vc">keyPath</span>: <span class="vc">nestedKeyPath</span>]</code></li>
+            <li><code class="code-voice"><span class="c">// nestedValue is 24</span></code></li>
+        </ol>
+      
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">message</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>? = <span class="s">&quot;hello&quot;</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">message</span>?.<span class="vc">count</span> <span class="kt">as</span> <span class="kt">Any</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Optional(5)&quot;</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// Do the same thing using a key path.</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">count</span> = <span class="vc">message</span>[<span class="vc">keyPath</span>: \.?.<span class="vc">count</span>]</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">count</span> <span class="kt">as</span> <span class="kt">Any</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints &quot;Optional(5)&quot;</span></code></li>
         </ol>
       

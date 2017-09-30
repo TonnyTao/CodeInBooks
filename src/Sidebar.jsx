@@ -8,7 +8,7 @@ import books from '../reference/books.json'
 
 var App = React.createClass({
   getInitialState() {
-    return {sidebarOpen: false, sidebarDocked: false, bookTitle:'Swift Language'};
+    return {sidebarOpen: false, sidebarDocked: false, name:'Swift Language'};
   },
 
   onSetSidebarOpen: function(open) {
@@ -16,7 +16,7 @@ var App = React.createClass({
   },
 
   openDraw: function() {
-    this.setState({sidebarOpen: true, sidebarDocked:false, bookTitle:this.state.bookTitle});
+    this.setState({sidebarOpen: true, sidebarDocked:false, name:this.state.name});
   },
 
   componentWillMount: function() {
@@ -33,8 +33,8 @@ var App = React.createClass({
     this.setState({sidebarDocked: this.state.mql.matches});
   },
 
-  selectBookTitle: function(title) {
-     this.setState({sidebarOpen: false, sidebarDocked:false, bookTitle:title});
+  selectBookName: function(title) {
+     this.setState({sidebarOpen: false, sidebarDocked:false, name:title});
   },
 
   render: function() {
@@ -44,8 +44,8 @@ var App = React.createClass({
         <span>Tonny&Sunm</span>
       </a></div>
       <ul className="menuTitle">
-        {books.map((item, i)=>{
-          return <li><a onClick={()=>this.selectBookTitle(item)}>{item}</a></li>  
+        {books.map(({name, version}, i)=>{
+          return <li key={name}><a onClick={()=>this.selectBookName(name)}>{name}</a></li>  
         })}
       </ul>
     </div>)
@@ -58,7 +58,7 @@ var App = React.createClass({
                shadow={false}
                transitions={false}
                touch={true}>
-         <Content openDraw={this.openDraw} bookTitle={this.state.bookTitle} />
+         <Content openDraw={this.openDraw} name={this.state.name} />
       </Sidebar>
     );
   }
