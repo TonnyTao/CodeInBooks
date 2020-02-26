@@ -1,5 +1,5 @@
 # Code In Books
-This project extracts all code from language references and top prgramming books. Only in Swift, Kotlin and Javascript.
+This project extracts all code from language references and top prgramming books. For Swift, Kotlin and Javascript lover.
 
 
 ### Which book?
