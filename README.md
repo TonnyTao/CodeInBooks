@@ -2,7 +2,7 @@
 This project extracts all code from language references and top prgramming books. Only in Swift, Kotlin and Javascript.
 
 
-###Which books?
+### Which book?
 
 1. Swift Language
 2. Kotlin Reference
@@ -10,7 +10,7 @@ This project extracts all code from language references and top prgramming books
 4. ...
 
 
-###Where to read?	
+### Where to read?	
 https://tonnysunm.github.io/CodeInBooks
 
 Or you can can DIY
